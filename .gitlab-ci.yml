@@ -1,0 +1,49 @@
+#image: python:3.8-buster
+#
+#before_script:
+#  - pip install -r requirements.txt
+#
+#pages:
+#  stage: deploy
+#  script:
+#  - mkdocs build --strict --verbose
+#  artifacts:
+#    paths:
+#    - public
+#  only:
+#  - master
+
+image: python:3.7
+test:
+  stage: test
+  script:
+  - pip install -U sphinx sphinx-rtd-theme recommonmark sphinx-markdown-tables
+  - sphinx-build -b html docs public
+  only:
+  - branches
+  except:
+  - master
+pages:
+  stage: deploy
+  script:
+  - pip install -U sphinx sphinx-rtd-theme recommonmark sphinx-markdown-tables
+  - sphinx-build -b html docs public
+  - cp docs/chemistry/*slurm public/chemistry/
+  - cp docs/chemistry/*com public/chemistry/
+  - cp docs/chemistry/*inp public/chemistry/
+  - cp docs/chemistry/*xyz public/chemistry/
+  - cp docs/chemistry/*sh public/chemistry/
+  - cp docs/chemistry/*nw public/chemistry/
+  - cp docs/chemistry/*pdf public/chemistry/
+  - cp docs/engineering/*slurm public/engineering/
+  - cp docs/data-analysis/*slurm public/data-analysis
+  - cp docs/visualization/fvwm2rc.fvwm2rc public/visualization/
+  - cp docs/visualization/xsessionrc-x2go.xsessionrc-x2go public/visualization/
+  - cp docs/lumi/*sh public/lumi
+  - cp docs/lumi/*py public/lumi
+  - cp docs/lumi/*slurm public/lumi
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
