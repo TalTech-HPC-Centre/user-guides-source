@@ -31,5 +31,4 @@ jobs:
           destination-github-username: 'TalTech-HPC-Centre'
           destination-repository-name: 'user-guides-staging'
           user-email: hpc-actions@taltech.ee
-          target-branch: gh-pages
-          target-directory: public
+          target-branch: main
