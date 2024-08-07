@@ -32,4 +32,4 @@ jobs:
           destination-repository-name: 'user-guides-staging'
           user-email: hpc-actions@taltech.ee
           target-branch: gh-pages
-          target-directory: public
+          target-directory: docs
