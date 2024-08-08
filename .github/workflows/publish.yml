@@ -23,7 +23,7 @@ jobs:
       - name: build documentation
         # sphinx-build -M html <sourcedir> <outputdir>
         run: sphinx-build -b html docs public
-      #- run: touch public/CNAME && echo "docs-staging.hpc.taltech.ee" > public/CNAME
+      - run: touch public/CNAME && echo "docs-staging.hpc.taltech.ee" > public/CNAME
       - uses: cpina/github-action-push-to-another-repository@main
         env:
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
