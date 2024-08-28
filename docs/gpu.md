@@ -2,11 +2,10 @@
 
 # GPU-servers
 
-<span style="color:red"> NB: The current Ubuntu version of amp/amp2, will be reinstalled with Rocky8 in August. Please test your software before on the ada nodes (job submission from base, not like currently from/for amp). </span>
 
-<span style="color:blue">
-Running your jobs on <b>amp</b> currently requires special procedure: you need to ssh into amp to submit jobs (and prepare envs) </span>
-The reason for this are differences in the operating system (amp -- ubuntu, base -- rocky).
+<span style="color:blue">job submission from "base"</span>
+
+<span style="color:red">The AI-lab "Illukas" modules will NOT work on the cluster due to different OS</span>
 
 <br>
 <br>
@@ -24,8 +23,7 @@ The reason for this are differences in the operating system (amp -- ubuntu, base
 - CPU: 2x AMD EPYC 7742 64core
 - RAM: 1 TB 
 - GPUs: 8x A100 Nvidia 40GB
-- OS: Ubuntu
-- <span style="color:blue">job submission from "amp"</span>
+- OS: Rocky8
  </div> 
  <br>
 
@@ -34,19 +32,17 @@ The reason for this are differences in the operating system (amp -- ubuntu, base
 - CPU: 2x AMD EPYC 7713 64core (3rd gen EPYC, Zen3)
 - RAM: 2 TB
 - GPUs: 8x A100 Nvidia 80GB
-- OS: Ubuntu
-- <span style="color:blue">job submission from "amp"</span>
+- OS: Rocky8
  </div> 
  <br>
  
- <div class="simple1"> <b>ada2</b> 
+ <div class="simple1"> <b>ada[1,2]</b> 
 
 - CPU: 2x AMD EPYC 9354 32core (4th gen EPYC, Zen4)
-- RAM: 2 TB
+- RAM: 1.5 TB
 - GPUs: 2x L40 Nvidia 48GB
 - avx512
 - OS: Rocky8
-- <span style="color:blue">job submission from "base"</span>
  </div> 
  <br>
 
@@ -56,29 +52,12 @@ The reason for this are differences in the operating system (amp -- ubuntu, base
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Login and $HOME on "ada*"
+## Login and $HOME
 
 ---
 
-No direct login, jobs are submitted from "base", use `srun -w ada2 -p gpu --gres=gpu:L40 --pty bash`
+No direct login, jobs are submitted from "base", use `srun -p gpu --gres=gpu:L40 --pty bash`
 
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Login and $HOME on "amp" and "amp2"
-
----
-
-The server shares the home directory with all cluster nodes.
-
-**Amp** cannot login directly, only through a jump host:
-
-    ssh  Uni-ID@amp -J Uni-ID@base.hpc.taltech.ee 
-
-The home-directory is the same as the cluster (`/gpfs/mariana/home/<uniID>`), additionally the AI-Lab home directories are mounted under `/illukas/home/`
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
@@ -87,8 +66,6 @@ The home-directory is the same as the cluster (`/gpfs/mariana/home/<uniID>`), ad
 ## Running jobs 
 
 ---
-
-Jobs for **amp/amp2** need to be submitted from **amp/amp2** (not from **base)** to ensure that all environment is set-up correctly. 
 
 Jobs need to be submitted using `srun` or `sbatch`, do not run jobs outside the batch system.
 
@@ -100,10 +77,12 @@ GPUs have to be reserved/requested with:
 
     srun -p gpu --gres=gpu:A100:1 -t 1:00:00 --pty bash
 
-both **amp/amp2** are in the same partition (`-p gpu`) so jobs that do not have specific requirements can run on any of the two nodes. If you need a specific type, e.g. for testing performance or because of memory requirements: 
- - it is possible to request the feature "A100-40" (for the 40GB A100s in **amp)** or "A100-80" (for the 80GB A100s in **amp2):** `--constraint=A100-40`
+all nodes with GPUs are in the same partition (`-p gpu`, but also in `short`, which has higher priority, but shorter time-limit) so jobs that do not have specific requirements can run on any of the nodes. If you need a specific type, e.g. for testing performance or because of memory requirements: 
+ - it is possible to request the feature "A100-40" (for the 40GB A100s), "A100-80" (for the 80GB A100s):** `--gres=gpu:A100:1 --constraint=A100-80` or `--gres=gpu:1 --constraint=A100-40`
 
- - another option is to request the job to run on a specific node, using the `-w` switch (e.g. `srun -p gpu -w amp ... `)
+- it is also possible to request the"compute capability, e.g. cc80 (for A100) or cc89 (for L40) using `--gres=gpu:1 --constraint=cc89` = `--gres=gpu:L40:1`
+
+ - another option is to request the job to run on a specific node, using the `-w` switch (e.g. `srun -p gpu -w amp1 --gres=gpu:A100:1 ... `)
 
 
 You can see which GPUs have been assigned to your job using `echo $CUDA_VISIBLE_DEVICES`, **the CUDA-deviceID in your programs always start with "0" (no matter which physical GPU was assigned to you by SLURM)**.
@@ -118,27 +97,22 @@ You can see which GPUs have been assigned to your job using `echo $CUDA_VISIBLE_
 
 ---
 
-### _Modules specific on amp_
-
-Enable the SPACK software modules (special for **amp):**
-
-    module load amp-spack
-
-The Nvidia HPC SDK (includes CUDA, nvcc and PGI compilers) is available with the following module directory (see below):
-
-    module load amp
 
 
 ### _From AI lab_
 
-Enable the modules for AI lab software from illukas:
+will not work due to different OS
 
-    module load amp
 
 <br>
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+
+
+<span style="color:orange">only partially changed to rocky yet</span>
+
+
 
 ## GPU libraries and tools
 
@@ -217,11 +191,11 @@ Current recommendation: use HPC-SDK
 
 Installed are versions 21.2, 21.5 and 21.9 (2021). These come with modulefiles, to use them, enable the the directory:
 
-    module load amp
+    module load rocky8-spack
     
 then load the module you want to use, e.g.
 
-    module load nvhpc-nompi/21.5
+    module load nvhpc
 
 The HPC SDK also comes with a profiler, to identify regions that would benefit most from GPU acceleration.
 
