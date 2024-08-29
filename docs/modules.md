@@ -171,10 +171,9 @@ examplele of `.bashrc` file
 
 ---
 
-There are several module groups (directories) depending on the target architecture (**green**, **amp**, **viz**), operating system (Rocky, Ubuntu) and installation method (manual, spack). Software is optimized for the hardware when possible, that means "green" software (Skylake CPU) will not run on **amp** (Zen2 CPU).
 
 <span style="color:blue">
-We moved to a new module structure! Modules from `/share/apps/modules` are being retired.
+We moved to a new module structure! Modules from `/share/apps/modules` are being retired. Software is compiled for `x86-64` and will run o all nodes (no special optimization). Optimized versions for some software for specific nodes may follow later (or not).
 
 New modules are grouped, you can activate them by loading one or more of the following modules:
 
@@ -184,14 +183,7 @@ New modules are grouped, you can activate them by loading one or more of the fol
 | rocky8-spack | software installed with spack package manager |
 
 
-<!---
-Additionally, there will be science-field category directories with the most common software for that field to keep the module list short:
 
-- /gpfs/mariana/modules/gray/engineering : for FEA, CFD
-- /gpfs/mariana/modules/gray/chemistry : for chemistry software
-- /gpfs/mariana/modules/gray/biology : for biology software (former bio directories)
-- possibly more
---->
 </span>
 
 <br>
