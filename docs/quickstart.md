@@ -12,7 +12,7 @@
 
 **NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto) should be created by the head of a structural unit.
 
-**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2)** (Help centre -> Teadusarvutuste keskus (HPC centre)). We need the following information: uni-ID, department, project that pays the [costs](https://hpc.pages.taltech.ee/user-guides/index.html#billing).
+**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2)** (Help centre -> Teadusarvutuste keskus (HPC centre)). We need the following information: uni-ID, department, project that pays the [costs](https://docs.hpc.taltech.ee/#billing).
 
 The login-node of the cluster can be reached by SSH. SSH (the Secure SHell) is available using the command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A guide for Windows users using PuTTY (an alternative SSH using a graphical user interface (GUI)) is [here](putty.md).
 

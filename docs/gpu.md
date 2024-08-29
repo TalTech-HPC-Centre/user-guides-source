@@ -18,7 +18,7 @@
 ---
 
 
- <div class="simple1"> <b>amp</b> 
+ <div class="simple1"> <b>amp1</b> 
 
 - CPU: 2x AMD EPYC 7742 64core
 - RAM: 1 TB 
@@ -52,11 +52,13 @@
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Login and $HOME
+## Login and localstorage
 
 ---
 
 No direct login, jobs are submitted from "base", use `srun -p gpu --gres=gpu:L40 --pty bash`
+
+amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer sstorage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
 
 
 <br>
@@ -97,11 +99,23 @@ You can see which GPUs have been assigned to your job using `echo $CUDA_VISIBLE_
 
 ---
 
+same modules as on all nodes, i.e. the rocky8 and rocky8-spack modules.
 
 
 ### _From AI lab_
 
 will not work due to different OS
+
+
+### _Software that supports GPUs_
+
+- JupyterLab, see page on [JupyterLab](data-analysis/jupyter.md)
+- Gaussian, see page on [Gaussian](chemistry/gaussian.md)
+- cp2k
+- StarCCM+
+- Julia
+- Chapel
+
 
 
 <br>
