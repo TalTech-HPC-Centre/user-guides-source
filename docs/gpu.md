@@ -115,6 +115,7 @@ will not work due to different OS
 - StarCCM+
 - Julia
 - Chapel
+- Singularity (apptainer), see page on [Singularity](singularity.md)
 
 
 
@@ -263,62 +264,6 @@ For porting code to AMD-Instinct based LUMI, the AMD HIP SDK will be installed.
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-
-
-
-## Example jobs
-
----
-
-### Example job for meshroom
-
-
-** under construction **
-
-
-
-
-### Example job for colmap (needs GPU for part of the tasks)
-
-
-** under construction **
-
-See the AI-lab guide <https://gitlab.cs.ttu.ee/ai-lab/samples/structure-from-motion-with-colmap>, which needs to be slightly adapted.
-
-<br>
-
-
-
-### Singularity
-
-
-The container solution *singularity* is available (can also run docker container).
-Use with
-
-    module load amp
-    module load Singularity
-
-pull the docker image you want, here ubuntu:18.04:
-
-    singularity pull docker://ubuntu:18.04
-
-write an sbatch file (here called `ubuntu.slurm`):
-
-    #!/bin/bash
-    #SBATCH -t 0-00:30
-    #SBATCH -N 1
-    #SBATCH -c 1
-    #SBATCH -p gpu
-    #SBATCH --gres=gpu:A100:1
-    #SBATCH --mem-per-cpu=4000
-
-    singularity exec docker://ubuntu:18.04 cat /etc/issue
-
-submit to the queueing system with
-
-    sbatch ubuntu.slurm
-
-and when the resources become available, your job will be executed.
 
 
 <br>
