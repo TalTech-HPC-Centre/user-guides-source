@@ -20,7 +20,7 @@
 
  <div class="simple1"> <b>amp1</b> 
 
-- CPU: 2x AMD EPYC 7742 64core
+- CPU: 2x AMD EPYC 7742 64core (2nd gen EPYC, Zen2)
 - RAM: 1 TB 
 - GPUs: 8x A100 Nvidia 40GB
 - OS: Rocky8
@@ -58,7 +58,7 @@
 
 No direct login, jobs are submitted from "base", use `srun -p gpu --gres=gpu:L40 --pty bash`
 
-amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer sstorage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
+amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer storage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
 
 
 <br>
@@ -82,7 +82,7 @@ GPUs have to be reserved/requested with:
 all nodes with GPUs are in the same partition (`-p gpu`, but also in `short`, which has higher priority, but shorter time-limit) so jobs that do not have specific requirements can run on any of the nodes. If you need a specific type, e.g. for testing performance or because of memory requirements: 
  - it is possible to request the feature "A100-40" (for the 40GB A100s), "A100-80" (for the 80GB A100s):** `--gres=gpu:A100:1 --constraint=A100-80` or `--gres=gpu:1 --constraint=A100-40`
 
-- it is also possible to request the"compute capability, e.g. cc80 (for A100) or cc89 (for L40) using `--gres=gpu:1 --constraint=cc89` = `--gres=gpu:L40:1`
+- it is also possible to request the"compute capability, e.g. nvcc80 (for A100) or nvcc89 (for L40) using `--gres=gpu:1 --constraint=nvcc89` = `--gres=gpu:L40:1`
 
  - another option is to request the job to run on a specific node, using the `-w` switch (e.g. `srun -p gpu -w amp1 --gres=gpu:A100:1 ... `)
 

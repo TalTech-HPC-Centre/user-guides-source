@@ -267,10 +267,10 @@ Node features for node selection using `--constraint=`:
 | A100-40 | has A100 GPU with 40GB |
 | A100-80 | has A100 GPU with 80GB |
 | L40 | has L40 GPU with 48GB |
-| sm80 | GPU has compute capability 8.0 (A100, L40) |
-| sm89 | GPU has compute capability 8.9  (L40) |
-| sm35 | GPU has compute capability 3.5 (K20Xm, A100, L40) |
-| zen | AMD Zen CPU architecture (amp1) |
+| nvcc80 | GPU has compute capability 8.0 (A100, L40) |
+| nvcc89 | GPU has compute capability 8.9  (L40) |
+| nvcc35 | GPU has compute capability 3.5 (K20Xm, A100, L40) |
+| zen2 | AMD Zen CPU architecture 2nd generation (amp1) |
 | zen3 | AMD Zen CPU architecture 3rd generation (amp2) |
 | zen4 | AMD Zen CPU architecture 4th generation (ada*) |
 | avx512 | CPU has avx512 (skylake, zen4) |
