@@ -234,20 +234,16 @@ Conformer–Rotamer Ensemble Sampling Tool [(xtb-CREST)](https://xtb-docs.readth
 
 [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) is a multi-purpose quantum-chemical software package developed in the research group of Frank Neese. ORCA includes a wide variety of methods (semi-empirical, density functional theory, many-body perturbation, coupled cluster, multireference, nudged elastic band (NEB) methods). In ORCA, molecules' and  spectroscopic properties calculations are available, and environmental (MD (including ab initio), QM/MM, Crystal-QMMM) as well as relativistic effects can be taken into account. ORCA is parallelized, and uses the resolution of the identity (RI) approximation and domain based local pair natural orbital (DLPNO) methods, which significantly speed calculations. More about ORCA on HPC can be found [here](chemistry/orca.md)
 
+#### _xtb_
+
+[Extended tight binding - xTB](https://xtb-docs.readthedocs.io/en/latest) program developed in the research group of Stefan Grimme for solutions of common chemical problems. The workhorses of xTB are the GFN methods, both semi-empirical and force-field. The program contains several  implicit solvent  models: GBSA, ALPB, ddCOSMO, and CPCM-X. xTB functionality covers single-point energy calculations, geometry optimization, frequency calculations, reaction path methods. Also allows to perform molecular dynamics, meta-dynamics, and ONIOM calculations. More about xTB on HPC can be found [here](chemistry/xtb.md)
+
 #### _NWChem_
  
 The North West computational chemistry ([NWChem](https://nwchemgit.github.io/)) is an ab initio computational chemistry software package which includes quantum chemical ( HF, DFT, MP2, MCSCF,  and CC, including the tensor contraction engine (TCE)) and molecular dynamics (using either force fields (AMBER or CHARMM) or DFT) functionality. In NWChem, ab initio methods can be coupled with the classical MD to perform mixed quantum-mechanics and molecular-mechanics simulations (QM/MM). Various molecular response properties, solvent models, nudged elastic band (NEB) method, relativistic and resolution of the identity (RI) approaches are also available. 
 
 NWChem was developed to enable large scale calculations by  using many CPUs and has  parallel scalability and performance. Additionally,  python programs may be embedded into the NWChem input and used to control the execution of NWChem. 
 
-#### _TURBOMOLE & TmoleX_
-
-License belongs to a research group.
-More about Turbomole on HPC can be found [here](chemistry/turbomole.md).
-
-<!---
-[Turbomole](https://www.turbomole.org/turbomole/turbomole-documentation/) is a software for quantum chemical calculations of molecules, clusters, periodic systems, and solutions. Turbomole specializes in electronic structure methods with such as density functional theory, second–order Møller-Plesset and coupled cluster theory. Aside from energies and structures, Turbomole is capable for calculations of optical, electrical, and magnetic properties of metter. [More about Turbomole on HPC can be found here](chemistry/turbomole.md). [TmoleX](https://www.turbomole.org/turbomole/turbomole-documentation/) is a graphical user interface for Turbomole. 
---->
 
 ### Wavefunction analysis 
 
