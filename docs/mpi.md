@@ -1,4 +1,4 @@
-<span style="color:red">not changed to rocky yet</span>
+<span STYLE="font-size:18mm" style="color:red">not changed to rocky yet</span>
 
 # Available MPI versions (and comparison)
 
