@@ -324,23 +324,23 @@ the option `--user` will install the package into the user's $HOME directory (in
 
 ---
 
--   [ParaView](https://www.paraview.org/) (**all nodes**: native install, just run `paraview`, to use GPU run `vglrun paraview`)
--   [VisIt](https://visit-dav.github.io/visit-website/) (**viz**: run `/usr/local/VisIt/bin/visit`)
+-   [ParaView](https://www.paraview.org/) (**all nodes** spack module paraview)
+-   [VisIt](https://visit-dav.github.io/visit-website/) (**all nodes** spack module visit)
 -   [COVISE](https://www.hlrs.de/solutions/types-of-computing/visualization/covise) (**viz**: run `/usr/local/covise/bin/covise`)
--   [MayaVi](http://mayavi.sourceforge.net/) (**all nodes:** spack module py-mayavi; **viz:** native install, just run `mayavi2`)
--   GNUplot  (**all nodes**: native install, just run `gnuplot`) 
--   [OpenDX](http://www.opendx.org/) (**viz**: native install, just run `dx`)
+-   [MayaVi](http://mayavi.sourceforge.net/) (**all nodes:** spack module py-mayavi)
+-   GNUplot  (**all nodes** ) 
+-   [OpenDX](http://www.opendx.org/) (**currently not available** will come soon)
 -  Software for computational chemistry:
     - [Molden](https://www.theochem.ru.nl/molden/) 
     - [Avogadro](https://avogadro.cc/) 
     - [JMol](http://jmol.sourceforge.net/) 
-    - [VMD](http://www.ks.uiuc.edu/Research/vmd/)
-    - [RasMol](http://www.openrasmol.org/) (**viz**: native install, just run `rasmol` or `rasmol-gtk`)
+    - [VMD](http://www.ks.uiuc.edu/Research/vmd/)(**all nodes:** spack module vmd)
+    - [RasMol](http://www.openrasmol.org/) 
 
 <br>
 <br>
 
-See also the [visualization](visualization.md) page on how to use the visualization node **viz**. 
+The recommended way is now to use a desktop session in OnDemand, see also the [visualization](visualization.md) page on how to start these and on GPU acceleration. 
 
 <br>
 <br>
