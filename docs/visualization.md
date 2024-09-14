@@ -35,6 +35,7 @@ xxx
 -   RasMol 
 -   VESTA
 <!-- -   VAPOR -->
+-   VMD
 -   Ovito
 -   Ospray (raytracer)
 -   PoVray (raytracer)
