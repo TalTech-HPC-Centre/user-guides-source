@@ -65,6 +65,8 @@ You can also cite additional [references](https://gmsh.info/#References) for spe
 
 Salome is a multi-platform environment, allowing the realization of physics simulations. Salome is suitable for various stages of a study: from creation of the CAD model and the mesh to the post-processing and visualization of the results. Other functionalities such as uncertainty treatment, data assimilation are also implemented. Salome does not contain a physics solver but it provides the computing environment necessary for their integration.
 
+    module load rocky8
+    module load salome/9.13.0
 
 Salome has a python interface, so the meshing can be done as a batch-job on the cluster nodes.
 
@@ -72,9 +74,8 @@ The current state can be dumped into a script from the GUI by `CTRL+D`, the scri
 
 	salome -t scriptname.py
 
-It is therefore possible to prepare the geometry on your workstation or **viz**, dump the script, add the meshing command and run the script on the cluster in batch-mode.
+It is therefore possible to prepare the geometry on your workstation or an OnDemand desktop session, dump the script, add the meshing command and run the script on the cluster in batch-mode.
 
-On **viz** there is no module for Salome, just run `salome` or `mesa_salome` on the command-line, this is best done within a [VNC session](../visualization/vnc.md) session (or [X2GO](../visualization/x2go.md) session, here use `vglrun salome`).
 
 See separate page on [visualization](../visualization.md).
 
