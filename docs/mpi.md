@@ -4,18 +4,21 @@
 
 The cluster has OpenMPI installed.
 
-The recommendation is to use **OpenMPI** ***(except you really know what you are doing)!!!*** 
-MPICH does ***not*** support InfiniBand. MVAPICH is ***not*** integrated with SLURM, you need to create the hostfile yourself from the slurm-nodelist.
-
 On all nodes:
 
-    module load mpi/openmpi-x86_64
+    module load openmpi/4.1.1-gcc-10.3.0-r8-tcp
 
-OpenMPI will choose the fastest interface, it will try RDMA over Ethernet (RoCE) which causes _"[qelr_create_qp:683]create qp: failed on ibv_cmd_create_qp"_ messages, these can be ignored, it will fail over to IB (higher bandwidth anyway) or TCP.
+**NB: Currently only use TCP transport!**
+There are several OpenMPI modules for diffrent versions, different modules for the same version only differ in environment variables for transport selection.
+
+Normally, OpenMPI will choose the fastest interface, it will try RDMA over Ethernet (RoCE) which causes _"[qelr_create_qp:683]create qp: failed on ibv_cmd_create_qp"_ messages, these can be ignored, it will fail over to IB (higher bandwidth anyway) or TCP.
+
+**NB:** `mpirun` is not available, use `srun`
+
 
 For MPI jobs prefer the **green-ib** partition (`#SBATCH -p green-ib`) or stay within a single node (`#SBATCH -N 1`).
 
-    mpirun --mca btl_openib_warn_no_device_params_found 0 ./hello-mpi
+    export OMPI_MCA_btl_openib_warn_no_device_params_found=0 srun ./hello-mpi
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
@@ -42,21 +45,21 @@ For MPI jobs prefer the **green-ib** partition (`#SBATCH -p green-ib`) or stay w
 The layers can be confusing, so was openib originally developed for InfiniBand, but is now used for RoCE and is deprecated for IB. However, on some IB cards and configurations it is the only working option. Also, the MVAPICH implementation still uses the openib (verbs) instead of UCX.
 
 
-Layers can be selected with the `--mca` option of `mpirun`:
+Layers can be selected using environment variables:
 
 To select TCP transport:
 
-    mpirun --mca btl tcp,self,vader
+   export OMPI_MCA_btl=tcp,self,vader`
 
 To select RDMA transport (verbs):
 
-    mpirun --mca btl openib,self,vader
+    export OMPI_MCA_btl=openib,self,vader`
 
 To select UCX transport:
 
-    mpirun --mca pml ucx 
+    export OMPI_MCA_pml=ucx`
 
-Or using environment variables, e.g. `export OMPI_MCA_btl=tcp,self,vader`.
+
 
 
 
@@ -123,7 +126,7 @@ For further explanations and details see:
 
 ### Recommendation
 
--   default: use OpenMPI on both clusters
+-   default: use OpenMPI on our clusters
 -   if unsatisfied with performance and running on single node or over TCP, try MPICH
 -   if unsatisfied with performance and running on IB try MVAPICH
 <br>
