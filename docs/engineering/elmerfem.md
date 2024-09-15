@@ -1,4 +1,3 @@
-<span style="color:red">not changed to rocky yet</span>
 
 # ElmerFEM
 
@@ -37,10 +36,10 @@ _CSC – IT CENTER FOR SCIENCE LTD., 2020. Elmer, Available at: https://www.csc.
 
 To use ElmerFEM the module needs to be loaded
 
-	module load green-spack    
-	module load elmerfem
+	module load rocky8-spack    
+	module load elmerfem/9.0-gcc-10.3.0-netlib-lapack-qjdi
 
-This makes the following main commands `ElmerGrid`, `ElmerSolver` available (and `ElmerGUI` can be used on **viz** to setup the case file). The use of ElmerGUI for simulations is **not** recommended.
+This makes the following main commands `ElmerGrid`, `ElmerSolver` available and `ElmerGUI` can be used with X11 forwarding or in an OnDemand desktop session to setup the case file. The use of ElmerGUI to run simulations is **not** recommended.
 
 <br>
 <br>
@@ -109,7 +108,7 @@ The follwing steps are needed to configure a simulation case (mostly on **base**
 		srun ElmerSolver 
 	or create batch file and submit using sbatch.
 
-7. Postprocessing in ParaView (on **viz**).
+7. Postprocessing in ParaView.
 
 <br>
 <br>
