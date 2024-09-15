@@ -64,7 +64,6 @@ To select UCX transport:
 
 ***NB!*** _UCX is not supported on QLogic FastLinQ QL41000 Ethernet controllers._
 
-***NB!*** _UCX 1.8 on amps from Ubuntu is broken, use SPACK version_
 
 
 <div class="simple1">
