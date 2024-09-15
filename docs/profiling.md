@@ -20,11 +20,11 @@ It is possible to submit a second (this time) interactive job to the node where 
 
     srun -w <nodename> --pty htop
 
-Note that there must be free slots on the machine, so you cannot use `-n 80` or `--exclusive` for your main job (use `-n 79`).
+Note that there must be free slots on the machine, so you cannot use `-n 80` or `--exclusive` for your main job (use `-n 78`).
 
 Alternative method if you have X11, e.g. on Linux computers:
 
-When you login to base/amp, use `ssh -X UniID@base.hpc.taltech.ee`,
+When you login to base, use `ssh -X -Y UniID@base.hpc.taltech.ee`,
 
 then submit your main job with `srun --x11 -n <numtasks> --cpus-per-task=<numthreads> --pty bash
 and start an `xterm -e htop &` in the session.

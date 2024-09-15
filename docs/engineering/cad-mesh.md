@@ -1,3 +1,7 @@
+
+<span STYLE="font-size:14mm"> <span style="color:orange">not fully updated yet</span></span>
+
+
 # CAD & Mesh-Tools
 
 CAD and meshing software installed on **viz**, **amp** and **green** cluster nodes.
@@ -13,14 +17,10 @@ CAD and meshing software installed on **viz**, **amp** and **green** cluster nod
 
 FreeCAD is an easy to use open-source CAD software, that can use Gmsh or Netgen for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](/engineering/elmerfem.md), thus providing similar functionality as SolidWorks. 
 
+Currently only working on **viz**.
+
 (Please don't run simulations on **viz**) FreeCAD is best used  within a [VNC session](../visualization/vnc.md).
 
-See separate page on [visualization](../visualization.md).
-
-On the **green** nodes use a SPACK module:
-
-    module load rocky8-spack
-    module load openfoam
 
 ### How to cite:
 
@@ -37,13 +37,13 @@ FreeCAD available from: [https://www.freecadweb.org](https://www.freecadweb.org)
 
 Gmsh meshes can be used with [ElmerFEM](/engineering/elmerfem.md) and [OpenFOAM](/engineering/openfoam.md). For OpenFOAM, make sure it is saved as version 2 and ASCII format. 
 
-The GUI is available on **viz**, large meshes can be done as batch jobs on the **green** cluster nodes, on the command-line run:
+The GUI can be used within a OnDemand desktop session, large meshes can be done as batch jobs on cluster nodes (use srun or sbatch), on the command-line run:
 
     gmsh -3 -format msh2 -o outfilename.msh infilename.geo
 
 this creates a volume mesh and saves as version 2 format suitable for OpenFOAM.
 
-On the **green** nodes use a SPACK module:
+Use the SPACK module:
 
     module load rocky8-spack
     module load gmsh
@@ -65,11 +65,6 @@ You can also cite additional [references](https://gmsh.info/#References) for spe
 
 Salome is a multi-platform environment, allowing the realization of physics simulations. Salome is suitable for various stages of a study: from creation of the CAD model and the mesh to the post-processing and visualization of the results. Other functionalities such as uncertainty treatment, data assimilation are also implemented. Salome does not contain a physics solver but it provides the computing environment necessary for their integration.
 
-Salome is installed on the **green** nodes.
-
-
-    module load rocky8/all
-    module load salome
 
 Salome has a python interface, so the meshing can be done as a batch-job on the cluster nodes.
 
@@ -125,6 +120,7 @@ You can get a list of export formats from the GUI.
 ### How to cite:
 
 Netgen - [J. Schöberl. NETGEN An advancing front 2D/3D-mesh generator based on abstract rules. Comput. Vis. Sci., 1(1):41–52, 1997](https://link.springer.com/article/10.1007/s007910050004).
+
 Netgen/NGSolve is open source and available at [www.ngsolve.org](www.ngsolve.org).
 
 <br> 
