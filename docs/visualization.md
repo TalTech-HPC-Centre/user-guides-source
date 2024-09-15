@@ -1,13 +1,12 @@
 # Visualization
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 
 The recommended way of doing visualizations is now using the **desktop session** on (https://ondemand.hpc.taltech.ee)[https://ondemand.hpc.taltech.ee]
 
 
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## OnDemand Desktop on any node (software rendering)
 
@@ -18,10 +17,6 @@ The default desktop environment is xfce, which is configurable, lightweight and 
 xxx
 
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 
 
@@ -43,6 +38,10 @@ xxx
 
 
 
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+
 ## OnDemand Desktop on GPU nodes (hardware rendering)
 
 ---
@@ -51,6 +50,10 @@ Requires of course to be submitted to a GPU node and a GPU to be reserved. The n
 
 
 
+
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## _In-situ visualization (in preparation)_
 
