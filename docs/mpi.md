@@ -48,15 +48,15 @@ Layers can be selected using environment variables:
 
 To select TCP transport:
 
-   export OMPI_MCA_btl=tcp,self,vader`
+    export OMPI_MCA_btl=tcp,self,vader
 
 To select RDMA transport (verbs):
 
-    export OMPI_MCA_btl=openib,self,vader`
+    export OMPI_MCA_btl=openib,self,vader
 
 To select UCX transport:
 
-    export OMPI_MCA_pml=ucx`
+    export OMPI_MCA_pml=ucx
 
 
 
