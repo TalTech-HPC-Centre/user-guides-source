@@ -1,4 +1,4 @@
-<span style="color:red">not changed to rocky yet</span>
+<span style="color:orange">changed but not tested</span>
 
 # Containers (Singularity & Docker)
 
@@ -11,17 +11,14 @@ The [Singularity user guides](https://docs.sylabs.io/guides/3.9/user-guide/) are
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Running a container
+## Running a container 
 
 ---
 
-### _On green or gray nodes_
 
-<!--
-<span style="color:red">Singularity currently does not work on green/gray nodes, please use amp/amp2</span>
-<br><br>
--->
-here is a native installation from CentOS EPEL of singularity 3.8.7, no modules to load.
+native installation from Rocky 8 EPEL of `singularity-ce version 4.1.5-1.el8`, no modules to load.
+
+### _On all nodes using CPU only_
 
 pull the docker image you want, here ubuntu:18.04
 
@@ -44,48 +41,14 @@ submit to the queueing system with
 and when the resources become available, your job will be executed.
 
 
-### _On amp nodes (not using GPU)_
-
-You need to load the module which comes from AI-Lab:
-
-    module load amp
-    module load Singularity
-
-pull the docker image you want, here ubuntu:20.04:
-
-    singularity pull docker://ubuntu:20.04
-
-write an sbatch file (here called `ubuntu.slurm`):
-
-    #!/bin/bash
-    #SBATCH -t 0-00:30
-    #SBATCH -N 1
-    #SBATCH -c 1
-    #SBATCH -p gpu
-    #SBATCH --mem-per-cpu=4000
-    module load amp
-    module load Singularity
-    singularity exec docker://ubuntu:20.04 cat /etc/issue
-    # or singularity exec ubuntu_20.04.sif cat /etc/issue
-
-submit to the queueing system with
-
-    sbatch ubuntu.slurm
-
-and when the resources become available, your job will be executed.
 
 
 
-### _On amp nodes (using GPU)_
+### _On GPU nodes (using GPU)_
 
 When running singularity through SLURM (srun, sbatch) only GPUs reverved through SLURM are visible to singularity.
 
 
-Use with
-
-    module load amp
-    module load cuda
-    module load Singularity
 
 pull the docker image you want, here ubuntu:20.04:
 
@@ -100,9 +63,6 @@ write an sbatch file (here called `ubuntu.slurm`):
     #SBATCH -p gpu
     #SBATCH --gres=gpu:A100:1     #only use this if your job actually uses GPU
     #SBATCH --mem-per-cpu=4000
-    module load amp
-    module load cuda
-    module load Singularity
     singularity exec --nv docker://ubuntu:20.04 nvidia-smi
     # or singularity exec --nv ubuntu_20.04.sif nvidia-smi
     # the --nv option to singularity passes the GPU to it
@@ -140,8 +100,6 @@ Converting from Docker.io, see
 
 Start an interactive session on amp, make the modules available and run the docker image in singularity:
 
-    module load amp
-    module load Singularity
     srun -t 1:00:00 -p gpu --gres=gpu:1 --pty bash
     singularity exec --nv docker://pytorch/pytorch python
 
@@ -170,8 +128,6 @@ Start an interactive session on amp, make the modules available and run the dock
     
     srun -t 1:00:00 -p gpu --pty bash
     source /usr/share/lmod/lmod/init/bash
-    module load amp
-    module load Singularity/3.7.3
     singularity run docker://tensorflow/tensorflow
 
 inside the container run
@@ -260,9 +216,7 @@ The SLURM job-script looks like this:
     #SBATCH --partition gpu
     #SBATCH --gres=gpu:A100:1
     
-    module load amp
-    module load Singularity
-
+    
     singularity run --nv --bind $(pwd)/opendronemap/Laagna-2021:/datasets/code docker://opendronemap/odm --project-path /datasets --dsm
 
 
