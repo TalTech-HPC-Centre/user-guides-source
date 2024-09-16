@@ -1,7 +1,4 @@
 
-<span STYLE="font-size:14mm"> <span style="color:orange">not fully updated yet</span></span>
-
-
 # CAD & Mesh-Tools
 
 CAD and meshing software installed on **viz**, **amp** and **green** cluster nodes.
@@ -17,7 +14,9 @@ CAD and meshing software installed on **viz**, **amp** and **green** cluster nod
 
 FreeCAD is an easy to use open-source CAD software, that can use Gmsh or Netgen for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](/engineering/elmerfem.md), thus providing similar functionality as SolidWorks. 
 
-Currently only working on **viz**.
+    module load rocky8
+    module load freecad
+    freecad
 
 (Please don't run simulations on **viz**) FreeCAD is best used  within a [VNC session](../visualization/vnc.md).
 
@@ -26,33 +25,6 @@ Currently only working on **viz**.
 
 FreeCAD available from: [https://www.freecadweb.org](https://www.freecadweb.org).
 
-<br> 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Gmsh
-
----
-
-Gmsh meshes can be used with [ElmerFEM](/engineering/elmerfem.md) and [OpenFOAM](/engineering/openfoam.md). For OpenFOAM, make sure it is saved as version 2 and ASCII format. 
-
-The GUI can be used within a OnDemand desktop session, large meshes can be done as batch jobs on cluster nodes (use srun or sbatch), on the command-line run:
-
-    gmsh -3 -format msh2 -o outfilename.msh infilename.geo
-
-this creates a volume mesh and saves as version 2 format suitable for OpenFOAM.
-
-Use the SPACK module:
-
-    module load rocky8-spack
-    module load gmsh
-
-
-### How to cite:
-
-If you use Gmsh please cite [C. Geuzaine and J.-F. Remacle. Gmsh: a three-dimensional finite element mesh generator with built-in pre- and post-processing facilities. Int. J. Numer. Methods Eng., 79(11), pp. 1309-1331, 2009](https://gmsh.info/doc/preprints/gmsh_paper_preprint.pdf). 
-You can also cite additional [references](https://gmsh.info/#References) for specific features and algorithms.
 
 <br> 
 <br>
@@ -83,6 +55,35 @@ See separate page on [visualization](../visualization.md).
 ### How to cite:
 
 Salome can be cited as [DOI:10.13140/RG.2.2.12107.08485](https://www.researchgate.net/publication/318531878_SALOME_an_Open-Source_simulation_platform_integrating_ParaView?channel=doi&linkId=596f5f25458515d5ff64e0c6&showFulltext=true).
+
+<br> 
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+
+## Gmsh
+
+---
+
+Gmsh meshes can be used with [ElmerFEM](/engineering/elmerfem.md) and [OpenFOAM](/engineering/openfoam.md). For OpenFOAM, make sure it is saved as version 2 and ASCII format. 
+
+The GUI can be used within a OnDemand desktop session, large meshes can be done as batch jobs on cluster nodes (use srun or sbatch), on the command-line run:
+
+    gmsh -3 -format msh2 -o outfilename.msh infilename.geo
+
+this creates a volume mesh and saves as version 2 format suitable for OpenFOAM.
+
+Use the SPACK module:
+
+    module load rocky8-spack
+    module load gmsh
+
+
+### How to cite:
+
+If you use Gmsh please cite [C. Geuzaine and J.-F. Remacle. Gmsh: a three-dimensional finite element mesh generator with built-in pre- and post-processing facilities. Int. J. Numer. Methods Eng., 79(11), pp. 1309-1331, 2009](https://gmsh.info/doc/preprints/gmsh_paper_preprint.pdf). 
+You can also cite additional [references](https://gmsh.info/#References) for specific features and algorithms.
+
 
 <br> 
 <br>
