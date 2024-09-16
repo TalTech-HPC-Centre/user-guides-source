@@ -67,7 +67,7 @@ This makes the following main commands `ElmerGrid`, `ElmerSolver` available and 
 
 	    ElmerSolver
 
-5. Postprocessing would be visualizing the `eigen_values.vtu` file in `paraview` on **viz**.
+5. Postprocessing would be visualizing the `eigen_values.vtu` file in `paraview`.
 
 <br>
 <br>
