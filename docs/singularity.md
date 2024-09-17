@@ -94,11 +94,18 @@ Converting from Docker.io, see
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Example: Interactive PyTorch job (with GPU)
+## Example: Interactive PyTorch job (without and with GPU)
 
 ---
 
 Start an interactive session on amp, make the modules available and run the docker image in singularity:
+
+Without GPU:
+
+    srun -t 1:00:00 --gres=gpu:1 --pty bash
+    singularity exec docker://pytorch/pytorch python
+
+With GPU:
 
     srun -t 1:00:00 -p gpu --gres=gpu:1 --pty bash
     singularity exec --nv docker://pytorch/pytorch python
@@ -120,15 +127,27 @@ which should give the same result (without the GPU name). If you remove the `--n
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Example: Interactive TensorFlow job (without GPU)
+## Example: Interactive TensorFlow job  (without and with GPU)
 
 ---
 
 Start an interactive session on amp, make the modules available and run the docker image in singularity:
-    
-    srun -t 1:00:00 -p gpu --pty bash
-    source /usr/share/lmod/lmod/init/bash
+
+Without GPU:
+
+    srun -t 1:00:00 --mem=16G --pty bash
     singularity run docker://tensorflow/tensorflow
+
+With GPU:
+
+    srun -t 1:00:00 -p gpu --mem=16G --pty bash
+    singularity run --nv docker://tensorflow/tensorflow:latest-gpu
+    
+With GPU and jupyter:
+
+    srun -t 1:00:00 -p gpu --mem=16G --pty bash
+    singularity run --nv docker://tensorflow/tensorflow:latest-gpu-jupyter
+
 
 inside the container run
 
