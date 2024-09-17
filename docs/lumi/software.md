@@ -28,7 +28,7 @@ The list of available programs can be found in [LUMI Software Library](https://l
 To be able to use a program user has first to install it. Installation can be done by **spack** or by **EasyBuild**. The list of available programs in **EasyBuild** can be found in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) as well as installation instructions. List of programs which can be installed by **spack** can be looked by `spack list` command. The same program can be installed by both **spack** and **EasyBuild**.
 
 
-There are two possible places where programs can be installed - user's `$HOME` or project directory. The latest is recommended, sines other user of the project will be able to use installed programs as well. Moreover `$HOME` size is limited by 20GB. More about data storage at LUMI can be found [here](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/storing-data/), and about storage billing - [here](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#storage-billing).
+There are two possible places where programs can be installed - user's `$HOME` or project directory. The latest is recommended, sines other user of the project will be able to use installed programs as well. Moreover `$HOME` size is limited by 20GB. More about [data storage at LUMI](https://docs.lumi-supercomputer.eu/storage/#where-to-store-data) and [storage billing](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#storage-billing).
 
 
 Project `XXX` number can be found in [ETAIS](https://etais.ee) as `Effective ID`.
