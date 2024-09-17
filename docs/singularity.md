@@ -1,4 +1,3 @@
-<span style="color:orange">changed but not tested</span>
 
 # Containers (Singularity & Docker)
 
