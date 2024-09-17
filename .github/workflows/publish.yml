@@ -23,6 +23,22 @@ jobs:
       - name: build documentation
         # sphinx-build -M html <sourcedir> <outputdir>
         run: sphinx-build -b html docs public
+      - name: Copy over non sphinx files
+        run: |
+          cp docs/chemistry/*slurm public/chemistry/
+          cp docs/chemistry/*com public/chemistry/
+          cp docs/chemistry/*inp public/chemistry/
+          cp docs/chemistry/*xyz public/chemistry/
+          cp docs/chemistry/*sh public/chemistry/
+          cp docs/chemistry/*nw public/chemistry/
+          cp docs/chemistry/*pdf public/chemistry/
+          cp docs/engineering/*slurm public/engineering/
+          cp docs/data-analysis/*slurm public/data-analysis
+          cp docs/visualization/fvwm2rc.fvwm2rc public/visualization/
+          cp docs/visualization/xsessionrc-x2go.xsessionrc-x2go public/visualization/
+          cp docs/lumi/*sh public/lumi
+          cp docs/lumi/*py public/lumi
+          cp docs/lumi/*slurm public/lumi
       - run: touch public/CNAME && echo "docs-staging.hpc.taltech.ee" > public/CNAME
       - uses: cpina/github-action-push-to-another-repository@main
         env:
