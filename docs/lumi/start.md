@@ -72,7 +72,7 @@
 
 6. The corresponding project appears in your ETAIS account.  
 
-	![workspace](workspace1.png)
+	![workspace](workspace.png)
 
 6. In short time you will receive a letter from `info-noreply@csc.fi` where you will be given your user name for LUMI.
 
