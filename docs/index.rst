@@ -220,7 +220,7 @@ SLURM partitions
      - 10 min
      - 4 hours
      - 1 GB/thread
-     - green
+     - green, ada, amp
    * - **common**
      - 10 min
      - 8 days
@@ -240,12 +240,12 @@ SLURM partitions
      - 10 min
      - 5 days
      - 1 GB/thread
-     - amp
+     - amp, ada
    * - **bigmem**
      - 10 min
      - 8 days
      - 1 GB/thread
-     - ada, mem1tb 
+     - ada, amp, mem1tb 
 
 
 -----------------------  

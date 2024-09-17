@@ -2,7 +2,7 @@
 
 # Containers (Singularity & Docker)
 
-Containers are a popular way of creating a reproducible software environment. Container solutions are Docker and Singularity, we support singularity.
+Containers are a popular way of creating a reproducible software environment. Container solutions are Docker and Singularity/Apptainer, we support singularity.
 
 The [Singularity user guides](https://docs.sylabs.io/guides/3.9/user-guide/) are a great resource for learning what you can do with singularity
 
