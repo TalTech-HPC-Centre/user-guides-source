@@ -5,6 +5,8 @@ documentation: https://www.mkdocs.org/user-guide/styling-your-docs/#using-the-do
 
 Using GitHub Actions, the source is built into static files and deployed to staging repository using SSH deploy keys.
 
+Notes on running [Sphinx on Pages](https://echorand.me/site/notes/articles/sphinx/static_html.html#using-github-pages).
+
 ## Running locally
 
 To run locally, use the following commands:
