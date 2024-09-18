@@ -79,7 +79,7 @@ In the home directory, the user can create, delete, and overwrite files and perf
 
 The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://docs-staging.hpc.taltech.ee/quickstart.html#smb-cifs-exported-filesystems).
 
-Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed due to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
+Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed, for example due  to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
 	srun -w green11 --pty bash
 	cd /state/partition1/
@@ -97,7 +97,7 @@ Please note that the scratch is *not* shared between nodes, so parallel MPI jobs
 
 SLURM is a management and job scheduling system at Linux clusters. SLURM quick reference can be found [here](https://slurm.schedmd.com/pdfs/summary.pdf).
 
-Examples of slurm scripts are usually given on the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given on our [software page](software.md). At [software page](https://hpc.pages.taltech.ee/user-guides/software.html) or program's page also can be found information about licenses, since for programs installed at HPC have varying licence agreement. o use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2).
+Examples of slurm scripts are usually given on the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given on our [software page](software.md). At software page or program's page also can be found information about licenses, since programs installed at HPC have varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).
 
 <div class="simple1">
 The most often used SLURM commands are:
@@ -123,8 +123,6 @@ Requesting resources with SLURM can be done either with parameters to `srun` or 
  - **common partition** --  **default time** is 10 min and **max time limit** is 8 days.
 -   **long partition** -- **default time** is 10 min and **time limit** 15 days.
  - **green-ib partition** -- **default time** is 10 min and **max time limit** is 8 days  
- - **gray-ib partition** -- **default time** is 10 min and **max time limit** is 8 days
- - **mem1tb partition** -- **default time** is 10 min and **max time limit** is 8 days
  - **gpu partition** -- **default time** is 10 min and **max time limit** is 5 days
  </div> 
  <br>
@@ -169,7 +167,7 @@ Below is given an example of batch slurm script (filename: `myjob.slurm`) with e
 In this example are listed some of the more common submission parameters. There are many more possible job-submission options, moreover, some of the options listed above  are not useful to apply together. An explanation of the variables used inside SLURM/SBATCH can be found [here](https://slurm.schedmd.com/sbatch.html#lbAJ). In contrast to e.g. GridEngine, SLURM allows fine-grained resource requests, using parameters like `--ntasks-per-core` or `--ntasks-per-node`.
 
 <div class="simple1"> 
- <a href="https://hpc.pages.taltech.ee/user-guides/slurm_example.html">An example script for submitting</a>:
+ <a href="https://docs-staging.hpc.taltech.ee/slurm_example.html">An example script for submitting</a>:
 
  - a single process job
  - an OpenMP parallel job 
@@ -200,7 +198,7 @@ Some useful online resources:
  </div>  
 
 
-
+<br>
 <br>
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
