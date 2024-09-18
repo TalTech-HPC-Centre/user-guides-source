@@ -1,5 +1,3 @@
-<span style="color:red">not changed to rocky yet</span>
-
 # Quickstart: Cluster 
 
 <br>
@@ -10,9 +8,9 @@
 
 ---
 
-**NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto) should be created by the head of a structural unit.
+**NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet#External-UNI-ID) should be created by the head of a structural unit.
 
-**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2)** (Help centre -> Teadusarvutuste keskus (HPC centre)). We need the following information: uni-ID, department, project that pays the [costs](https://docs.hpc.taltech.ee/#billing).
+**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](https://docs.hpc.taltech.ee/#billing).
 
 The login-node of the cluster can be reached by SSH. SSH (the Secure SHell) is available using the command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A guide for Windows users using PuTTY (an alternative SSH using a graphical user interface (GUI)) is [here](putty.md).
 
@@ -34,7 +32,7 @@ For using graphical applications add the `-X` switch to the SSH command, and for
     ssh -X -Y uni-ID@base.hpc.taltech.ee
 
 
-***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](https://hpc.pages.taltech.ee/user-guides/quickstart.html#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
+***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](https://docs-staging.hpc.taltech.ee/quickstart.html#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
 
 **We strongly recommend to use SSH-keys for logging to the cluster.**
 
@@ -79,7 +77,7 @@ By accessing the cluster, the user gets into his home directory or `$HOME` (`/gp
 
 In the home directory, the user can create, delete, and overwrite files and perform calculations (if slurm script does not force program to use ` $SCRATCH ` directory). The home directory is limited in size of 500 GB and backups are performed once per week.
 
-The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://hpc.pages.taltech.ee/user-guides-newtest/quickstart.html#smb-cifs-exported-filesystems).
+The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://docs-staging.hpc.taltech.ee/quickstart.html#smb-cifs-exported-filesystems).
 
 Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed due to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
