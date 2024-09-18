@@ -101,7 +101,7 @@ Start an interactive session on amp, make the modules available and run the dock
 
 Without GPU:
 
-    srun -t 1:00:00 --gres=gpu:1 --pty bash
+    srun -t 1:00:00 --pty bash
     singularity exec docker://pytorch/pytorch python
 
 With GPU:
@@ -139,12 +139,12 @@ Without GPU:
 
 With GPU:
 
-    srun -t 1:00:00 -p gpu --mem=16G --pty bash
+    srun -t 1:00:00 -p gpu --gres=gpu:1 --mem=16G --pty bash
     singularity run --nv docker://tensorflow/tensorflow:latest-gpu
     
 With GPU and jupyter:
 
-    srun -t 1:00:00 -p gpu --mem=16G --pty bash
+    srun -t 1:00:00 -p gpu --gres=gpu:1 --mem=16G --pty bash
     singularity run --nv docker://tensorflow/tensorflow:latest-gpu-jupyter
 
 
