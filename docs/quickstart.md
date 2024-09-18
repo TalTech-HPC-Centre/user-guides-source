@@ -119,10 +119,11 @@ Requesting resources with SLURM can be done either with parameters to `srun` or 
 <div class="simple1">The following defaults are used if not otherwise specified:
 
  - **default memory** -- is 1 GB/thread (for larger jobs request more memory)
- - **short partition** -- **default time limit** is 10 min and  **max time limit** is 4 hours (longer jobs need to be submitted to partitions common or one of the infiniBand partitions)
+ - **short partition** -- **default time limit** is 10 min and  **max time limit** is 4 hours (longer jobs need to be submitted to partitions common, green-ib or gpu partitions)
  - **common partition** --  **default time** is 10 min and **max time limit** is 8 days.
 -   **long partition** -- **default time** is 10 min and **time limit** 15 days.
- - **green-ib partition** -- **default time** is 10 min and **max time limit** is 8 days  
+ - **green-ib partition** -- **default time** is 10 min and **max time limit** is 8 days
+ - **bigmem partition**  -- **default time** is 10 min and **max time limit** is 8 days
  - **gpu partition** -- **default time** is 10 min and **max time limit** is 5 days
  </div> 
  <br>
