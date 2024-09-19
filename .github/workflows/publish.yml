@@ -33,7 +33,7 @@ jobs:
           cp docs/chemistry/*nw public/chemistry/
           cp docs/chemistry/*pdf public/chemistry/
           cp docs/engineering/*slurm public/engineering/
-          cp docs/data-analysis/*slurm public/data-analysis
+          cp docs/data-analysis/*txt public/data-analysis
           cp docs/visualization/fvwm2rc.fvwm2rc public/visualization/
           cp docs/visualization/xsessionrc-x2go.xsessionrc-x2go public/visualization/
           cp docs/lumi/*sh public/lumi
