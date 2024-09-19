@@ -6,11 +6,11 @@ JupyterLab is an interactive notebook environment (with a web-browser interface)
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## JupyterLab Short introduction 
+## JupyterLab Short introduction
 
 ---
 
-1. Download [jupyterlab.slurm](jupyterlab.slurm) or  [jupyterlab-gpu.slurm](jupyterlab-gpu.slurm) batch script: 
+1. Download [jupyterlab.slurm](jupyterlab.slurm.txt) or  [jupyterlab-gpu.slurm](jupyterlab-gpu.slurm.txt) batch script:
     
         #!/bin/bash
         #SBATCH --nodes 1
