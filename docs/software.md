@@ -35,7 +35,7 @@ FreeCAD, Salome, BRL-CAD, Gmsh and netgen; see [CAD-Mesh](engineering/cad-mesh.m
 -   Wavefunction analysis --- 
 [Multiwfn](chemistry/multiwfn.md)
 -   Visualization software for computational chemistry, biology and physics --- 
-[Molden](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#molden), [Avogadro](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#avogadro), [JMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#jmol), [VMD](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#vmd), [RasMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#rasmol)
+[Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden), [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro), [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol), [VMD](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd), [RasMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#rasmol)
 -   Interactive and non-interactive [Jupyter](data-analysis/jupyter.md) notebooks for Julia, Python, [Octave](data-analysis/octave.md)
 -   Matlab-compatible computation environment --- 
 [Octave](data-analysis/octave.md)
@@ -68,28 +68,28 @@ More about CAD and meshing options on our HPC can be found [here](engineering/ca
 
 #### FreeCAD
 
-[FreeCAD](https://www.freecadweb.org/features.php) is a CAD software, which uses [Gmsh](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#gmsh) or [Netgen](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#netgen-ngsolve) for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](engineering/elmerfem.md), thus providing similar functionality as SolidWorks. More about FreeCAD on our HPC can be found [here](engineering/cad-mesh.md).
+[FreeCAD](https://www.freecadweb.org/features.php) is a CAD software, which uses [Gmsh](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#gmsh) or [Netgen](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#netgen-ngsolve) for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](engineering/elmerfem.md), thus providing similar functionality as SolidWorks. More about FreeCAD on our HPC can be found [here](engineering/cad-mesh.md).
 
 #### Salome
 
-[Salome](https://salome-platform.org/) is a CAD program with interfaces to meshing software. It can be used by a GUI or python scripts. More about Salome on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#salome).
+[Salome](https://salome-platform.org/) is a CAD program with interfaces to meshing software. It can be used by a GUI or python scripts. More about Salome on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#salome).
 
 #### BRL-CAD
-[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#brl-cad).
+[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](https://docs.hpc.taltech.ee//engineering/cad-mesh.html#brl-cad).
 
 #### Gmsh
 
-[Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#gmsh). 
+[Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#gmsh). 
 
 #### Netgen
 
-[Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. More about Netgen on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#netgen-ngsolve).
+[Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. More about Netgen on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#netgen-ngsolve).
 
 ### Finite Element Analysis (FEA) 
 
 The Finite Element Method (FEM) is an general numerical method for solving partial differential equations in two or three space variables perfommed by dividing a large system into smaller parts (finite elements). The method is used for numerically solving differential equations in engineering and mathematical modeling.
 
-See also under [computational-fluid-dynamics-CFD](https://hpc.pages.taltech.ee/user-guides/software.html#computational-fluid-dynamics-cfd).
+See also under [computational-fluid-dynamics-CFD](https://docs.hpc.taltech.ee/software.html#computational-fluid-dynamics-cfd).
 
 #### ElmerFEM
 
@@ -179,7 +179,7 @@ More information about licenses:
 
 ### Computational Fluid Dynamics (CFD)
 
-See also under [FEA](https://hpc.pages.taltech.ee/user-guides/software.html#finite-element-analysis-fea).
+See also under [FEA](https://docs.hpc.taltech.ee/software.html#finite-element-analysis-fea).
 
 #### OpenFOAM
 
@@ -256,11 +256,11 @@ NWChem was developed to enable large scale calculations by  using many CPUs and 
 
 ### Visualization software for computational chemistry, biology and physics
 
-- [Molden](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#molden) 
-- [Avogadro](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#avogadro) 
-- [JMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#jmol) 
-- [VMD](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#vmd)
-- [RasMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#rasmol)
+- [Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden) 
+- [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro) 
+- [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol) 
+- [VMD](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd)
+- [RasMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#rasmol)
 
 <br>
 <br>
