@@ -173,8 +173,8 @@ More information about licenses:
 
 
     module load rocky8
-    module load STAR-CCM+/18.04.009-R8
-
+    module load star-ccm+/18.04.009-R8
+    starccm+
 
 
 ### Computational Fluid Dynamics (CFD)
