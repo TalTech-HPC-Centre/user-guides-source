@@ -24,7 +24,7 @@ Here is a list of important software for special purpose:</b>
 <br>
 
 -   CAD & Meshing software  --- 
-FreeCAD, Salome, Gmsh and netgen; see [CAD-Mesh](engineering/cad-mesh.md)
+FreeCAD, Salome, BRL-CAD, Gmsh and netgen; see [CAD-Mesh](engineering/cad-mesh.md)
 -   Finite element software for multiphysical problems --- 
 [ElmerFEM](engineering/elmerfem.md), CalculiX, Abaqus
 -   Computational Fluid Dynamics -- [OpenFOAM](engineering/openfoam.md), SU2

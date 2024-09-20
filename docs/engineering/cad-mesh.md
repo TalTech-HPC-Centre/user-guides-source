@@ -61,6 +61,18 @@ Salome can be cited as [DOI:10.13140/RG.2.2.12107.08485](https://www.researchgat
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
+## BRL-CAD
+
+---
+
+[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the `g-*` tols are for this, while the `*-g` tools are for importing. An introduction can be found [in this PDF](https://brlcad.org/w/images/9/90/Intro_to_BRL-CAD.pdf).
+
+
+<br> 
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+
 ## Gmsh
 
 ---
