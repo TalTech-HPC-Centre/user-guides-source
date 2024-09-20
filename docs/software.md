@@ -74,6 +74,9 @@ More about CAD and meshing options on our HPC can be found [here](engineering/ca
 
 [Salome](https://salome-platform.org/) is a CAD program with interfaces to meshing software. It can be used by a GUI or python scripts. More about Salome on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#salome).
 
+#### BRL-CAD
+[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#brl-cad).
+
 #### Gmsh
 
 [Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](https://hpc.pages.taltech.ee/user-guides/engineering/cad-mesh.html#gmsh). 
