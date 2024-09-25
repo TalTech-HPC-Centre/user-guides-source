@@ -52,7 +52,7 @@ Requires of course to be submitted to a GPU node and a GPU to be reserved. The n
 
 Otherwise the Desktop works as the regular (software rendering) one, see above.
 
-Please note that for most applications software rendering is fast enough, only volume visualization in ParaView, COVISE, VisIt, Star-CCM+ as Ansys may require the GPU rendering.
+Please note that for most applications software rendering is fast enough, only heavy visulalization, like volume visualization in ParaView, COVISE, VisIt, VMD, Star-CCM+ and Ansys may require the GPU rendering.
 
 
 <br>
