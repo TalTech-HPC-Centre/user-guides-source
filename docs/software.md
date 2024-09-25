@@ -77,6 +77,11 @@ More about CAD and meshing options on our HPC can be found [here](engineering/ca
 #### BRL-CAD
 [BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](https://docs.hpc.taltech.ee//engineering/cad-mesh.html#brl-cad).
 
+#### Blender
+[Blender]{https://blender.org} is a 3D modeling software developed for computer animation (movie production).
+
+<!-- #### OpenSCAD -->
+
 #### Gmsh
 
 [Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#gmsh). 
@@ -338,7 +343,10 @@ the option `--user` will install the package into the user's $HOME directory (in
     - [Avogadro](https://avogadro.cc/) 
     - [JMol](http://jmol.sourceforge.net/) 
     - [VMD](http://www.ks.uiuc.edu/Research/vmd/)(**all nodes:** spack module vmd)
-    - [RasMol](http://www.openrasmol.org/) 
+    - [RasMol](http://www.openrasmol.org/)
+-  Software for movie animation
+    - Blender
+    <!-- - Aqsis, OpenMoonRay -->
 
 <br>
 <br>

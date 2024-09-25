@@ -14,7 +14,9 @@ The recommended way of doing visualizations is now using the **desktop session**
 
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
-xxx
+The menu only contain very few programs from the operating system.
+
+To start software, open an XTerminal and use the module system as you would from the command-line and star the program from here.
 
 
 
@@ -48,7 +50,9 @@ xxx
 
 Requires of course to be submitted to a GPU node and a GPU to be reserved. The nodes are configured in a way that requires EGL rendering, and therefore may require other modules to be loaded (e.g. ParaView).
 
+Otherwise the Desktop works as the regular (software rendering) one, see above.
 
+Please note that for most applications software rendering is fast enough, only volume visualization in ParaView, COVISE, VisIt, Star-CCM+ as Ansys may require the GPU rendering.
 
 
 <br>

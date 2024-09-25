@@ -65,8 +65,8 @@ Hardware Specification
 .. ul::
 
 **TalTech cluster base** (base.hpc.taltech.ee):
-     -   SLURM v20 scheduler, a live `load diagram`_
-     -   1.5 PB storage, with a **5 TB/user** quota
+     -   SLURM v23 scheduler, a live `load diagram`_
+     -   1.5 PB storage, with a **0.5 TB/user** quota on $HOME and **2 TB/user** quota on SMBHOME
      -   32 **green** nodes, 2 x Intel Xeon Gold 6148 20C 2.40 GHz (**40 cores, 80 threads** per node), **96 GB** DDR4-2666 R ECC RAM (**green[1-32]**), 25 Gbit Ethernet, 18 of these FDR InfiniBand (**green-ib** partition)
      -   1 **mem1tb** large memory node, **1 TB** RAM, 4x Intel Xeon CPU E5-4640 (together **32 cores, 64 threads**)
      -   2 **ada** GPU nodes, 2xNvidia L40/48GB, 2x 32core AMD EPYC 9354 Zen4 (together **64 cores, 128 threads**), **1.5 TB** RAM** 
