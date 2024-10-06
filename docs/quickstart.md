@@ -32,7 +32,7 @@ For using graphical applications add the `-X` switch to the SSH command, and for
     ssh -X -Y uni-ID@base.hpc.taltech.ee
 
 
-***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](https://docs-staging.hpc.taltech.ee/quickstart.html#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
+***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](https://docs.hpc.taltech.ee/quickstart.html#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
 
 **We strongly recommend to use SSH-keys for logging to the cluster.**
 
@@ -77,7 +77,7 @@ By accessing the cluster, the user gets into his home directory or `$HOME` (`/gp
 
 In the home directory, the user can create, delete, and overwrite files and perform calculations (if slurm script does not force program to use ` $SCRATCH ` directory). The home directory is limited in size of 500 GB and backups are performed once per week.
 
-The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://docs-staging.hpc.taltech.ee/quickstart.html#smb-cifs-exported-filesystems).
+The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://docs.hpc.taltech.ee/quickstart.html#smb-cifs-exported-filesystems).
 
 Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed, for example due  to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
@@ -168,7 +168,7 @@ Below is given an example of batch slurm script (filename: `myjob.slurm`) with e
 In this example are listed some of the more common submission parameters. There are many more possible job-submission options, moreover, some of the options listed above  are not useful to apply together. An explanation of the variables used inside SLURM/SBATCH can be found [here](https://slurm.schedmd.com/sbatch.html#lbAJ). In contrast to e.g. GridEngine, SLURM allows fine-grained resource requests, using parameters like `--ntasks-per-core` or `--ntasks-per-node`.
 
 <div class="simple1"> 
- <a href="https://docs-staging.hpc.taltech.ee/slurm_example.html">An example script for submitting</a>:
+ <a href="https://docs.hpc.taltech.ee/slurm_example.html">An example script for submitting</a>:
 
  - a single process job
  - an OpenMP parallel job 

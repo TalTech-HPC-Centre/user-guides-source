@@ -57,7 +57,7 @@ There are several reasons to choose LUMI instead of HPC:
 ###  - [How to get access to LUMI](lumi/start.md)
 ###  - [Software](lumi/software.md)
 ###  - [Examples of jobs and slurm scripts](lumi/examples.md)
-###  - [Billing](https://docs-staging.hpc.taltech.ee/index.html#billing)
+###  - [Billing](https://docs.hpc.taltech.ee/index.html#billing)
 
 <br>
 <br>
