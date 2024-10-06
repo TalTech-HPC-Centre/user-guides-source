@@ -30,7 +30,7 @@
 
 	   sbatch crest.slurm
 
-***NB!*** CREST can be run only on 1 node. If job requires large memory amount, **mem1tb** partition with 1TB RAM can be used. 
+***NB!*** CREST can be run only on 1 node. If job requires large memory amount, **bigmem** or **gpu** partition with 1TB RAM can be used. 
 
 ***NB!*** It is recommended to optimize the geometries obtained from the CREST by more accurate methods. In the [end of this page](https://docs.hpc.taltech.ee/chemistry/crest.html#useful-bash-scripts) are given home-made bash scripts that can be helpful during this process. 
 
@@ -65,7 +65,7 @@ Calculation time depends on size of molecule, its flexibility, chosen energy win
 
 ### Memory
 
-Our experience shows that memory is the main limiting factor in conformational search calculations by CREST. Since memory consumption depends on many factors (size of molecule, its flexibility, chosen energy window, methods used), it can only be determined through trial and error, and perhaps **mem1tb** partition with 1TB RAM can be used. 
+Our experience shows that memory is the main limiting factor in conformational search calculations by CREST. Since memory consumption depends on many factors (size of molecule, its flexibility, chosen energy window, methods used), it can only be determined through trial and error, and perhaps **mem1tb** or **gpu** partition with 1TB RAM can be used. 
 In our test runs for a flexible organic molecule of 54 atoms using semiempirical GFN2 method, 1 GB per core was sufficient, but for 65 atoms molecule using the same level of theory already 2 GB per core were needed.
 
 
