@@ -91,7 +91,7 @@ Please note that the scratch is *not* shared between nodes, so parallel MPI jobs
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Running jobs with the SLURM 
+## Running jobs with SLURM 
 
 ---
 
