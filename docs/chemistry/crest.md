@@ -32,7 +32,7 @@
 
 ***NB!*** CREST can be run only on 1 node. If job requires large memory amount, **mem1tb** partition with 1TB RAM can be used. 
 
-***NB!*** It is recommended to optimize the geometries obtained from the CREST by more accurate methods. In the [end of this page](https://hpc.pages.taltech.ee/user-guides/chemistry/crest.html#useful-bash-scripts) are given home-made bash scripts that can be helpful during this process. 
+***NB!*** It is recommended to optimize the geometries obtained from the CREST by more accurate methods. In the [end of this page](https://docs.hpc.taltech.ee/chemistry/crest.html#useful-bash-scripts) are given home-made bash scripts that can be helpful during this process. 
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>

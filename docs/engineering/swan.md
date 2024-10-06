@@ -30,7 +30,7 @@ Manual can be found [here](https://swanmodel.sourceforge.io/online_doc/swanuse/s
 
 4. Download the [swan.slurm](swan.slurm) script
 
-    	curl https://hpc.pages.taltech.ee/user-guides/engineering/swan.slurm
+    	curl https://docs.hpc.taltech.ee/engineering/swan.slurm
 
 5. Adjust `ntasks`, `nodes` and `cpus-per-task` submit it:
 

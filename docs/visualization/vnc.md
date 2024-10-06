@@ -157,7 +157,7 @@ Type password.
 </div>
 
 
-If you see monochromic field and can not start a session, it mean that you to set up your VNC session: [Setting up VNC config](https://hpc.pages.taltech.ee/user-guides/visualization/vnc.html#setting-up-vnc-session).
+If you see monochromic field and can not start a session, it mean that you to set up your VNC session: [Setting up VNC config](https://docs.hpc.taltech.ee/visualization/vnc.html#setting-up-vnc-session).
 
 
 If you see terminal - then everything is done correctly and you can start working. Within the session window, you can start any program from the terminal or using the menus of the window manager.

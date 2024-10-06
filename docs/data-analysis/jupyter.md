@@ -108,7 +108,7 @@ Copy with scp:
 #### 2. GUI solution
 Download sftp capable file transfer software.
 For example, [WinSCP](https://winscp.net/eng/index.php) (Windows) or [FileZilla Client](https://filezilla-project.org/) (any platform).
-Install sftp client, connect to base.hpc.taltech.ee, make your work directory and copy the[jupyterlab.slurm](jupyterlab.slurm) file. More details about using WinSCP and FileZilla Client can be found [here](https://hpc.pages.taltech.ee/user-guides/quickstart.html#quickstart-cluster).
+Install sftp client, connect to base.hpc.taltech.ee, make your work directory and copy the[jupyterlab.slurm](jupyterlab.slurm) file. More details about using WinSCP and FileZilla Client can be found [here](https://docs.hpc.taltech.ee/quickstart.html#quickstart-cluster).
 
 
 

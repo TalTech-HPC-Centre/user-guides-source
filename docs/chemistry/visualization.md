@@ -2,7 +2,7 @@
 
 # Visualization software for computational chemistry, biology and physics
 
-Visualization mostly should be done on **viz** ([Molden](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#molden), [Avogadro](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#avogadro), [JMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#jmol) or [VMD](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#vmd)), but also short-time geometry checks are possible on **base** ([Molden](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#molden), [Avogadro](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#avogadro) or [JMol](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#jmol)). 
+Visualization mostly should be done on **viz** ([Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden), [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro), [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol) or [VMD](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd)), but also short-time geometry checks are possible on **base** ([Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden), [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro) or [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol)). 
 
 <br>
 <br>

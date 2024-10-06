@@ -174,7 +174,7 @@ By default, plots made by Multiwfn will be written in the `.png` format and can 
 
     display job.png
         
-Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_ (with `.vmd` extensions). More about visualization on **viz** can be found [here](../visualization.md) and about VMD - [here](https://hpc.pages.taltech.ee/user-guides/chemistry/visualization.html#vmd).
+Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_ (with `.vmd` extensions). More about visualization on **viz** can be found [here](../visualization.md) and about VMD - [here](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd).
 
 On **base** VMD environment is set up by the commands:
 

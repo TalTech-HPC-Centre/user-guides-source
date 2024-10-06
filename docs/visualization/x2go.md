@@ -54,8 +54,8 @@ A couple of config files need to be present:
 
 If the files are not present, just **copy them from** `/etc/skel/` or run
 
-    curl https://hpc.pages.taltech.ee/user-guides/visualization/fvwm2rc.fvwm2rc --create-dirs -o $HOME/.fvwm/.fvwm2rc
-    curl https://hpc.pages.taltech.ee/user-guides/visualization/xsessionrc-x2go.xsessionrc-x2go --create-dirs -o $HOME/.xsessionrc-x2go
+    curl https://docs.hpc.taltech.ee/visualization/fvwm2rc.fvwm2rc --create-dirs -o $HOME/.fvwm/.fvwm2rc
+    curl https://docs.hpc.taltech.ee/visualization/xsessionrc-x2go.xsessionrc-x2go --create-dirs -o $HOME/.xsessionrc-x2go
 
 to copy/save the example configs.
 

@@ -43,7 +43,7 @@ Contact to `hpcsupport@taltech.ee`.
 
 	   sbatch gaussian.slurm
 
-    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://hpc.pages.taltech.ee/user-guides/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
+    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
 
 4. Check results using [visualization software](visualization.md).
 
@@ -84,7 +84,7 @@ Gaussian by default executes jobs on only a single processor.
 
 To run multiple processors/cores job  a number of cores should be specified. The number of cores can be defined via the `-p` flag (e.g. -p=4) in command line of `slurm` script or by adding the `%NprocShared` keyword into  Gaussian input file (e.g. %NprocShared=4). For more information see [Gaussian manual](https://gaussian.com/running/). The number of processors requested should correspond to the number of processors requested in `slurm` script.
 
-***NB!*** _More cores does not mean faster!!! See [benchmarks](https://hpc.pages.taltech.ee/user-guides/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
+***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
 
 Example of `slurm` script:
 
@@ -130,7 +130,7 @@ Example of Gaussian input:
     
 ### Memory
 
-The default dynamic memory requested by Gaussian is frequently too small for successful job termination. Herein, if amount of memory requested is insufficient, the job will crash. There is no golden rule for memory requests. Usually, for common calculations (e.g. optimization, frequency etc.)  2 GB per 1 core is sufficient. This can be done by the `-m` flag in the command line (e.g. -m=48gb) or by adding the `%Mem` keyword in Gaussian input file (e.g. %Mem=2GB). For more information see [Gaussian manual](https://gaussian.com/running/) and [taltech user-guides](https://hpc.pages.taltech.ee/user-guides/index.html#hardware-specification).
+The default dynamic memory requested by Gaussian is frequently too small for successful job termination. Herein, if amount of memory requested is insufficient, the job will crash. There is no golden rule for memory requests. Usually, for common calculations (e.g. optimization, frequency etc.)  2 GB per 1 core is sufficient. This can be done by the `-m` flag in the command line (e.g. -m=48gb) or by adding the `%Mem` keyword in Gaussian input file (e.g. %Mem=2GB). For more information see [Gaussian manual](https://gaussian.com/running/) and [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification).
 
 However, there are calculations that require more memory (e.g TD-DFT, large SCF calculations, etc.). Data from a `slurm-JOBID.stat` file can be useful to determine the amount of memory required for a computation. In `slurm-JOBID.stat` file the efficiency of memory utilization is shown. 
 
@@ -149,7 +149,7 @@ Good example:
 
 ### Time
 
-Time limits depend on [time partition](https://hpc.pages.taltech.ee/user-guides/index.html#hardware-specification) used. If calculation time exceeds the time limit requested in the `slurm` script, the job will be killed, and in the end of `slurm-JOBID.out` will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
+Time limits depend on [time partition](https://docs.hpc.taltech.ee/index.html#hardware-specification) used. If calculation time exceeds the time limit requested in the `slurm` script, the job will be killed, and in the end of `slurm-JOBID.out` will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
 
 Therefore, it is recommended to request more time than is usually needed for calculation and create checkpoint files (by `%chk=job.chk` line in input file) that allows to restart job.
 

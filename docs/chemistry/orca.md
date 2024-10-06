@@ -85,7 +85,7 @@
 
         sbatch orca.slurm
 
-    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://hpc.pages.taltech.ee/user-guides/chemistry/orca.html#benchmarks-for-parallel-jobs)._  
+    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/orca.html#benchmarks-for-parallel-jobs)._  
     ***NB!*** To ORCA parallel run full path name is needed. Single core calculations can be performed with just `orca` command.
 
 4. Check results using [visualization software](visualization.md).
@@ -230,7 +230,7 @@ Good example:
 
 ### Time
 
-Time limits depend on time partition used, see [taltech user-guides](https://hpc.pages.taltech.ee/user-guides/index.html#hardware-specification). Therefore, it is recommended to request more time than is usually needed for calculation. 
+Time limits depend on time partition used, see [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification). Therefore, it is recommended to request more time than is usually needed for calculation. 
 
 If job was killed due to the time limit, this will be written in the end of  `slurm-JOBID.out` file "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
 

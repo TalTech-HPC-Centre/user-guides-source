@@ -249,7 +249,7 @@ Good example:
     
 ### Time
 
-Time limits depend on time partition used, see [taltech user-guides](https://hpc.pages.taltech.ee/user-guides/index.html#hardware-specification). If the calculation time exceeds the time limit requested in the `slurm` script, then the job will be killed. Therefore, it is recommended to request more time than is usually needed for calculation. 
+Time limits depend on time partition used, see [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification). If the calculation time exceeds the time limit requested in the `slurm` script, then the job will be killed. Therefore, it is recommended to request more time than is usually needed for calculation. 
 
 ### How to cite:
 

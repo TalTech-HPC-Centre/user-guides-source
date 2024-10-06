@@ -17,13 +17,13 @@ The use of the resources of TalTech `HPC Centre`_ requires an active Uni-ID acco
 
 .. _HPC Centre: https://taltech.ee/en/itcollege/hpc-centre
 .. _here: https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto
-.. _Here can  be found more about available programs and licenses: https://hpc.pages.taltech.ee/user-guides/software.html
+.. _Here can  be found more about available programs and licenses: https://docs.hpc.taltech.ee/software.html
 
 TalTech HPC Centre includes `cluster,`_ `cloud`_ and also is responsible for providing access to resources of `LUMI supercomputer.`_
 
-.. _cluster,: https://hpc.pages.taltech.ee/user-guides/quickstart.html
-.. _cloud: https://hpc.pages.taltech.ee/user-guides/cloud.html
-.. _LUMI supercomputer.: https://hpc.pages.taltech.ee/user-guides/lumi.html
+.. _cluster,: https://docs.hpc.taltech.ee/quickstart.html
+.. _cloud: https://docs.hpc.taltech.ee/cloud.html
+.. _LUMI supercomputer.: https://docs.hpc.taltech.ee/lumi.html
  
 
 The **cloud** provides user ability to create virtual machines where the user has full admin rights and can install all the necessary software by her/himself. VMs can be connected from outside and can be used for providing web services. Accessible through the ETAIS website: https://etais.ee/using/.
@@ -31,13 +31,13 @@ The **cloud** provides user ability to create virtual machines where the user ha
 The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu on special purpose nodes) and uses SLURM as a batch scheduler and resource manager. Linux is the dominating operating system used for scientific computing and of now is the only operating system present in the `Top500`_ list (a list of the 500 most powerful computers in the world). **Linux command-line knowledge is essential for using the cluster.** `Resources on learning Linux`_ can be found in our guide, including introductory lectures in Moodle. However, some graphical interface is available for data visualisation, copy and transfer.
 
 .. _Top500: https://www.top500.org/
-.. _Resources on learning Linux: https://hpc.pages.taltech.ee/user-guides/learning.html
+.. _Resources on learning Linux: https://docs.hpc.taltech.ee/learning.html
 
 **LUMI supercomputer** is the fastest supercomputer in Europe, the fifth fastest `globally`_  and the seventh `greenest`_ supercomputer on the planet. `Specification of LUMI can be found here.`_
 
 .. _globally: https://www.top500.org/lists/top500/2023/11/
 .. _greenest: https://www.top500.org/lists/green500/2023/11/
-.. _Specification of LUMI can be found here.: https://hpc.pages.taltech.ee/user-guides/lumi.html#what-is-lumi
+.. _Specification of LUMI can be found here.: https://docs.hpc.taltech.ee/lumi.html#what-is-lumi
 
 .. raw:: html
 
@@ -185,7 +185,7 @@ More details how to calculate computational costs for TalTech cluster can be fou
 More detail guide how to calculate computational costs for LUMI can be found in `LUMI billing policy`_.
 
 
-.. _Monitoring resources part of Quickstart page: https://hpc.pages.taltech.ee/user-guides/quickstart.html#monitoring-resource-usage
+.. _Monitoring resources part of Quickstart page: https://docs.hpc.taltech.ee/quickstart.html#monitoring-resource-usage
 .. _LUMI billing policy: https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#compute-billing
 
 

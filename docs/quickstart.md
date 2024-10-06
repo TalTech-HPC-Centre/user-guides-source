@@ -499,6 +499,6 @@ If your home directory is larger than 500G please move the data to smbhome.
 
 ---
 
-At HPC are installed programs with varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2). More about available programs and licenses can be found at [software page](https://hpc.pages.taltech.ee/user-guides/software.html).
+At HPC are installed programs with varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2). More about available programs and licenses can be found at [software page](https://docs.hpc.taltech.ee/software.html).
 
 <br>

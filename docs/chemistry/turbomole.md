@@ -207,7 +207,7 @@ Good example:
     
 ### Time
 
-Time limits depend on time partition used [taltech user-guides](https://hpc.pages.taltech.ee/user-guides/hardware). If the calculation time exceeds the time limit requested in the Slurm script, then the job will be killed. Therefore, it is recommended to request a little more than is usually needed for calculation. 
+Time limits depend on time partition used [taltech user-guides](https://docs.hpc.taltech.ee/hardware). If the calculation time exceeds the time limit requested in the Slurm script, then the job will be killed. Therefore, it is recommended to request a little more than is usually needed for calculation. 
 
 
 ### _Restarting a failed/interrupted calculation_
