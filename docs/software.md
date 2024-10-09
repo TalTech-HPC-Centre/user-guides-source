@@ -31,7 +31,7 @@ FreeCAD, Salome, BRL-CAD, Gmsh and netgen; see [CAD-Mesh](engineering/cad-mesh.m
 -   Conformational search  --- 
 [xtb-CREST](chemistry/crest.md) 
 -   General purpose computational chemistry, biology and physics software packages --- 
-[Gaussian](chemistry/gaussian.md), [ORCA](chemistry/orca.md), [NWChem](chemistry/nwchem.html), [TURBOMOLE](chemistry/turbomole.md), xTB, CP2K
+[Gaussian](chemistry/gaussian.md), [ORCA](chemistry/orca.md), [NWChem](chemistry/nwchem.html), xTB, CP2K
 -   Wavefunction analysis --- 
 [Multiwfn](chemistry/multiwfn.md)
 -   Visualization software for computational chemistry, biology and physics --- 
