@@ -59,6 +59,11 @@ Otherwise the Desktop works as the regular (software rendering) one, see above.
 Please note that for most applications software rendering is fast enough, only heavy visulalization, like volume visualization in ParaView, COVISE, VisIt, VMD, Star-CCM+ and Ansys may require the GPU rendering.
 
 
+**Check using `nvtop` that your application actually uses the GPU!!!**
+
+
+
+
 ### _ParaView with EGL acceleration_
 
 It is not possible to have EGL rendering and the OpenGL GUI compiled together, therefore the EGL accelerated `pvserver` and the OpenGL GUI come from different modules and can run on different compute nodes.
