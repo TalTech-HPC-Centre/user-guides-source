@@ -18,32 +18,56 @@ The default desktop environment is xfce, which is configurable, lightweight and 
 
 ![ondemand-1](visualization/ondemand-1.png)
 
-### Running jobs
+<br>
+<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
+<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+
+## Running jobs
+
+---
 
 The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that 
 
 1. Choose **TalTech HPC Desktop**. 
 
-    Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
+2. Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
+
+    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-2](visualization/ondemand-2.png)
 
+    </div>
+
     ***NB!*** _Check and your account._ 
 
-2. Firstly, your request will be put into a queue and this picture will appear. 
+3. Firstly, your request will be put into a queue and this picture will appear. 
+
+    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-3](visualization/ondemand-3.png)
 
-3. When needed resources will become available, your session will start and this picture will appear. 
+    </div>
+
+4. When needed resources will become available, your session will start and this picture will appear. 
+
+    We recommend to use default settings for "Compression" and/or "Image Quality", unless you require high-quality screenshots.
+
+    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-4](visualization/ondemand-4.png)
 
-4. To start interactive desktop press "Launch TalTech HPC Desktop"
+    </div>
 
-    NB: Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab.
+    ***NB!*** _Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab._ 
 
-    ![bestsettings](visualization/ondemand-best-quality-settings.png)
+    <div style="width:50%; height:!50%; margin-left: auto; margin-right: auto;"> 
+
     ![error](visualization/ondemand-zlib-error.png)
+
+    </div>
+
+
+5. To start interactive desktop press "Launch TalTech HPC Desktop"
 
 
 
