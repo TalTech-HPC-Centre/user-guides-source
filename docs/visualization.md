@@ -1,7 +1,7 @@
 # Visualization
 
 
-The recommended way of doing visualizations is now using the **desktop session** on (https://ondemand.hpc.taltech.ee)[https://ondemand.hpc.taltech.ee]
+The recommended way of doing visualizations is now using the **desktop session** on (ondemand.hpc.taltech.ee)[https://ondemand.hpc.taltech.ee].
 
 
 <br>
@@ -12,17 +12,38 @@ The recommended way of doing visualizations is now using the **desktop session**
 
 ---
 
+OnDemand is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
+
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
-The menu only contain very few programs from the operating system.
+![ondemand-1](visualization/ondemand-1.png)
 
-To start software, open an XTerminal and use the module system as you would from the command-line and star the program from here.
+### Running jobs
 
+The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that 
 
-NB: Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab.
+1. Choose **TalTech HPC Desktop**. 
 
-![bestsettings](visualization/ondemand-best-quality-settings.png)
-![error](visualization/ondemand-zlib-error.png)
+    Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
+
+    ![ondemand-2](visualization/ondemand-2.png)
+
+    ***NB!*** _Check and your account._ 
+
+2. Firstly, your request will be put into a queue and this picture will appear. 
+
+    ![ondemand-3](visualization/ondemand-3.png)
+
+3. When needed resources will become available, your session will start and this picture will appear. 
+
+    ![ondemand-4](visualization/ondemand-4.png)
+
+4. To start interactive desktop press "Launch TalTech HPC Desktop"
+
+    NB: Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab.
+
+    ![bestsettings](visualization/ondemand-best-quality-settings.png)
+    ![error](visualization/ondemand-zlib-error.png)
 
 
 
