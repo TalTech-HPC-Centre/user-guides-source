@@ -1,7 +1,7 @@
 # Visualization
 
 
-The recommended way of doing visualizations is now using the **desktop session** on (ondemand.hpc.taltech.ee)[https://ondemand.hpc.taltech.ee].
+The recommended way of doing visualizations is now using the **desktop session** on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee).
 
 
 <br>
@@ -28,7 +28,7 @@ The default desktop environment is xfce, which is configurable, lightweight and 
 
 The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that 
 
-1. Choose **TalTech HPC Desktop**. 
+1. Choose "TalTech HPC Desktop". 
 
 2. Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
 
@@ -42,7 +42,7 @@ The menu only contain very few programs from the operating system. However, **al
 
 3. Firstly, your request will be put into a queue and this picture will appear. 
 
-    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
+    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-3](visualization/ondemand-3.png)
 
@@ -50,9 +50,9 @@ The menu only contain very few programs from the operating system. However, **al
 
 4. When needed resources will become available, your session will start and this picture will appear. 
 
-    We recommend to use default settings for "Compression" and/or "Image Quality", unless you require high-quality screenshots.
+    We recommend to use default settings for "Compression" and "Image Quality", unless you require high-quality screenshots.
 
-    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
+    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-4](visualization/ondemand-4.png)
 
@@ -60,7 +60,7 @@ The menu only contain very few programs from the operating system. However, **al
 
     ***NB!*** _Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab._ 
 
-    <div style="width:50%; height:!50%; margin-left: auto; margin-right: auto;"> 
+    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
 
     ![error](visualization/ondemand-zlib-error.png)
 
@@ -69,9 +69,32 @@ The menu only contain very few programs from the operating system. However, **al
 
 5. To start interactive desktop press "Launch TalTech HPC Desktop"
 
+    Will appear your HPC Desktop, where user can open XTerminal.
 
+    <div style="width:60%; height:!60%; margin-left: auto; margin-right: auto;"> 
 
-### _Available Visualization software on compute nodes_
+    ![ondemand-5](visualization/ondemand-5.png)
+
+    </div>
+
+5. To start interactive desktop press "Launch TalTech HPC Desktop"
+
+    Load environment and program needed and start vizualization. More detailed instructions on environment and program loading are given below. 
+
+    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
+
+    ![ondemand-6](visualization/ondemand-6.png)
+
+    </div>
+
+### _Available visualization software on compute nodes_
+
+Program from a list below and its environment can be loaded by:
+
+	module load rocky8-spack
+	module load <program name>
+
+_where **programe is in lowercase letters**_ 
 
 -   ParaView 
 -   VisIt 
@@ -81,13 +104,14 @@ The menu only contain very few programs from the operating system. However, **al
 -   RasMol 
 -   VESTA
 <!-- -   VAPOR -->
--   VMD
+-   VMD 
 -   Ovito
 -   Ospray (raytracer)
 -   PoVray (raytracer)
+
 <br>
 
-
+Programs are run by corresponding names in lowercase letters: **paraview** / **visit** / **vmd**.
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
