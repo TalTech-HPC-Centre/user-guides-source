@@ -113,6 +113,15 @@ _where **programe is in lowercase letters**_
 
 Programs are run by corresponding names in lowercase letters: **paraview** / **visit** / **vmd**.
 
+#### GaussView
+
+GaussView can be started by commands:
+
+	module load rocky8/all
+	module load gaussview
+	gview.sh <job name>
+
+
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
