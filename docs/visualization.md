@@ -3,32 +3,28 @@
 
 The recommended way of doing visualizations is now using the **desktop session** on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee).
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## OnDemand Desktop on any node (software rendering)
-
----
-
 OnDemand is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
 
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
-![ondemand-1](visualization/ondemand-1.png)
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Running jobs
+## OnDemand Desktop on any node and CPU
 
 ---
 
-The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that 
+The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that: 
 
 1. Choose "TalTech HPC Desktop". 
+
+    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
+
+    ![ondemand-1](visualization/ondemand-1.png)
+
+    </div>
 
 2. Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
 
@@ -71,7 +67,7 @@ The menu only contain very few programs from the operating system. However, **al
 
     Will appear your HPC Desktop, where user can open XTerminal.
 
-    <div style="width:60%; height:!60%; margin-left: auto; margin-right: auto;"> 
+    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
 
     ![ondemand-5](visualization/ondemand-5.png)
 
@@ -94,15 +90,14 @@ Program from a list below and its environment can be loaded by:
 	module load rocky8-spack
 	module load <program name>
 
-_where **programe is in lowercase letters**_ 
+_where **program** must be written in **lowercase letters**_ 
 
 -   ParaView 
 -   VisIt 
 <!-- -   COVISE -->
 -   Py-MayaVi 
 <!-- -   OpenDX -->
--   RasMol 
--   VESTA
+-   Molden
 <!-- -   VAPOR -->
 -   VMD 
 -   Ovito
@@ -113,7 +108,7 @@ _where **programe is in lowercase letters**_
 
 Programs are run by corresponding names in lowercase letters: **paraview** / **visit** / **vmd**.
 
-#### GaussView
+#### GaussView & Avogadro
 
 GaussView can be started by commands:
 
@@ -121,6 +116,11 @@ GaussView can be started by commands:
 	module load gaussview
 	gview.sh <job name>
 
+To run Avogadro:
+
+	module load rocky8/all
+	module load avogadro
+	avogadro <job name>
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
