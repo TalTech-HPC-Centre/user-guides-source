@@ -70,14 +70,13 @@ Hardware Specification
      -   32 **green** nodes, 2 x Intel Xeon Gold 6148 20C 2.40 GHz (**40 cores, 80 threads** per node), **96 GB** DDR4-2666 R ECC RAM (**green[1-32]**), 25 Gbit Ethernet, 18 of these FDR InfiniBand (**green-ib** partition)
      -   1 **mem1tb** large memory node, **1 TB** RAM, 4x Intel Xeon CPU E5-4640 (together **32 cores, 64 threads**)
      -   2 **ada** GPU nodes, 2xNvidia L40/48GB, 2x 32core AMD EPYC 9354 Zen4 (together **64 cores, 128 threads**), **1.5 TB** RAM** 
-     -   **amp** GPU nodes (`specific guide for amp and amp1`_): 
+     -   **amp** GPU nodes: 
      	-    **amp:** 8xNvidia A100/40GB, 2x 64core AMD EPYC 7742 Zen (together **128 cores, 256 threads**), **1 TB** RAM;
         -    **amp2:** 8xNvidia A100/80GB, 2x 64core AMD EPYC 7713 zen3 (together **128 cores, 256 threads**), **2 TB** RAM
      -   Visualization node **viz** (accessible within University network and `FortiVPN`_, `guide for viz`_): 2xNvidia Tesla K20Xm graphic cards (on displays :0.0 and :0.1), CPU Intel(R) Xeon(R) CPU E5-2630L v2@2.40GHz (**24 threads**), **64 GB** RAM, HDD **2 TB** storage.
 
      
 .. _load diagram: https://base.hpc.taltech.ee/load/
-.. _specific guide for amp and amp1: gpu.html
 .. _FortiVPN: https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN
 .. _guide for viz: visualization.html
 
