@@ -1,5 +1,3 @@
-<span style="color:red">not changed to rocky yet</span>
-
 # Putty
 
 PuTTY is a free and open-source terminal emulator for Windows, Mac and Linux. 
