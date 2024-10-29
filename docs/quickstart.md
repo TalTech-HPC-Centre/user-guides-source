@@ -12,9 +12,19 @@
 
 **To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](https://docs.hpc.taltech.ee/#billing).
 
-The login-node of the cluster can be reached by SSH. SSH (the Secure SHell) is available using the command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A guide for Windows users using PuTTY (an alternative SSH using a graphical user interface (GUI)) is [here](putty.md).
+The login-node of the cluster can be reached by SSH. SSH (the Secure SHell) is available using the command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A guide for Windows users using PuTTY (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.md).
 
-For accessing the cluster **base.hpc.taltech.ee** use command:
+For accessing the cluster **base.hpc.taltech.ee** use desktop session on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee) 
+
+<div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
+
+![ondemand-1](/visualization/ondemand-1.png)
+
+</div>
+
+more about OnDemand sessions can be found [here](/ondemand.md).
+
+Cluster can be also accessed by ssh command:
 
     ssh uni-ID@base.hpc.taltech.ee
 
@@ -31,8 +41,7 @@ For using graphical applications add the `-X` switch to the SSH command, and for
 
     ssh -X -Y uni-ID@base.hpc.taltech.ee
 
-
-***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](https://docs.hpc.taltech.ee/quickstart.html#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
+***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](/quickstart.md#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
 
 **We strongly recommend to use SSH-keys for logging to the cluster.**
 
@@ -62,7 +71,7 @@ Please compare the fingerprint to the ones below, if one matches, the host can b
 -   RSA SHA256:Q6NDm88foRVTKtEAEexcRqPqMQNGUzf3rQdetBympPg</details>
 
 
-[How to get SSH keys](ssh.md).
+[How to get SSH keys](/ssh.md).
 
 <br>
 <br>

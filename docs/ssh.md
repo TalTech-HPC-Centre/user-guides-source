@@ -1,5 +1,3 @@
-<span style="color:red">not changed to rocky yet</span>
-
 # Getting SSH keys to work
 
 <br>
