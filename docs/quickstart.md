@@ -30,12 +30,7 @@ Cluster can be also accessed by ssh command:
 
 _**where uni-ID should be changed to user's uni-ID.**_
 
-The cluster is accessible from inside the university and from major Estonian network providers. If you are traveling (or not on one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (with previously shown command) or a two-step login using a jump-host:
-
-    ssh -l uni-ID@intra.ttu.ee uni-ID@proksi.intra.ttu.ee
-    ssh uni-ID@base.hpc.taltech.ee
-
-_where all uni-ID should be changed to user's uni-ID._
+The cluster is accessible from inside the university and from major Estonian network providers. If you are traveling (or not on one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (with OnDemand session or  previously shown command).
 
 For using graphical applications add the `-X` switch to the SSH command, and for GLX (X Window System) forwarding additionally the `-Y` switch, so to be able to start a GUI program that uses GLX the connection command would be:
 
@@ -43,35 +38,7 @@ For using graphical applications add the `-X` switch to the SSH command, and for
 
 ***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](/quickstart.md#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
 
-**We strongly recommend to use SSH-keys for logging to the cluster.**
-
-### _SSH fingerprints of host-keys_
-
-SSH key fingerprint is a security feature for easy identification/verification of the host, user is connecting to. This option allows to connect to the server without a password. On first connect, user is shown a fingerprint of a host-key, and asked if it should be added to the list of known hosts.
-
-Please compare the fingerprint to the ones below, if one matches, the host can be added, if the fingerprint does not match, then there is a problem (e.g. man-in-the-middle-attack).<details><summary>SSH host keys of our servers</summary>
-
-**base.hpc.taltech.ee**
--   ECDSA SHA256:OEfQiOB/eIG8hYoQ25sQk9T5tx9EtQbhi6sNM4C8mME
--   ED25519 SHA256:t0CSTU0AnSsJThzuM68tucrcfnn2wLKabjSnuRKX8Yc
--   RSA SHA256:qYrmOw/YN7wf640yBHADX3wnAOPu0OOXlcu4LKBxzG8   
-
-.  
-
-**amp.hpc.taltech.ee**
--   ECDSA SHA256:yl6+VaKow6qDZAXL3rQY8+3d3pcH0kYg7MjGgNVTWZs
--   ED25519 SHA256:YOjtpcEL2+AWm6vDFjVl0znYuQPMSVCkyFGvdO5fm8o
--   RSA SHA256:4aaOxumH1ATNfiIA4mZSNMefvxfdFm5zZoUj6VR7TYo   
-
-.   
-  
-**viz.hpc.taltech.ee**
--   ECDSA SHA256:z2/bxleZ3T3vErkg4C7kvDPKKEU0qaoR8bL29EgMfGA
--   ED25519 SHA256:9zRBmS3dxD7BNISZKwg6l/2+6p4HeqlOhA4OMBjD9mk
--   RSA SHA256:Q6NDm88foRVTKtEAEexcRqPqMQNGUzf3rQdetBympPg</details>
-
-
-[How to get SSH keys](/ssh.md).
+**We strongly recommend to use SSH-keys for logging to the cluster with ssh command.** [How to get SSH keys](/ssh.md).
 
 <br>
 <br>
@@ -82,7 +49,7 @@ Please compare the fingerprint to the ones below, if one matches, the host can b
 
 ---
 
-By accessing the cluster, the user gets into his home directory or `$HOME` (`/gpfs/mariana/home/$USER/`).
+By accessing the cluster, the user gets into home directory or `$HOME` (`/gpfs/mariana/home/$USER/`).
 
 In the home directory, the user can create, delete, and overwrite files and perform calculations (if slurm script does not force program to use ` $SCRATCH ` directory). The home directory is limited in size of 500 GB and backups are performed once per week.
 
@@ -106,7 +73,7 @@ Please note that the scratch is *not* shared between nodes, so parallel MPI jobs
 
 SLURM is a management and job scheduling system at Linux clusters. SLURM quick reference can be found [here](https://slurm.schedmd.com/pdfs/summary.pdf).
 
-Examples of slurm scripts are usually given on the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given on our [software page](software.md). At software page or program's page also can be found information about licenses, since programs installed at HPC have varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).
+Examples of slurm scripts are usually given at the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given on our [software page](/software.md).
 
 <div class="simple1">
 The most often used SLURM commands are:
