@@ -35,7 +35,9 @@ The cluster is accessible from inside the university and from major Estonian net
 
 For using graphical applications add the `-X` switch to the SSH command, and for GLX (X Window System) forwarding additionally the `-Y` switch, so to be able to start a GUI program that uses GLX the connection command would be:
 
-    ssh -X -Y uni-ID@base.hpc.taltech.ee
+```bash
+ssh -X -Y uni-ID@base.hpc.taltech.ee
+```
 
 ***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](/quickstart.md#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
 
@@ -422,14 +424,16 @@ The HPC center exports two filesystems as Windows network shares:
 
 The shares can be found using the Explorer "Map Network Drive".
 
+```
     server >>> \\smb.hpc.taltech.ee\smbhome
     username >>> INTRA\<uni-id>
+```
 
 From Powershell: 
-
-     net use \\smb.hpc.taltech.ee\smbhome /user:INTRA\uni-id
-     get-smbconnection
-
+```powershell
+net use \\smb.hpc.taltech.ee\smbhome /user:INTRA\uni-id
+get-smbconnection
+```
 
 #### Linux access
 
