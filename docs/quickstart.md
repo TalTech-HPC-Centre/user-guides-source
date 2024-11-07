@@ -405,17 +405,13 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
 
     Copying ***to*** the cluster with `scp`:
     
-    ```bash
        scp local_path_from_where_copy/file uni-id@base.hpc.taltech.ee:path_where_to_save
-    ```
     
     ![scp](pictures/scp1.png)
 
     Copying ***from*** the cluster with `scp`:
     
-    ```bash
        scp uni-id@base.hpc.taltech.ee:path_from_where_copy/file local_path_where_to_save 
-    ```
     
     ![scp](pictures/scp2.png)
     
@@ -424,17 +420,13 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
        
 2. `sftp` is the secure version of the `ftp` protocol vailable on **Linux,** **Mac** and **Windows10 PowerShell.** This command starts a session, in which files can be transmitted in both directions using the `get` and `put` commands. File transfer can be done in "binary" or "ascii" mode, conversion of line-endings (see below) is automatic in "ascii" mode. There are also GUI versions available for different OS ([FileZilla](https://filezilla-project.org/), [gFTP](https://github.com/masneyb/gftp) and [WinSCP](https://winscp.net/eng/index.php) (Windows))
 
-    ```bash
        sftp uni-id@base.hpc.taltech.ee
-    ```
     
     ![sftp](pictures/sftp.png)
 
 3.  `sshfs` can be used to temporarily mount remote filesystems for data transfer or analysis. Available in **Linux.** The data is tunneled through an ssh-connection. Be sware that this is usually not performant and can creates high load on the login node due to ssh-encryption.
  
-```bash
         sshfs uni-id@base.hpc.taltech.ee:remote_dir/ /path_to_local_mount_point/
-```
 
     
 4. `rsync` can update files if previous versions exist without having to transfer the whole file. However, its use is recommended **for the advanced user only** since one has to be careful with the syntax.
