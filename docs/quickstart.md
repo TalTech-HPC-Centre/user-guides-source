@@ -60,8 +60,10 @@ The home directory can be accessed from console or by GUI programs, but it canno
 
 Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed, for example due  to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
-	srun -w green11 --pty bash
-	cd /state/partition1/
+```bash
+    srun -w green11 --pty bash
+    cd /state/partition1/
+```
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
 
@@ -91,7 +93,9 @@ The most often used SLURM commands are:
 
 For more parameters see the man-pages (manual) of the commands `srun`, `sbatch`, `sinfo` and `squeue`. For this use the command `man` followed by the program-name whose manual you want to see, e.g.:
 
+```bash
     man srun
+```
 
 Requesting resources with SLURM can be done either with parameters to `srun` or in a batch script invoked by `sbatch`.
 
@@ -109,7 +113,9 @@ Requesting resources with SLURM can be done either with parameters to `srun` or 
 
 **Running an interactive session** longer than default 10 min. (here 1 hour):
 
+```bash
     srun -t 01:00:00 --pty bash 
+```
 
 This logs you into one of the compute nodes, there you can load modules and run interactive applications, compile your code, etc.
 
@@ -117,16 +123,21 @@ With `srun` is reccomended to use CLI (command-line interface) instead of GUI (G
 
 **Running a simple non-interactive single process job** that lasts longer than default 4 hours (here 5 hours):
 
+```bash
     srun --partition=common -t 05:00:00 -n 1 ./a.out
+```
 
 ***NB!*** *Environment variables for OpenMP are *not* set automatically, e.g.*
 
+```bash
     srun  -N 1 --cpus-per-task=28 ./a.out
+```
 
 would *not* set `OMP_NUM_THREADS` to 28, this has to be done manually. So usually, for parallel jobs it is recommended to use scripts for `sbatch`. 
 
 Below is given an example of batch slurm script (filename: `myjob.slurm`) with explanation of the commands. 
 
+```bash
     #!/bin/bash
     #SBATCH --partition=common    ### Partition
     #SBATCH --job-name=HelloOMP   ### Job Name           -J
@@ -138,10 +149,11 @@ Below is given an example of batch slurm script (filename: `myjob.slurm`) with e
     #SBATCH --mem-per-cpu=100     ### Min RAM required in MB
     #SBATCH --array=13-18         ### Array tasks for parameter sweep
     
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK		### setup environment
-    module load gcc						### setup environment
-    ./hello_omp $SLURM_ARRAY_TASK_ID			### only for arrays, setup output files with system information
-    mpirun -n 28 ./hello_mpi 				### run program
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK    	### setup environment
+    module load gcc    					### setup environment
+    ./hello_omp $SLURM_ARRAY_TASK_ID    		### only for arrays, setup output files with system information
+    srun -n 28 ./hello_mpi     			### run program
+```
 
 
 In this example are listed some of the more common submission parameters. There are many more possible job-submission options, moreover, some of the options listed above  are not useful to apply together. An explanation of the variables used inside SLURM/SBATCH can be found [here](https://slurm.schedmd.com/sbatch.html#lbAJ). In contrast to e.g. GridEngine, SLURM allows fine-grained resource requests, using parameters like `--ntasks-per-core` or `--ntasks-per-node`.
@@ -160,7 +172,9 @@ In this example are listed some of the more common submission parameters. There 
 
 The job is then submitted to SLURM by
 
+```bash
     sbatch myjob.slurm
+```
 
 and will be executed when the requested resources become available.
 
@@ -216,7 +230,9 @@ When submitting a job, it is important to use the correct SLURM-account `--accou
 
 User can check the status his jobs (whether they are running or not, and on which node) by the command:
 
-	squeue -u $USER
+```bash
+    squeue -u $USER
+```
 
 ![squeue](pictures/squeue.png)
 
@@ -225,7 +241,9 @@ User can check the status his jobs (whether they are running or not, and on whic
 
 User can check the load of the node his job runs on, status and configuration of this node by command
 
-	scontrol show node <nodename>
+```bash
+    scontrol show node <nodename>
+```
 
 the load should not exceed the number of hyperthreads (CPUs in SLURM notation) of the node.
 
@@ -233,7 +251,9 @@ the load should not exceed the number of hyperthreads (CPUs in SLURM notation) o
 
 In case of MPI parallel runs statistics of several nodes can be monitored by specifying nodes names. For example:  
 
-	scontrol show node=green[25-26]
+```bash
+    scontrol show node=green[25-26]
+```
 
 
 Node features for node selection using `--constraint=`:
@@ -260,7 +280,8 @@ Node features for node selection using `--constraint=`:
 
 It is possible to submit a second interactive job to the node where the main job is running, check with `squeue` where your job is running, then submit
 
-	srun -w <nodename> --pty htop
+```bash
+srun -w <nodename> --pty htop
 
 Note that there must be free slots on the machine, so if you cannot use `-n 80` or `--exclusive` for your main job (use `-n 79`).
 
@@ -285,22 +306,27 @@ Will appear a new column, showing the CPU number of the program.
 #### Monitoring jobs using GPUs
 
 Log to **amp** or **amp2**. Command 
-
-	echo ${SLURM_STEP_GPUS:-$SLURM_JOB_GPUS} 
+```bash
+    echo ${SLURM_STEP_GPUS:-$SLURM_JOB_GPUS} 
+```
 
 shows the GPU IDs allocated to your job.
 
 GPUs load can be checked by command:
-	
-	nvidia-smi
+    
+```bash
+    nvidia-smi
+```
 
 ![nvidia-smi](pictures/nvidia-smi.png)
 
 Press `control+c` to exit.
 
 Another option is to logging to **amp** or **amp2**, check which GPUs are allocated to your job, and give command:
-	
-	nvtop
+    
+```bash
+    nvtop
+```
 
 ![nvtop](pictures/nvtop.png)
 
@@ -308,11 +334,15 @@ Press `q` to exit.
     
 An alternative method **on Linux computers,** if you have X11. Logging to **base/amp** with `--X` key:
 
-	ssh --X UniID@base.hpc.taltech.ee
+```bash
+    ssh --X UniID@base.hpc.taltech.ee
+```
 
 then submit your main interactive job 
 
-	srun --x11 -n <numtasks> --cpus-per-task=<numthreads> --pty bash
+```bash
+    srun --x11 -n <numtasks> --cpus-per-task=<numthreads> --pty bash
+```
 
 and start an `xterm -e htop &` in the session.
 
@@ -331,19 +361,25 @@ You can also monitor your resource usage by `taltech-lsquota.bash` script and `s
 
 Current disk usage:
 
+```bash
     taltech-lsquota.bash
+```
 
 ![usage](pictures/usage2.png)
 
 CPU usage during last day:
 
+```bash
     sreport -t Hours cluster UserUtilizationByAccount Users=$USER
+```
 
 ![CPUhours](pictures/CPUhours.png)
 
 CPU usage in specific period (e.g. since beginning of this year):
 
+```bash
     sreport -t Hours cluster UserUtilizationByAccount Users=$USER start=2024-01-01T00:00:00 end=2024-12-31T23:59:59
+```
 
 Where `start=` and `end=` can be changed depending on the desired period of time. 
 
@@ -369,13 +405,17 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
 
     Copying ***to*** the cluster with `scp`:
 
+```bash
        scp local_path_from_where_copy/file uni-id@base.hpc.taltech.ee:path_where_to_save
+```
 
     ![scp](pictures/scp1.png)
 
     Copying ***from*** the cluster with `scp`:
 
+```bash
        scp uni-id@base.hpc.taltech.ee:path_from_where_copy/file local_path_where_to_save 
+```
 
     ![scp](pictures/scp2.png)
 
@@ -384,13 +424,17 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
        
 2. `sftp` is the secure version of the `ftp` protocol vailable on **Linux,** **Mac** and **Windows10 PowerShell.** This command starts a session, in which files can be transmitted in both directions using the `get` and `put` commands. File transfer can be done in "binary" or "ascii" mode, conversion of line-endings (see below) is automatic in "ascii" mode. There are also GUI versions available for different OS ([FileZilla](https://filezilla-project.org/), [gFTP](https://github.com/masneyb/gftp) and [WinSCP](https://winscp.net/eng/index.php) (Windows))
 
+```bash
        sftp uni-id@base.hpc.taltech.ee
+```
 
     ![sftp](pictures/sftp.png)
 
 3.  `sshfs` can be used to temporarily mount remote filesystems for data transfer or analysis. Available in **Linux.** The data is tunneled through an ssh-connection. Be sware that this is usually not performant and can creates high load on the login node due to ssh-encryption.
  
+```bash
         sshfs uni-id@base.hpc.taltech.ee:remote_dir/ /path_to_local_mount_point/
+```
 
     
 4. `rsync` can update files if previous versions exist without having to transfer the whole file. However, its use is recommended **for the advanced user only** since one has to be careful with the syntax.
@@ -402,8 +446,10 @@ One of the simple and convenient ways to control and process data based on HPC i
 
 Each user automatically has a directory within `smbhome`. It does not match with `$HOME` directory, so calculations should be initially done at `smbhome` directory to prevent copying or files needed should be copied from `home` directory to the `smbhome` directory by commands:
 
-    pwd	### look path to the file 
-    cp path_to_your_file/your_file /gpfs/mariana/smbhome/$USER/	### copying
+```bash
+    pwd    ### look path to the file 
+    cp path_to_your_file/your_file /gpfs/mariana/smbhome/$USER/    ### copying
+```
 
 To get a directory for group access, please contact us (a group and a directory need to be created).
 
@@ -441,14 +487,18 @@ On Linux with GUI Desktop, the shares can be accessed with the nautilus browser.
 
 From commandline, the shares can be mounted as follows:
 
+```bash
     dbus-run-session bash
     gio mount smb://smb.hpc.taltech.ee/smbhome/
+```
 
 you will be asked for "User" (which is your UniID), "Domain" (which is "INTRA"), and your password.
 
 To disconnect from the share, unmount with
 
+```bash
     gio mount -u smb://smb.hpc.taltech.ee/smbhome/
+```
 
 
 ### Special considerations for copying Windows - Linux
