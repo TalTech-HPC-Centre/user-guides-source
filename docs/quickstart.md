@@ -425,10 +425,9 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
     ![sftp](pictures/sftp.png)
 
 3.  `sshfs` can be used to temporarily mount remote filesystems for data transfer or analysis. Available in **Linux.** The data is tunneled through an ssh-connection. Be sware that this is usually not performant and can creates high load on the login node due to ssh-encryption.
- 
+     
         sshfs uni-id@base.hpc.taltech.ee:remote_dir/ /path_to_local_mount_point/
 
-    
 4. `rsync` can update files if previous versions exist without having to transfer the whole file. However, its use is recommended **for the advanced user only** since one has to be careful with the syntax.
 
 
