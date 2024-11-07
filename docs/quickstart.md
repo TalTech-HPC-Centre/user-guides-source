@@ -25,8 +25,9 @@ For accessing the cluster **base.hpc.taltech.ee** use desktop session on [https:
 more about OnDemand sessions can be found [here](/ondemand.md).
 
 Cluster can be also accessed by ssh command:
-
-    ssh uni-ID@base.hpc.taltech.ee
+```bash
+ssh uni-ID@base.hpc.taltech.ee
+```
 
 _**where uni-ID should be changed to user's uni-ID.**_
 
