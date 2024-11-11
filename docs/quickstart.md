@@ -22,7 +22,7 @@ To access the cluster **base.hpc.taltech.ee** via a browser with a graphical, me
 
 </div>
 
-more about OnDemand sessions can be found [here](/ondemand.md).
+[more about OnDemand sessions](/ondemand.md).
 
 Another option is SSH (the Secure SHell), available by command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A PuTTY guide for Windows users (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.md).
 
@@ -55,8 +55,8 @@ The home directory can be accessed from console or by GUI programs, but it canno
 Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed, for example due  to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
 ```bash
-    srun -w green11 --pty bash
-    cd /state/partition1/
+srun -w green11 --pty bash
+cd /state/partition1/
 ```
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
@@ -70,45 +70,33 @@ Please note that the scratch is *not* shared between nodes, so parallel MPI jobs
 
 ---
 
-SLURM is a management and job scheduling system at Linux clusters. SLURM quick reference can be found [here](https://slurm.schedmd.com/pdfs/summary.pdf).
+SLURM is a management and job scheduling system at Linux clusters. More about [SLURM quick references](https://slurm.schedmd.com/pdfs/summary.pdf).
 
-Examples of slurm scripts are usually given at the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given on our [software page](/software.md).
+Examples of slurm scripts are usually given at the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given at our [software page](/software.md).
 
 <div class="simple1">
 The most often used SLURM commands are:
 
  - `srun` - to start a session or an application (in real time)
  - `sbatch` - to start a computation using a batch file (submit for later execution)
- - `squeue` - to check the load of the cluster and status of own jobs
+ - `squeue` - to check the load of the cluster and status of jobs
  - `sinfo` - to check the state of the cluster and partitions
  - `scancel` - to delete a submitted job (or stop a running one).
 </div>
 <br>
 
-For more parameters see the man-pages (manual) of the commands `srun`, `sbatch`, `sinfo` and `squeue`. For this use the command `man` followed by the program-name whose manual you want to see, e.g.:
+For more parameters see the man-pages (manual) of the commands `srun`, `sbatch`, `sinfo` and `squeue`. For example:
 
 ```bash
-    man srun
+man srun
 ```
 
-Requesting resources with SLURM can be done either with parameters to `srun` or in a batch script invoked by `sbatch`.
-
-<div class="simple1">The following defaults are used if not otherwise specified:
-
- - **default memory** -- is 1 GB/thread (for larger jobs request more memory)
- - **short partition** -- **default time limit** is 10 min and  **max time limit** is 4 hours (longer jobs need to be submitted to partitions common, green-ib or gpu partitions)
- - **common partition** --  **default time** is 10 min and **max time limit** is 8 days.
--   **long partition** -- **default time** is 10 min and **time limit** 15 days.
- - **green-ib partition** -- **default time** is 10 min and **max time limit** is 8 days
- - **bigmem partition**  -- **default time** is 10 min and **max time limit** is 8 days
- - **gpu partition** -- **default time** is 10 min and **max time limit** is 5 days
- </div> 
- <br>
+Requesting resources with SLURM can be done either with parameters to `srun` or in a batch script invoked by `#SBATCH`. Unless otherwise specified, 1GB/thread will be used and the job will run for 10 minutes. [More about partitions and their limits](/index.html#slurm-partitions).
 
 **Running an interactive session** longer than default 10 min. (here 1 hour):
 
 ```bash
-    srun -t 01:00:00 --pty bash 
+srun -t 01:00:00 --pty bash 
 ```
 
 This logs you into one of the compute nodes, there you can load modules and run interactive applications, compile your code, etc.
@@ -118,61 +106,51 @@ With `srun` is reccomended to use CLI (command-line interface) instead of GUI (G
 **Running a simple non-interactive single process job** that lasts longer than default 4 hours (here 5 hours):
 
 ```bash
-    srun --partition=common -t 05:00:00 -n 1 ./a.out
+srun --partition=common -t 05:00:00 -n 1 ./a.out
 ```
 
 ***NB!*** *Environment variables for OpenMP are *not* set automatically, e.g.*
 
 ```bash
-    srun  -N 1 --cpus-per-task=28 ./a.out
+srun  -N 1 --cpus-per-task=28 ./a.out
 ```
 
 would *not* set `OMP_NUM_THREADS` to 28, this has to be done manually. So usually, for parallel jobs it is recommended to use scripts for `sbatch`. 
 
-Below is given an example of batch slurm script (filename: `myjob.slurm`) with explanation of the commands. 
+Below is given **an example of batch slurm script** (filename: `myjob.slurm`) with explanation of the commands. 
 
 ```bash
-    #!/bin/bash
-    #SBATCH --partition=common    ### Partition
-    #SBATCH --job-name=HelloOMP   ### Job Name           -J
-    #SBATCH --time=00:10:00       ### WallTime           -t
-    #SBATCH --nodes=4             ### Number of Nodes    -N 
-    #SBATCH --ntasks-per-node=7   ### Number of tasks (MPI processes)
-    #SBATCH --cpus-per-task=4     ### Number of threads per task (OMP threads)
-    #SBATCH --account=hpcrcf      ### In case of several accounts, specifies account used for job submission
-    #SBATCH --mem-per-cpu=100     ### Min RAM required in MB
-    #SBATCH --array=13-18         ### Array tasks for parameter sweep
+#!/bin/bash
+#SBATCH --partition=common    ### Partition
+#SBATCH --job-name=HelloOMP   ### Job Name           -J
+#SBATCH --time=00:10:00       ### Time limit         -t
+#SBATCH --nodes=4             ### Number of Nodes    -N 
+#SBATCH --ntasks-per-node=7   ### Number of tasks (MPI processes)
+#SBATCH --cpus-per-task=4     ### Number of threads per task (OMP threads)
+#SBATCH --account=ptoject     ### Essentially your research group
+#SBATCH --mem-per-cpu=100     ### Min RAM required in MB
+#SBATCH --array=13-18         ### Array tasks for parameter sweep
     
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK    	### setup environment
     module load gcc    					### setup environment
     ./hello_omp $SLURM_ARRAY_TASK_ID    		### only for arrays, setup output files with system information
+
     srun -n 28 ./hello_mpi     			### run program
 ```
 
 
-In this example are listed some of the more common submission parameters. There are many more possible job-submission options, moreover, some of the options listed above  are not useful to apply together. An explanation of the variables used inside SLURM/SBATCH can be found [here](https://slurm.schedmd.com/sbatch.html#lbAJ). In contrast to e.g. GridEngine, SLURM allows fine-grained resource requests, using parameters like `--ntasks-per-core` or `--ntasks-per-node`.
+In this example are listed some of the most common submission parameters. There are many other possible options, moreover, some of the options listed above  are not useful to apply together. Here can be found descriptions of the [variables used inside SLURM/SBATCH](https://slurm.schedmd.com/sbatch.html#lbAJ) and **[more examples of SLURM scripts](/slurm_example.html)** with more detailed explanations.
 
-<div class="simple1"> 
- <a href="https://docs.hpc.taltech.ee/slurm_example.html">An example script for submitting</a>:
-
- - a single process job
- - an OpenMP parallel job 
- - an MPI parallel job (OpenFOAM) 
- - an array (parameter sweep) job 
- - a GPU job 
- - a job using the scratch partition (sequential or OpenMP parallel)
-</div> 
-<br>
 
 The job is then submitted to SLURM by
 
 ```bash
-    sbatch myjob.slurm
+sbatch myjob.slurm
 ```
 
 and will be executed when the requested resources become available.
 
-Output of applications and error messages are by default written to a `slurm-$job_id.out` file. More about SLURM finished job statistics can be found [here](slurm_statistics.md).
+Output of applications and error messages are by default written to a `slurm-$job_id.out` file. [More about SLURM finished job statistics](/slurm_statistics.md).
 
 <div class="simple1">
 Some useful online resources:
@@ -198,14 +176,17 @@ Some useful online resources:
 
 In SLURM exist accounts for billing, these are different from the login account!
 
-Each user has his/her own personal SLURM-account, which will have a monthly limit and at least one project account for larger calculations.
+Each user has his/her own personal SLURM-account, which will have a small monthly limit.  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID. 
 
+You can check which SLURM accounts you belong to, by:
 
-SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID. You can check which SLURM accounts you belong to, by `sacctmgr show associations format=account%30,user%30 | grep uniID` . Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), it is possible to submit jobs under this account, especially if no `user_` or project account has been created for you yet, however, "vaikimisi" will be discontinued in the near future.
+```bash
+sacctmgr show associations format=account%30,user%30 | grep uniID
+```
 
-When submitting a job, it is important to use the correct SLURM-account `--account=SLURM-ACCOUNT`, as this is connected to the financial source.
+Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), it is possible to submit jobs under this account, especially if no `user_` or project account has been created for you yet, however, "vaikimisi" will be discontinued in the near future.
 
-
+When submitting a job, **it is important to use the correct SLURM-account** `--account=SLURM-ACCOUNT`, as this is connected to the financial source.
 
 
 <br> 
