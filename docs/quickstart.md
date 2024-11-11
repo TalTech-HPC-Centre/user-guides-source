@@ -10,38 +10,32 @@
 
 **NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet#External-UNI-ID) should be created by the head of a structural unit.
 
-**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](https://docs.hpc.taltech.ee/#billing).
+**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](/index.html#billing).
 
-The login-node of the cluster can be reached by SSH. SSH (the Secure SHell) is available using the command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A guide for Windows users using PuTTY (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.md).
+**The cluster is accessible from inside the university** and from major **Estonian network** providers. If you are traveling (or not in one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (for OnDemand session and `ssh` command).
 
-For accessing the cluster **base.hpc.taltech.ee** use desktop session on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee) 
+To access the cluster **base.hpc.taltech.ee** via a browser with a graphical, menu-based environment use desktop session on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee) 
 
 <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
 
-![ondemand-1](/visualization/ondemand-1.png)
+![ondemand](/pictures/ondemand.png)
 
 </div>
 
 more about OnDemand sessions can be found [here](/ondemand.md).
 
-Cluster can be also accessed by ssh command:
-```bash
-ssh uni-ID@base.hpc.taltech.ee
-```
+Another option is SSH (the Secure SHell), available by command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A PuTTY guide for Windows users (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.md).
 
-_**where uni-ID should be changed to user's uni-ID.**_
-
-The cluster is accessible from inside the university and from major Estonian network providers. If you are traveling (or not on one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (with OnDemand session or  previously shown command).
-
-For using graphical applications add the `-X` switch to the SSH command, and for GLX (X Window System) forwarding additionally the `-Y` switch, so to be able to start a GUI program that uses GLX the connection command would be:
+For using graphical applications add the `-X`, and for GLX (X Window System) forwarding additionally the `-Y` switch,:
 
 ```bash
 ssh -X -Y uni-ID@base.hpc.taltech.ee
 ```
+_**where uni-ID should be changed to user's uni-ID.**_
 
-***NB!*** **The login-node is for some light interactive analysis. For heavy computations, request a (interactive) session on a compute node with the resource manager [SLURM](/quickstart.md#running-jobs-with-the-slurm) or submit job for execution by SLURM sbatch script!**
+***NB!*** **The login-node is for some light interactive analysis.** For heavy computations, request a (interactive) session with the resource manager [SLURM](/quickstart.html#running-jobs-with-slurm) or submit job for execution by SLURM sbatch script!**
 
-**We strongly recommend to use SSH-keys for logging to the cluster with ssh command.** [How to get SSH keys](/ssh.md).
+We strongly recommend to **use SSH-keys for logging** to the cluster with ssh command. [How to get SSH keys](/ssh.md).
 
 <br>
 <br>
