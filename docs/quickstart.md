@@ -152,19 +152,6 @@ and will be executed when the requested resources become available.
 
 Output of applications and error messages are by default written to a `slurm-$job_id.out` file. [More about SLURM finished job statistics](/slurm_statistics.md).
 
-<div class="simple1">
-Some useful online resources:
-
- - [SLURM scheduler workload manager](https://slurm.schedmd.com/pdfs/summary.pdf)
- - Victor Eijkhout: Introduction to High-Performance Scientific Computing <a href="https://doi.org/10.5281/zenodo.49897"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.49897.svg" alt="DOI"></a>
- - [Charles Severance, Kevin Dowd: High Performance Computing](http://cnx.org/content/col11136/1.5/)
- - [OpenMP standard](https://www.openmp.org/)
- - [MPI standard](https://www.mpi-forum.org/)
- - [SLURM Quick Reference (Cheat Sheet)](https://slurm.schedmd.com/pdfs/summary.pdf)
- </div>  
-
-
-<br>
 <br>
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
@@ -181,7 +168,7 @@ Each user has his/her own personal SLURM-account, which will have a small monthl
 You can check which SLURM accounts you belong to, by:
 
 ```bash
-sacctmgr show associations format=account%30,user%30 | grep uniID
+sacctmgr show associations format=account%30,user%30 | grep $USER
 ```
 
 Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), it is possible to submit jobs under this account, especially if no `user_` or project account has been created for you yet, however, "vaikimisi" will be discontinued in the near future.

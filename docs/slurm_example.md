@@ -1,35 +1,55 @@
-<span style="color:red">not changed to rocky yet</span>
+# Examples of slurm scripts
 
-# Examples of slurm scripts for submitting jobs
+<div class="simple1">
+<b>Some useful online resources:</b>
 
+ - [SLURM scheduler workload manager](https://slurm.schedmd.com/pdfs/summary.pdf)
+ - Victor Eijkhout: Introduction to High-Performance Scientific Computing <a href="https://doi.org/10.5281/zenodo.49897"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.49897.svg" alt="DOI"></a>
+ - [Charles Severance, Kevin Dowd: High Performance Computing](http://cnx.org/content/col11136/1.5/)
+ - [OpenMP standard](https://www.openmp.org/)
+ - [MPI standard](https://www.mpi-forum.org/)
+ - [SLURM Quick Reference (Cheat Sheet)](https://slurm.schedmd.com/pdfs/summary.pdf)
+ </div> 
+ 
+<br>
 <br>
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## A single process job
+## A single thread job
 
 ---
 
-The following script  launches job named bowtie2 using one thread. A directory bowtie2-results will be created where results will be written into bowtie2-%J.log output file (`%J` is a job allocation number and step number in format jobid.stepid).
+The following script sets up the environment for ORCA and runs a job named ORCA_test using one thread and 2GB of memory, with job.inp as an input file. Calculations will be performed in a scratch directory on a node, not in your directory. Results will be written into job.log output file.
 
-    #!/bin/bash 
-    #SBATCH --job-name=bowtie2		### job name 
-    #SBATCH --output=bowtie2-%J.log  	### output file 
-    #SBATCH --ntasks=1			### number of threads   
-    
-    ## load bowtie2 environment 
-    module load bowtie2-2.1.0
-   
-    ## creating directory for results 
-    mkdir bowtie2-results 
-    cd bowtie2-results 
+```bash
+#!/bin/bash 
+#SBATCH --job-name=ORCA_test		### job name 
+#SBATCH --ntasks=1			### number of threads   
+#SBATCH --mem=2GB			### memory
   
-    ## building bowtie2 index 
-    bowtie2-build $BT2_HOME/example/reference/lambda_virus.fa lambda_virus
+## load ORCA environment 
+module load rocky8/all
+module load orca/5.0.4
+export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
    
-    ## aligning against the index, output to eg1.sam file 
-    bowtie2 -x lambda_virus -U $BT2_HOME/example/reads/reads_1.fq -S eg1.sam
+#Create scratch directory
+SCRATCH=/state/partition1/$SLURM_JOB_ID
+mkdir -p $SCRATCH
+cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
+cd $SCRATCH/
+  
+#Run calculations 
+$orcadir/orca job.inp >> job.log
+
+#Copy files back to working directory
+cp $SCRATCH/* $SLURM_SUBMIT_DIR
+rm *tmp*
+
+#Clean after yourself
+rm -rf  $SCRATCH
+```
 
 <br>
 <br>
@@ -44,21 +64,25 @@ The following script launches job named HelloOMP using OpenMP. For this job slur
 
 <span style="color:blue"> 
 Even though it is `--cpus-per-task` slurm reserves threads, not CPU, since  "cpu" in SLURM's language is the smallest unit. </span> 
+<br>
+<br>
 
-**Note:** Each thread needs sufficient work to do to make up for the time spent in launching the thread. Therefore it is not useful to run small/short jobs in parallel.
+**Note:** Each thread needs to do enough work to compensate for the time it took to launch it. Therefore it is not useful to run small/short jobs in parallel.
 
-    #!/bin/bash
-    #SBATCH --job-name=HelloOMP		### job name           -J
-    #SBATCH --time=00:10:00     		### time limit         -t
-    #SBATCH --nodes=1           		### number of nodes    -N 
-    #SBATCH --ntasks-per-node=1 		### number of tasks (MPI processes)
-    #SBATCH --cpus-per-task=12  		### number of threads per task (OMP threads)
+```bash
+#!/bin/bash
+#SBATCH --job-name=HelloOMP		### job name           -J
+#SBATCH --time=00:10:00     		### time limit         -t
+#SBATCH --nodes=1           		### number of nodes    -N 
+#SBATCH --ntasks-per-node=1 		### number of tasks (MPI processes)
+#SBATCH --cpus-per-task=12  		### number of threads per task (OMP threads)
 
-    ## load environment    
-    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+## load environment    
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 
-    ## run job
-    ./hello_omp 
+## run job
+./hello_omp 
+```
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
@@ -82,27 +106,30 @@ It would be possible to request all tasks to be on the same node using the `-N` 
 <span style="color:blue"> 
 Flag `-l` in #!/bin/bash row means that settings in /home/user/.bash_profile will be executed.
 </span>  
+<br>
+<br>
 
 **Note:** Each task needs sufficient work to do to make up for the time spent with inter-process communication. Therefore it is not useful to run small/short jobs in parallel. 
 
-    #!/bin/bash -l    
-    #SBATCH -n 4     			### number of CPUs 
-    #SBATCH -t 10:00:00      		### run time   
-    #SBATCH -J openfoam-damBreak     	### job name
-    #SBATCH --partition=infiniband		### partition 
+```bash
+#!/bin/bash -l    
+#SBATCH -n 4     			### number of CPUs 
+#SBATCH -t 10:00:00      		### run time   
+#SBATCH -J openfoam-damBreak     	### job name
+#SBATCH --partition=green-ib		### partition 
 
-    ## load environment    
-    module load rocks-openmpi
-    source /share/apps/OpenFOAM/OpenFOAM-v1912/etc/bashrc
+## load environment    
+module load rocky8-spack
+module load openfoam
 
-    ## run program
-    cd $WM_PROJECT_USER_DIR/damBreak/damBreak
-    blockMesh
-    decomposePar
-    setFields
-    mpirun -n $SLURM_NTASKS interFoam -parallel
-    reconstructPar
-
+## run program
+cd $WM_PROJECT_USER_DIR/damBreak/damBreak
+blockMesh
+decomposePar
+setFields
+mpirun -n $SLURM_NTASKS interFoam -parallel
+reconstructPar
+```
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
@@ -135,17 +162,19 @@ Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node
 <span style="color:blue">
 Tis script reserves 10 threads and run array of jobs in range of 13-1800.  The `$SLURM_ARRAY_TASK_ID` variable calls the input files in the given range in turn and data is written in output files arrayjob, which also contain job allocation ID and  job array index number (`-%A` and `-%a`, respectively). 
 </span> 
+<br>
+<br>
 
-
-    #!/bin/bash 
-    #SBATCH --job-name=array-parameter-scan	### job name  
-    #SBATCH --output=arrayjob-%A-%a  		### output file 
-    #SBATCH --ntasks=10  			    	### number of threads  
-    #SBATCH --array=13-1800       		    	### Array tasks for parameter sweep
+```bash
+#!/bin/bash 
+#SBATCH --job-name=array-parameter-scan	### job name  
+#SBATCH --output=arrayjob-%A-%a  		### output file 
+#SBATCH --ntasks=10  			    	### number of threads  
+#SBATCH --array=13-1800       		    	### Array tasks for parameter sweep
     
-    ## run job
-    ./myarrayjob  $SLURM_ARRAY_TASK_ID
-
+## run job
+./myarrayjob  $SLURM_ARRAY_TASK_ID
+```
 
 <br>
 <br>
@@ -161,26 +190,29 @@ The GPU scripts can be run only on **amp**.
 
 The following script reserves 1 gpu (Nvidia A100), uses gpu partition and has time limit 0f 10 minutes. 
 
-    #!/bin/bash 
-    #SBATCH --job-name=uses-gpu		### job name
-    #SBATCH -p gpu			### use gpu
-    #SBATCH --gres=gpu:A100:1		### specifying the GPU type
-    #SBATCH -t 00:10:00			### time limit 
+```bash
+#!/bin/bash 
+#SBATCH --job-name=uses-gpu		### job name
+#SBATCH -p gpu			### use gpu
+#SBATCH --gres=gpu:A100:1		### specifying the GPU type
+#SBATCH -t 00:10:00			### time limit 
 
-    ## run job    
-    ./mygpujob
+## run job    
+./mygpujob
+```
 
 This script reserves 4 gpu without specifying the GPU type.
 
-    #!/bin/bash 
-    #SBATCH --job-name=uses-gpu		### job name
-    #SBATCH -p gpu			### use gpu
-    #SBATCH --gres=gpu:4		### number of gpu
-    #SBATCH -t 00:10:00 		### time limit 
+```bash
+#!/bin/bash 
+#SBATCH --job-name=uses-gpu		### job name
+#SBATCH -p gpu			### use gpu
+#SBATCH --gres=gpu:4		### number of gpu
+#SBATCH -t 00:10:00 		### time limit 
 
-    ## run job    
-    ./mygpujob
-
+## run job    
+./mygpujob
+```
 
 <br>
 <br>
@@ -194,24 +226,27 @@ This script reserves 4 gpu without specifying the GPU type.
 <span style="color:blue"> 
 The following script creates a directory named scratch-%x-%j (where -%x is a job name and %j is a jobid of the running job). This scratch directory is done on the scratch partition of the node to provide fast local storage, that does **not** require network. After, slurm script runs the job, and copies the output files back into the permanent home-directory once the job is completed.
 </span>  
+<br>
+<br>
 
-    #!/bin/bash -l
+```bash
+#!/bin/bash -l    
+#SBATCH -N 1			### number of nodes
+#SBATCH -t 00:10:00			### time limit  
+#SBATCH -J using-scratch		### job name
     
-    #SBATCH -N 1			### number of nodes
-    #SBATCH -t 00:10:00			### time limit  
-    #SBATCH -J using-scratch		### job name
-    
-    ## creates scratch scratch directory, copy files from working directory to scratch directory, goes to scratch directory
-    mkdir /state/partition1/scratch-%x-%j
-    cp -r $HOME/were/input/is/* /state/partition1/scratch-%x-%j/
-    cd /state/partition1/scratch-%x-%j/
+## creates scratch scratch directory, copy files from working directory to scratch directory, goes to scratch directory
+mkdir /state/partition1/scratch-%x-%j
+cp -r $HOME/were/input/is/* /state/partition1/scratch-%x-%j/
+cd /state/partition1/scratch-%x-%j/
 
-    ## run job
-    myjob
+## run job
+myjob
 
-    ## copy files from scratch directory to working directory and remove scratch directory
-    cp -r /state/partition1/scratch-%x-%j/* $HOME/were/input/is
-    rm -rf /state/partition1/scratch-%x-%j
+## copy files from scratch directory to working directory and remove scratch directory
+cp -r /state/partition1/scratch-%x-%j/* $HOME/were/input/is
+rm -rf /state/partition1/scratch-%x-%j
+```
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
 
