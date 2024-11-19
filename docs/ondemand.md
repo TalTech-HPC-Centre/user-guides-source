@@ -4,12 +4,13 @@ OnDemand is a graphical user interface that allows access to HPC via a web brows
 
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
+The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. 
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
 <hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## OnDemand Desktop on any node and CPU
+## OnDemand Desktop (CPU)
 
 ---
 
