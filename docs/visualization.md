@@ -87,12 +87,14 @@ The startup procedure for EGL accelerated rendering is the same as for use of Pa
 2. Open 2 XTerms
 3. in Xterm 1 start the ParaView GUI: 
 	```bash
-	module load rocky8-spack paraview/5.12.1-gcc-10.3.0-dotq
+	module load rocky8-spack 
+	module load paraview/5.12.1-gcc-10.3.0-dotq
 	paraview
 	```
 4. in Xterm 2 start the ParaView server: 
 	```bash 
-	module load rocky8 paraview/5.12.1-egl` 
+	module load rocky8 
+	module load paraview/5.12.1-egl` 
 	pvserver
 	```
 	(alternatively, you could ssh into base and start a separate job on a gpu node with srun or sbatch)
@@ -131,13 +133,17 @@ The following are installed on our cluster:
 
 Ascent on all nodes:
 
-    module load rocky8-spack
-    module load ascent
+```bash
+module load rocky8-spack
+module load ascent
+```
 
 Catalyst on all nodes:
 
-    module load rocky8-spack
-    module load libcatalyst/2.0.0-gcc-10.3.0-openblas-bp26
+```bash
+module load rocky8-spack
+module load libcatalyst/2.0.0-gcc-10.3.0-openblas-bp26
+```
 
 [Catalyst can be used within OpenFOAM and NEK5000 simulations.](https://github.com/KTH-Nek5000/InSituPackage) 
 
