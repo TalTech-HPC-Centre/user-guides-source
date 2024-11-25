@@ -15,9 +15,9 @@ The menu only contain very few programs from the operating system. However, **al
 
 ---
 
-![ondemand-1](visualization/ondemand-1.png)
+![ondemand-1](/visualization/ondemand-1.png)
 
-[More information about using ondemand can be found at OnDemand page.](/ondemand.md)
+[More information can be found at OnDemand page.](/ondemand.md)
 
 ### _Available visualization software on compute nodes_
 
@@ -81,24 +81,39 @@ Please note that for most applications software rendering is fast enough, only h
 
 It is not possible to have EGL rendering and the OpenGL GUI compiled together, therefore the EGL accelerated `pvserver` and the OpenGL GUI come from different modules and can run on different compute nodes.
 
-The startup procedure for EGL accelerated rendering is the same as for use of ParaView in distributed mode.
+The startup procedure for EGL accelerated rendering is the same as for use of ParaView in distributed mode:
 
-1. Start an OnDemand desktop on a GPU node and request a GPU
-2. Open 2 XTerms
-3. in Xterm 1 start the ParaView GUI: 
+1. Start an OnDemand desktop on a GPU node and request a GPU.
+2. Open 2 XTerms.
+3. In Xterm 1 start the ParaView GUI: 
 	```bash
 	module load rocky8-spack 
 	module load paraview/5.12.1-gcc-10.3.0-dotq
 	paraview
 	```
-4. in Xterm 2 start the ParaView server: 
+4. In Xterm 2 start the ParaView server: 
 	```bash 
 	module load rocky8 
-	module load paraview/5.12.1-egl` 
+	module load paraview/5.12.1-egl 
 	pvserver
 	```
-	(alternatively, you could ssh into base and start a separate job on a gpu node with srun or sbatch)
-5. in GUI select "Connect" and connect to either localhost:11111 or the gpu node the pvserver runs on, use "manual" connect, then choose "connect".
+	(alternatively, you could ssh into base and start a separate job on a gpu node with srun or sbatch) in GUI select "Connect" and connect to either localhost:11111 or the gpu node the pvserver runs on, use "manual" connect, then choose "connect".
+
+5. In Xterm 3 run `nvtop` to check if your application actually uses the GPU:
+	```bash 
+	nvtop
+	```
+
+<div style="width:85%; height:85%; margin-left: auto; margin-right: auto;"> 
+	
+![paraview-XT-1](/visualization/paraview-XT-1.png)
+![paraview-XT-3](/visualization/paraview-XT-3.png)
+
+</div>	
+	
+![paraview](/visualization/paraview.png)
+
+
 
 A similar procedure can also be used to connect a client running on your desktop computer to the pvserver on the compute node.
 
