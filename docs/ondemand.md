@@ -1,6 +1,6 @@
-# OnDemand.md
+# OnDemand
 
-OnDemand is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
+OnDemand ([available at https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee)) is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
 
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
@@ -14,7 +14,7 @@ The menu only contain very few programs from the operating system. However, **al
 
 ---
 
-The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. To do that: 
+To enter home directory using OnDemand:
 
 1. Choose "TalTech HPC Desktop". 
 
@@ -81,44 +81,7 @@ The menu only contain very few programs from the operating system. However, **al
 
     </div>
 
-### _Available visualization software on compute nodes_
-
-Program from a list below and its environment can be loaded by:
-
-	module load rocky8-spack
-	module load <program name>
-
-_where **program** must be written in **lowercase letters**_ 
-
--   ParaView 
--   VisIt 
-<!-- -   COVISE -->
--   Py-MayaVi 
-<!-- -   OpenDX -->
--   Molden
-<!-- -   VAPOR -->
--   VMD 
--   Ovito
--   Ospray (raytracer)
--   PoVray (raytracer)
-
-<br>
-
-Programs are run by corresponding names in lowercase letters: **paraview** / **visit** / **vmd**.
-
-#### GaussView & Avogadro
-
-GaussView can be started by commands:
-
-	module load rocky8/all
-	module load gaussview
-	gview.sh <job name>
-
-To run Avogadro:
-
-	module load rocky8/all
-	module load avogadro
-	avogadro <job name>
+[More information about using onDemand can be found at visualization page.](/visualization.md)
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
@@ -160,34 +123,6 @@ For more explanations, see (ParaView WIKI)[https://www.paraview.org/Wiki/Reverse
 ### _StarCCM+ with hardware rendering_
 
     vglrun starccm+ -clientldpreload /usr/lib64/libvglfaker.so -graphics native -rgpu auto  -power -fabric TCP -podkey $YOURPODKEY ...
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## _In-situ visualization (in preparation)_
-
-In-situ visualization creates the visualization during the simulation instead of during the postprocesssing phase. The simulation code needs to be connected to in-situ visualization libraries. e.g. Catalyst (ParaView), LibSim (VisIt) and Ascent.
-
-The following are installed on our cluster
-
--   (Catalyst)[https://www.paraview.org/hpc-insitu/]
--   (Ascent)[https://github.com/Alpine-DAV/ascent]
--   LibSim
--   SENSEI
-
-Ascent on all nodes
-
-    module load rocky8-spack
-    module load ascent
-
-Catalyst on all nodes
-
-    module load rocky8-spack
-    module load libcatalyst/2.0.0-gcc-10.3.0-openblas-bp26
-
-Catalyst can be used within OpenFOAM and (NEK5000)[https://github.com/KTH-Nek5000/InSituPackage] simulations.
 
 
 <br>

@@ -268,7 +268,8 @@ Contents:
  
    lumi
    cloud 
-   quickstart 
+   quickstart
+   ondemand 
    learning 
    modules
    software    
