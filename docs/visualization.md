@@ -5,7 +5,7 @@ The recommended way of doing visualizations is now using the **desktop session**
 
 OnDemand is a graphical user interface that allows access to HPC via a web browser. The default desktop environment is xfce, which is configurable, lightweight and fast.
 
-The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line.
+The menu only contain very few programs from the operating system. However, **all installed software can be opened from an XTerminal** using the module system as you would from the command-line.
 
 <br>
 <hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
