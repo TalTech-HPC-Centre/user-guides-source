@@ -47,16 +47,27 @@ Programs are run by corresponding names in lowercase letters: **paraview** / **v
 #### GaussView & Avogadro
 
 GaussView can be started by commands:
-
-	module load rocky8/all
-	module load gaussview
-	gview.sh <job name>
-
+```bash
+module load rocky8/all
+module load gaussview
+gview.sh <job name>
+```
 To run Avogadro:
+```bash
+module load rocky8/all
+module load avogadro
+avogadro <job name>
+```
+<br>
+#### 3D Slicer
 
-	module load rocky8/all
-	module load avogadro
-	avogadro <job name>
+Visualization and processing of medical images (CT, MRI)
+```bash
+module load rocky8
+module load slicer
+```
+
+
 
 <br>
 <br>
