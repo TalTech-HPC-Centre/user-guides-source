@@ -58,7 +58,7 @@ module load rocky8/all
 module load avogadro
 avogadro <job name>
 ```
-<br>
+
 #### 3D Slicer
 
 Visualization and processing of medical images (CT, MRI)
