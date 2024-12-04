@@ -148,7 +148,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.highlight:
       anchor_linenums: true
-      auto_title: false
+      auto_title: true
       linenums: false
       linenums_style: table
   - pymdownx.snippets
