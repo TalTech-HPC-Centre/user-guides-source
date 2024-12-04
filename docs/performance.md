@@ -43,8 +43,6 @@ The assumption that all programs run faster when more cores are used is generall
 
 If a simulation exhibits strong scaling, then the same problem is solved faster with linear speedup and the workload per processor is reduced. Strong scaling is mostly used for long-running CPU-bound applications. However, the speedup achieved by increasing the number of processes usually decreases.
 
-<br>
-
 ### _Weak scaling_
 
 
@@ -61,7 +59,6 @@ Thus, both the number of processors and the problem size are increased, which re
 ***NOTE: Parallel does not (necessarily) mean faster!!!*** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test (run the same (a typical) simulation with different numbers of parallel tasks) and find the sweet spot.
 
 ![sweet spot](/pictures/of-timing4.png)
-
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the time command). ***"Wall clock"*** (real) time is the time one needs to wait till the job is finished, ***"Summed thread time"*** (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
 
@@ -120,13 +117,7 @@ Billed CPU-time:
 | 40  |  | 6:00 |  |  |
 | 48  | 7:12 |  |  |  |
 
-<br>
-<br>
-
 ![efficiency](/pictures/efficiency.png)
-
-
-
 
 Simple way to check if CPUs are busy enough: run an interactive session on the same node:
 
@@ -144,7 +135,6 @@ These jobs have spend over 90% CPU-time in calculations:
 
 ![htop-openfoam-n8](/pictures/htop-openfoam-n8_crop.png)
 ![htop-starccm-1node-80core-good](/pictures/htop-starccm-1node-80core-good_crop.png)
-
 
 This jobs spends already much more CPU-time in communication:
 

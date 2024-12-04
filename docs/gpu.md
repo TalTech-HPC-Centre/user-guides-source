@@ -114,7 +114,6 @@ To compile CUDA code, use the Nvidia compiler wrapper:
 - GCC-10.3.0
 - GCC-11.2.0 with NVPTX supports GPU-offloading using OpenMP and OpenACC pragmas
 - LLVM-13.0.0 (Clang/Flang) with NVPTX supports GPU-offloading using OpenMP pragmas
-<br>
 
 See also: <https://lumi-supercomputer.eu/offloading-code-with-compiler-directives/>
 
@@ -128,8 +127,7 @@ Since version 4.0 supports offloading to accelerators. It can be utilized by GCC
 - GCC-10.3.0
 - GCC-11.2.0 with NVPTX supports GPU-offloading using OpenMP and OpenACC pragmas
 - LLVM-13.0.0 (Clang/Flang) with NVPTX supports GPU-offloading using OpenMP pragmas
-- AOMP 
-<br>
+- AOMP
 
 List of compiler support for OpenMP: <https://www.openmp.org/resources/openmp-compilers-tools/>
 

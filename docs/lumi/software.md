@@ -106,8 +106,6 @@ To install programs into use the following commands:
 
 	 	module load program_name
 
-<br>
-
 ### Installation by EasyBuild 
 
 1. To install program with **EasyBuild**, initialise it by following commands:

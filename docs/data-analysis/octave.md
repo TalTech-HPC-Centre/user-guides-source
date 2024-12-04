@@ -1,4 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # Octave/Matlab
 
@@ -6,11 +7,6 @@ Octave is a free alternative to Matlab and if you do not use Matlab's toolboxes,
 we have setup a module for Octave:
 
     module load octave
-    
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Octave: Example of a non-interactive batch job (single process)
 
@@ -34,11 +30,6 @@ The commands that Octave should calculate are in `script.m`
     ## should output 1.0: 
     a
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Octave netcdf toolbox
 
 ---
@@ -59,11 +50,6 @@ You may need to scroll down when necessary and it should complete the compilatio
 
     pkg load octcdf
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Matlab
 
 ---
@@ -79,4 +65,3 @@ Start using it by loading the module
     module load Matlab/R2018a
 
 Matlab can be used non-interactive (like Octave in the above example).
-

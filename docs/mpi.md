@@ -75,7 +75,6 @@ For further explanations and details see:
 -   IBM Platform MPI (MPICH descendant)
 -   IBM Spectrum MPI (OpenMPI descendant)
 -   (at least one for each network and CPU manufacturer)
-<br>
 
 ### OpenMPI
 
@@ -86,7 +85,6 @@ For further explanations and details see:
 -   well integrated into many schedulers (e.g. SLURM)
 -   highly optimized
 -   FOSS (BSD license)
-<br>
 
 ### MPICH
 
@@ -97,7 +95,6 @@ For further explanations and details see:
 -   ? not intgrated into schedulers <!--- is this correct? Maybe, "?" mark is better?--->
 -   used to be a PITA to get working smoothly
 -   FOSS
-<br>
 
 ### MVAPICH
 
@@ -108,7 +105,6 @@ For further explanations and details see:
 -   generally not available in Linux distributions
 -   not integrated with schedulers (integrated with SLURM only after version 18)
 -   FOSS (BSD license)
-<br>
 
 ### Recommendation
 
@@ -120,4 +116,3 @@ For a comparison, see for example:
 
 -   <https://www.chpc.utah.edu/documentation/software/mpilibraries.php>
 -   <https://stackoverflow.com/questions/2427399/mpich-vs-openmpi>
-

@@ -35,8 +35,6 @@ _where **program** must be written in **lowercase letters**_
 -   Ospray (raytracer)
 -   PoVray (raytracer)
 
-<br>
-
 Programs are run by corresponding names in lowercase letters: **paraview** / **visit** / **vmd**.
 
 #### GaussView & Avogadro
