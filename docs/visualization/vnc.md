@@ -1,10 +1,7 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # Remote visualization using VNC
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Short guide
 
@@ -35,12 +32,6 @@
 
     	vncserver -kill :XX
 
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Get started
 
 ---
@@ -49,31 +40,17 @@
 
 Virtual Network Computing (VNC) is a graphical desktop-sharing system to remotely control another computer.
 
-<div class="simple1">
 The client (your desktop) computer needs a vncviewer
 
 -   **Linux:** [xtigervncviewer](https://command-not-found.com/xtigervncviewer)
 -   **Windows:** TigerVNCviewer: [vncviewer64-1.12.0.exe](https://sourceforge.net/projects/tigervnc/files/stable/1.12.0/vncviewer64-1.12.0.exe/download)
 -   **Mac:** [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/)
-</div>
-<br>
 
 ### First time use
 
 On the first start, VNC asks to specify a password to connect to the server, choose a secure one, which does not match your HPC/UniID password because VNC connections are not encrypted!
 
-
-<div style="width:95%; height:!95%; margin-left: auto; margin-right: auto;"> 
-
-![vnc-host-0](vnc-host-0.png)
-
-</div>
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+![vnc-host-0](/visualization/vnc-host-0.png){: style="width:95%; height:!95%;"}
 
 ## VNC Long version 
 
@@ -90,7 +67,7 @@ VNC should be run firstly at **viz** node of HPC and after at user's computer.
 
 		ssh -J uni-ID@base.hpc.taltech.ee uni-ID@viz 
 
-	***NB!*** _Connection to **viz** can be done ***only*** with SSH keys. SSH key generation guide is [here](../ssh.md)._
+	***NB!*** _Connection to **viz** can be done ***only*** with SSH keys. SSH key generation guide is [here](/ssh.html)._
 
 	***NB!*** _To use **viz** the SSH key must be added to the **base** node._
 
@@ -112,11 +89,7 @@ VNC should be run firstly at **viz** node of HPC and after at user's computer.
 
 3. The output in the terminal will show on which display VNC is running.
 
-	 <div style="width:95%; height:!95%; margin-left: auto; margin-right: auto;"> 
-
-	![vnc-host-1](vnc-host-1.png)
-	
-	</div>
+	![vnc-host-1](/visualization/vnc-host-1.png){: style="width:95%; height:!95%;"}
 
 	see second line `desktop at :8`, where `:8` is the display number -- further `XX`.
 
@@ -130,7 +103,7 @@ VNC should be run firstly at **viz** node of HPC and after at user's computer.
 
 		ssh -J Uni-ID@base.hpc.taltech.ee -L 59XX:127.0.0.1:59XX Uni-ID@viz
 
-4. On **your desktop** start a VNC viewer. If you do it from terminal -- give one of these command depending on which VNC viewer you have:
+5. On **your desktop** start a VNC viewer. If you do it from terminal -- give one of these command depending on which VNC viewer you have:
 
     	vncviewer :XX
 
@@ -142,22 +115,14 @@ VNC should be run firstly at **viz** node of HPC and after at user's computer.
 
 If you use graphical interface - specify localhost - in the corresponding field (line in the top) and click bottom "Continue". 
 
-<div style="width:75%; height:!75%; margin-left: auto; margin-right: auto;"> 
-
-![vnc-1](vnc-1.png)
-
-</div>
+![vnc-1](/visualization/vnc-1.png){: style="width:75%; height:!75%;"}
 
 Type password.
 
-<div style="width:75%; height:!75%; margin-left: auto; margin-right: auto;"> 
-
-![vnc-2](vnc-2.png)
-
-</div>
+![vnc-2](/visualization/vnc-2.png){: style="width:75%; height:!75%;"}
 
 
-If you see monochromic field and can not start a session, it mean that you to set up your VNC session: [Setting up VNC config](https://docs.hpc.taltech.ee/visualization/vnc.html#setting-up-vnc-session).
+If you see monochromic field and can not start a session, it mean that you to set up your VNC session: [Setting up VNC config](/visualization/vnc.html#setting-up-vnc-session).
 
 
 If you see terminal - then everything is done correctly and you can start working. Within the session window, you can start any program from the terminal or using the menus of the window manager.
@@ -174,12 +139,8 @@ For example:
 
      module load viz-spack
      module load jmol
-     
-<div style="width:75%; height:!75%; margin-left: auto; margin-right: auto;"> 
 
-![vnc-3](vnc-3.png)
-
-</div>
+![vnc-3](/visualization/vnc-3.png){: style="width:75%; height:!75%;"}
 
 In case of native program only the command that calls this program is needed.
 
@@ -188,12 +149,6 @@ In case of native program only the command that calls this program is needed.
 or 
 
     paraview
-
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Correct termination
 
@@ -215,18 +170,7 @@ Running sessions can be checked by command:
 
 	vncserver -list
 
-
-<div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
-
-![vnc-4](vnc-4.png)
-
-</div>
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+![vnc-4](/visualization/vnc-4.png){: style="width:85%; height:!85%;"}
 
 ## Setting up VNC session 
 

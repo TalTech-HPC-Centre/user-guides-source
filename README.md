@@ -1,20 +1,59 @@
-# TalTech HPC Center User guides source code
+# TalTech HPC User Guides
 
-The generation of the static html site is done using mkdocs
-documentation: https://www.mkdocs.org/user-guide/styling-your-docs/#using-the-docs_dir
+HPC documentation and guides in Markdown. Deployed by GitHub Actions to GitHub Pages.
 
-Using GitHub Actions, the source is built into static files and deployed to staging repository using SSH deploy keys.
+Created with [Mkdocs](https://www.mkdocs.org/) and beautified with [Material](https://squidfunk.github.io/mkdocs-material/).
 
-Notes on running [Sphinx on Pages](https://echorand.me/site/notes/articles/sphinx/static_html.html#using-github-pages).
+## Usage
 
-## Running locally
+### Running locally
 
-To run locally, use the following commands:
+Install: `pip install -r requirements.txt`
 
+Build and serve locally: `mkdocs serve`
+
+Build: `mkdocs build`
+
+### CI/CD / Workflow info
+
+After build and before deployment, media files are optimized with [jampack](https://github.com/divriots/jampack). It takes about 30 seconds longer than usual to deploy a new build as a result.
+
+Dead links are checked on schedule and on each push. Check Actions to see results and fix dead links!
+
+### Pro tips
+
+Use [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) to insert tips, warnings and notices!
+
+---
+
+Use root absolute paths for cross-linking:
+
+```markdown
+[Link to another page](/docs/another-page.md)
 ```
-pip install -r requirements.txt
-pip install sphinx-autobuild
-sphinx-autobuild docs public
+
+This ensures the link works regardless of the current file's location, thus making it easy to move documentation to other locations/platforms without breaking crosslinks.
+
+Do NOT use relative paths:
+
+```markdown
+[Link to another page](../another-page.md)
 ```
 
-This will build the source and serve it to http://127.0.0.1:8000 which you can check out in your browser.
+Relative paths can break if the file structure changes.
+
+And do NOT use absolute URLs:
+
+```markdown
+[Link to another page](https://docs.example.com/docs/another-page.md)
+```
+
+Hardcoding full URLs causes issues with multiple environments (if staging and prod have different domains), when the domain changes, or when doing local development.
+
+### Administration
+
+When changing the domain name (for a custom one or otherwise), following files will need modifications:
+
+- `mkdocs.yml`
+- `.github/workflows/deadlink-config.json`
+- `CNAME`

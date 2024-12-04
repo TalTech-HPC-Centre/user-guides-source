@@ -1,4 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # WAM Cycle 6
 
@@ -6,17 +7,11 @@ WAM is a third-generation wave model that describes the evolution of the wave sp
 
 A repository of the source code with modifications for Taltech HPC, can be found [here](https://gitlab.cs.ttu.ee/heiko.herrmann/wam-cycle_6-TalTech-HPC).
 
-<span style="font-size:20px"><b>
-How to cite </b>
-</span> 
-<br>
+How to cite:
 
 The WAM Model—A Third Generation Ocean Wave Prediction Model DOI: [https://doi.org/10.1175/1520-0485(1988)018<1775:TWMTGO>2.0.CO;2](https://journals.ametsoc.org/view/journals/phoc/18/12/1520-0485_1988_018_1775_twmtgo_2_0_co_2.xml)
-<br>
-<hr style="margin: 4px 0px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
-## Quickstart 
+## Quickstart
 
 ---
 
@@ -92,10 +87,10 @@ The WAM Model—A Third Generation Ocean Wave Prediction Model DOI: [https://doi
 
 ### Long & parallel jobs
 
-Longer running and parallel jobs are better submitted as batch jobs using an sbatch script [wam.slurm](wam.slurm):
+Longer running and parallel jobs are better submitted as batch jobs using an sbatch script [wam.slurm](/engineering/wam.slurm):
 
-<details><summary>Click to expand</summary>
-
+??? "Contents of wam.slurm"
+	```bash
     #!/bin/bash
     #SBATCH --job-name=WAM-testrun
     #SBATCH --mem-per-cpu=1GB
@@ -138,12 +133,7 @@ Longer running and parallel jobs are better submitted as batch jobs using an sba
     
     cp ${WAMDIR}/const/Coarse_Grid/ARD/nlnetcdf NETCDF_User
     mpirun pnetcdf
-</details>
-<br/>
-
-
-<hr style="margin: 4px 0px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+	```
 
 ## WAM long version
 
@@ -155,7 +145,7 @@ If job is small it can be run as an interactive session:
 
 	srun -t 2:0:0 --pty bash
 
-If calculation is long or needs several cores, it is better to gather all needed commands in one [wam.slurm](wam.slurm) batch script and submit it by command:
+If calculation is long or needs several cores, it is better to gather all needed commands in one [wam.slurm](/engineering/wam.slurm) batch script and submit it by command:
 
 	sbatch wam.slurm
 

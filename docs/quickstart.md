@@ -1,8 +1,4 @@
-# Quickstart: Cluster 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+# Quickstart: Cluster
 
 ## Accessing the cluster
 
@@ -10,37 +6,29 @@
 
 **NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet#External-UNI-ID) should be created by the head of a structural unit.
 
-**To get access to HPC contact us by email (hpcsupport@taltech.ee) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](/index.html#billing).
+**To get access to HPC contact us by email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](/index.html#billing).
 
 **The cluster is accessible from inside the university** and from major **Estonian network** providers. If you are traveling (or not in one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (for OnDemand session and `ssh` command).
 
-To access the cluster **base.hpc.taltech.ee** via a browser with a graphical, menu-based environment use desktop session on [https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee) 
+To access the cluster **base.hpc.taltech.ee** via a browser with a graphical, menu-based environment use desktop session on [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee)
 
-<div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
+![ondemand](/pictures/ondemand.png){: style="width:85%; height:!75%;"}
 
-![ondemand](/pictures/ondemand.png)
+[More about OnDemand sessions](/ondemand.html).
 
-</div>
-
-[more about OnDemand sessions](/ondemand.md).
-
-Another option is SSH (the Secure SHell), available by command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A PuTTY guide for Windows users (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.md).
+Another option is SSH (the Secure SHell), available by command `ssh` in **Linux/Unix, Mac** and **Windows-10.**  A PuTTY guide for Windows users (an alternative SSH using a graphical user interface (GUI)) is [here](/putty.html).
 
 For using graphical applications add the `-X`, and for GLX (X Window System) forwarding additionally the `-Y` switch,:
 
 ```bash
 ssh -X -Y uni-ID@base.hpc.taltech.ee
 ```
+
 _**where uni-ID should be changed to user's uni-ID.**_
 
 ***NB!*** **The login-node is for some light interactive analysis.** For heavy computations, request a (interactive) session with the resource manager [SLURM](/quickstart.html#running-jobs-with-slurm) or submit job for execution by SLURM sbatch script!**
 
-We strongly recommend to **use SSH-keys for logging** to the cluster with ssh command. [How to get SSH keys](/ssh.md).
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+We strongly recommend to **use SSH-keys for logging** to the cluster with ssh command. [How to get SSH keys](/ssh.html).
 
 ## Structure and file tree 
 
@@ -50,7 +38,7 @@ By accessing the cluster, the user gets into home directory or `$HOME` (`/gpfs/m
 
 In the home directory, the user can create, delete, and overwrite files and perform calculations (if slurm script does not force program to use ` $SCRATCH ` directory). The home directory is limited in size of 500 GB and backups are performed once per week.
 
-The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](https://docs.hpc.taltech.ee/quickstart.html#smb-cifs-exported-filesystems).
+The home directory can be accessed from console or by GUI programs, but it cannot be mounted. For mounting was created special `smbhome` and `smbgroup` folders (`/gpfs/mariana/smbhome/$USER/` and `/gpfs/mariana/smbgroup/`, respectively). More about `smb` folders can be found [here](/quickstart.html#smbcifs-exported-filesystems).
 
 Some programs and scripts suppose that files will be transfer to `$SCRATCH` directory at compute node and calculations will be done there. If job will be killed, for example due  to the time limit back transfer will not occur. In this case, user needs to know at which node this job was running (see `slurm-$job_id.stat`), to connect to exactly this node (in example it is green11). `$SCRATCH` directory will be in `/state/partition1/` and corresponds to jobID number.
 
@@ -61,29 +49,21 @@ cd /state/partition1/
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Running jobs with SLURM 
 
 ---
 
 SLURM is a management and job scheduling system at Linux clusters. More about [SLURM quick references](https://slurm.schedmd.com/pdfs/summary.pdf).
 
-Examples of slurm scripts are usually given at the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given at our [software page](/software.md).
+Examples of slurm scripts are usually given at the program's page with some recommendations for optimal use of resources for this particular program. List of the programs installed at HPC is given at our [software page](/software.html).
 
-<div class="simple1">
 The most often used SLURM commands are:
 
- - `srun` - to start a session or an application (in real time)
- - `sbatch` - to start a computation using a batch file (submit for later execution)
- - `squeue` - to check the load of the cluster and status of jobs
- - `sinfo` - to check the state of the cluster and partitions
- - `scancel` - to delete a submitted job (or stop a running one).
-</div>
-<br>
+- `srun` - to start a session or an application (in real time)
+- `sbatch` - to start a computation using a batch file (submit for later execution)
+- `squeue` - to check the load of the cluster and status of jobs
+- `sinfo` - to check the state of the cluster and partitions
+- `scancel` - to delete a submitted job (or stop a running one).
 
 For more parameters see the man-pages (manual) of the commands `srun`, `sbatch`, `sinfo` and `squeue`. For example:
 
@@ -150,12 +130,7 @@ sbatch myjob.slurm
 
 and will be executed when the requested resources become available.
 
-Output of applications and error messages are by default written to a `slurm-$job_id.out` file. [More about SLURM finished job statistics](/slurm_statistics.md).
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+Output of applications and error messages are by default written to a `slurm-$job_id.out` file. [More about SLURM finished job statistics](/slurm_statistics.html).
 
 ## SLURM accounts  
 
@@ -163,7 +138,7 @@ Output of applications and error messages are by default written to a `slurm-$jo
 
 In SLURM exist accounts for billing, these are different from the login account!
 
-Each user has his/her own personal SLURM-account, which will have a small monthly limit.  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID. 
+Each user has his/her own personal SLURM-account, which will have a small monthly limit.  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID.
 
 You can check which SLURM accounts you belong to, by:
 
@@ -174,13 +149,6 @@ sacctmgr show associations format=account%30,user%30 | grep $USER
 Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), it is possible to submit jobs under this account, especially if no `user_` or project account has been created for you yet, however, "vaikimisi" will be discontinued in the near future.
 
 When submitting a job, **it is important to use the correct SLURM-account** `--account=SLURM-ACCOUNT`, as this is connected to the financial source.
-
-
-<br> 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Monitoring jobs & resources
 
@@ -193,10 +161,10 @@ When submitting a job, **it is important to use the correct SLURM-account** `--a
 User can check the status his jobs (whether they are running or not, and on which node) by the command:
 
 ```bash
-    squeue -u $USER
+squeue -u $USER
 ```
 
-![squeue](pictures/squeue.png)
+![squeue](/pictures/squeue.png)
 
 
 #### Load of the node
@@ -204,17 +172,17 @@ User can check the status his jobs (whether they are running or not, and on whic
 User can check the load of the node his job runs on, status and configuration of this node by command
 
 ```bash
-    scontrol show node <nodename>
+scontrol show node <nodename>
 ```
 
 the load should not exceed the number of hyperthreads (CPUs in SLURM notation) of the node.
 
-![scontrol](pictures/scontrol.png)
+![scontrol](/pictures/scontrol.png)
 
 In case of MPI parallel runs statistics of several nodes can be monitored by specifying nodes names. For example:  
 
 ```bash
-    scontrol show node=green[25-26]
+scontrol show node=green[25-26]
 ```
 
 
@@ -244,66 +212,63 @@ It is possible to submit a second interactive job to the node where the main job
 
 ```bash
 srun -w <nodename> --pty htop
+```
 
 Note that there must be free slots on the machine, so if you cannot use `-n 80` or `--exclusive` for your main job (use `-n 79`).
 
-![htop](pictures/htop.png)
+![htop](/pictures/htop.png)
 
 Press `q` to exit.
 
-<details><summary>You can also add a column that shows the CPU number of the program (for more details click here).</summary>
+??? info "You can also add a column that shows the CPU number of the program"
+    For Linux **F1-F10** keys should be used, for **Mac** - just click on the corresponding buttons.
 
-For Linux **F1-F10** keys should be used, for **Mac** - just click on the corresponding buttons.
+    ![htop-1](/pictures/htop-1.png)
 
-![htop-1](pictures/htop-1.png)
+    Will appear a new column, showing the CPU number of the program.
 
-Will appear a new column, showing the CPU number of the program.
-
-![htop-2](pictures/htop-2.png)
-
-</details>   
-
-<br>
+    ![htop-2](/pictures/htop-2.png)
 
 #### Monitoring jobs using GPUs
 
-Log to **amp** or **amp2**. Command 
+Log to **amp** or **amp2**. Command:
+
 ```bash
-    echo ${SLURM_STEP_GPUS:-$SLURM_JOB_GPUS} 
+echo ${SLURM_STEP_GPUS:-$SLURM_JOB_GPUS} 
 ```
 
 shows the GPU IDs allocated to your job.
 
 GPUs load can be checked by command:
-    
+
 ```bash
-    nvidia-smi
+nvidia-smi
 ```
 
-![nvidia-smi](pictures/nvidia-smi.png)
+![nvidia-smi](/pictures/nvidia-smi.png)
 
 Press `control+c` to exit.
 
 Another option is to logging to **amp** or **amp2**, check which GPUs are allocated to your job, and give command:
-    
+
 ```bash
-    nvtop
+nvtop
 ```
 
 ![nvtop](pictures/nvtop.png)
 
 Press `q` to exit.
-    
+
 An alternative method **on Linux computers,** if you have X11. Logging to **base/amp** with `--X` key:
 
 ```bash
-    ssh --X UniID@base.hpc.taltech.ee
+ssh --X UniID@base.hpc.taltech.ee
 ```
 
 then submit your main interactive job 
 
 ```bash
-    srun --x11 -n <numtasks> --cpus-per-task=<numthreads> --pty bash
+srun --x11 -n <numtasks> --cpus-per-task=<numthreads> --pty bash
 ```
 
 and start an `xterm -e htop &` in the session.
@@ -315,47 +280,39 @@ In `sbatch` the option `--x11=batch` can be used, note that the ssh session to *
 
 Default disc quota for `home` (that is backed up weekly) is 500 GB and for `smbhome` (that is not backed up) -- 2 TB per user. For `smbgroup` there is no limits and no backup.
 
-The easiest way to check your current disk usage is to look at the table that appears when you log in to HPC. 
+The easiest way to check your current disk usage is to look at the table that appears when you log in to HPC.
 
-![disk_usage](pictures/disk_usage.png)
+![disk_usage](/pictures/disk_usage.png)
 
-You can also monitor your resource usage by `taltech-lsquota.bash` script and `sreport` command. 
+You can also monitor your resource usage by `taltech-lsquota.bash` script and `sreport` command.
 
 Current disk usage:
 
 ```bash
-    taltech-lsquota.bash
+taltech-lsquota.bash
 ```
 
-![usage](pictures/usage2.png)
+![usage](/pictures/usage2.png)
 
 CPU usage during last day:
 
 ```bash
-    sreport -t Hours cluster UserUtilizationByAccount Users=$USER
+sreport -t Hours cluster UserUtilizationByAccount Users=$USER
 ```
 
-![CPUhours](pictures/CPUhours.png)
+![CPUhours](/pictures/CPUhours.png)
 
 CPU usage in specific period (e.g. since beginning of this year):
 
 ```bash
-    sreport -t Hours cluster UserUtilizationByAccount Users=$USER start=2024-01-01T00:00:00 end=2024-12-31T23:59:59
+sreport -t Hours cluster UserUtilizationByAccount Users=$USER start=2024-01-01T00:00:00 end=2024-12-31T23:59:59
 ```
 
 Where `start=` and `end=` can be changed depending on the desired period of time. 
 
-![CPUhours_1](pictures/CPUhours1.png)
-
+![CPUhours_1](/pictures/CPUhours1.png)
 
 For convenience, a tool `taltech-history` was created, by default it shows the jobs of the current month, use `taltech-history -a` to get a summary of the useh hours and costs of the current month.
-
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Copying data to/from the clusters
 
@@ -363,17 +320,17 @@ For convenience, a tool `taltech-history` was created, by default it shows the j
 
 Since HPC disk quota is limited, it is recommended to have your own copy of important calculations and results. Data from HPC can be transferred by several commands: `scp`, `sftp`, `sshfs` or `rsync`.
 
-1. `scp` is available on all **Linux systems,** **Mac** and **Windows10 PowerShell.** There are also GUI versions available for different OS (like [PuTTY](putty.md)).
+1. `scp` is available on all **Linux systems,** **Mac** and **Windows10 PowerShell.** There are also GUI versions available for different OS (like [PuTTY](/putty.html)).
 
     Copying ***to*** the cluster with `scp`:
     
-       scp local_path_from_where_copy/file uni-id@base.hpc.taltech.ee:path_where_to_save
+    `scp local_path_from_where_copy/file uni-id@base.hpc.taltech.ee:path_where_to_save`
     
     ![scp](pictures/scp1.png)
 
     Copying ***from*** the cluster with `scp`:
     
-       scp uni-id@base.hpc.taltech.ee:path_from_where_copy/file local_path_where_to_save 
+    `scp uni-id@base.hpc.taltech.ee:path_from_where_copy/file local_path_where_to_save`
     
     ![scp](pictures/scp2.png)
     
@@ -382,16 +339,15 @@ Since HPC disk quota is limited, it is recommended to have your own copy of impo
        
 2. `sftp` is the secure version of the `ftp` protocol vailable on **Linux,** **Mac** and **Windows10 PowerShell.** This command starts a session, in which files can be transmitted in both directions using the `get` and `put` commands. File transfer can be done in "binary" or "ascii" mode, conversion of line-endings (see below) is automatic in "ascii" mode. There are also GUI versions available for different OS ([FileZilla](https://filezilla-project.org/), [gFTP](https://github.com/masneyb/gftp) and [WinSCP](https://winscp.net/eng/index.php) (Windows))
 
-       sftp uni-id@base.hpc.taltech.ee
-    
+    `sftp uni-id@base.hpc.taltech.ee`
+
     ![sftp](pictures/sftp.png)
 
 3.  `sshfs` can be used to temporarily mount remote filesystems for data transfer or analysis. Available in **Linux.** The data is tunneled through an ssh-connection. Be sware that this is usually not performant and can creates high load on the login node due to ssh-encryption.
-     
-        sshfs uni-id@base.hpc.taltech.ee:remote_dir/ /path_to_local_mount_point/
+
+    `sshfs uni-id@base.hpc.taltech.ee:remote_dir/ /path_to_local_mount_point/`
 
 4. `rsync` can update files if previous versions exist without having to transfer the whole file. However, its use is recommended **for the advanced user only** since one has to be careful with the syntax.
-
 
 ### SMB/CIFS exported filesystems
 
@@ -400,8 +356,8 @@ One of the simple and convenient ways to control and process data based on HPC i
 Each user automatically has a directory within `smbhome`. It does not match with `$HOME` directory, so calculations should be initially done at `smbhome` directory to prevent copying or files needed should be copied from `home` directory to the `smbhome` directory by commands:
 
 ```bash
-    pwd    ### look path to the file 
-    cp path_to_your_file/your_file /gpfs/mariana/smbhome/$USER/    ### copying
+pwd    ### look path to the file 
+cp path_to_your_file/your_file /gpfs/mariana/smbhome/$USER/    ### copying
 ```
 
 To get a directory for group access, please contact us (a group and a directory need to be created).
@@ -416,7 +372,7 @@ The HPC center exports two filesystems as Windows network shares:
 |    /gpfs/mariana/home/$USER | not exported | not exported |
 
 
-**This is the quick-access guide, for more details, see [here](samba.html)**
+**This is the quick-access guide, for more details, see [here](/samba.html)**
 
 
 #### Windows access
@@ -453,18 +409,12 @@ To disconnect from the share, unmount with
     gio mount -u smb://smb.hpc.taltech.ee/smbhome/
 ```
 
-
 ### Special considerations for copying Windows - Linux
 
 Microsoft Windows is using a different line ending in text files (ASCII/UTF8 files) than Linux/Unix/Mac: CRLF vs. LF
 When copying files between Windows-Linux, this needs to be taken into account. The FTP (File Transfer Protocol) has ASCII and BINARY modes, in ASCII-mode the line-end conversion is automatic.
 
 There are tools for conversion of the line-ending, in case the file was copied without line conversion: `dos2unix`, `unix2dos`, `todos`, `fromdos`, the stream-editor `sed` can also be used.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Backup
 
@@ -483,6 +433,4 @@ If your home directory is larger than 500G please move the data to smbhome.
 
 ---
 
-At HPC are installed programs with varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email (hpcsupport@taltech.ee) or [Taltech portal](https://portal.taltech.ee/v2). More about available programs and licenses can be found at [software page](https://docs.hpc.taltech.ee/software.html).
-
-<br>
+At HPC are installed programs with varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://portal.taltech.ee/v2). More about available programs and licenses can be found at [software page](/software.html).

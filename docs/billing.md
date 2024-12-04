@@ -17,7 +17,7 @@
 | GPU                 | GPU*hour       | 0.20 EUR         | 0.50 EUR  |
 | Storage             | 1 TB*Year      | 20 EUR           | 80 EUR    |
 
-More details on how to calculate computational costs for TalTech cluster can be found in the [Monitoring resources part of the Quickstart page](/access/cluster#monitoring-resource-usage).
+More details on how to calculate computational costs for TalTech cluster can be found in the [Monitoring resources part of the Quickstart page](/quickstart.html#monitoring-resource-usage).
 
 ## LUMI cluster for users from Estonia
 

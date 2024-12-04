@@ -1,16 +1,13 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # cp2k
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## cp2k short introduction 
 
 ---
 
-1. Make [cp2k.slurm](cp2k.slurm) batch script for parallel calculations:
+1. Make [cp2k.slurm](/chemistry/cp2k.slurm) batch script for parallel calculations:
 
 ```
     #!/bin/bash
@@ -25,16 +22,11 @@
     srun cp2k.psmp -i H2O-32.inp -o H2O-32.out
 ```
 
-2. Copy job-input file [H2O-32.inp](H2O-32.inp)
+2. Copy job-input file [H2O-32.inp](/chemistry/H2O-32.inp)
 3. Submit the job on **base**:
 
            sbatch cp2k.slurm
 
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## cp2k long version 
 
@@ -89,7 +81,7 @@ either run the job with srun
     srun -p gpu-test --gres=gpu:2 -n 2 --cpus-per-task=1 --mem=16G cp2k.psmp -i H2O-32.inp -o log-H2O-32
 
 
-or better use the [cp2k-gpu.slurm](cp2k-gpu.slurm) script to submit the job:
+or better use the [cp2k-gpu.slurm](/chemistry/cp2k-gpu.slurm) script to submit the job:
 
     #!/bin/bash
     #SBATCH -p gpu-test

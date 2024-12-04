@@ -1,60 +1,46 @@
 # Software packages
 
-<br>
-<span style="font-size:20px"><b>
-Software on our systems is installed in the following ways:
-</b></span> 
-<br>
-<br>
+**Software on our systems is installed in the following ways**:
 
 1. as packages from the Linux distribution (free open-source software when available and recent enough) -- **no modules needed**
 2. through the SPACK package manager (free open-source software when available in SPACK) - load the `*-spack` modules by command:
 
-	    module load rocky8-spack
+	```bash
+    module load rocky8-spack
+    ```
 
 3. manually (mostly non-free software (not GPL/BSD license) - load the `*/all` modules by command:
 
-	    module load rocky8/all	
+    ```bash
+	module load rocky8/all
+    ```
 
-<br>
-<span style="font-size:20px"><b>
-Here is a list of important software for special purpose:</b>
-</b></span> 
-<br>
-<br>
+**Here is a list of important software for special purpose**:
 
 -   CAD & Meshing software  --- 
-FreeCAD, Salome, BRL-CAD, Gmsh and netgen; see [CAD-Mesh](engineering/cad-mesh.md)
+FreeCAD, Salome, BRL-CAD, Gmsh and netgen; see [CAD-Mesh](/engineering/cad-mesh.html)
 -   Finite element software for multiphysical problems --- 
-[ElmerFEM](engineering/elmerfem.md), CalculiX, Abaqus
--   Computational Fluid Dynamics -- [OpenFOAM](engineering/openfoam.md), SU2
+[ElmerFEM](/engineering/elmerfem.html), CalculiX, Abaqus
+-   Computational Fluid Dynamics -- [OpenFOAM](/engineering/openfoam.html), SU2
 -   Conformational search  --- 
-[xtb-CREST](chemistry/crest.md) 
+[xtb-CREST](/chemistry/crest.html) 
 -   General purpose computational chemistry, biology and physics software packages --- 
-[Gaussian](chemistry/gaussian.md), [ORCA](chemistry/orca.md), [NWChem](chemistry/nwchem.html), xTB, CP2K
+[Gaussian](/chemistry/gaussian.html), [ORCA](/chemistry/orca.html), [NWChem](/chemistry/nwchem.html), xTB, CP2K
 -   Wavefunction analysis --- 
-[Multiwfn](chemistry/multiwfn.md)
+[Multiwfn](/chemistry/multiwfn.html)
 -   Visualization software for computational chemistry, biology and physics --- 
-[Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden), [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro), [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol), [VMD](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd), [RasMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#rasmol)
--   Interactive and non-interactive [Jupyter](data-analysis/jupyter.md) notebooks for Julia, Python, [Octave](data-analysis/octave.md)
+[Molden](/chemistry/visualization.html#molden), [Avogadro](/chemistry/visualization.html#avogadro), [JMol](/chemistry/visualization.html#jmol), [VMD](/chemistry/visualization.html#vmd), [RasMol](/chemistry/visualization.html#rasmol)
+-   Interactive and non-interactive [Jupyter](/data-analysis/jupyter.html) notebooks for Julia, Python, [Octave](/data-analysis/octave.html)
 -   Matlab-compatible computation environment --- 
-[Octave](data-analysis/octave.md)
+[Octave](/data-analysis/octave.html)
 -   Data analysis --- 
-R, Matlab, [Octave](data-analysis/octave.md), Julia, awk, Python, GNUplot 
+R, Matlab, [Octave](/data-analysis/octave.html), Julia, awk, Python, GNUplot 
 -   Visualization software --- 
 MayaVi2, ParaView, VisIt, COVISE, OpenDX, GNUplot
-<br>
 
-<span style="font-size:16px"><b>
 A more detailed description of available softwares, as well as a division by area of use, is given below.
 
-If software you want to use is missing in the list above, it means that it is not installed, but can be installed by your request to hpcsupport@taltech.ee or create a ticket in [Helpdesk Portal](https://helpdesk.taltech.ee/login.jsp). In the case of licensed software, the user must provide the license himself and the corresponding program will be installed.
-</b></span> 
-<br>
-<br>
-
-<hr style="margin: 4px 0px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+If software you want to use is missing in the list above, it means that it is not installed, but can be installed by your request to [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) or create a ticket in [Helpdesk Portal](https://helpdesk.taltech.ee/login.jsp). In the case of licensed software, the user must provide the license himself and the corresponding program will be installed.
 
 ## Engineering 
 
@@ -64,41 +50,43 @@ If software you want to use is missing in the list above, it means that it is no
 ### CAD & Mesh-Tools
 
 Computer-aided design (CAD) is software for building models in a virtual space, that allows to visualize various properties of an object, such as height, width, distance, material, etc. This category contains software that is essential for the pre-processing of many simulations: CAD and mesh generation.
-More about CAD and meshing options on our HPC can be found [here](engineering/cad-mesh.md).
+More about CAD and meshing options on our HPC can be found [here](/engineering/cad-mesh.html).
 
 #### FreeCAD
 
-[FreeCAD](https://www.freecadweb.org/features.php) is a CAD software, which uses [Gmsh](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#gmsh) or [Netgen](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#netgen-ngsolve) for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](engineering/elmerfem.md), thus providing similar functionality as SolidWorks. More about FreeCAD on our HPC can be found [here](engineering/cad-mesh.md).
+[FreeCAD](https://www.freecadweb.org/features.php) is a CAD software, which uses [Gmsh](/engineering/cad-mesh.html#gmsh) or [Netgen](/engineering/cad-mesh.html#netgen-ngsolve) for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](/engineering/elmerfem.html), thus providing similar functionality as SolidWorks. More about FreeCAD on our HPC can be found [here](/engineering/cad-mesh.html).
 
 #### Salome
 
-[Salome](https://salome-platform.org/) is a CAD program with interfaces to meshing software. It can be used by a GUI or python scripts. More about Salome on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#salome).
+[Salome](https://salome-platform.org/) is a CAD program with interfaces to meshing software. It can be used by a GUI or python scripts. More about Salome on our HPC can be found [here](/engineering/cad-mesh.html#salome).
 
 #### BRL-CAD
-[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](https://docs.hpc.taltech.ee//engineering/cad-mesh.html#brl-cad).
+
+[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](/engineering/cad-mesh.html#brl-cad).
 
 #### Blender
-[Blender]{https://blender.org} is a 3D modeling software developed for computer animation (movie production).
+
+[Blender](https://blender.org) is a 3D modeling software developed for computer animation (movie production).
 
 <!-- #### OpenSCAD -->
 
 #### Gmsh
 
-[Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#gmsh). 
+[Gmsh](https://gmsh.info/) is an open source 3D finite element mesh generator with a built-in CAD engine and post-processor. More about Gmsh on our HPC can be found [here](/engineering/cad-mesh.html#gmsh). 
 
 #### Netgen
 
-[Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. More about Netgen on our HPC can be found [here](https://docs.hpc.taltech.ee/engineering/cad-mesh.html#netgen-ngsolve).
+[Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. More about Netgen on our HPC can be found [here](/engineering/cad-mesh.html#netgen-ngsolve).
 
 ### Finite Element Analysis (FEA) 
 
 The Finite Element Method (FEM) is an general numerical method for solving partial differential equations in two or three space variables perfommed by dividing a large system into smaller parts (finite elements). The method is used for numerically solving differential equations in engineering and mathematical modeling.
 
-See also under [computational-fluid-dynamics-CFD](https://docs.hpc.taltech.ee/software.html#computational-fluid-dynamics-cfd).
+See also under [computational-fluid-dynamics-CFD](/software.html#computational-fluid-dynamics-cfd).
 
 #### ElmerFEM
 
-[Elmer](http://www.elmerfem.org/blog/) is a multi-physics simulation software developed by CSC. It can perform coupled mechanical, thermal, fluid, electro-magnetic simulations and can be extended by own equations. Elmer manuals and tutorials can be found [here](https://www.nic.funet.fi/pub/sci/physics/elmer/doc) and for more details and example job scripts go [here](engineering/elmerfem.md).
+[Elmer](http://www.elmerfem.org/blog/) is a multi-physics simulation software developed by CSC. It can perform coupled mechanical, thermal, fluid, electro-magnetic simulations and can be extended by own equations. Elmer manuals and tutorials can be found [here](https://www.nic.funet.fi/pub/sci/physics/elmer/doc) and for more details and example job scripts go [here](/engineering/elmerfem.html).
 
 #### CalculiX
 
@@ -167,14 +155,11 @@ License belongs to a research group.
 Commercial software. System wide installation, _bring your own license_. 
 Star-CCM+ can be used with PowerOnDemand (PoD) keys. Power on demand (PoD) licensing for STAR-CCM+ is essentially cloud licensing. To use PoD licensing, a PoD key must be copied from the Star-CCM+ support center and put into the STAR-CCM+ interface.
 
-<div class="simple1">
 More information about licenses:
 
-- <a href="https://www.dex.siemens.com/plm/simcenter-on-the-cloud/simcenter-star-ccm-power-on-demand">Simcenter STAR-CCM+ demand</a>
-- <a href="https://community.sw.siemens.com/s/article/How-faculty-members-in-academic-institutions-can-get-access-to-Simcenter-STAR-CCM">How faculty members in academic institutions can get access to Simcenter STAR-CCM+</a>
-- <a href="https://blogs.sw.siemens.com/simcenter/guide-for-students-to-run-simcenter-star-ccm-from-home-or-elsewhere/">Guide for students to run Simcenter STAR-CCM+</a>
-</div>
-<br>
+- [Simcenter STAR-CCM+ demand](https://www.dex.siemens.com/plm/simcenter-on-the-cloud/simcenter-star-ccm-power-on-demand)
+- [How faculty members in academic institutions can get access to Simcenter STAR-CCM+](https://community.sw.siemens.com/s/article/How-faculty-members-in-academic-institutions-can-get-access-to-Simcenter-STAR-CCM)
+- [Guide for students to run Simcenter STAR-CCM+](https://blogs.sw.siemens.com/simcenter/guide-for-students-to-run-simcenter-star-ccm-from-home-or-elsewhere/)
 
 
     module load rocky8
@@ -184,11 +169,11 @@ More information about licenses:
 
 ### Computational Fluid Dynamics (CFD)
 
-See also under [FEA](https://docs.hpc.taltech.ee/software.html#finite-element-analysis-fea).
+See also under [FEA](/software.html#finite-element-analysis-fea).
 
 #### OpenFOAM
 
-[OpenFOAM](https://openfoam.org/) is an open source software for computational fluid dynamics (CFD). OpenFOAM has a wide range of  tools for modelling  complex fluid flows and can be used for solving such problems as chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. More about OpenFOAM on our HPC can be found [here](engineering/openfoam.md).
+[OpenFOAM](https://openfoam.org/) is an open source software for computational fluid dynamics (CFD). OpenFOAM has a wide range of  tools for modelling  complex fluid flows and can be used for solving such problems as chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. More about OpenFOAM on our HPC can be found [here](/engineering/openfoam.html).
 
 
 #### SU2
@@ -209,18 +194,13 @@ spectre-code
 #### WAM
 
 
-[WAM](https://github.com/mywave/WAM) is a third generation wave model, developed and maintained by GKSS. It describes the evolution of the wave spectrum by solving the wave energy transfer equation. WAM predicts directional spectra and wave properties (such as wave height, direction and frequency, swell height and mean direction), wind stress fields etc. WAM can be coupled to a range of other models (NEMO, RegCM, SEAOM, etc.). More info how to use it on HPC see [here](engineering/wam.html).
+[WAM](https://github.com/mywave/WAM) is a third generation wave model, developed and maintained by GKSS. It describes the evolution of the wave spectrum by solving the wave energy transfer equation. WAM predicts directional spectra and wave properties (such as wave height, direction and frequency, swell height and mean direction), wind stress fields etc. WAM can be coupled to a range of other models (NEMO, RegCM, SEAOM, etc.). More info how to use it on HPC see [here](/engineering/wam.html).
 
 
 #### Swan
 
 
-[SWAN](https://www.tudelft.nl/citg/over-faculteit/afdelingen/hydraulic-engineering/sections/environmental-fluid-mechanics/research/swan) is a third generation wave model for obtaining realistic estimates of wave parameters in coastal areas, lakes and estuaries from given wind, bottom and current conditions, developed and maintained by TU Delft. The model is based on the wave action balance equation with sources and sinks. SWAN allows to use two types of grids (structured and unstructured) and nesting approach. More info how to use it on HPC see [here](engineering/swan.html).
-
-<br>
-
-<hr style="margin: 4px 0px; border:2px solid  #cccccc "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+[SWAN](https://www.tudelft.nl/citg/over-faculteit/afdelingen/hydraulic-engineering/sections/environmental-fluid-mechanics/research/swan) is a third generation wave model for obtaining realistic estimates of wave parameters in coastal areas, lakes and estuaries from given wind, bottom and current conditions, developed and maintained by TU Delft. The model is based on the wave action balance equation with sources and sinks. SWAN allows to use two types of grids (structured and unstructured) and nesting approach. More info how to use it on HPC see [here](/engineering/swan.html).
 
 ## Chemistry, biology and physics
 
@@ -230,21 +210,21 @@ spectre-code
 
 #### xtb-CREST
 
-Conformer–Rotamer Ensemble Sampling Tool [(xtb-CREST)](https://xtb-docs.readthedocs.io/en/latest/crest.html) is designed as conformer sampling program by Grimme's group. CREST uses meta-dynamics, regular MD simulations and Genetic Z-matrix crossing (GC) algorithms with molecular mechanics or semiempirical methods (GFNn-xTB). Conformational search can be done in gas or solvent (using several continuum models). More about xtb-CREST on our HPC can be found [here](chemistry/crest.md).
+Conformer–Rotamer Ensemble Sampling Tool [(xtb-CREST)](https://xtb-docs.readthedocs.io/en/latest/crest.html) is designed as conformer sampling program by Grimme's group. CREST uses meta-dynamics, regular MD simulations and Genetic Z-matrix crossing (GC) algorithms with molecular mechanics or semiempirical methods (GFNn-xTB). Conformational search can be done in gas or solvent (using several continuum models). More about xtb-CREST on our HPC can be found [here](/chemistry/crest.html).
 
 ### General purpose computational chemistry, biology and physics
 
 #### _Gaussian_
 
-[Gaussian](https://gaussian.com/g16main/) is a general purpose package for calculation of electronic structures. It can calculate properties of molecules (structures, energies, spectroscopic and thermochemical properties, atomic charges, electron affinities and ionization potentials, electrostatic potentials and electron densities etc.) and reactions properties (such as reaction pathways, IRC)sing different methods (such as Molecular mechanics,  Semi-empirical methods,  Hartree-Fock,  Density functional, Møller-Plesset perturbation theory, coupled cluster). More about Gaussian on HPC can be found [here](chemistry/gaussian.md).
+[Gaussian](https://gaussian.com/g16main/) is a general purpose package for calculation of electronic structures. It can calculate properties of molecules (structures, energies, spectroscopic and thermochemical properties, atomic charges, electron affinities and ionization potentials, electrostatic potentials and electron densities etc.) and reactions properties (such as reaction pathways, IRC)sing different methods (such as Molecular mechanics,  Semi-empirical methods,  Hartree-Fock,  Density functional, Møller-Plesset perturbation theory, coupled cluster). More about Gaussian on HPC can be found [here](/chemistry/gaussian.html).
 
 #### _ORCA_
 
-[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) is a multi-purpose quantum-chemical software package developed in the research group of Frank Neese. ORCA includes a wide variety of methods (semi-empirical, density functional theory, many-body perturbation, coupled cluster, multireference, nudged elastic band (NEB) methods). In ORCA, molecules' and  spectroscopic properties calculations are available, and environmental (MD (including ab initio), QM/MM, Crystal-QMMM) as well as relativistic effects can be taken into account. ORCA is parallelized, and uses the resolution of the identity (RI) approximation and domain based local pair natural orbital (DLPNO) methods, which significantly speed calculations. More about ORCA on HPC can be found [here](chemistry/orca.md)
+[ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) is a multi-purpose quantum-chemical software package developed in the research group of Frank Neese. ORCA includes a wide variety of methods (semi-empirical, density functional theory, many-body perturbation, coupled cluster, multireference, nudged elastic band (NEB) methods). In ORCA, molecules' and  spectroscopic properties calculations are available, and environmental (MD (including ab initio), QM/MM, Crystal-QMMM) as well as relativistic effects can be taken into account. ORCA is parallelized, and uses the resolution of the identity (RI) approximation and domain based local pair natural orbital (DLPNO) methods, which significantly speed calculations. More about ORCA on HPC can be found [here](/chemistry/orca.html)
 
 #### _xtb_
 
-[Extended tight binding - xTB](https://xtb-docs.readthedocs.io/en/latest) program developed in the research group of Stefan Grimme for solutions of common chemical problems. The workhorses of xTB are the GFN methods, both semi-empirical and force-field. The program contains several  implicit solvent  models: GBSA, ALPB, ddCOSMO, and CPCM-X. xTB functionality covers single-point energy calculations, geometry optimization, frequency calculations, reaction path methods. Also allows to perform molecular dynamics, meta-dynamics, and ONIOM calculations. More about xTB on HPC can be found [here](chemistry/xtb.md)
+[Extended tight binding - xTB](https://xtb-docs.readthedocs.io/en/latest) program developed in the research group of Stefan Grimme for solutions of common chemical problems. The workhorses of xTB are the GFN methods, both semi-empirical and force-field. The program contains several  implicit solvent  models: GBSA, ALPB, ddCOSMO, and CPCM-X. xTB functionality covers single-point energy calculations, geometry optimization, frequency calculations, reaction path methods. Also allows to perform molecular dynamics, meta-dynamics, and ONIOM calculations. More about xTB on HPC can be found [here](/chemistry/xtb.html)
 
 #### _NWChem_
  
@@ -257,21 +237,15 @@ NWChem was developed to enable large scale calculations by  using many CPUs and 
 
 #### _Multiwfn_
 
-[Multiwfn](http://sobereva.com/multiwfn/) it is an interactive program that performs almost all important wavefunction analyzes. In addition, Multiwfn is able to display plots of the predicted spectra. More about Multiwfn on HPC can be found [here](chemistry/multiwfn.md).
+[Multiwfn](http://sobereva.com/multiwfn/) it is an interactive program that performs almost all important wavefunction analyzes. In addition, Multiwfn is able to display plots of the predicted spectra. More about Multiwfn on HPC can be found [here](/chemistry/multiwfn.html).
 
 ### Visualization software for computational chemistry, biology and physics
 
-- [Molden](https://docs.hpc.taltech.ee/chemistry/visualization.html#molden) 
-- [Avogadro](https://docs.hpc.taltech.ee/chemistry/visualization.html#avogadro) 
-- [JMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#jmol) 
-- [VMD](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd)
-- [RasMol](https://docs.hpc.taltech.ee/chemistry/visualization.html#rasmol)
-
-<br>
-<br>
-
-<hr style="margin: 4px 0px; border:2px solid  #cccccc "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+- [Molden](/chemistry/visualization.html#molden) 
+- [Avogadro](/chemistry/visualization.html#avogadro) 
+- [JMol](/chemistry/visualization.html#jmol) 
+- [VMD](/chemistry/visualization.html#vmd)
+- [RasMol](/chemistry/visualization.html#rasmol)
 
 ## Data analysis 
 
@@ -297,7 +271,7 @@ The package will be placed inside the user's $HOME directory (installation into 
 
 ### _Octave/Matlab_
 
-[Octave](https://octave.sourceforge.io/) is software featuring a high-level programming language, intended for prototyping numerical computations. Octave solves linear and nonlinear problems, and for performing other numerical experiments using a language that is mostly compatible with MATLAB. It may also be used as a batch-oriented language. More information about Matlab and Octave on HPC can be found [here](data-analysis/octave.md).
+[Octave](https://octave.sourceforge.io/) is software featuring a high-level programming language, intended for prototyping numerical computations. Octave solves linear and nonlinear problems, and for performing other numerical experiments using a language that is mostly compatible with MATLAB. It may also be used as a batch-oriented language. More information about Matlab and Octave on HPC can be found [here](/data-analysis/octave.html).
 
 
 ### _GNUplot_
@@ -321,12 +295,7 @@ the option `--user` will install the package into the user's $HOME directory (in
 
 ### _JupyterLab_
 
-[JupyterLab](https://jupyter.org/) notebook is an open-source web application that allows creation and sharing documents containing live code, equations, visualizations, and  text. Jupyter notebooks allow data transformation, numerical simulation, statistical modeling, data visualization, machine learning, etc. using Julia, Python and Octave. More about Jupyter on our HPC is [here](data-analysis/jupyter.md).
-
-<br>
-<br>
-<hr style="margin: 4px 0px; border:2px solid  #cccccc "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+[JupyterLab](https://jupyter.org/) notebook is an open-source web application that allows creation and sharing documents containing live code, equations, visualizations, and  text. Jupyter notebooks allow data transformation, numerical simulation, statistical modeling, data visualization, machine learning, etc. using Julia, Python and Octave. More about Jupyter on our HPC is [here](/data-analysis/jupyter.html).
 
 ## Visualization software
 
@@ -348,10 +317,4 @@ the option `--user` will install the package into the user's $HOME directory (in
     - Blender (**all nodes** module blender)
     <!-- - Aqsis, OpenMoonRay -->
 
-<br>
-<br>
-
-The recommended way is now to use a desktop session in OnDemand, see also the [visualization](visualization.md) page on how to start these and on GPU acceleration. 
-
-<br>
-<br>
+The recommended way is now to use a desktop session in OnDemand, see also the [visualization](/visualization.html) page on how to start these and on GPU acceleration. 

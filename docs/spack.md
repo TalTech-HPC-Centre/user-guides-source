@@ -1,13 +1,9 @@
-<span style="color:red">not changed to rocky yet</span>
-
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # SPACK
 
 ---
-
-**under development, docs AND module positions/versions may change without notice**
 
 SPACK is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. The following link contains a list of software that should be easy to install: [SPACK package list](https://spack.readthedocs.io/en/latest/package_list.html)
 

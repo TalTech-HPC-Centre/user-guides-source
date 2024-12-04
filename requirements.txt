@@ -1,10 +1,6 @@
-#  Documentation static site generator & deployment tool
-mkdocs>=1.1.2
-sphinx
-sphinx-rtd-theme
-recommonmark
-sphinx-markdown-tables
-
-# Add your custom theme if not inside a theme_dir
-# (https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes)
-#  mkdocs-material>=5.4.0
+mkdocs-material==9.5.38
+markdown==3.7
+mkdocs-glightbox==0.4.0
+mkdocs-minify-plugin==0.8.0
+#mkdocs-enumerate-headings-plugin==0.6.2
+#mkdocs-abs-rel-plugin==0.2.4

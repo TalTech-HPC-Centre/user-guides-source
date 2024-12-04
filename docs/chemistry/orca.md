@@ -1,99 +1,91 @@
 # ORCA
 
-<span style="color:red">***Important note:***  </span>
-**To run ORCA, user must registered individually and have agreed to the EULA at** [Orcaforum](https://orcaforum.kofo.mpg.de/app.php/portal).
+!!! warning
+    **To run ORCA, user must registered individually and have agreed to the EULA at** [Orcaforum](https://orcaforum.kofo.mpg.de/app.php/portal).
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## ORCA short introduction 
+## ORCA short introduction
 
 ---
 
-1. Make [orca.slurm](orca.slurm) batch script for parallel calculations:
+1. Make [orca.slurm](/chemistry/orca.slurm) batch script for parallel calculations:
 
-       #!/bin/bash
-       #SBATCH --job-name=ORCA-test
-       #SBATCH --mem=48GB
-       #SBATCH --nodes=1
-       #SBATCH --ntasks=24
-       #SBATCH --cpus-per-task=1
-       #SBATCH -t 1-00:00:00
-       #SBATCH --partition=common
-       #SBATCH  --no-requeue
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=ORCA-test
+    #SBATCH --mem=48GB
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=24
+    #SBATCH --cpus-per-task=1
+    #SBATCH -t 1-00:00:00
+    #SBATCH --partition=common
+    #SBATCH  --no-requeue
+
+    module load rocky8/all
+    module load orca/5.0.4
+    export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
+
+    #Create scratch directory
+    SCRATCH=/state/partition1/$SLURM_JOB_ID
+    mkdir -p $SCRATCH
+    cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
+    cd $SCRATCH/
+
+    #Run calculations 
+    $orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
+
+    #Copy files back to working directory
+    cp $SCRATCH/* $SLURM_SUBMIT_DIR
+    rm *tmp*
     
-        module load rocky8/all
-        module load orca/5.0.4
-        export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
+    #Clean after yourself
+    rm -rf  $SCRATCH
+    ```
 
-        #Create scratch directory
-        SCRATCH=/state/partition1/$SLURM_JOB_ID
-        mkdir -p $SCRATCH
-        cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
-        cd $SCRATCH/
+    or [orca-single-core.slurm](/chemistry/orca-single-core.slurm) batch script for single core calculations:
 
-        #Run calculations 
-        $orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=Job_Name
+    #SBATCH --mem=2GB
+    #SBATCH --nodes=1   
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=1
+    #SBATCH -t 10:00:00
+    #SBATCH --partition=common
+    #SBATCH  --no-requeue
 
-        #Copy files back to working directory
-        cp $SCRATCH/* $SLURM_SUBMIT_DIR
-        rm *tmp*
-        
-        #Clean after yourself
-        rm -rf  $SCRATCH
-
-    or [orca-single-core.slurm](orca-single-core.slurm) batch script for single core calculations:
-    <details><summary> Click to expand </summary>
+    module load rocky8/all
+    module load orca/5.0.4
+    export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
     
-       #!/bin/bash
-       #SBATCH --job-name=Job_Name
-       #SBATCH --mem=2GB
-       #SBATCH --nodes=1   
-       #SBATCH --ntasks=1
-       #SBATCH --cpus-per-task=1
-       #SBATCH -t 10:00:00
-       #SBATCH --partition=common
-       #SBATCH  --no-requeue
+    #Create scratch directory
+    SCRATCH=/state/partition1/$SLURM_JOB_ID
+    mkdir -p $SCRATCH
+    cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
+    cd $SCRATCH/
+
+    #Run calculations 
+    $orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
+
+    #Copy files back to working directory
+    cp $SCRATCH/* $SLURM_SUBMIT_DIR
+    rm *tmp*
     
-        module load rocky8/all
-        module load orca/5.0.4
-        export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
-        
-        #Create scratch directory
-        SCRATCH=/state/partition1/$SLURM_JOB_ID
-        mkdir -p $SCRATCH
-        cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
-        cd $SCRATCH/
-
-        #Run calculations 
-        $orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
-
-        #Copy files back to working directory
-        cp $SCRATCH/* $SLURM_SUBMIT_DIR
-        rm *tmp*
-        
-        #Clean after yourself
-        rm -rf  $SCRATCH
-    
-    </details>  
+    #Clean after yourself
+    rm -rf  $SCRATCH
+    ```
 
 
-2. Copy job-input file [job.inp](job.inp) (for single core run remove core specification block).
+2. Copy job-input file [job.inp](/chemistry/job.inp) (for single core run remove core specification block).
 
 3. Submit the job on **base**:
 
         sbatch orca.slurm
 
-    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/orca.html#benchmarks-for-parallel-jobs)._  
+    ***NB!*** _More cores does not mean faster!!! See [benchmarks](/chemistry/orca.html#benchmarks-for-parallel-jobs)._  
     ***NB!*** To ORCA parallel run full path name is needed. Single core calculations can be performed with just `orca` command.
 
-4. Check results using [visualization software](visualization.md).
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+4. Check results using [visualization software](/visualization.html).
 
 ## ORCA long version 
 
@@ -144,7 +136,7 @@ Example of ORCA input:
     *
 
 
-Example of an [orca-single-core.slurm](orca-single-core.slurm) batch script for single core calculations.
+Example of an [orca-single-core.slurm](/chemistry/orca-single-core.slurm) batch script for single core calculations.
 
 ***NB!*** _If in `slurm`script is defined more processors, they will be reserved, but not utilized._
 
@@ -230,7 +222,7 @@ Good example:
 
 ### Time
 
-Time limits depend on time partition used, see [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification). Therefore, it is recommended to request more time than is usually needed for calculation. 
+Time limits depend on time partition used, see [taltech user-guides](/index.html#hardware-specification). Therefore, it is recommended to request more time than is usually needed for calculation. 
 
 If job was killed due to the time limit, this will be written in the end of  `slurm-JOBID.out` file "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
 
@@ -248,7 +240,7 @@ Interactive session is started by the command:
 
 where `XX` - is the node number and `JOBID` - job serial number.
 
- ![orca_srun](orca_srun.png)
+ ![orca_srun](/chemistry/orca_srun.png)
 
 ### Restarting a failed/interrupted calculation
 
@@ -291,20 +283,9 @@ During calculations ORCA creates many different additional files, by default, `s
 - [Neese, F. (2017) Software update: the ORCA program system, version 4.0, _Wiley Interdiscip. Rev.:_ Comput. Mol. Sci., 8, e1327.](https://doi.org/10.1002/wcms.1327)
 - [Neese, F. (2022) Software update: The ORCA program system—Version 5.0, _WIREs Computational Molecular Science,_ 12, e1606.](https://doi.org/10.1002/wcms.1606)
 
-<br>
-
-##### _Additional Information_
+#### _Additional Information_
 
 - [Official ORCA website](https://orcaforum.kofo.mpg.de/)
 - [ORCA Input Library](http://sites.google.com/site/orcainputlibrary/)
 - [ORCA compound scripts repository](https://github.com/ORCAQuantumChemistry/CompoundScripts/)
 - [ORCA Tutorials by FAccTs](https://www.orcasoftware.de/tutorials_orca/)
-
-<br>
-
-### Benchmarks for parallel jobs
-
-<br>
-
-
-

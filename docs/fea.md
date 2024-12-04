@@ -1,4 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # FEA
 
@@ -8,7 +9,7 @@ The following software is installed on the cluster:
 
 - ElmerFEM: Multiphysics [ElmerModelsManual.pdf](http://www.nic.funet.fi/pub/sci/physics/elmer/doc/ElmerModelsManual.pdf)
 - CalculiX: Mechanical analysis, heat, electromagnetic, CFD; solver makes use of the Abaqus input format. [Overview of the finite element capabilities of CalculiX Version 2.18](http://www.dhondt.de/ov_calcu.htm)
-- deal.ii (via [SPACK](spack.md)): A C++ software library supporting the creation of finite element codes and an open community of users and developers.
+- deal.ii (via [SPACK](/spack.html)): A C++ software library supporting the creation of finite element codes and an open community of users and developers.
 - Abaqus: Commercial
 - Comsol: Commercial, License belongs to a research group (...)
 - code_aster (upcoming from generic package)

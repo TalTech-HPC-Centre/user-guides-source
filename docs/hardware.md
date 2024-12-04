@@ -1,4 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 ## Hardware Specification
 
@@ -9,8 +10,8 @@ TalTech operates the following infrastructure:
 
 
 -   **base.hpc.taltech.ee** is the new cluster environment all nodes from HPC1 and HPC2 will be migrated here
-    -   a live diagram of the cluster load is here: [load diagram](https://base.hpc.taltech.ee/load/)
-    -   UniID login (please ask at hpcsupport@taltech.ee to activate access)
+    -   uptime graph for our services can be found [here](https://base.hpc.taltech.ee/)
+    -   UniID login (please ask at [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to activate access)
     -   SLURM v20 scheduler
     -   CentOS 7
     -   home-directories' location: `/gpfs/mariana/home/uni-ID`
@@ -27,7 +28,7 @@ TalTech operates the following infrastructure:
     -   **mem1tb** large memory node
         -   1 node with 1TB of operating RAM
         -   4x Intel Xeon CPU E5-4640 (together 32 cores, 64 threads)
-    -   **amp** GPU node, [specific guide for amp](gpu.md) (amp.hpc.taltech.ee)
+    -   **amp** GPU node, [specific guide for amp](/gpu.html) (amp.hpc.taltech.ee)
         -   1 node with 8xNvidia A100
         -   2x 64core AMD EPYC 7742 (together 128 cores, 256 threads)
         -   1 TB RAM

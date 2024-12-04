@@ -3,32 +3,20 @@
 
 **This page is work in progress**
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## ElmerFEM 
 
 ---
 
 Elmer is a multi-physics simulation software developed by CSC. It can perform coupled mechanical, thermal, fluid, electro-magnetic simulations and can be extended by own equations.
 
-<div class="simple1">
 Some useful links:
 
  - Elmer homepage: [http://www.elmerfem.org/blog/](http://www.elmerfem.org/blog/)
  - Elmer manuals and tutorials: [https://www.nic.funet.fi/pub/sci/physics/elmer/doc/](https://www.nic.funet.fi/pub/sci/physics/elmer/doc/)
-</div>
-<br>
 
 ### How to cite:
 
 _CSC – IT CENTER FOR SCIENCE LTD., 2020. Elmer, Available at: https://www.csc.fi/web/elmer/._
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Loading the module
 
@@ -40,11 +28,6 @@ To use ElmerFEM the module needs to be loaded
 	module load elmerfem/9.0-gcc-10.3.0-netlib-lapack-qjdi
 
 This makes the following main commands `ElmerGrid`, `ElmerSolver` available and `ElmerGUI` can be used with X11 forwarding or in an OnDemand desktop session to setup the case file. The use of ElmerGUI to run simulations is **not** recommended.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Running a tutorial case (quick-start for the impatient)
 
@@ -69,11 +52,6 @@ This makes the following main commands `ElmerGrid`, `ElmerSolver` available and 
 
 5. Postprocessing would be visualizing the `eigen_values.vtu` file in `paraview`.
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Setting up a simulation (for new users)
 
 ---
@@ -91,7 +69,7 @@ The follwing steps are needed to configure a simulation case (mostly on **base**
 
 		ElmerGrid 14 2 geometry.msh -scale 0.001 0.001 0.001
 
-4. <div class="simple1"> Create a new project in ElmerGUI (can be done on <b>viz</b>). 
+4. Create a new project in ElmerGUI (can be done on **viz**). 
 
     - create project  
     - load Elmer mesh (point to the created mesh directory)   
@@ -99,7 +77,7 @@ The follwing steps are needed to configure a simulation case (mostly on **base**
     - add material(s)  
     - add boundary conditions  
     - create sif   
-    - edit & save sif </div>   
+    - edit & save sif   
 
 5. Edit the `case.sif` file (mesh directory, some other parameters [e.g. calculate PrincipalStresses] can only be added in the sif file, not in the GUI)
 
@@ -109,14 +87,3 @@ The follwing steps are needed to configure a simulation case (mostly on **base**
 	or create batch file and submit using sbatch.
 
 7. Postprocessing in ParaView.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## An example simulation case from start to finish
-
----
-
-

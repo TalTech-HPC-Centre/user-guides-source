@@ -4,66 +4,58 @@ SSH keys fingerprint is a security feature for easy identification/verification 
 
 Please compare the fingerprint to the ones below, if one matches, the host can be added, if the fingerprint does not match, then there is a problem (e.g. man-in-the-middle-attack).
 
-**base.hpc.taltech.ee**
--   ECDSA SHA256:OEfQiOB/eIG8hYoQ25sQk9T5tx9EtQbhi6sNM4C8mME
--   ED25519 SHA256:t0CSTU0AnSsJThzuM68tucrcfnn2wLKabjSnuRKX8Yc
--   RSA SHA256:qYrmOw/YN7wf640yBHADX3wnAOPu0OOXlcu4LKBxzG8   
+**base.hpc.taltech.ee**:
 
-<br>
+```
+ECDSA SHA256:OEfQiOB/eIG8hYoQ25sQk9T5tx9EtQbhi6sNM4C8mME
+ED25519 SHA256:t0CSTU0AnSsJThzuM68tucrcfnn2wLKabjSnuRKX8Yc
+RSA SHA256:qYrmOw/YN7wf640yBHADX3wnAOPu0OOXlcu4LKBxzG8
+```
 
-**amp.hpc.taltech.ee**
--   ECDSA SHA256:yl6+VaKow6qDZAXL3rQY8+3d3pcH0kYg7MjGgNVTWZs
--   ED25519 SHA256:YOjtpcEL2+AWm6vDFjVl0znYuQPMSVCkyFGvdO5fm8o
--   RSA SHA256:4aaOxumH1ATNfiIA4mZSNMefvxfdFm5zZoUj6VR7TYo   
+**amp.hpc.taltech.ee**:
 
-<br>
+```
+ECDSA SHA256:yl6+VaKow6qDZAXL3rQY8+3d3pcH0kYg7MjGgNVTWZs
+ED25519 SHA256:YOjtpcEL2+AWm6vDFjVl0znYuQPMSVCkyFGvdO5fm8o
+RSA SHA256:4aaOxumH1ATNfiIA4mZSNMefvxfdFm5zZoUj6VR7TYo
+```
 
-**viz.hpc.taltech.ee**
--   ECDSA SHA256:z2/bxleZ3T3vErkg4C7kvDPKKEU0qaoR8bL29EgMfGA
--   ED25519 SHA256:9zRBmS3dxD7BNISZKwg6l/2+6p4HeqlOhA4OMBjD9mk
--   RSA SHA256:Q6NDm88foRVTKtEAEexcRqPqMQNGUzf3rQdetBympPg
+**viz.hpc.taltech.ee**:
 
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+```
+ECDSA SHA256:z2/bxleZ3T3vErkg4C7kvDPKKEU0qaoR8bL29EgMfGA
+ED25519 SHA256:9zRBmS3dxD7BNISZKwg6l/2+6p4HeqlOhA4OMBjD9mk
+RSA SHA256:Q6NDm88foRVTKtEAEexcRqPqMQNGUzf3rQdetBympPg
+```
 
-## Generating  SSH keys 
+## Generating  SSH keys
 
 ---
 
 In **Linux/Mac** SSH keys can be generated in cmd by command:
 
-```bash	
-	ssh-keygen -t rsa
+```bash
+ssh-keygen -t rsa
 ```
-	
+
 In **Windows** SSH keys can be generated in powershell by command:
 
-```powershell	
-	ssh-keygen.exe -t rsa
+```powershell
+ssh-keygen.exe -t rsa
 ```
-	
-The program prompts the user through the process and asks the user to set a passphrase, which should be created. This process ends with two keys in the path it showed. One of them is named (by default) `id_rsa` and the other `id_rsa.pub`. The `.pub` key is your public key, the other is a private key. 
 
-![ssh-keygen](pictures/ssh-key_1.png)
+The program prompts the user through the process and asks the user to set a passphrase, which should be created. This process ends with two keys in the path it showed. One of them is named (by default) `id_rsa` and the other `id_rsa.pub`. The `.pub` key is your public key, the other is a private key.
 
-***NB! Never share your private key with anyone.***
+![ssh-keygen](/pictures/ssh-key_1.png)
 
-<div class="simple1">
+!!! danger
+    Never share your private key with anyone!
+
 More detail guides can be found here:
 
- - **Linux** - [https://linuxhint.com/generate-ssh-keys-on-linux/](https://linuxhint.com/generate-ssh-keys-on-linux/)
- - **Mac** - [https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x](https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x)
- - **Windows** - [https://phoenixnap.com/kb/generate-ssh-key-windows-10](https://phoenixnap.com/kb/generate-ssh-key-windows-10)
-</div>
-
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+- **Linux** - [https://linuxhint.com/generate-ssh-keys-on-linux/](https://linuxhint.com/generate-ssh-keys-on-linux/)
+- **Mac** - [https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x](https://docs.tritondatacenter.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-mac-os-x)
+- **Windows** - [https://phoenixnap.com/kb/generate-ssh-key-windows-10](https://phoenixnap.com/kb/generate-ssh-key-windows-10)
 
 ## Uploading SSH keys to base
 
@@ -71,25 +63,24 @@ More detail guides can be found here:
 
 Once the keys are created, the public (`.pub`) key needs to be uploaded to base. There are a couple of ways to do it. On base, SSH public keys are found in `/etc/AuthorizedKeys/$USER` file, there is a link to it from `.ssh/authorized_keys` file.
 
-Several SSH keys can be used simultaneously to access the same user account in case of use several different devices. 
+Several SSH keys can be used simultaneously to access the same user account in case of use several different devices.
 
 On **Linux/Mac** to copy keys to the cluster:
 
 ```bash
-	ssh-copy-id Uni-ID@base.hpc.taltech.ee
+ssh-copy-id Uni-ID@base.hpc.taltech.ee
 ```
 
 _**where uni-ID should be changed to user's uni-ID.**_
-	
-![ssh-keygen](pictures/ssh-key_3.png)	
-	
+
+![ssh-keygen](/pictures/ssh-key_3.png)
+
 On **Windows** it can be copied in powershell with this command:
 
 ```powershell
-	type $env:USERPROFILE\.ssh\id_rsa.pub | ssh Uni-Id@base.hpc.taltech.ee "cat >> .ssh/authorized_keys"
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh Uni-Id@base.hpc.taltech.ee "cat >> .ssh/authorized_keys"
 ```
 
 _**where uni-ID should be changed to user's uni-ID.**_
 
 A more thorough explanation with an example can be found [here](https://www.chrisjhart.com/Windows-10-ssh-copy-id/).
-

@@ -1,8 +1,8 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # Remote visualization using VirtualGL
 
-<div class="simple1">
 The client (your desktop) computer needs X11 and the VirtualGL software:
 
 -   Linux: 
@@ -14,8 +14,6 @@ The client (your desktop) computer needs X11 and the VirtualGL software:
 -   Mac: 
     -   XQuarts needs to be installed <https://www.xquartz.org/>
     -   download your VirtualGl package from <https://www.virtualgl.org/>
-</div>
-<br>
 
 Any recent VGL client version should work (vis-node has 2.5.2). If there is no native package for your Linux distribution, you can download the .deb and unpack it using `dpkg -x virtualgl...deb vgl`. The programs you need are in `vgl/opt/VirtualGL/bin/`.
 

@@ -2,74 +2,71 @@
 
 JupyterLab is an interactive notebook environment (with a web-browser interface) for Julia, Python, Octave and R.
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## JupyterLab Short introduction
 
 ---
 
-1. Download [jupyterlab.slurm](jupyterlab.slurm.txt) or  [jupyterlab-gpu.slurm](jupyterlab-gpu.slurm.txt) batch script:
+1. Download [jupyterlab.slurm](/data-analysis/jupyterlab.slurm) or  [jupyterlab-gpu.slurm](/data-analysis/jupyterlab-gpu.slurm) batch script:
+
+    ```bash
+    #!/bin/bash
+    #SBATCH --nodes 1
+    #SBATCH --ntasks 1
+    #SBATCH --time 01:30:00
+    # #SBATCH -p gpu                #uncomment if needed
+    # #SBATCH --gres=gpu:1          #uncomment if needed
     
-        #!/bin/bash
-        #SBATCH --nodes 1
-        #SBATCH --ntasks 1
-        #SBATCH --time 01:30:00
-        # #SBATCH -p gpu                #uncomment if needed
-        # #SBATCH --gres=gpu:1          #uncomment if needed
-        
-        #Load Python modules
-        module load rocky8-spack/
-        module load r
-        module load julia
-        module load octave
-        module load py-jupyterlab
-        module load py-pip
-        # module load cuda              #uncomment if needed
+    #Load Python modules
+    module load rocky8-spack/
+    module load r
+    module load julia
+    module load octave
+    module load py-jupyterlab
+    module load py-pip
+    # module load cuda              #uncomment if needed
 
-        module list
-        echo $SLURM_JOB_NODELIST
+    module list
+    echo $SLURM_JOB_NODELIST
 
-        #Create Jupyter conf
-        cat << EOF > JupyterLab.conf.py
-        # Set ip to '*' to bind on all interfaces
-        c.NotebookApp.ip = '*'
-        c.NotebookApp.open_browser = False
+    #Create Jupyter conf
+    cat << EOF > JupyterLab.conf.py
+    # Set ip to '*' to bind on all interfaces
+    c.NotebookApp.ip = '*'
+    c.NotebookApp.open_browser = False
 
-        # It is a good idea to set a known, fixed port for server access
-        c.NotebookApp.port = 9900
-        EOF
+    # It is a good idea to set a known, fixed port for server access
+    c.NotebookApp.port = 9900
+    EOF
 
-        #jupyter-lab --no-browser
-        jupyter-lab --no-browser --config=JupyterLab.conf.py
+    #jupyter-lab --no-browser
+    jupyter-lab --no-browser --config=JupyterLab.conf.py
 
-        #Remove jupyter conf
-        rm JupyterLab.conf.py
-
+    #Remove jupyter conf
+    rm JupyterLab.conf.py
+    ```
 
 2. Submit the job on base
 
-       ssh uni-ID@base.hpc.taltech.ee
-       sbatch jupyterlab.slurm
+    ```bash
+    ssh uni-ID@base.hpc.taltech.ee
+    sbatch jupyterlab.slurm
+    ```
 
-3. Check the `slurm-JOBID.out` file for the URL, host and port to connect to.
-**NB!** Text in `slurm-JOBID.out` can appear with some delay. 
-
+3. Check the `slurm-JOBID.out` file for the URL, host and port to connect to. **NB!** Text in `slurm-JOBID.out` can appear with some delay.
 
 4. Close terminal and establish a new connection to base with port forwarding
 
-       ssh uni-ID@base.hpc.taltech.ee -L 99YY:greenX:99YY
+    ```bash
+    ssh uni-ID@base.hpc.taltech.ee -L 99YY:greenX:99YY
+    ```
 
 5. Point your webbrowser to the URL from the `slurm-JOBID.out`, e.g.
 
-       http://green1:9900/lab?token=6ddef678a64245352e74fc66987d378ce075f390d89a2c7f
-    
-*NB: Node name (green1 in the above example), port (here 9900) and token will be different for each job you submit! More detais can be found in Accessing Jupyter webinterface part.*
+    ```bash
+    http://green1:9900/lab?token=6ddef678a64245352e74fc66987d378ce075f390d89a2c7f
+    ```
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+*NB: Node name (green1 in the above example), port (here 9900) and token will be different for each job you submit! More detais can be found in Accessing Jupyter webinterface part.*
 
 ## JupyterLab on Taltech HPC (long version)
 
@@ -77,9 +74,8 @@ JupyterLab is an interactive notebook environment (with a web-browser interface)
 
 ### Network access to TalTech HPC
 
-In order to access the HPC head-node base.hpc.taltech.ee you have to use some Estonia network or VPN. 
-TalTech [OpenVPN](<https://wiki.itcollege.ee/index.php/TalTech_VPN>) can be used for access outside of Estonia network. 
-
+In order to access the HPC head-node base.hpc.taltech.ee you have to use some Estonia network or VPN.
+TalTech [OpenVPN](https://wiki.itcollege.ee/index.php/TalTech_VPN) can be used for access outside of Estonia network.
 
 ### Copy the SLURM start script to HPC head node
 
@@ -94,7 +90,7 @@ Log into HPC head-node with SSH client (UniID - your UniID, usually six lower le
     mkdir Jupyter  #Create folder for your Jupyter
     exit  
 
-Copy the sbatch script [jupyterlab.slurm](jupyterlab.slurm) (for SLURM queuing system) to your newly created Jupyter folder in HPC. 
+Copy the sbatch script [jupyterlab.slurm](/data-analysis/jupyterlab.slurm) (for SLURM queuing system) to your newly created Jupyter folder in HPC. 
 ***NB!*** The file jupyterlab.slurm must be in the same folder where you execute the copy command
 Copy with sftp:
 
@@ -106,13 +102,13 @@ Copy with scp:
     scp local/path/from/where/to/copy/jupyterlab.sh uni-ID@base.hpc.taltech.ee:Jupyter/ 
 
 #### 2. GUI solution
+
 Download sftp capable file transfer software.
 For example, [WinSCP](https://winscp.net/eng/index.php) (Windows) or [FileZilla Client](https://filezilla-project.org/) (any platform).
-Install sftp client, connect to base.hpc.taltech.ee, make your work directory and copy the[jupyterlab.slurm](jupyterlab.slurm) file. More details about using WinSCP and FileZilla Client can be found [here](https://docs.hpc.taltech.ee/quickstart.html#quickstart-cluster).
-
-
+Install sftp client, connect to base.hpc.taltech.ee, make your work directory and copy the[jupyterlab.slurm](/data-analysis/jupyterlab.slurm) file. More details about using WinSCP and FileZilla Client can be found [here](/quickstart.html#quickstart-cluster).
 
 ### Starting JupyterLab as batch job in HPC
+
 If necessary start [VPN connection](https://confluence.ttu.ee/it-info/it-arvuti-ja-oppetoeoekoht/kauguehendus-vpn/kaugtoeoeuehendus-eduvpn).
 Open terminal and ssh to HPC:
 
@@ -136,6 +132,7 @@ If you need to stop and remove the job this can be done with command `scancel JO
 
 
 ### Values in jupyterlab.sh SLURM batch job script
+
 Values concerning queuing system SLURM:
 
     #SBATCH --time 01:30:00 #Max runtime of the job, int this exampe 1 hour 30 minutes
@@ -178,12 +175,8 @@ If your tunnel is running (ssh connection is active) then the JupyterLab can be 
 
     http://127.0.0.1:9901/lab?token=4046f45de18c9523525ed8d972d48618ee333c6417e640f6
 
-Open the above presented address in your browser. 
-***NB!*** These values are unique and different during each run. 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+Open the above presented address in your browser.
+***NB!*** These values are unique and different during each run.
 
 ## with the new SPACK-based modules
 
@@ -226,11 +219,7 @@ For R:
     IRkernel::installspec()
 --->
 
-![jupyterlab](jupyterlab.png)
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+![jupyterlab](/data-analysis/jupyterlab.png)
 
 ## Jupyter-notebooks as non-interactive jobs
 
@@ -253,9 +242,3 @@ Jupyter notebooks can be run non-interactive from the command-line using
      papermill makes it possible to pass parameters, e.g. setting start and end variables
 
          papermill mynotebook.ipynb mynotebook_output.ipyn -p start "2017-11-01" -p end "2017-11-30"
-
-
-
-
-
-

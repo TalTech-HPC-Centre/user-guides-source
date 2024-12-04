@@ -1,8 +1,7 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # EasyBuild
-
-**under development, docs AND module positions/versions may change without notice**
 
 EasyBuild is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. [List of packages](https://docs.easybuild.io/en/latest/version-specific/Supported_software.html)
 
@@ -11,9 +10,6 @@ EasyBuild is a package manager to install software packages. An advantage is to 
 EasyBuild is available on **amp** from AI lab
 
     module use /illukas/software/modules
-
-
-
 
 ## User build software
 

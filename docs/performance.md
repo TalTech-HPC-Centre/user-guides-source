@@ -3,10 +3,6 @@
 
 How fast is your program? How good makes it use of available hardware? Could it run faster on the same hardware?
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Benchmarking
 
 ---
@@ -15,34 +11,22 @@ Benchmarking is the art and skill to find out how fast your program and hardware
 
 In order to find out just how fast your hardware is, you need a software that uses all of the available components in an optimal way.
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Desktop _vs._ Compute Node
 
 ---
 
-<div class="simple1">
 Why is my (single-thread) job not faster on the cluster than on my desktop?
 
 - Compute nodes do not have higher clock frequencies than desktop computers, but they have more cores and more RAM
 - A single thread job on your desktop probably uses “boost-frequency” when the other cores are idle, a compute node has usually many busy cores and therefore “boost-frequency” is not possible
 - A CPU has typically 6 memory channels, several applications share these on the compute node, while on the desktop only your single application uses them.
-</div>
-<br>
-<div class="simple1">
+
 Why is my x-ntask parallel job not x-times as fast than my sequential job?
 
 - not enough to do for each core (task)
 - load imbalance, some tasks need to wait till another task finishes
 - communication between tasks introduces overhead
 - congestion of memory channels (see above)
-</div>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Parallel scaling
 
@@ -76,7 +60,7 @@ Thus, both the number of processors and the problem size are increased, which re
 
 ***NOTE: Parallel does not (necessarily) mean faster!!!*** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test (run the same (a typical) simulation with different numbers of parallel tasks) and find the sweet spot.
 
-![sweet spot](pictures/of-timing4.png)
+![sweet spot](/pictures/of-timing4.png)
 
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the time command). ***"Wall clock"*** (real) time is the time one needs to wait till the job is finished, ***"Summed thread time"*** (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
@@ -139,7 +123,7 @@ Billed CPU-time:
 <br>
 <br>
 
-![efficiency](pictures/efficiency.png)
+![efficiency](/pictures/efficiency.png)
 
 
 
@@ -158,22 +142,17 @@ ideally the bars of your process are all green. To find your the processor of yo
 
 These jobs have spend over 90% CPU-time in calculations:
 
-![htop-openfoam-n8](pictures/htop-openfoam-n8_crop.png)
-![htop-starccm-1node-80core-good](pictures/htop-starccm-1node-80core-good_crop.png)
+![htop-openfoam-n8](/pictures/htop-openfoam-n8_crop.png)
+![htop-starccm-1node-80core-good](/pictures/htop-starccm-1node-80core-good_crop.png)
 
 
 This jobs spends already much more CPU-time in communication:
 
-![htop-openfoam-n32](pictures/htop-openfoam-n32_crop.png)
+![htop-openfoam-n32](/pictures/htop-openfoam-n32_crop.png)
 
 This jobs spends less than 10% CPU-time in calculation and over 90% in communication, reducing the number of `ntasks` will probably speed it up considerably:
 
-![htop-starccm-7node-job](pictures/htop-starccm-7node-job_crop.png)
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
+![htop-starccm-7node-job](/pictures/htop-starccm-7node-job_crop.png)
 
 ## Clean vs. fast code (Python)
 
@@ -183,19 +162,14 @@ Clean Code states:
 
 > The ﬁrst rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
 
-<div class="simple1">
 This rule is unfortunately often taken to the extreme, leading to several problems:
 
 1. Someone reading the code for the first time is hopping around the code to find out what the tiny functions are actually doing.
 2. ***Hot*** and ***cold*** code is mixed (instruction cache misses).
 3. Function calls are expensive, especially in Python, regarding computation time. (In contrast to Python, a C/C++/Fortran compiler may inline small functions, thus solving the issue, though there is no guarantee that the compiler will inline, not even with the inline statement.)
 4. A lot of variables have to be passed over multiple levels of function calls, thus increasing memory use and cache misses. Object orientation and global variables are used as a remedy for this, but this leads to functions with side effects (the reader does not know what variables the function is changing by looking at the function call).
-</div>
-<br>
 
-<s>  An example of the time function calls can waste </s> 
-
-### An example of the time function calls can waste:
+### An example of the time function calls can waste
 
 Time the following codes:
 
@@ -219,42 +193,40 @@ To learn:
 
 > Use *meaningful* function blocks. Define functions for code-blocks that are re-used in other parts of the program. Do *not* define 1-line functions, except you have a very good reason!
 
-<br>
-<br>
-
-
-
-
-
 Are newer processors better/faster in every case?
+
 When does it make sense to switch to the newer nodes?
+
 When does it make sense to still use the older nodes?
 
 
-Intel Xeon E5-2630L 6C 2.00 GHz (max turbo 2.50 GHz)
-4 memory channels
-42.6 GB/s max memory bandwidth
-(~10.65 GiB/s memory bandwidth per channel)
-GFlops per core or CPU
+Intel Xeon E5-2630L 6C 2.00 GHz (max turbo 2.50 GHz):
 
-memory channels per core: 4/6 (0.75)
-bandwidth per core: ~7.99 GiB/s
-bandwidth per GFlop:
+- 4 memory channels
+- 42.6 GB/s max memory bandwidth
+- (~10.65 GiB/s memory bandwidth per channel)
+- GFlops per core or CPU
+
+- memory channels per core: 4/6 (0.75)
+- bandwidth per core: ~7.99 GiB/s
+- bandwidth per GFlop:
+
+Xeon Gold 6148 20C 2.40 GHz (max turbo 3.70 GHz):
+
+- Turbo Frequency (20 Cores):	3.00 GHz
+- 6 memory channels
+- 119.21 GiB/s max  memory bandwidth
+- 19.87 GiB/s memory bandwidth per channel
+- GFlops per core or CPU
+
+- memory channels per core: 6/20 (0.30)
+- bandwidth per core: 5.961 GiB/s 
+- bandwidth per GFlop: 0.133 GiB/s
 
 
+Bandwidth:
 
-
-Xeon Gold 6148 20C 2.40 GHz (max turbo 3.70 GHz)
-Turbo Frequency (20 Cores):	3.00 GHz
-6 memory channels
-119.21 GiB/s max  memory bandwidth
-19.87 GiB/s memory bandwidth per channel
-GFlops per core or CPU
-
-memory channels per core: 6/20 (0.30)
-bandwidth per core: 5.961 GiB/s 
-bandwidth per GFlop: 0.133 GiB/s
-
-
-Bandwidth	Single 19.87 GiB/sDouble 39.74 GiB/sQuad 79.47 GiB/sHexa 119.21 GiB/s
-
+- Single 19.87 GiB/s
+- Double 39.74 GiB/s
+- Quad 79.47 GiB/s
+- Hexa 119.21 GiB/s

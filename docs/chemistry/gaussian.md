@@ -1,58 +1,52 @@
 # Gaussian
 
-<span style="color:red">***Important note:***  </span>
-**To run Gaussian, user should be added to the Gaussian group.**
-Contact to `hpcsupport@taltech.ee`.
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+!!! info
+    **To run Gaussian, user should be added to the Gaussian group.**
+    Contact [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to be added.
 
 ## Gaussian short introduction 
 
 ---
 
-1. Make [gaussian.slurm](gaussian.slurm) batch script:
+1. Make [gaussian.slurm](/chemistry/gaussian.slurm) batch script:
 
-       #!/bin/bash
-       #SBATCH --job-name=Job_Name
-       #SBATCH --mem-per-cpu=2GB
-       #SBATCH --nodes=1
-       #SBATCH --ntasks=1
-       #SBATCH --cpus-per-task=24
-       #SBATCH -t 1-00:00:00
-       #SBATCH --partition=common
-       #SBATCH --no-requeue
-    
-        module load rocky8/all 
-        module load gaussian/16.c02 
-    
-        SCRATCH=/state/partition1/$SLURM_JOB_ID
-        export GAUSS_SCRDIR=$SCRATCH
-        mkdir -p $SCRATCH
-     
-        g16 -m=48gb -p=24 < job.com > job.log
-        
-        #Clean after yourself
-        rm -rf  $SCRATCH
-    
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=Job_Name
+    #SBATCH --mem-per-cpu=2GB
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=24
+    #SBATCH -t 1-00:00:00
+    #SBATCH --partition=common
+    #SBATCH --no-requeue
 
-2. Copy job-input file [job.com](job.com).
+    module load rocky8/all 
+    module load gaussian/16.c02 
+
+    SCRATCH=/state/partition1/$SLURM_JOB_ID
+    export GAUSS_SCRDIR=$SCRATCH
+    mkdir -p $SCRATCH
+
+    g16 -m=48gb -p=24 < job.com > job.log
+
+    #Clean after yourself
+    rm -rf  $SCRATCH
+    ```
+
+2. Copy job-input file [job.com](/chemistry/job.com).
 
 3. Submit the job on **base**:
 
-	   sbatch gaussian.slurm
+    ```bash
+	sbatch gaussian.slurm
+    ```
 
-    ***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
+    ***NB!*** _More cores does not mean faster!!! See [benchmarks](/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
 
-4. Check results using [visualization software](visualization.md).
+4. Check results using [visualization software](/visualization.html).
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Gaussian long version 
+## Gaussian long version
 
 ---
 
@@ -84,7 +78,7 @@ Gaussian by default executes jobs on only a single processor.
 
 To run multiple processors/cores job  a number of cores should be specified. The number of cores can be defined via the `-p` flag (e.g. -p=4) in command line of `slurm` script or by adding the `%NprocShared` keyword into  Gaussian input file (e.g. %NprocShared=4). For more information see [Gaussian manual](https://gaussian.com/running/). The number of processors requested should correspond to the number of processors requested in `slurm` script.
 
-***NB!*** _More cores does not mean faster!!! See [benchmarks](https://docs.hpc.taltech.ee/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
+***NB!*** _More cores does not mean faster!!! See [benchmarks](/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
 
 Example of `slurm` script:
 
@@ -130,7 +124,7 @@ Example of Gaussian input:
     
 ### Memory
 
-The default dynamic memory requested by Gaussian is frequently too small for successful job termination. Herein, if amount of memory requested is insufficient, the job will crash. There is no golden rule for memory requests. Usually, for common calculations (e.g. optimization, frequency etc.)  2 GB per 1 core is sufficient. This can be done by the `-m` flag in the command line (e.g. -m=48gb) or by adding the `%Mem` keyword in Gaussian input file (e.g. %Mem=2GB). For more information see [Gaussian manual](https://gaussian.com/running/) and [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification).
+The default dynamic memory requested by Gaussian is frequently too small for successful job termination. Herein, if amount of memory requested is insufficient, the job will crash. There is no golden rule for memory requests. Usually, for common calculations (e.g. optimization, frequency etc.)  2 GB per 1 core is sufficient. This can be done by the `-m` flag in the command line (e.g. -m=48gb) or by adding the `%Mem` keyword in Gaussian input file (e.g. %Mem=2GB). For more information see [Gaussian manual](https://gaussian.com/running/) and [taltech user-guides](/index.html#hardware-specification).
 
 However, there are calculations that require more memory (e.g TD-DFT, large SCF calculations, etc.). Data from a `slurm-JOBID.stat` file can be useful to determine the amount of memory required for a computation. In `slurm-JOBID.stat` file the efficiency of memory utilization is shown. 
 
@@ -149,7 +143,7 @@ Good example:
 
 ### Time
 
-Time limits depend on [time partition](https://docs.hpc.taltech.ee/index.html#hardware-specification) used. If calculation time exceeds the time limit requested in the `slurm` script, the job will be killed, and in the end of `slurm-JOBID.out` will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
+Time limits depend on [time partition](/index.html#hardware-specification) used. If calculation time exceeds the time limit requested in the `slurm` script, the job will be killed, and in the end of `slurm-JOBID.out` will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "
 
 Therefore, it is recommended to request more time than is usually needed for calculation and create checkpoint files (by `%chk=job.chk` line in input file) that allows to restart job.
 
@@ -158,7 +152,7 @@ Therefore, it is recommended to request more time than is usually needed for cal
 
 GPUs **are effective** for large molecules, their energies, gradients and frequencies calculations. GPUs **are not effective** for small jobs, as well as for MP2 or CCSD calculations. 
 
-GPU jobs can be run only on **amp** or **amp2**. To access **amp** user has to have ssh-keys copied to the **base** ([how to do that](../ssh.md)).
+GPU jobs can be run only on **amp** or **amp2**. To access **amp** user has to have ssh-keys copied to the **base** ([how to do that](/ssh.html)).
 
 **amp** can be accessed by command:
 
@@ -177,7 +171,7 @@ The GPUs and CPUS used for calculations are specified with the `%GPUCPU` command
 ***NB!*** _The GPU and CPU count starts from zero._
 
 
-Example of [gaussian-gpu.slurm](gaussian-gpu.slurm) script for **amp**:
+Example of [gaussian-gpu.slurm](/chemistry/gaussian-gpu.slurm) script for **amp**:
 
     #!/bin/bash
     #SBATCH --job-name=Job_Name
@@ -204,7 +198,7 @@ Example of [gaussian-gpu.slurm](gaussian-gpu.slurm) script for **amp**:
     rm -rf  $SCRATCH
 
 
-Example of Gaussian input [job-gpu.com](job-gpu.com) (bad example, since molecule is small):
+Example of Gaussian input [job-gpu.com](/chemistry/job-gpu.com) (bad example, since molecule is small):
 
     %mem=160GB
     %cpu=0-9
@@ -263,24 +257,16 @@ Killed or failed jobs can be restarted, but for this checkpoint file should be g
 
 - _Gaussian 16 - [https://gaussian.com/citation/](https://gaussian.com/citation/)_
 - _Gaussian 09 - Gaussian 09, Revision C.01, Frisch, M.J.; Trucks, G.W.; Schlegel, H.B.; Scuseria, G.E.; Robb, M.A.; Cheeseman, J.R.; Scalmani, G.; Barone, V.; Mennucci, B.; Petersson, G.A.; Nakatsuji, H.; Caricato, M.; Li, X.; Hratchian, H.P.; Izmaylov, A.F.; Bloino, J.; Zheng, G.; Sonnenberg, J.L.; Hada, M.; Ehara, M.; Toyota, K.; Fukuda, R.; Hasegawa, J.; Ishida, M.; Nakajima, T.; Honda, Y.; Kitao, O.; Nakai, H.; Vreven, T.; Montgomery, J.A., Jr.; Peralta, J.E.; Ogliaro, F.; Bearpark, M.; Heyd, J.J.; Brothers, E.; Kudin, K.N.; Staroverov, V.N.; Kobayashi, R.; Normand, J.; Raghavachari, K.; Rendell, A.; Burant, J.C.; Iyengar, S.S.; Tomasi, J.; Cossi, M.; Rega, N.; Millam, N.J.; Klene, M.; Knox, J.E.; Cross, J.B.; Bakken, V.; Adamo, C.; Jaramillo, J.; Gomperts, R.; Stratmann, R.E.; Yazyev, O.; Austin, A. J.; Cammi, R.; Pomelli, C.; Ochterski, J. W.; Martin, R.L.; Morokuma, K.; Zakrzewski, V.G.; Voth, G.A.; Salvador, P.; Dannenberg, J.J.; Dapprich, S.; Daniels, A.D.; Farkas, Ö.; Foresman, J.B.; Ortiz, J.V.; Cioslowski, J.; Fox, D.J. Gaussian, Inc., Wallingford CT, 2009._
-<br>
 
 ### Benchmarks for parallel jobs
 
 Gaussian example benchmarks performed with Gaussian 16 C01.  
 The job had 37 atoms.
 
-<div style="width:45%; height:!35%; margin-left: auto; margin-right: auto;"> 
+![Molecule](/chemistry/Porphyrin-1.png){: style="width:45%; height:!35%;"}
 
-![Molecule](Porphyrin-1.png)
+![20 Gaussian cores vs SLURM threads](/chemistry/Gaussian16_opt.png)
 
-</div>
+![40 Gaussian cores vs SLURM threads](/chemistry/Gaussian_an_freq.png)
 
-![20 Gaussian cores vs SLURM threads](Gaussian16_opt.png)
-
-![40 Gaussian cores vs SLURM threads](Gaussian_an_freq.png)
-
-![40 Gaussian cores vs SLURM threads](Gaussian_num_freq.png)
-
-<br>
-
+![40 Gaussian cores vs SLURM threads](/chemistry/Gaussian_num_freq.png)

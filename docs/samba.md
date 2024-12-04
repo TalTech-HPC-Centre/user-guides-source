@@ -1,7 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
-
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # Accessing SMB/CIFS network shares
 
@@ -32,9 +30,9 @@ right click on myPC add network location or Map network
     server >>> \\smb.hpc.taltech.ee\smbhome
     username >>> INTRA\<uni-id>
 
- ![win-network-drive-1](pictures/networkdrive-1.png)
- ![win-network-drive-1](pictures/networkdrive-2.png)
- ![win-network-drive-1](pictures/networkdrive-3.png)
+ ![win-network-drive-1](/pictures/networkdrive-1.png)
+ ![win-network-drive-1](/pictures/networkdrive-2.png)
+ ![win-network-drive-1](/pictures/networkdrive-3.png)
  
 
 

@@ -19,10 +19,6 @@ For MPI jobs prefer the **green-ib** partition (`#SBATCH -p green-ib`) or stay w
 
     export OMPI_MCA_btl_openib_warn_no_device_params_found=0 srun ./hello-mpi
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Layers in OpenMPI
 
 ---
@@ -38,7 +34,6 @@ For MPI jobs prefer the **green-ib** partition (`#SBATCH -p green-ib`) or stay w
    - openib
    - self
    - sm (OpenMPI 1), vader (OpenMPI 4)
-<br>
 
 
 The layers can be confusing, so was openib originally developed for InfiniBand, but is now used for RoCE and is deprecated for IB. However, on some IB cards and configurations it is the only working option. Also, the MVAPICH implementation still uses the openib (verbs) instead of UCX.
@@ -65,17 +60,10 @@ To select UCX transport:
 ***NB!*** _UCX is not supported on QLogic FastLinQ QL41000 Ethernet controllers._
 
 
-
-<div class="simple1">
 For further explanations and details see:
 
 - <https://www.open-mpi.org/faq/?category=tuning>
 - <https://www.open-mpi.org/faq/?category=openfabrics>
-</div>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Different MPI implementations exist:
 
@@ -127,12 +115,9 @@ For further explanations and details see:
 -   default: use OpenMPI on our clusters
 -   if unsatisfied with performance and running on single node or over TCP, try MPICH
 -   if unsatisfied with performance and running on IB try MVAPICH
-<br>
-<div class="simple1">
+
 For a comparison, see for example:
 
 -   <https://www.chpc.utah.edu/documentation/software/mpilibraries.php>
 -   <https://stackoverflow.com/questions/2427399/mpich-vs-openmpi>
-</div>
-<br>
-<br>
+

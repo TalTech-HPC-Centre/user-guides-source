@@ -1,71 +1,50 @@
-<span style="color:orange">only partially changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # GPU-servers
 
-
-<span style="color:blue">job submission from "base"</span>
-
-<span style="color:red">The AI-lab "Illukas" modules will NOT work on the cluster due to different OS</span>
-
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+!!! warning
+    The AI-lab "Illukas" modules will NOT work on the cluster due to different OS
 
 ## Hardware
 
 ---
 
 
- <div class="simple1"> <b>amp1</b> 
+**amp1**
 
-- CPU: 2x AMD EPYC 7742 64core (2nd gen EPYC, Zen2)
-- RAM: 1 TB 
-- GPUs: 8x A100 Nvidia 40GB
-- OS: Rocky8
- </div> 
- <br>
+- **CPU:** 2x AMD EPYC 7742 64core (2nd gen EPYC, Zen2)
+- **RAM:** 1 TB
+- **GPUs:** 8x A100 Nvidia 40GB
+- **OS:** Rocky8
 
- <div class="simple1"> <b>amp2</b> 
+**amp2**
 
-- CPU: 2x AMD EPYC 7713 64core (3rd gen EPYC, Zen3)
-- RAM: 2 TB
-- GPUs: 8x A100 Nvidia 80GB
-- OS: Rocky8
- </div> 
- <br>
- 
- <div class="simple1"> <b>ada[1,2]</b> 
+- **CPU:** 2x AMD EPYC 7713 64core (3rd gen EPYC, Zen3)
+- **RAM:** 2 TB
+- **GPUs:** 8x A100 Nvidia 80GB
+- **OS:** Rocky8
 
-- CPU: 2x AMD EPYC 9354 32core (4th gen EPYC, Zen4)
-- RAM: 1.5 TB
-- GPUs: 2x L40 Nvidia 48GB
-- avx512
-- OS: Rocky8
- </div> 
- <br>
+**ada[1,2]**
 
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+- **CPU:** 2x AMD EPYC 9354 32core (4th gen EPYC, Zen4)
+- **RAM:** 1.5 TB
+- **GPUs:** 2x L40 Nvidia 48GB
+- **Features:** avx512
+- **OS:** Rocky8
 
 ## Login and localstorage
 
 ---
 
-No direct login, jobs are submitted from "base", use `srun -p gpu --gres=gpu:L40 --pty bash`
+!!! info
+    Job submission to GPU nodes is now from "base" node. Direct login to GPU nodes has been disabled!
+
+Use `srun -p gpu --gres=gpu:L40 --pty bash`
 
 amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer storage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Running jobs 
+## Running jobs
 
 ---
 
@@ -79,55 +58,36 @@ GPUs have to be reserved/requested with:
 
     srun -p gpu --gres=gpu:A100:1 -t 1:00:00 --pty bash
 
-all nodes with GPUs are in the same partition (`-p gpu`, but also in `short`, which has higher priority, but shorter time-limit) so jobs that do not have specific requirements can run on any of the nodes. If you need a specific type, e.g. for testing performance or because of memory requirements: 
- - it is possible to request the feature "A100-40" (for the 40GB A100s), "A100-80" (for the 80GB A100s):** `--gres=gpu:A100:1 --constraint=A100-80` or `--gres=gpu:1 --constraint=A100-40`
+All nodes with GPUs are in the same partition (`-p gpu`, but also in `short`, which has higher priority, but shorter time-limit) so jobs that do not have specific requirements can run on any of the nodes. If you need a specific type, e.g. for testing performance or because of memory requirements:
 
+- it is possible to request the feature "A100-40" (for the 40GB A100s), "A100-80" (for the 80GB A100s):** `--gres=gpu:A100:1 --constraint=A100-80` or `--gres=gpu:1 --constraint=A100-40`
 - it is also possible to request the"compute capability, e.g. nvcc80 (for A100) or nvcc89 (for L40) using `--gres=gpu:1 --constraint=nvcc89` = `--gres=gpu:L40:1`
-
- - another option is to request the job to run on a specific node, using the `-w` switch (e.g. `srun -p gpu -w amp1 --gres=gpu:A100:1 ... `)
-
+- another option is to request the job to run on a specific node, using the `-w` switch (e.g. `srun -p gpu -w amp1 --gres=gpu:A100:1 ... `)
 
 You can see which GPUs have been assigned to your job using `echo $CUDA_VISIBLE_DEVICES`, **the CUDA-deviceID in your programs always start with "0" (no matter which physical GPU was assigned to you by SLURM)**.
 
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Software and modules 
+## Software and modules
 
 ---
 
-same modules as on all nodes, i.e. the rocky8 and rocky8-spack modules.
-
+Same modules as on all nodes, i.e. the rocky8 and rocky8-spack modules.
 
 ### _From AI lab_
 
-will not work due to different OS
-
+Will not work due to different OS
 
 ### _Software that supports GPUs_
 
-- JupyterLab, see page on [JupyterLab](data-analysis/jupyter.md)
-- Gaussian, see page on [Gaussian](chemistry/gaussian.md)
+- JupyterLab, see page on [JupyterLab](/data-analysis/jupyter.html)
+- Gaussian, see page on [Gaussian](/chemistry/gaussian.html)
 - cp2k
 - StarCCM+
 - Julia
 - Chapel
-- Singularity (apptainer), see page on [Singularity](singularity.md)
+- Singularity (apptainer), see page on [Singularity](/singularity.html)
 
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-
-<span style="color:orange">only partially changed to rocky yet</span>
-
-
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 ## GPU libraries and tools
 
@@ -253,18 +213,7 @@ then load the `.qdrep` file.
 - GCC-11.2.0 with NVPTX supports GPU-offloading using OpenMP and OpenACC pragmas
 
 
-<br>
-
 ### _HIP (upcoming)_
 
 For porting code to AMD-Instinct based LUMI, the AMD HIP SDK will be installed.
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-
-
-<br>
-<br>

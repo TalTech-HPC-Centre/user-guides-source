@@ -5,15 +5,9 @@ Containers are a popular way of creating a reproducible software environment. Co
 
 The [Singularity user guides](https://docs.sylabs.io/guides/3.9/user-guide/) are a great resource for learning what you can do with singularity
 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Running a container 
+## Running a container
 
 ---
-
 
 native installation from Rocky 8 EPEL of `singularity-ce version 4.1.5-1.el8`, no modules to load.
 
@@ -89,10 +83,6 @@ Converting from Docker.io, see
 <https://www.nas.nasa.gov/hecc/support/kb/converting-docker-images-to-singularity-for-use-on-pleiades_643.html>
 -->
 
-
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Example: Interactive PyTorch job (without and with GPU)
 
 ---
@@ -120,11 +110,6 @@ You can also shorten it to a single command
     srun -t 1:00:00 -p gpu --mem 32G --gres=gpu:1 singularity exec docker://pytorch/pytorch python -c "import torch;print(torch.cuda.is_available())"
 
 which should give the same result (without the GPU name). If you remove the `--nv` flag the result changes as singularity no longer exposes the gpu.
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Example: Interactive TensorFlow job  (without and with GPU)
 
@@ -186,10 +171,6 @@ The following is the "TensorFlow 2 quickstart for beginners" from <https://www.t
     probability_model(x_test[:5])
 
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Example job for OpenDroneMap (ODM)
 
 ---
@@ -225,7 +206,7 @@ For creating a DEM, you would need to add `--dsm` and potentially `-v "$(pwd)/od
 GPU use for singularity is enabled with the `--nv` switch, be aware that ODM uses the GPU only for the matching, which is only a small percentage of the time of the whole computation.
 
 The SLURM job-script looks like this:
-   
+
     #!/bin/bash
     #SBATCH --nodes 1
     #SBATCH --ntasks 1
@@ -238,12 +219,6 @@ The SLURM job-script looks like this:
     singularity run --nv --bind $(pwd)/opendronemap/Laagna-2021:/datasets/code docker://opendronemap/odm --project-path /datasets --dsm
 
 
-
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Obtaining and Building Singularity Containers
 
@@ -260,7 +235,9 @@ You can also use [GitHub's Container Registry](https://docs.github.com/en/packag
 
 
 ### _Building images locally then moving to cluster_
+
 Since Singularity images are single files you can transfer them quite easily with any tool used to sync data with the cluster, `scp`, `rsync` etc. You can build locally with either just the `singularity` tool or `singularity` and `docker`
+
 - [Building images](https://docs.sylabs.io/guides/3.9/user-guide/build_a_container.html) from [singularity definition file](https://docs.sylabs.io/guides/3.9/user-guide/definition_files.html) then transferring to the cluster.
 - Building images with docker from dockerfiles then saving the image docker save to an archive e.g
 
@@ -271,4 +248,3 @@ docker save pytorch | gzip > pytorch.tar.gz
 
 creates a file `pytorch.tar.gz` which you can either convert to a singularity image locally with `singularity build docker-archive//pytorch.tar.gz` or you can move the archive to the cluster and build from there. Building from a docker archive is the only form of image building allowed in the cluster.
 
-<br>

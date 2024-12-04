@@ -1,14 +1,10 @@
 # OnDemand
 
-OnDemand ([available at https://ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee)) is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
+OnDemand available at [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee), is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can access to a HPC files, submit jobs to a cluster, monitor jobs and HPS resources, run interactive applications like Jupyter.  
 
 The default desktop environment is xfce, which is configurable, lightweight and fast.
 
 The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## OnDemand Desktop (CPU)
 
@@ -16,76 +12,44 @@ The menu only contain very few programs from the operating system. However, **al
 
 To enter home directory using OnDemand:
 
-1. Choose "TalTech HPC Desktop". 
+1. Choose "TalTech HPC Desktop".
 
-    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
-
-    ![ondemand-1](visualization/ondemand-1.png)
-
-    </div>
+    ![ondemand-1](/visualization/ondemand-1.png){: style="width:85%; height:!85%;"}
 
 2. Set up and launch an interactive desktop (1 core and 1 GB of memory is usually enough if no calculations are planned).
 
-    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
+    ![ondemand-2](/visualization/ondemand-2.png){: style="width:65%; height:!65%;"}
 
-    ![ondemand-2](visualization/ondemand-2.png)
+    ***NB!*** _Check and your account._
 
-    </div>
+3. Firstly, your request will be put into a queue and this picture will appear.
 
-    ***NB!*** _Check and your account._ 
-
-3. Firstly, your request will be put into a queue and this picture will appear. 
-
-    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
-
-    ![ondemand-3](visualization/ondemand-3.png)
-
-    </div>
+    ![ondemand-3](/visualization/ondemand-3.png){: style="width:85%; height:!85%;"}
 
 4. When needed resources will become available, your session will start and this picture will appear. 
 
     We recommend to use default settings for "Compression" and "Image Quality", unless you require high-quality screenshots.
 
-    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
-
-    ![ondemand-4](visualization/ondemand-4.png)
-
-    </div>
+    ![ondemand-4](/visualization/ondemand-4.png){: style="width:85%; height:!85%;"}
 
     ***NB!*** _Do not use quality settings "Compression 0" and/or "Image Quality 9", this will cause a zlib error message. The message box can be removed by reloading the browser tab._ 
 
-    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
-
-    ![error](visualization/ondemand-zlib-error.png)
-
-    </div>
+    ![error](/visualization/ondemand-zlib-error.png){: style="width:85%; height:!85%;"}
 
 
 5. To start interactive desktop press "Launch TalTech HPC Desktop"
 
     Will appear your HPC Desktop, where user can open XTerminal.
 
-    <div style="width:85%; height:!85%; margin-left: auto; margin-right: auto;"> 
+    ![ondemand-5](/visualization/ondemand-5.png){: style="width:85%; height:!85%;"}
 
-    ![ondemand-5](visualization/ondemand-5.png)
+6. To start interactive desktop press "Launch TalTech HPC Desktop"
 
-    </div>
+    Load environment and program needed and start vizualization. More detailed instructions on environment and program loading are given below.
 
-5. To start interactive desktop press "Launch TalTech HPC Desktop"
+    ![ondemand-6](/visualization/ondemand-6.png){: style="width:65%; height:!65%;"}
 
-    Load environment and program needed and start vizualization. More detailed instructions on environment and program loading are given below. 
-
-    <div style="width:65%; height:!65%; margin-left: auto; margin-right: auto;"> 
-
-    ![ondemand-6](visualization/ondemand-6.png)
-
-    </div>
-
-[More information about using onDemand can be found at visualization page.](/visualization.md)
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+[More information about using onDemand can be found at visualization page.](/visualization.html)
 
 ## OnDemand Desktop on GPU nodes (hardware rendering)
 
@@ -117,15 +81,8 @@ The startup procedure for EGL accelerated rendering is the same as for use of Pa
 
 A similar procedure can also be used to connect a client running on your desktop computer to the pvserver on the compute node.
 
-For more explanations, see (ParaView WIKI)[https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding].
-
+For more explanations, see [ParaView WIKI](https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding).
 
 ### _StarCCM+ with hardware rendering_
 
     vglrun starccm+ -clientldpreload /usr/lib64/libvglfaker.so -graphics native -rgpu auto  -power -fabric TCP -podkey $YOURPODKEY ...
-
-
-<br>
-<br>
-
-

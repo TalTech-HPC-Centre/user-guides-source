@@ -2,15 +2,11 @@
 
 ***This manual is work in progress, please check regularly for updates***
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## NWChem short introduction 
 
 ---
 
-1. Make [nwchem.slurm](nwchem.slurm) batch script for parallel calculations:
+1. Make [nwchem.slurm](/chemistry/nwchem.slurm) batch script for parallel calculations:
 
         #!/bin/bash
 
@@ -38,18 +34,13 @@
         #Clean after yourself
         rm -rf  $SCRATCH
 
-2. Copy job-input file [job.nw](job.nw).
+2. Copy job-input file [job.nw](/chemistry/job.nw).
 
 3. Submit the job on **base**:
 
         sbatch nwchem.slurm
 
-4. Check results using [visualization software](visualization.md).
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+4. Check results using [visualization software](/visualization.html).
 
 ## NWChem long version 
 
@@ -57,13 +48,10 @@
 
 The North West computational chemistry ([NWChem](https://nwchemgit.github.io/)) is an ab initio computational chemistry software package. NWChem offers various approaches: density functional (DFT), second-order Möller–Plesset perturbation theory (MP2), single- and multi-reference (MR), ground-and excited-state and linear-response (LR) coupled-cluster (CC), multi-configuration self-consistent field (MCSCF), selected and full configuration interaction (CI). A broad range of DFT response properties, ground and excited-state molecular dynamics (MD) using either AMBER or CHARMM force fields or methods of quantum mechanics (QM), nudged elastic band (NEB) method, linear-response (LR), and real-time (RT) time-dependent density functional theory (TDDFT) are available in NWChem. Through its modular design, the ab initio methods can be coupled with the classical MD to perform mixed quantum-mechanics and molecular-mechanics simulations (QM/MM). Various solvent models and relativistic approaches are also available. Additionally, python programs may be embedded into the NWChem input and used to control the execution of NWChem. More about the possibilities of NWChem can be found in this article - [10.1063/5.0004997](https://aip.scitation.org/doi/10.1063/5.0004997).
 
-<div class="simple1">
 Some useful links:
 
 - the tutorials site at FAccTs - [https://nwchemgit.github.io/Home.html](https://nwchemgit.github.io/Home.html)
 - DOI:[10.1016/j.cpc.2010.04.018](https://www.sciencedirect.com/science/article/abs/pii/S0010465510001438?via%3Dihub)
-</div>
-<br>
 
 ### Environment
 
@@ -74,13 +62,11 @@ At HPC is installed 7.0.2 version of NWChem. To start working with NWChem an env
 
 ### Input file
 
-<div class="simple1">
-NWChem input file consists from certain blocks: geometry, SCF, DFT, MP2, etc. NWChem also allows to combine several jobs into one input file. Bellow is given example of NWChem input file (job.nw) where: 
+NWChem input file consists from certain blocks: geometry, SCF, DFT, MP2, etc. NWChem also allows to combine several jobs into one input file. Bellow is given example of NWChem input file (job.nw) where:
 
 1. water dimer will bi firstly optimized at BP86-D3BJ/def2-SVP level of theory
 2. frequency calculations will be done at the same level of theort
 3. single poin energy will be calculated using larger basis set (def2-TZVPP) and B3LYP functional.
-</div>
 
 Additionally in example input file are shown inplementation of some useful keywords as `print` and `linopt`.
 
@@ -142,8 +128,8 @@ Additionally in example input file are shown inplementation of some useful keywo
     task dft energy
 
     
-NWChem is well suited for large system calculations or molecular dynamics simulations with subsequent calculation of system properties. Example of an input ([job_MD.nw](job_MD.nw)) for MD sinumation with subsequent calculation of dipole moment every 10 steps.   
-    
+NWChem is well suited for large system calculations or molecular dynamics simulations with subsequent calculation of system properties. Example of an input ([job_MD.nw](/chemistry/job_MD.nw)) for MD sinumation with subsequent calculation of dipole moment every 10 steps.
+
 More about NWChem input can be found at [NWChem manual](https://nwchemgit.github.io/Home.html).
 
 ### Running NWChem jobs
@@ -197,7 +183,7 @@ Below is given an example of `slurm` script for NWChem parallel run on 1 node an
     
 ### Restarting a failed/interrupted calculation
 
-NWChem does not give message about normal ternination. If calculation terminated normally, otput will have this end:
+NWChem does not give message about normal termination. If calculation terminated normally, otput will have this end:
 
                                       AUTHORS
                                       -------
@@ -249,17 +235,10 @@ Good example:
     
 ### Time
 
-Time limits depend on time partition used, see [taltech user-guides](https://docs.hpc.taltech.ee/index.html#hardware-specification). If the calculation time exceeds the time limit requested in the `slurm` script, then the job will be killed. Therefore, it is recommended to request more time than is usually needed for calculation. 
+Time limits depend on time partition used, see [taltech user-guides](/index.html#hardware-specification). If the calculation time exceeds the time limit requested in the `slurm` script, then the job will be killed. Therefore, it is recommended to request more time than is usually needed for calculation. 
 
-### How to cite:
-
+### How to cite
 
 Please cite DOI:[10.1063/5.0004997](https://aip.scitation.org/doi/10.1063/5.0004997) when publishing results obtained with NWChem: 
 
 And also look at the [NWChem manual](https://nwchemgit.github.io/Home.html) on the relevant topic, more detailed information on citing will be given there. 
-<br>
-<br>
-
-
-
-

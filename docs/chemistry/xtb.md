@@ -1,39 +1,34 @@
 # xTB
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## xTB short introduction 
 
 ---
 
-1. Make [xtb.slurm](xtb.slurm) batch script for parallel calculations:
-           
-	   #!/bin/bash
-	   #SBATCH --job-name=xTB-test
-	   #SBATCH --mem=2GB
-	   #SBATCH --nodes=1
-	   #SBATCH --ntasks=1
-	   #SBATCH --cpus-per-task=24
-	   #SBATCH -t 1-00:00:00
-	   #SBATCH --partition=common
+1. Make [xtb.slurm](/chemistry/xtb.slurm) batch script for parallel calculations:
+   
+	```bash
+	#!/bin/bash
+	#SBATCH --job-name=xTB-test
+	#SBATCH --mem=2GB
+	#SBATCH --nodes=1
+	#SBATCH --ntasks=1
+	#SBATCH --cpus-per-task=24
+	#SBATCH -t 1-00:00:00
+	#SBATCH --partition=common
 
-	   module load rocky8/all
-       module load xtb-crest/6.7.0-crest3.0
-  
-       #Run calculations 
-       xtb struc.xyz --opt tight --cycles 50 --charge -0 --alpb toluene --gfn 2 -P 4 > final.out
+	module load rocky8/all
+	module load xtb-crest/6.7.0-crest3.0
 
-2. Copy job-input file [struc.xyz](struc.xyz)
+	#Run calculations 
+	xtb struc.xyz --opt tight --cycles 50 --charge -0 --alpb toluene --gfn 2 -P 4 > final.out
+	```
+
+2. Copy job-input file [struc.xyz](/chemistry/struc.xyz)
 3. Submit the job on **base**:
 
-	   sbatch xtb.slurm
-
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+	```bash
+	sbatch xtb.slurm
+    ```
 
 ## xTB long version 
 
@@ -62,8 +57,6 @@ Calculation time depends on size of molecule and methods used, and can only be d
 
 1 GB per 2 or even more cores should be sufficient. For more detailed information look `slurm-XXX-.stat` file after a test run. The lines "CPU Efficiency:" and "Memory Efficiency:" will give an idea of ​​how efficiently the resources were used.
 
-### How to cite:
+### How to cite
 
 The main publication for the xTb program - DOI: [10.1002/wcms.1493](https://wires.onlinelibrary.wiley.com/doi/10.1002/wcms.1493).
-
-                

@@ -2,17 +2,13 @@
 
 ***This manual is work in progress, please check regularly for updates***
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Multiwfn short introduction 
 
 ---
 
 1. Make Multiwfn input `.mwfn`, `.wfn`, `.wfx`, `.fch`, `.molden`, `.gms` (or `.cub`, `.grd`, `.pdb`, `.xyz`, `.mol` - for specific purposes).
 
-2. Accesse **viz** by [remote access programs](../visualization.md) (more preferable) or by ssh protocol (less preferable):
+2. Accesse **viz** by [remote access programs](/visualization.html) (more preferable) or by ssh protocol (less preferable):
  
         ssh -X -Y -J  UNI-ID@base.hpc.taltech.ee UNI-ID@viz
 
@@ -25,7 +21,7 @@
 
         srun Multiwfn job.wfn
         
-    Multiwfn also can be run by [multiwfn.slurm](multiwfn.slurm) batch script as a non-interactive mode with pre-prepared responses:
+    Multiwfn also can be run by [multiwfn.slurm](/chemistry/multiwfn.slurm) batch script as a non-interactive mode with pre-prepared responses:
 
         #!/bin/bash
         #SBATCH --nodes=1
@@ -70,10 +66,6 @@
                 
     ***NB!*** It is recommended to visualize Multiwfn results in VMD program, corresponding scripts are provided in Multiwfn examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_.
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Multiwfn long version 
 
 ---
@@ -117,7 +109,7 @@ User also needs to agree with the licenses, as described above.
 ### Running Multiwfn 
 
 ***NB!*** 
-Since Multiwfn has a lot of functionality, we recommend that the user first study the corresponding section in the manuals ([text](Manual_Multiwfn.pdf), [video](https://www.youtube.com/user/sobereva)) or examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)._ This will greatly simplify the selection of answers in the interactive menu.
+Since Multiwfn has a lot of functionality, we recommend that the user first study the corresponding section in the manuals ([text](/chemistry/Manual_Multiwfn.pdf), [video](https://www.youtube.com/user/sobereva)) or examples (`/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/`). This will greatly simplify the selection of answers in the interactive menu.
 
 The best practice is to try to reproduce something from the examples folder. To do this, the corresponding files will need to be copied to the user's derictory using the following commands:
 
@@ -174,7 +166,7 @@ By default, plots made by Multiwfn will be written in the `.png` format and can 
 
     display job.png
         
-Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_ (with `.vmd` extensions). More about visualization on **viz** can be found [here](../visualization.md) and about VMD - [here](https://docs.hpc.taltech.ee/chemistry/visualization.html#vmd).
+Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_ (with `.vmd` extensions). More about visualization on **viz** can be found [here](/visualization.html) and about VMD - [here](/chemistry/visualization.html#vmd).
 
 On **base** VMD environment is set up by the commands:
 
@@ -190,8 +182,7 @@ VMD is run by command `vmd`:
 
 **Citing the original paper of Multiwfn is mandatory** - DOI: [10.1002/jcc.22885](https://onlinelibrary.wiley.com/doi/abs/10.1002/jcc.22885)
 
-<div class="simple1">
-<b>In addition, the following articles should be cited depending on the analyzes performed:</b>
+**In addition, the following articles should be cited depending on the analyzes performed**:
 
 - Quantitative molecular surface analysis (main function 12) - DOI:[10.1016/j.jmgm.2012.07.004](https://www.sciencedirect.com/science/article/abs/pii/S1093326312000903)
 - Hole-electron analysis (subfunction 1 of main function 18) - DOI:[10.1016/j.carbon.2020.05.023](https://www.sciencedirect.com/science/article/abs/pii/S0008622320304644)
@@ -217,9 +208,3 @@ Journal of Advances in Physical Chemistry, 4, 111-124 (2015)_ (in Chinese) ([htt
 - Analysis of valence electron and deformation density - DOI:[10.3866/PKU.WHXB201709252](http://www.whxb.pku.edu.cn/EN/10.3866/PKU.WHXB201709252)
 - Studying molecular planarity via MPP, SDP and coloring atoms according to ds values - DOI:[10.1007/s00894-021-04884-0](https://pubmed.ncbi.nlm.nih.gov/34435265/)
 - Energy decomposition analysis based on force field (EDA-FF) - DOI:[10.1016/j.mseb.2021.115425](https://www.sciencedirect.com/science/article/abs/pii/S0921510721003834)
-</div>
-<br>
- 
- 
- 
- 

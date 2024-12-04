@@ -1,11 +1,7 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # Examples of slurm scripts
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A single process job
 
@@ -31,11 +27,6 @@ The following script  launches job named bowtie2 using one thread. A directory b
     ## aligning against the index, output to eg1.sam file 
     bowtie2 -x lambda_virus -U $BT2_HOME/example/reads/reads_1.fq -S eg1.sam
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## An OpenMP parallel job
 
 ---
@@ -58,11 +49,6 @@ Note: Each thread needs sufficient work to do to make up for the time spent in l
     ./hello_omp 
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A script for MPI parallel job (OpenFOAM)
 
@@ -95,7 +81,7 @@ Note: Each task needs sufficient work to do to make up for the time spent with i
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
-![sweet spot](pictures/of-timing4.png)
+![sweet spot](/pictures/of-timing4.png)
 
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the time command). "Wall clock" (real) time is the time one needs to wait till the job is finished, "Summed thread time" (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
@@ -111,11 +97,6 @@ The division into the areas is a combined decision taking into account "real" (w
 Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `mpirun -n 4`. OpenFOAM does not seem to benefit from hyperthreading
 .
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## An array (parameter sweep) job
 
 ---
@@ -129,11 +110,6 @@ Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node
     
     ## run job
     ./myarrayjob  $SLURM_ARRAY_TASK_ID
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A GPU job
 
@@ -163,11 +139,6 @@ This script reserves 4 gpu without specifying the GPU type.
     
     ./mygpujob
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## A job using the scratch partition (sequential or OpenMP parallel)
 
 ---
@@ -193,5 +164,3 @@ The following script creates a directory on the scratch partition of the node (f
     rm -rf /state/partition1/scratch-%x-%A
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
-
-<br>

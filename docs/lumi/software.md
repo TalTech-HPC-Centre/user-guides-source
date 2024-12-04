@@ -1,6 +1,5 @@
 # Programs on LUMI
 
-<div class="simple1">
 LUMI offers a wide range of programs in different fields:
 
 - Machine learning on top of PyTorch and Tensorflow
@@ -9,17 +8,10 @@ LUMI offers a wide range of programs in different fields:
 - Scientific software suites - Gromacs (molecular dynamics), CP2K (quantum chemistry) and ICON (climate science)
 - Weather prediction  application - GridTools allowing  measures stencil-based
 - etcetera
-</div>
-<br>
 
 More information about installed software and how to install software yourself can be found in the [LUMI documentation](https://docs.lumi-supercomputer.eu/software/).
 
-The list of available programs can be found in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/). There can be also found license information - whether the program is free to use, requires pre-registration, or the user must provide own license. 
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+The list of available programs can be found in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/). There can be also found license information - whether the program is free to use, requires pre-registration, or the user must provide own license.
 
 ## First time use
 
@@ -30,12 +22,9 @@ To be able to use a program user has first to install it. Installation can be do
 
 There are two possible places where programs can be installed - user's `$HOME` or project directory. The latest is recommended, sines other user of the project will be able to use installed programs as well. Moreover `$HOME` size is limited by 20GB. More about [data storage at LUMI](https://docs.lumi-supercomputer.eu/storage/#where-to-store-data) and [storage billing](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#storage-billing).
 
-
 Project `XXX` number can be found in [ETAIS](https://etais.ee) as `Effective ID`.
 
-![Project Number](projectN.png)
-
-<br>
+![Project Number](/lumi/projectN.png)
 
 It is a good practice to add place, where programs will be installed into your .profile or .bashrc file. To do this give a command:
 
@@ -47,12 +36,6 @@ To install programs into use the following commands:
 
 	export EASYBUILD PREFIX=$HOME/easybuild 
 	export EASYBUILD BUILDPATH=/tmp/$USER
-
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Program installation
 
@@ -76,7 +59,7 @@ To install programs into use the following commands:
  	Partition `ZZZ` is determined depending on CPUs (partition/C) or GPUs (partition/G) will be used.  
 	`RRR` - version of **spack**, will appear in the module list. 
 
-	![list-spack](list-spack.png)
+	![list-spack](/lumi/list-spack.png)
 
 2. The entire list of programs available for installation by **spack**, can be viewed by command:
 
@@ -94,7 +77,7 @@ To install programs into use the following commands:
 
 		spack info program_name
 
-	![spack](spack.png)
+	![spack](/lumi/spack.png)
 
 
 3. Program installation is made by command:
@@ -142,7 +125,7 @@ To install programs into use the following commands:
 	where `YYY` - version of LUMI that can be found at program's page in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/).  
 	Sometimes partition `ZZZ` is determined in the description of the program in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/). In case it is not, partition `ZZZ` is used depending on CPUs (partition/C) or GPUs (partition/G) will be used.
 
-	![list-EB](list-eb.png)
+	![list-EB](/lumi/list-eb.png)
 
 2. After EasyBuild is loaded user can install the program needed by command `eb`.
 
@@ -155,11 +138,6 @@ To install programs into use the following commands:
 3. When program is already installed user should load it before use by commands:
 
 	 	module load program_name
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Loading program & adding modules into slurm
 
@@ -192,15 +170,3 @@ Partition `ZZZ` is determined depending on CPUs (partition/C) or GPUs (partition
 `VVV` - version of program, will appear in the module list.
 
 Examples of slurm scripts can be found [here](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/).
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## Uninstalling programs
-
----
-
-
-

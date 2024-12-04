@@ -1,4 +1,5 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 # CFD
 
@@ -10,13 +11,9 @@ The following software is available:
 - STAR-CCM+ (commercial)
 - code_saturne (upcoming)
 
-
 The following software is under consideration:
 
 - CONVERGE (commercial, free academic license, free training) https://convergecfd.com/
-
-
-
 
 ## OpenFOAM
 
@@ -92,7 +89,7 @@ and then run in the command-line (`module` and `source` are only needed if not i
 
 #### Pre-processing (geometry and mesh generation)
 
-The geometry and mesh can be either hand-coded using **blockMesh** or with **Gmsh**, **FreeCAD** or **Salome**. When using Gmsh, be sure to save the mesh in v2 ASCII format (see separate page on [CAD-mesh](cad-mesh.md). This creates a volume mesh
+The geometry and mesh can be either hand-coded using **blockMesh** or with **Gmsh**, **FreeCAD** or **Salome**. When using Gmsh, be sure to save the mesh in v2 ASCII format (see separate page on [CAD-mesh](/engineering/cad-mesh.html). This creates a volume mesh
 
 To convert a Gmsh volume .msh file for OpenFOAM, use
 
@@ -144,7 +141,7 @@ Lesson to be learned: Parallel computation is only useful for sufficiently large
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
-![sweet spot](of-timing.png)![sweet spot](of-timing2.png)![sweet spot](of-timing4.png)
+![sweet spot](/pictures/of-timing.png)![sweet spot](/pictures/of-timing2.png)![sweet spot](/pictures/of-timing4.png)
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the `time` command). "Wall clock" (real) time is the time one needs to wait till the job is finished, "Summed thread time" (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
 

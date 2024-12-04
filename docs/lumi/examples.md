@@ -5,10 +5,7 @@ Like at HPC, at LUMI, computing resources are allocated to the user by the resou
 
 - At LUMI partitions can be allocated by [node](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/#slurm-partitions-allocatable-by-node) or by [resources](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/#slurm-partitions-allocatable-by-resources).
 
-- <span style="color:blue"> 
-	User always has to specifying the account. 
-	</span>   
-	It is mandatory!
+- **User always has to specify the account.** It is mandatory!
 	
 	Account specification can be done by adding into Slurm script `#SBATCH --	account=project_XXX` line or by adding the following two lines into `.bashrc` file by command:
 
@@ -19,10 +16,7 @@ Like at HPC, at LUMI, computing resources are allocated to the user by the resou
 
 	where `XXX` is a project number which can be found in [ETAIS](https://etais.ee) as `Effective ID`.
 
-- By default, <span style="color:blue"> 
-	upon node failure job will be automatically resubmitted to the queue 
-	</span> 
-	with the same job ID and that will truncate the previous output. To avoid this add the following two lines into `.bashrc` file by command:
+- By default, upon node failure job will be automatically resubmitted to the queue with the same job ID and that will truncate the previous output. To avoid this add the following two lines into `.bashrc` file by command:
 
 		cat  <<EOT > .bashrc
 		SBATCH_NO_REQUEUE=1 
@@ -31,18 +25,11 @@ Like at HPC, at LUMI, computing resources are allocated to the user by the resou
 
 More about Slurm options can be found in [LUMI manuals](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/batch-job/#common-slurm-options).
 
-<div class="simple1">
 Slurm script examples provided by LUMI:
 
 - [GPU jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
 - [CPU jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/)
 - [Job array](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/throughput/)
-</div>
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Multi Node Multi GPU PyTorch Training
 
@@ -52,14 +39,14 @@ This PyTorch script simulates training a ResNet model across multiple gpus and n
 
 ### Quick Guide
 
-1. <div class="simple1"> Download:
+1. Download:
 
-	- environment setup script - [env.sh](env.sh) 
-	- bash script setup singularity - [setup.sh](setup.sh)
-	- PyTorch script - [min_dist.py](min_dist.py)
-	- slurm script - [dist_run.slurm](dist_run.slurm) </div>
+	- environment setup script - [env.sh](/lumi/env.sh)
+	- bash script setup singularity - [setup.sh](/lumi/setup.sh)
+	- PyTorch script - [min_dist.py](/lumi/min_dist.py)
+	- slurm script - [dist_run.slurm](/lumi/dist_run.slurm)
 
-2. Setup environment by command: 
+2. Setup environment by command:
 
 		. env.sh project_XXX 
 	
@@ -86,18 +73,14 @@ This PyTorch script simulates training a ResNet model across multiple gpus and n
 		Epoch 3  done in 31.384101407951675s
 		Epoch 4  done in 31.143528194981627s
 
-
-<br>
-
 ### Detailed Guide
 
-<div class="simple1"> Download:
+Download:
 
-- environment setup script - [env.sh](env.sh) 
-- bash script setup singularity - [setup.sh](setup.sh)
-- PyTorch script - [min_dist.py](min_dist.py)
-- slurm script - [dist_run.slurm](dist_run.slurm)</div>   
-
+- environment setup script - [env.sh](/lumi/env.sh)
+- bash script setup singularity - [setup.sh](/lumi/setup.sh)
+- PyTorch script - [min_dist.py](/lumi/min_dist.py)
+- slurm script - [dist_run.slurm](/lumi/dist_run.slurm)
 
 #### Setup
 
@@ -154,4 +137,3 @@ The environment variables containing `NCCL` and `CXI` are used by RCCL for commu
 The ones containing `MIOPEN` are for [MIOpen](https://rocmsoftwareplatform.github.io/MIOpen/doc/html/index.html) to create its caches in the `/tmp` (which is local to each node and in
 memory). If this is not set then MIOpen will create its cache in the user
 home directory (the default) which is a problem since each node needs its own cache.
-

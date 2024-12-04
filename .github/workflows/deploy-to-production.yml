@@ -1,0 +1,25 @@
+name: Deploy to production on manual trigger
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Clone latest gh-pages deployment
+        run: git clone --branch gh-pages --depth 1 https://github.com/TalTech-HPC-Centre/taltech-hpc-docs.git public/ && rm -rf public/.git
+      - name: Change CNAME to match production URL
+        run: "echo 'docs.hpc.taltech.ee' > public/CNAME"
+      - name: Replace URL in all public/ files
+        run: "find public/ -type f -exec sed -i 's/docs-staging.hpc.taltech.ee/docs.hpc.taltech.ee/g' {} +"
+      - uses: cpina/github-action-push-to-another-repository@main
+        env:
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: 'public/'
+          destination-github-username: 'TalTech-HPC-Centre'
+          destination-repository-name: 'user-guides-production'
+          user-email: hpc-actions@taltech.ee
+          target-branch: main
+          target-directory: public

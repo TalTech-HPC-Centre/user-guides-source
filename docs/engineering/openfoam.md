@@ -1,9 +1,5 @@
 # OpenFOAM
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Quick-start: Example use of OpenFOAM on BASE cluster
 
 ---
@@ -113,16 +109,11 @@ Surprisingly, the timing between the different modules is not much different. Ho
 This is probably due to two reasons, full nodes cannot run on boost-clock-frequency and there may be congestion of the memory lanes. A Xeon Skylake CPU has only 6 memory lanes to be shared by 20 cores. If a memory intensive application is on the other cores, this may cause a slow-down.
 -->
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Pre-processing (geometry and mesh generation)
 
 ---
 
-The geometry and mesh can be either hand-coded using **blockMesh** or with **Gmsh**, **FreeCAD** or **Salome**. When using Gmsh, be sure to save the mesh in v2 ASCII format (see separate page on [CAD-mesh](cad-mesh.md). This creates a volume mesh.
+The geometry and mesh can be either hand-coded using **blockMesh** or with **Gmsh**, **FreeCAD** or **Salome**. When using Gmsh, be sure to save the mesh in v2 ASCII format (see separate page on [CAD-mesh](/engineering/cad-mesh.html). This creates a volume mesh.
 
 To convert a Gmsh volume `.msh` file for OpenFOAM, use
 
@@ -130,16 +121,11 @@ To convert a Gmsh volume `.msh` file for OpenFOAM, use
 
 Another possibility is to use CAD for a surface mesh and use the snappyHexMesh utility to adapt a blockMesh volume mesh to the surface (see OpenFOAM motorcycle tutorial).
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## Visualizing the results (post-processing)
 
 ---
 
-1. Login to **viz** (manual can be found [here](../visualization.md)).
+1. Login to **viz** (manual can be found [here](/visualization.html)).
 2. Change to the case directory.
 3. Create an empty `.foam` file for the case:
 
@@ -150,12 +136,6 @@ Another possibility is to use CAD for a surface mesh and use the snappyHexMesh u
     	paraview
 
 5. Open the `.foam` file from the menu.
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Comparison of the execution time
 
@@ -186,7 +166,7 @@ In a testrun, the resuls have been as follows:
 
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
-![sweet spot](../pictures/of-timing.png)![sweet spot](../pictures/of-timing2.png)![sweet spot](../pictures/of-timing4.png)
+![sweet spot](/pictures/of-timing.png)![sweet spot](/pictures/of-timing2.png)![sweet spot](/pictures/of-timing4.png)
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the `time` command). "Wall clock" (real) time is the time one needs to wait till the job is finished, "Summed thread time" (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
 
@@ -197,22 +177,12 @@ The division into the areas is a combined decision taking into account "real" (w
 | OK range | slightly less than linear speedup for "real", and slightly increasing "user" | |
 | avoid | ascending slope in the diagram for "real" and "user" | one actually needs to wait longer compared to the case with fewer cores |
 
-
 Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `mpirun -n 4`. OpenFOAM does not seem to benefit from hyperthreading.
-
-
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## Some errors and how to solve them
 
 ---
 
-
 - "slurmstepd: error: Detected 1oom-kill event(s) in ": this is a SLURM out-of-memory error: solve by increasing the memory request `--mem=xxGB` where xx is something larger than before
 - a "Bus error" means the software tries to access non-existing memory, this is actually a SLURM out-of-memory error: solve by increasing the memory request `--mem=xxGB` where xx is something larger than before
 - infiniband error: wrong partition, the nodelist contains non-infiniband nodes; or wrong openmpi module
-- 

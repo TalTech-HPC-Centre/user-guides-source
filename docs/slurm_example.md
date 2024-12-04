@@ -7,10 +7,7 @@
 - [A GPU job](/slurm_example.html#a-gpu-job)
 - [An array (parameter sweep) job](/slurm_example.html#an-array-parameter-sweep-job)
 
-<br>
-<br>
-<div class="simple1">
-<b>Some useful online resources:</b>
+Some useful online resources:
 
  - [SLURM scheduler workload manager](https://slurm.schedmd.com/pdfs/summary.pdf)
  - Victor Eijkhout: Introduction to High-Performance Scientific Computing <a href="https://doi.org/10.5281/zenodo.49897"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.49897.svg" alt="DOI"></a>
@@ -18,13 +15,6 @@
  - [OpenMP standard](https://www.openmp.org/)
  - [MPI standard](https://www.mpi-forum.org/)
  - [SLURM Quick Reference (Cheat Sheet)](https://slurm.schedmd.com/pdfs/summary.pdf)
- </div> 
- 
-<br>
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A single thread job
 
@@ -60,21 +50,14 @@ rm *tmp*
 rm -rf  $SCRATCH
 ```
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## An OpenMP parallel job
 
 ---
 
 The following script launches job named HelloOMP using OpenMP. For this job slurm reserves one node and 12 threads. Maximum run time is 10 minutes.
 
-<span style="color:blue"> 
-Even though it is `--cpus-per-task` slurm reserves threads, not CPU, since  "cpu" in SLURM's language is the smallest unit. </span> 
-<br>
-<br>
+!!! info
+    Even though it is `--cpus-per-task` slurm reserves threads, not CPU, since  "cpu" in SLURM's language is the smallest unit.
 
 **Note:** Each thread needs to do enough work to compensate for the time it took to launch it. Therefore it is not useful to run small/short jobs in parallel. **Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
@@ -93,20 +76,11 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ./hello_omp 
 ```
 
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## A script for MPI parallel job (OpenFOAM)
 
 ---
 
-The following script reserves 4 CPU-cores for 10 hours 
-<span style="color:blue"> 
-(since `mpirun` uses cores by default), 
-</span>  
-loads the OpenMPI module, the OpenFOAM variables, changes into the case directory and runs the typical commands necessary for a parallel OpenFOAM job. It also sets OpenMPI transport properties to use Ethernet TCP!
+The following script reserves 4 CPU-cores for 10 hours (since `mpirun` uses cores by default), loads the OpenMPI module, the OpenFOAM variables, changes into the case directory and runs the typical commands necessary for a parallel OpenFOAM job. It also sets OpenMPI transport properties to use Ethernet TCP!
 
 It would be possible to request all tasks to be on the same node using the `-N` and `--tasks-per-node` options, this would be useful to make use of the very low latency shared memory communication of MPI (provided the job fits into the RAM of a single node).
 
@@ -135,7 +109,7 @@ reconstructPar
 **Note:** Each task needs sufficient work to do to make up for the time spent with inter-process communication. Therefore it is not useful to run small/short jobs in parallel. 
  **Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
-![sweet spot](pictures/of-timing4.png)
+![sweet spot](/pictures/of-timing4.png)
 
 
 The division into the areas is a combined decision taking into account "real" (wall clock) and "user" (summed time of all threads) time (from the time command). "Wall clock" (real) time is the time one needs to wait till the job is finished, "Summed thread time" (user) is the sum of the times that all individual threads needed, it should be roughly user = numtreads x real. For parallel programs, one can expect that "user" time of the parallel run is larger than for the sequential, due to communication overhead, if it is smaller, that probably means the individual threads could make better use of cache.
@@ -149,11 +123,6 @@ The division into the areas is a combined decision taking into account "real" (w
 
 
 Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `mpirun -n 4`. OpenFOAM does not seem to benefit from hyperthreading.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A sequential or OpenMP parallel job with scratch
 
@@ -182,11 +151,6 @@ rm -rf /state/partition1/scratch-%x-%j
 ```
 
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
 
 ## A GPU job
 
@@ -221,12 +185,6 @@ This script reserves 4 gpu without specifying the GPU type.
 ./mygpujob
 ```
 
-
-<br>
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
 ## An array (parameter sweep) job
 
 ---
@@ -243,4 +201,3 @@ This script reserves 10 threads and run array of jobs in range of 13-1800.  The 
 ## run job
 ./myarrayjob  $SLURM_ARRAY_TASK_ID
 ```
-<br>

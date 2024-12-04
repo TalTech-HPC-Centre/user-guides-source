@@ -1,3 +1,8 @@
-docs/_static/css/.extra.css.kate-swp
-.DS_Store
-public
+site/
+.vscode
+.cache/
+public/
+*.Identifier
+*.bak
+node_modules/
+.jampack/

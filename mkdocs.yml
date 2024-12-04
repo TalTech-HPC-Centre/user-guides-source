@@ -1,0 +1,188 @@
+---
+nav:
+  - Home: index.md
+  - TalTech Cluster: 
+      - Quickstart: 
+          - quickstart.md
+      - Ondemand: 
+          - ondemand.md
+      - MPI: 
+          - mpi.md
+      - SAMBA Network Drive: 
+          - samba.md
+      - GPU usage: 
+          - GPU: gpu.md
+      - Performance: 
+          - performance.md
+      - Profiling: 
+          - profiling.md
+      - Modules and Package Managers:
+          - Modules: modules.md
+          - SPACK: spack.md
+      - Software packages:
+          - software.md
+          - Engineering Software:
+              - CAD-Mesh: cad-mesh.md
+              - ElmerFEM: elmerfem.md
+              - OpenFOAM: openfoam.md
+              - SWAN: swan.md
+              - WAM: wam.md
+          - Chemistry Software:
+              - xtb-CREST: crest.md
+              - Gaussian: gaussian.md
+              - ORCA: orca.md
+              - NWChem: nwchem.md
+              - Multiwfn: multiwfn.md
+              - XTB: xtb.md
+              - TURBOMOLE: turbomole.md
+              - Chemistry Visualization: visualization/visualization-chemistry.md
+          - Data Analysis Software:
+              - Jupyter: jupyter.md
+              - Octave: octave.md
+      - Visualization:
+          - visualization.md
+  - LUMI Supercomputer: 
+      - What is and why to use LUMI?: lumi.md
+      - Quick Start: lumi/start.md
+      - Software: lumi/software.md
+      - Slurm Usage Examples: lumi/examples.md
+  - TalTech OpenStack Cloud:
+      - TalTech OpenStack Cloud: cloud.md
+  - Billing: billing.md
+  - Acknowledgement: acknowledgement.md
+
+
+site_name: TalTech HPC User Guides
+site_author: TalTech HPC Centre
+site_url: https://docs-staging.hpc.taltech.ee/
+edit_uri: edit/main/docs/
+docs_dir: docs
+repo_name: github.com/TalTech-HPC-Centre
+repo_url: https://github.com/TalTech-HPC-Centre/user-guides-source
+
+# true: /my-page/
+# false: /my-page/index.html
+use_directory_urls: false
+
+theme:
+  name: material
+  custom_dir: docs/static/overrides
+  language: en
+  favicon: static/favicon.ico
+  logo: static/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    #- header.autohide
+    - navigation.tabs
+    #- navigation.expand # navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.tabs.link
+    - search.share
+    - search.suggest
+    - content.code.annotate
+    - content.code.copy
+    - content.action.view
+    - navigation.indexes
+    - navigation.prune
+    - toc.follow
+    - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+  font:
+    text: "Noto Sans"
+    code: "Roboto Mono"
+
+plugins:
+  - search
+  - glightbox
+#  - enumerate-headings:
+#      toc_depth: 6
+#      increment_across_pages: false
+#  - abs-to-rel
+#  - exporter
+#  - exporter-pdf
+#  - exporter-extras:
+#      buttons:
+#        - title: Download as PDF
+#          icon: material-file-download-outline
+#          enabled: !!python/name:mkdocs_exporter.plugins.pdf.button.enabled
+#          attributes:
+#            href: !!python/name:mkdocs_exporter.plugins.pdf.button.href
+#            download: !!python/name:mkdocs_exporter.plugins.pdf.button.download
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+
+markdown_extensions:
+  - def_list
+  - admonition
+  - meta
+  - md_in_html
+  - attr_list # For resizing images: ![<>](lumi/MyAccessID1.png){#id .class key=val}
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums: false
+      linenums_style: table
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      title: On this page
+      permalink: "#"
+      permalink_title: Anchor link to this section for reference
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - static/javascript/tablesort.js
+
+extra_css:
+  - static/css/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/solid/house
+      link: https://hpc.taltech.ee/
+    - icon: fontawesome/brands/github
+      link: https://github.com/TalTech-HPC-Centre
+    - icon: fontawesome/solid/envelope
+      link: mailto:hpcsupport@taltech.ee
+    - icon: fontawesome/solid/comments
+      link: https://taltech.atlassian.net/servicedesk/customer/portal/18/create/228

@@ -1,26 +1,24 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
-# Define 
+# Define
 
-<ol>
 Define contains four main parts:
-<li>    Geomery menu:  read the geometry of the molecules, set up the coordinates of the system, find out the point group symmetry</li>
-<li>    Atomic attributes menu: select the basis sets for the atoms</li>
-<li>    Initial guess menu: determaine the charge of the molecule and generate the initial guess for the molecular orbitals and their occupation</li>
-<li>    General menu: select the computational method and set up advanced options such as excited state calculations.</li>
-</ol>
-    
-<dl>
+
+1. **Geometry menu**: Read the geometry of the molecules, set up the coordinates of the system, find out the point group symmetry.
+2. **Atomic attributes menu**: Select the basis sets for the atoms.
+3. **Initial guess menu**: Determine the charge of the molecule and generate the initial guess for the molecular orbitals and their occupation.
+4. **General menu**: Select the computational method and set up advanced options such as excited state calculations.
+
 Some general instructions for define:
-<li>    * (or q)     -     Closes the current menu and writes the data into control</li>
-<li>    &            -     Returns to the previous menu</li>
-<li>   qq            -     Quits Define immediately (panic button).</li>
-</dl>
+
+- `*` (or `q`) - Closes the current menu and writes the data into control.
+- `&` - Returns to the previous menu.
+- `qq` - Quits Define immediately (panic button).
 
 Usually Define offers a default choice for all questions. The default choice can be accepted simply by pressing `Enter`.
 
-**NB!**  *define* is case-sensitive. 
-
+**NB!**  *define* is case-sensitive.
 
 ## Starting define
 

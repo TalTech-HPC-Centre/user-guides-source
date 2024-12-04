@@ -1,15 +1,13 @@
-<span style="color:red">not changed to rocky yet</span>
+!!! warning
+    This page has not been updated to reflect latest cluster changes yet
 
 ﻿
 # TURBOMOLE
 
-** This manual is work in progress, please check regularly for updates **
+*This manual is work in progress, please check regularly for updates*
 
-***Important note:*** To run TURBOMOLE, user must be a member of the TURBOMOLE user group or have purchased TURBOMOLE licenses. 
-
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
+!!! info
+    To run TURBOMOLE, user must be a member of the TURBOMOLE user group or have purchased TURBOMOLE licenses.
 
 ## TURBOMOLE short introduction 
 
@@ -22,7 +20,7 @@
 
 2. Run ***define*** to create the input files needed.
 
-3. Download [TURBOMOLE.slurm](TURBOMOLE.slurm) batch script:
+3. Create `TURBOMOLE.slurm` batch script:
 
         #!/bin/bash
         #SBATCH --nodes=1
@@ -58,11 +56,7 @@
 
 ***NB!*** _More cores does not mean faster!!! See Benchmarks._
 
-<br>
-<hr style="margin-right: 0px; margin-bottom: 4px; margin-left: 0px; margin-top: -24px; border:2px solid  #d9d9d9 "></hr>
-<hr style="margin: 4px 0px; border:1px solid  #d9d9d9 "></hr>
-
-## TURBOMOLE long version 
+## TURBOMOLE long version
 
 ---
 
@@ -73,9 +67,7 @@ There are currently several versions of TURBOMOLE (6.3 - 7.0) are available on H
     module load turbomole7.0
     module load turbomole7.0-mpi    # for parallel run 
 
-
 ### Running TURBOMOLE jobs
-
 
 TURBOMOLE uses its own coordinate file `coord`, which can be generated from .xyz file by TURBOMOLE command (when some TURBOMOLE version is already loaded):
 
@@ -96,14 +88,14 @@ In addition to coordinate file, TURBOMOLE uses a special interactive program `de
 
     define
 
-The answers to the `define`'s questions can be presented as a separate file. More about `define` can be read in [‘Quick and Dirty’ Tutorial](http://www.cosmologic-services.de/downloads/TM72-documentation/DOKse8.html) and [TURBOMOLE tutorial](Turbomole_Tutorial_7-0.pdf). Some examples of define files can be found [here](define.md).
+The answers to the `define`'s questions can be presented as a separate file. More about `define` can be read in [‘Quick and Dirty’ Tutorial](http://www.cosmologic-services.de/downloads/TM72-documentation/DOKse8.html) and [TURBOMOLE tutorial](/chemistry/Turbomole_Tutorial_7-0.pdf). Some examples of define files can be found [here](/define.html).
 
 To include solvent effects into calculations interactive program `cosmoprep` should be run after `define`.
 
     cosmoprep 
 
-TURBOMOLE includes the Conductor-like Screening Model (COSMO), where the solvent is described as dielectric continuum with permittivity ε. An example of [cosmoprep](cosmoprep.sh) file with acetonitrile as a solvent.
-    
+TURBOMOLE includes the Conductor-like Screening Model (COSMO), where the solvent is described as dielectric continuum with permittivity ε.
+
 After input files are created TURBOMOLE calculations are executed by one of the following commands: `dscf`, `ridft`, `jobex`, `aoforce`, `NumForce`, `escf`, `egrad`, `mpshift`, `raman`, `ricc2` etc. For example, 
 
     dscf           # for Hartree-Fock energy calculation (single point calculation)
@@ -111,7 +103,7 @@ After input files are created TURBOMOLE calculations are executed by one of the 
     aoforce        # analytical force constant calculations
     NumForce -ri   # numerical force constant calculations using RI-approximation
 
-More about TURBOMOLE commands used can be found in [TURBOMOLE tutorial](Turbomole_Tutorial_7-0.pdf).
+More about TURBOMOLE commands used can be found in [TURBOMOLE tutorial](/chemistry/Turbomole_Tutorial_7-0.pdf).
 
 
 ### _Single core calculations_
@@ -207,7 +199,7 @@ Good example:
     
 ### Time
 
-Time limits depend on time partition used [taltech user-guides](https://docs.hpc.taltech.ee/hardware). If the calculation time exceeds the time limit requested in the Slurm script, then the job will be killed. Therefore, it is recommended to request a little more than is usually needed for calculation. 
+Time limits depend on time partition used [taltech user-guides](/index.html#slurm-partitions). If the calculation time exceeds the time limit requested in the Slurm script, then the job will be killed. Therefore, it is recommended to request a little more than is usually needed for calculation. 
 
 
 ### _Restarting a failed/interrupted calculation_
