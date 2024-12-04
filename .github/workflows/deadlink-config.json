@@ -2,6 +2,14 @@
     "projectBaseUrl":"${workspaceFolder}",
     "replacementPatterns": [
         {
+            "pattern": "^(/[^.]+)\\.html(#.*)$",
+            "replacement": "$1.md$2"
+        },
+        {
+            "pattern": "^(/[^.]+)\\.html$",
+            "replacement": "$1.md"
+        },
+        {
             "pattern": "^(/[^.]+)(#.*)$",
             "replacement": "$1.md$2"
         },

@@ -26,6 +26,14 @@ Use [admonitions](https://squidfunk.github.io/mkdocs-material/reference/admoniti
 
 ---
 
+To change the size of an image use `attr_list`:
+
+````markdown
+![my img alt text](/path/to/my-img.png){: style="width:65%; height:!65%;"}
+```
+
+---
+
 Use root absolute paths for cross-linking:
 
 ```markdown

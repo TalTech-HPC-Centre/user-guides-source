@@ -5,7 +5,7 @@
 
 ---
 
-SPACK is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. The following link contains a list of software that should be easy to install: [SPACK package list](https://spack.readthedocs.io/en/latest/package_list.html)
+SPACK is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. The following link contains a list of software that should be easy to install: [SPACK package list](https://spack.readthedocs.io/en/latest/)
 
 ## Modules
 
