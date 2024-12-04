@@ -1,6 +1,3 @@
-!!! warning
-    This page has not been updated to reflect latest cluster changes yet
-
 # Accessing SMB/CIFS network shares
 
 ---
@@ -38,8 +35,14 @@ right click on myPC add network location or Map network
 
 Powershell:
 
-run `net use \\smb.hpc.taltech.ee\smbhome /user:INTRA\<uni-id>`
-check success with `get-smbconnection`
+run 
+```powershell
+net use \\smb.hpc.taltech.ee\smbhome /user:INTRA\<uni-id>
+```
+check success with 
+```powershell
+get-smbconnection
+```
 
 ## Linux access
 
@@ -49,21 +52,23 @@ On Linux with GUI Desktop, the shares can be accessed with nautilus browser.
 
 From Linux commandline, the shares can be mounted as follows:
 
-    dbus-run-session bash
-    gio mount smb://smb.hpc.taltech.ee/smbhome/
-
+```bash
+dbus-run-session bash
+gio mount smb://smb.hpc.taltech.ee/smbhome/
+```
 or
-
-    dbus-run-session bash
-    gio mount smb://smb.hpc.taltech.ee/smbgroup/
+```bash
+dbus-run-session bash
+gio mount smb://smb.hpc.taltech.ee/smbgroup/
+```
 
 you will be asked for "User" (which is your UniID), "Domain" (which is "INTRA"), and your password.
 
 To disconnect from the share, unmount with
-
-    gio mount -u smb://smb.hpc.taltech.ee/smbhome/
-    gio mount -u smb://smb.hpc.taltech.ee/smbgroup/
-
+```bash
+gio mount -u smb://smb.hpc.taltech.ee/smbhome/
+gio mount -u smb://smb.hpc.taltech.ee/smbgroup/
+```
 
 If you get "Error mounting location: Location is not mountable", then you are not in the correct network (e.g. VPN is not running), or you don't have a dbus session.
 
