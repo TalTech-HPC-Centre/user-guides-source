@@ -436,7 +436,7 @@ SPACK is used by University of Tartu, LRZ and HLRS.
 
 **under development, docs AND module positions/versions may change without notice**
 
-EasyBuild is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. [List of packages](https://docs.easybuild.io/en/latest/version-specific/Supported_software.html)
+EasyBuild is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. [List of packages](https://docs.easybuild.io/version-specific/supported-software/)
 
 
 EasyBuild is available on **amp** from AI lab

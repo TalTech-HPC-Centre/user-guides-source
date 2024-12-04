@@ -47,7 +47,7 @@ SPACK can also be used by users to manage their own software stack inside their 
 
 see documentation on <https://spack.readthedocs.io/en/latest/>
 
-A similar tool is [EasyBuild](https://docs.easybuild.io/en/latest/). They support different lists of software packages. SPACK includes GPU-offloading compiler for both Nvidia and AMD, profiling tools (Tau, HPCToolkit) and engineering simulation packages (ElmerFEM, OpenFOAM), while EasyBuild seems to be more AI and Python oriented <https://docs.easybuild.io/en/latest/version-specific/Supported_software.html>.
+A similar tool is [EasyBuild](https://docs.easybuild.io/en/latest/). They support different lists of software packages. SPACK includes GPU-offloading compiler for both Nvidia and AMD, profiling tools (Tau, HPCToolkit) and engineering simulation packages (ElmerFEM, OpenFOAM), while EasyBuild seems to be more AI and Python oriented <https://docs.easybuild.io/version-specific/supported-software/>.
 
 SPACK is used by University of Tartu, LRZ and HLRS, while EasyBuild will be used on LUMI.
 

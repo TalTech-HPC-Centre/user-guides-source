@@ -3,7 +3,7 @@
 
 # EasyBuild
 
-EasyBuild is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. [List of packages](https://docs.easybuild.io/en/latest/version-specific/Supported_software.html)
+EasyBuild is a package manager to install software packages. An advantage is to be able to relatively easily install consistent dependencies and multiple versions of a software. [List of packages](https://docs.easybuild.io/version-specific/supported-software/)
 
 ## Modules
 
