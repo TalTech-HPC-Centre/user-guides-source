@@ -13,7 +13,7 @@ title: Welcome to TalTech HPC User Guides!
 
 The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account (an application form for non-employees/non-students can be found [here](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto)). Further, the user needs to be added to the HPC-USERS group. Please ask [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to activate HPC access from your TalTech email and provide your **UniID (six letters taken from the user's full name**). In the case of using licensed programs, the user must also be added to the appropriate group. More information about available programs and licenses can be found [here](/software.html).
 
-TalTech HPC Centre includes [cluster](/quickstart.html), [cloud](cloud.html) and is also responsible for providing access to the resources of the [LUMI supercomputer](lumi.html).
+TalTech HPC Centre includes [cluster](/quickstart.html), [cloud](/cloud.html) and is also responsible for providing access to the resources of the [LUMI supercomputer](/lumi.html).
 
 The **cloud** provides users the ability to create virtual machines where the user has full admin rights and can install all the necessary software themselves. VMs can be connected from outside and can be used for providing web services. Accessible through the [ETAIS website](https://etais.ee/using/).
 
@@ -42,7 +42,7 @@ The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu 
 - **amp** GPU nodes:
   - **amp:** 8xNvidia A100/40GB, 2x 64core AMD EPYC 7742 Zen (together **128 cores, 256 threads**), **1 TB** RAM
   - **amp2:** 8xNvidia A100/80GB, 2x 64core AMD EPYC 7713 zen3 (together **128 cores, 256 threads**), **2 TB** RAM
-- Visualization node **viz** (accessible within University network and [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN), [guide for viz](visualization.html)): 2xNvidia Tesla K20Xm graphic cards (on displays :0.0 and :0.1), CPU Intel(R) Xeon(R) CPU E5-2630L v2@2.40GHz (**24 threads**), **64 GB** RAM, HDD **2 TB** storage.
+- Visualization node **viz** (accessible within University network and [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN), [guide for viz](/visualization.html)): 2xNvidia Tesla K20Xm graphic cards (on displays :0.0 and :0.1), CPU Intel(R) Xeon(R) CPU E5-2630L v2@2.40GHz (**24 threads**), **64 GB** RAM, HDD **2 TB** storage.
 
 ---
 
