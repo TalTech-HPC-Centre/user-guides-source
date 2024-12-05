@@ -50,7 +50,7 @@ jobs:
       - name: Run hyperlink to check for wrong internal links
         uses: untitaker/hyperlink@0.1.43
         with:
-          args: . --sources src/
+          args: . --check-anchors
 
       - name: Run lychee to check for wrong external links
         id: lychee
