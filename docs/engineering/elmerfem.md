@@ -5,8 +5,6 @@
 
 ## ElmerFEM 
 
----
-
 Elmer is a multi-physics simulation software developed by CSC. It can perform coupled mechanical, thermal, fluid, electro-magnetic simulations and can be extended by own equations.
 
 Some useful links:
@@ -20,8 +18,6 @@ _CSC – IT CENTER FOR SCIENCE LTD., 2020. Elmer, Available at: https://www.csc.
 
 ## Loading the module
 
----
-
 To use ElmerFEM the module needs to be loaded
 
 	module load rocky8-spack    
@@ -30,8 +26,6 @@ To use ElmerFEM the module needs to be loaded
 This makes the following main commands `ElmerGrid`, `ElmerSolver` available and `ElmerGUI` can be used with X11 forwarding or in an OnDemand desktop session to setup the case file. The use of ElmerGUI to run simulations is **not** recommended.
 
 ## Running a tutorial case (quick-start for the impatient)
-
----
 
 1. Copy the tutorial directory (here the linear elastic beam) and go into it:
 
@@ -53,8 +47,6 @@ This makes the following main commands `ElmerGrid`, `ElmerSolver` available and 
 5. Postprocessing would be visualizing the `eigen_values.vtu` file in `paraview`.
 
 ## Setting up a simulation (for new users)
-
----
 
 
 The follwing steps are needed to configure a simulation case (mostly on **base**).   

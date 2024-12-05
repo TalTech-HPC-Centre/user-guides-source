@@ -5,8 +5,6 @@ CAD and meshing software installed on **viz**, **amp** and **green** cluster nod
 
 ## FreeCAD
 
----
-
 FreeCAD is an easy to use open-source CAD software, that can use Gmsh or Netgen for meshing. It can also serve as a frontend for CalculiX and [ElmerFEM](/engineering/elmerfem.html), thus providing similar functionality as SolidWorks. 
 
     module load rocky8
@@ -21,8 +19,6 @@ FreeCAD is an easy to use open-source CAD software, that can use Gmsh or Netgen 
 FreeCAD available from: [https://www.freecadweb.org](https://www.freecadweb.org).
 
 ## Salome
-
----
 
 Salome is a multi-platform environment, allowing the realization of physics simulations. Salome is suitable for various stages of a study: from creation of the CAD model and the mesh to the post-processing and visualization of the results. Other functionalities such as uncertainty treatment, data assimilation are also implemented. Salome does not contain a physics solver but it provides the computing environment necessary for their integration.
 
@@ -45,13 +41,9 @@ Salome can be cited as [DOI:10.13140/RG.2.2.12107.08485](https://www.researchgat
 
 ## BRL-CAD
 
----
-
 [BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the `g-*` tols are for this, while the `*-g` tools are for importing. An introduction can be found [in this PDF](https://brlcad.org/w/images/9/90/Intro_to_BRL-CAD.pdf).
 
 ## Gmsh
-
----
 
 Gmsh meshes can be used with [ElmerFEM](/engineering/elmerfem.html) and [OpenFOAM](/engineering/openfoam.html). For OpenFOAM, make sure it is saved as version 2 and ASCII format. 
 
@@ -72,8 +64,6 @@ If you use Gmsh please cite [C. Geuzaine and J.-F. Remacle. Gmsh: a three-dimens
 You can also cite additional [references](https://gmsh.info/#References) for specific features and algorithms.
 
 ## Netgen (NGsolve)
-
----
 
 [Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. It accepts input from constructive solid geometry `.csg` or boundary representation (BRep) from `.stl` files, but also handles `.brep`, `.step` and `.iges` formats. Those meshes generated can be exported in several formats (e.g. neutral, Abaqus, Fluent, [ElmerFEM](/engineering/elmerfem.html) Gmsh and [OpenFOAM](/engineering/openfoam.html)). Netgen has a GUI (e.g. use a [X2GO](/visualization/x2go.html) session on **viz**), but can also be used through its Python interface.
 

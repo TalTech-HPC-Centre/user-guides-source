@@ -7,8 +7,6 @@ Visualization mostly should be done on **viz** ([Molden](/chemistry/visualizatio
 
 ## Short introduction
 
----
-
 1. Accesse **viz** by [remote access programs](/visualization.html) (more preferable) or by ssh protocol (less preferable):
  
         ssh -X -Y -J  UNI-ID@base.hpc.taltech.ee UNI-ID@viz
@@ -26,8 +24,6 @@ Visualization mostly should be done on **viz** ([Molden](/chemistry/visualizatio
 # Visualization long version
 
 ## Molden 
-
----
 
 [Molden](https://www.theochem.ru.nl/molden/) is a nice program for visualization the results of quantum chemical calculations. 
 
@@ -74,8 +70,6 @@ Molden 6.7:
 
 
 ## Avogadro
-
----
 
 [Avogadro](https://avogadro.cc/docs/) is an advanced molecule editor and visualizer designed for computational chemistry, molecular modeling, bioinformatics, materials science, and related areas.
 
@@ -125,8 +119,6 @@ Some useful links:
 
 ## JMol
 
----
-
 [JMol](http://jmol.sourceforge.net/) is a free, open source viewer of molecular structures that supports a wide range of chemical file formats.
 
 JMol has following possibilities:
@@ -163,8 +155,6 @@ JMol is executed by command `jmol` and reads `.xyz`, `.pdb`, `.mol` formats, etc
 Jmol 14.31.0: an open-source Java viewer for chemical structures in 3D. Available at [http://www.jmol.org/](http://www.jmol.org/).
 
 ## VMD
-
----
 
 [Visual Molecular Dynamics (VMD)](http://www.ks.uiuc.edu/Research/vmd/) is a molecular modelling and visualization program designed of biological systems. It supports over 60 file formats and has user-extensible graphical and text-based interfaces, as well as built-on standard Tcl/Tk and Python scripting languages. VMD provides a wide range of methods for visualizing and coloring molecules or atom subsets and an extensive selection syntax for subsets of atoms and has no limits on the number of molecules, atoms, residues or trajectory frames.
 
@@ -243,8 +233,6 @@ In addition, the following articles should be cited depending on the functionali
 - Speech and gesture recognition - DOI:[10.1109/38.824531](https://ieeexplore.ieee.org/document/824531)
 
 ## RasMol
-
----
 
 [RasMol](http://www.openrasmol.org/) is a molecular graphics program for visualisation of proteins, nucleic acids and small molecules.  RasMol provides  a variety of colour schemes and molecule representations. In RasMol, different parts of the molecule may be represented and coloured independently of the rest of the molecule or displayed in several representations simultaneously, and atoms may also be labelled with arbitrary text strings. In addition, RasMol can read a prepared list of commands from a 'script' file.
 Supported input file formats are `.pdb`, `.mol2`, `.mdl`, `.msc`, `.xyz`, `.xmol`, CHARMm and CIF formats files.

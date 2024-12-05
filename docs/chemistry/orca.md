@@ -5,8 +5,6 @@
 
 ## ORCA short introduction
 
----
-
 1. Make [orca.slurm](/chemistry/orca.slurm) batch script for parallel calculations:
 
     ```bash
@@ -88,8 +86,6 @@
 4. Check results using [visualization software](/visualization.html).
 
 ## ORCA long version 
-
----
 
 ### Environment
 

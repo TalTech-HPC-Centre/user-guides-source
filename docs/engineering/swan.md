@@ -9,8 +9,6 @@ Manual can be found [here](https://swanmodel.sourceforge.io/online_doc/swanuse/s
 
 ## Quickstart
 
----
-
 1. Load the module
 
 	    module load green/all

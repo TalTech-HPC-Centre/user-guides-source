@@ -16,8 +16,6 @@ After about an hour, when the automatic script has synced the files, and you can
 
 ## Configuring the client
 
----
-
 During first use X2GO-client needed to be configured as it is shown at the picture. To configure, select in the upper left corner "Session" tab.
 The setting of the ssh-key is only necessary, if you use a non-standard name or not the default key.
 
@@ -33,8 +31,6 @@ It is also recommended to configure the display settings, for example, as done i
 
 ## Configuring the server-side
 
----
-
 A couple of config files need to be present:
 
 -    `$HOME/.fvwm/.fvwm2rc` [.fvwm2rc](/visualization/fvwm2rc.fvwm2rc)
@@ -48,8 +44,6 @@ If the files are not present, just **copy them from** `/etc/skel/` or run
 to copy/save the example configs.
 
 ## X2GO run & use
-
----
 
 `$HOME` on **base**  coincide with `$HOME` on **viz**.
 
@@ -88,8 +82,6 @@ or
 ![x2go-awesome](/visualization/x2go-awesome.png)
 
 ## Terminate X2GO run
-
----
 
 It is extremely important to end session in proper way! To do this:
 

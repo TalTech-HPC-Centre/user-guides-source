@@ -2,8 +2,6 @@
 
 ## Quick-start: Example use of OpenFOAM on BASE cluster
 
----
-
 For the example we will use one of the tutorial cases.
 
 1. Load environment:
@@ -93,8 +91,6 @@ The `openfoam.slurm` script:
 
 ## Which module and which node to use?
 
----
-
 Here are timings for the `simpleFoam` solver with the motorBike case on empty nodes:
 
 Empty nodes:
@@ -111,8 +107,6 @@ This is probably due to two reasons, full nodes cannot run on boost-clock-freque
 
 ## Pre-processing (geometry and mesh generation)
 
----
-
 The geometry and mesh can be either hand-coded using **blockMesh** or with **Gmsh**, **FreeCAD** or **Salome**. When using Gmsh, be sure to save the mesh in v2 ASCII format (see separate page on [CAD-mesh](/engineering/cad-mesh.html). This creates a volume mesh.
 
 To convert a Gmsh volume `.msh` file for OpenFOAM, use
@@ -122,8 +116,6 @@ To convert a Gmsh volume `.msh` file for OpenFOAM, use
 Another possibility is to use CAD for a surface mesh and use the snappyHexMesh utility to adapt a blockMesh volume mesh to the surface (see OpenFOAM motorcycle tutorial).
 
 ## Visualizing the results (post-processing)
-
----
 
 1. Login to **viz** (manual can be found [here](/visualization.html)).
 2. Change to the case directory.
@@ -138,8 +130,6 @@ Another possibility is to use CAD for a surface mesh and use the snappyHexMesh u
 5. Open the `.foam` file from the menu.
 
 ## Comparison of the execution time
-
----
 
 It is educational to check the runtime of the code using the `time` command, e.g. for the single-thread
 
@@ -180,8 +170,6 @@ The division into the areas is a combined decision taking into account "real" (w
 Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `mpirun -n 4`. OpenFOAM does not seem to benefit from hyperthreading.
 
 ## Some errors and how to solve them
-
----
 
 - "slurmstepd: error: Detected 1oom-kill event(s) in ": this is a SLURM out-of-memory error: solve by increasing the memory request `--mem=xxGB` where xx is something larger than before
 - a "Bus error" means the software tries to access non-existing memory, this is actually a SLURM out-of-memory error: solve by increasing the memory request `--mem=xxGB` where xx is something larger than before

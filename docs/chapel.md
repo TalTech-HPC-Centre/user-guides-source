@@ -9,8 +9,6 @@ Special programming language developed for supercomputing, origially by the Cray
 
 ## modules
 
----
-
 on amp
 
     module load amp
@@ -30,8 +28,6 @@ on green
 
 
 ## evironment variables
-
----
 
 on amp
 
@@ -85,8 +81,6 @@ set some environment variables
 
 
 ## example chapel programs
-
----
 
 can be copied from `$CHPL_HOME/examples`
 

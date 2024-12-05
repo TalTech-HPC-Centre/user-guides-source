@@ -5,8 +5,6 @@
 
 ## cp2k short introduction 
 
----
-
 1. Make [cp2k.slurm](/chemistry/cp2k.slurm) batch script for parallel calculations:
 
 ```
@@ -29,8 +27,6 @@
 
 
 ## cp2k long version 
-
----
 
 ### Environment
 
@@ -56,8 +52,6 @@ cp2k is MPI and SMP parallelized, it requires OpenMPI environment to be initiali
 
 
 ## cp2k with GPUs on **amp**
-
----
 
 
 The version 7.1 has a bug, use only a single MPI task and a single GPU,, for multiple MPI tasks and GPUs (1 GPU per ntask) use version 9.1!

@@ -33,8 +33,6 @@ Slurm script examples provided by LUMI:
 
 ## Multi Node Multi GPU PyTorch Training
 
----
-
 This PyTorch script simulates training a ResNet model across multiple gpus and nodes.
 
 ### Quick Guide

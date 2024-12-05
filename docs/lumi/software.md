@@ -15,8 +15,6 @@ The list of available programs can be found in [LUMI Software Library](https://l
 
 ## First time use
 
----
-
 To be able to use a program user has first to install it. Installation can be done by **spack** or by **EasyBuild**. The list of available programs in **EasyBuild** can be found in [LUMI Software Library](https://lumi-supercomputer.github.io/LUMI-EasyBuild-docs/) as well as installation instructions. List of programs which can be installed by **spack** can be looked by `spack list` command. The same program can be installed by both **spack** and **EasyBuild**.
 
 
@@ -38,8 +36,6 @@ To install programs into use the following commands:
 	export EASYBUILD BUILDPATH=/tmp/$USER
 
 ## Program installation
-
----
 
 ### Installation by Spack 
 
@@ -138,8 +134,6 @@ To install programs into use the following commands:
 	 	module load program_name
 
 ## Loading program & adding modules into slurm
-
----
 
 When program is already installed, user should load it before use or add into slurm script. If program was installed by **spack** the following commands should be given:
 

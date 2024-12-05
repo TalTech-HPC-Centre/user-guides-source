@@ -8,9 +8,6 @@
 
 ## Hardware
 
----
-
-
 **amp1**
 
 - **CPU:** 2x AMD EPYC 7742 64core (2nd gen EPYC, Zen2)
@@ -35,8 +32,6 @@
 
 ## Login and localstorage
 
----
-
 !!! info
     Job submission to GPU nodes is now from "base" node. Direct login to GPU nodes has been disabled!
 
@@ -45,8 +40,6 @@ Use `srun -p gpu --gres=gpu:L40 --pty bash`
 amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer storage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
 
 ## Running jobs
-
----
 
 Jobs need to be submitted using `srun` or `sbatch`, do not run jobs outside the batch system.
 
@@ -68,8 +61,6 @@ You can see which GPUs have been assigned to your job using `echo $CUDA_VISIBLE_
 
 ## Software and modules
 
----
-
 Same modules as on all nodes, i.e. the rocky8 and rocky8-spack modules.
 
 ### _From AI lab_
@@ -90,8 +81,6 @@ Will not work due to different OS
     This page has not been updated to reflect latest cluster changes yet
 
 ## GPU libraries and tools
-
----
 
 The GPUs installed are Nvidia A100 with compute capability 80, compatible with CUDA 11. However, when developing own software, be aware of vendor lockin, CUDA is only available for Nvidia GPUs and does not work on AMD GPUs. Some new supercomputers (LUMI (CSC), El Capitan (LLNL), Frontier (ORNL)) are using AMD, and some plan the Intel "Ponte Vecchio" GPU (Aurora (ANL), SuperMUC-NG (LRZ)). To be future-proof, portable methods like OpenACC/OpenMP are recommended.
 

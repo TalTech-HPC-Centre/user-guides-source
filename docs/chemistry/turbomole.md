@@ -11,8 +11,6 @@
 
 ## TURBOMOLE short introduction 
 
----
-
 1. Set up environment and generate TURBOMOLE coordinate file:
 
         module load turbomole7.0
@@ -57,8 +55,6 @@
 ***NB!*** _More cores does not mean faster!!! See Benchmarks._
 
 ## TURBOMOLE long version
-
----
 
 ### Environment
 

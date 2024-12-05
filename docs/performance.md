@@ -5,15 +5,11 @@ How fast is your program? How good makes it use of available hardware? Could it 
 
 ## Benchmarking
 
----
-
 Benchmarking is the art and skill to find out how fast your program and hardware is. Many factors influence the execution time of your program, the obvious ones are the speed and type of processors, speed of memory, etc, but also the less obvious ones have a huge impact (maybe larger than the speed of the processor). The less obvious ones include programming style and language! Yes, there are slow and fast languages. Slow languages include Python and basic, fast languages include C, Fortran, Julia and Rust. The programming style has an impact as well, as it influences memory access and optimization possibilities of the compiler/interpreter.
 
 In order to find out just how fast your hardware is, you need a software that uses all of the available components in an optimal way.
 
 ## Desktop _vs._ Compute Node
-
----
 
 Why is my (single-thread) job not faster on the cluster than on my desktop?
 
@@ -29,8 +25,6 @@ Why is my x-ntask parallel job not x-times as fast than my sequential job?
 - congestion of memory channels (see above)
 
 ## Parallel scaling
-
----
 
 The assumption that all programs run faster when more cores are used is generally *wrong*. Especially a seqential (single threaded) program will not be able to use more than 1 core, but also for parallel programs there is an optimum of how many cores to use. The relationship between program speed and number of cores used is called scaling. Usually the scaling needs to be tested! It is not uncommon that programs run slower when more cores are used. For the rational use of resources, it is necessary to determine the optimum of this particular program. 
 
@@ -145,8 +139,6 @@ This jobs spends less than 10% CPU-time in calculation and over 90% in communica
 ![htop-starccm-7node-job](/pictures/htop-starccm-7node-job_crop.png)
 
 ## Clean vs. fast code (Python)
-
----
 
 Clean Code states:
 

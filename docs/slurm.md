@@ -5,8 +5,6 @@
 
 ## A single process job
 
----
-
 The following script  launches job named bowtie2 using one thread. A directory bowtie2-results will be created where results will be written into bowtie2-%J.log output file ("%j" is a job allocation number).
 
     #!/bin/bash 
@@ -29,8 +27,6 @@ The following script  launches job named bowtie2 using one thread. A directory b
 
 ## An OpenMP parallel job
 
----
-
 The following script launches job named HelloOMP using OpenMP. For this job slurm reserves one node and 12 threads. Maximum run time is 10 minutes. 
 
 Note: Each thread needs sufficient work to do to make up for the time spent in launching the thread. Therefore it is not useful to run small/short jobs in parallel.
@@ -51,8 +47,6 @@ Note: Each thread needs sufficient work to do to make up for the time spent in l
 **NOTE: Parallel does not (necessarily) mean faster!!!** Parallel execution introduces overhead (starting threads, communication)! For optimal execution time and optimal use of resources one needs to test and find the sweet spot.
 
 ## A script for MPI parallel job (OpenFOAM)
-
----
 
 The following script reserves 4 CPU-cores for 10 hours, loads the OpenMPI module, the OpenFOAM variables, changes into the case directory and runs the typical commands necessary for a parallel OpenFOAM job. *It also sets OpenMPI transport properties to use Ethernet TCP!*
 
@@ -99,8 +93,6 @@ Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node
 
 ## An array (parameter sweep) job
 
----
-
 
     #!/bin/bash 
     #SBATCH --job-name=array-parameter-scan  	### job name
@@ -112,8 +104,6 @@ Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node
     ./myarrayjob  $SLURM_ARRAY_TASK_ID
 
 ## A GPU job
-
----
 
 The GPU scripts can be run only on **amp**. 
 
@@ -140,8 +130,6 @@ This script reserves 4 gpu without specifying the GPU type.
     ./mygpujob
 
 ## A job using the scratch partition (sequential or OpenMP parallel)
-
----
 
 The following script creates a directory on the scratch partition of the node (fast local storage, that does *not* require network), runs the job, and copies the output files back into the permanent home-directory once the job is completed.
 

@@ -8,8 +8,6 @@ The menu only contain very few programs from the operating system. However, **al
 
 ## OnDemand Desktop on any node and CPU
 
----
-
 ![ondemand-1](/visualization/ondemand-1.png)
 
 [More information can be found at OnDemand page.](/ondemand.html)
@@ -65,8 +63,6 @@ module load slicer
 ```
 
 ## OnDemand Desktop on GPU nodes (hardware rendering)
-
----
 
 Requires of course to be submitted to a GPU node and a GPU to be reserved. The nodes are configured in a way that requires EGL rendering, and therefore may require other modules to be loaded (e.g. ParaView).
 
@@ -126,8 +122,6 @@ A similar procedure can also be used to connect a client running on your desktop
     vglrun starccm+ -clientldpreload /usr/lib64/libvglfaker.so -graphics native -rgpu auto  -power -fabric TCP -podkey $YOURPODKEY ...
 
 ## _In-situ visualization (in preparation)_
-
----
 
 In-situ visualization creates the visualization during the simulation instead of during the postprocesssing phase. The simulation code needs to be connected to in-situ visualization libraries. e.g. Catalyst (ParaView), LibSim (VisIt) and Ascent.
 

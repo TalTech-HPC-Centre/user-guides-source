@@ -30,5 +30,3 @@ More details on how to calculate computational costs for TalTech cluster can be 
 | Flash based scratch storage | TB*hour | 10 x 0.0106 EUR   |
 
 A more detailed guide on how to calculate computational costs for LUMI can be found in the [LUMI billing policy](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#compute-billing).
-
----

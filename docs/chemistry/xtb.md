@@ -2,8 +2,6 @@
 
 ## xTB short introduction 
 
----
-
 1. Make [xtb.slurm](/chemistry/xtb.slurm) batch script for parallel calculations:
    
 	```bash
@@ -31,8 +29,6 @@
     ```
 
 ## xTB long version 
-
----
 
 Extended tight binding - xTB program developed by Grimme's group for solutions of common chemical problems. The workhorses of xTB are the GFN methods, both semi-empirical and force-field. The program contains several implicit solvent models: GBSA, ALPB. xTB functionality covers single-point energy calculations, geometry optimization, frequency calculations, reaction path methods. Also allows to perform molecular dynamics, meta-dynamics, and ONIOM calculations. More about xTB on HPC can be found [here](https://xtb-docs.readthedocs.io/en/latest/index.html).
 

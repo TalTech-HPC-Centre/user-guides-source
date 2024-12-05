@@ -204,8 +204,6 @@ spectre-code
 
 ## Chemistry, biology and physics
 
----
-
 ### Conformational search & sampling
 
 #### xtb-CREST
@@ -248,8 +246,6 @@ NWChem was developed to enable large scale calculations by  using many CPUs and 
 - [RasMol](/chemistry/visualization.html#rasmol)
 
 ## Data analysis 
-
----
 
 ### GNU R
 
@@ -298,8 +294,6 @@ the option `--user` will install the package into the user's $HOME directory (in
 [JupyterLab](https://jupyter.org/) notebook is an open-source web application that allows creation and sharing documents containing live code, equations, visualizations, and  text. Jupyter notebooks allow data transformation, numerical simulation, statistical modeling, data visualization, machine learning, etc. using Julia, Python and Octave. More about Jupyter on our HPC is [here](/data-analysis/jupyter.html).
 
 ## Visualization software
-
----
 
 -   [ParaView](https://www.paraview.org/) (**all nodes** spack module paraview)
 -   [VisIt](https://visit-dav.github.io/visit-website/) (**all nodes** spack module visit)

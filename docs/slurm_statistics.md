@@ -3,8 +3,6 @@
 
 ## SLURM finished job statistics
 
----
-
 A statistics file is created after finishing a job which shows hardware and job related info to the user. Statistics files are separated by the ID of the job and the filename is generated as such using the SLURM environment variable allocated to the job as the ID: `slurm-$SLURM_JOB_ID.stat`. The `.stat` file created in the user’s current working directory where the job is run.
 
 The statistics file contains:

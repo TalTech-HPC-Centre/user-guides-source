@@ -5,8 +5,6 @@
 
 ## Short guide
 
----
-
 1. Connect to **viz**:
 
 		ssh uni-ID@viz.hpc.taltech.ee
@@ -34,8 +32,6 @@
 
 ## Get started
 
----
-
 ### Software recommended to use
 
 Virtual Network Computing (VNC) is a graphical desktop-sharing system to remotely control another computer.
@@ -53,8 +49,6 @@ On the first start, VNC asks to specify a password to connect to the server, cho
 ![vnc-host-0](/visualization/vnc-host-0.png){: style="width:95%; height:!95%;"}
 
 ## VNC Long version 
-
----
 
 VNC should be run firstly at **viz** node of HPC and after at user's computer.
 
@@ -152,8 +146,6 @@ or
 
 ## Correct termination
 
----
-
 In is very important to finish session correctly! Since if you do not do it - session continue to run even if you close session on your computer. 
 
 To stop VNC session give on **viz** one of these commands:
@@ -173,8 +165,6 @@ Running sessions can be checked by command:
 ![vnc-4](/visualization/vnc-4.png){: style="width:85%; height:!85%;"}
 
 ## Setting up VNC session 
-
----
 
 It is impossible to work with VNC without setting it. To do this give the following commands from home catalogue on **base** or **viz**:
 

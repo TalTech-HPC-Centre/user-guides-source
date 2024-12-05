@@ -2,8 +2,6 @@
 
 ## Short introduction
 
----
-
 HPC has a module step-system. To use some application, user needs to follow these two steps, and insert applications into the search path:
 
 1. Determine the machine type (eg. amp or green) by command:
@@ -38,8 +36,6 @@ _**Exp**   </span> - Experimental module, used while testing software installati
 _**D** - default Module._
 
 ## Long version
-
----
 
 The module system is used to manage settings for different applications. Many applications and libraries are not in the standard search path, this way it is possible to install two different versions of the same software/library that would otherwise create conflicts. The module system is used to insert applications into the search path (or remove them from it) on a per user and per occasion basis.
 
@@ -130,8 +126,6 @@ Example of `.bashrc` file
 
 ## Module groups
 
----
-
 
 !!! info
     We moved to a new module structure! Modules from `/share/apps/modules` are being retired. Software is compiled for `x86-64` and will run o all nodes (no special optimization). Optimized versions for some software for specific nodes may follow later (or not).
@@ -145,8 +139,6 @@ New modules are grouped, you can activate them by loading one or more of the fol
 
 
 ## Modules used on **viz**
-
----
 
 In order to make the module system work on **viz**, the following needs to be added to your `$HOME/.bashrc`
 
@@ -166,8 +158,6 @@ Further access to **viz** and load modules needed. For example:
 More about use of **viz** can be found at [visualization page](/visualization.html).
 
 ## Available modules
-
----
 
 Currently the following modules are available, this serves as an example, please note that the list on this page will be updated very seldom, use `module avail` after login to get an up-to-date list of the availabe modules.
 

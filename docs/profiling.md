@@ -11,8 +11,6 @@ Tools to profile applications and perform efficiency, scaling and energy analysi
 
 ## Monitoring jobs on the node
 
----
-
 It is possible to submit a second (this time) interactive job to the node where the main job is running, check with `squeue` where your job is running, then submit
 
     srun -w <nodename> --pty htop
@@ -30,8 +28,6 @@ In `sbatch` the option `--x11=batch` can be used, note that the ssh session to b
 
 ## Valgrind
 
----
-
 Manual: [http://valgrind.org/docs/manual/manual.html](http://valgrind.org/docs/manual/manual.html)
 
 Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile your programs in detail. You can also use Valgrind to build new tools.
@@ -43,8 +39,6 @@ The Valgrind distribution currently includes seven production-quality tools: a m
 ### _Cachegrind_
 
 ## _Profiling Python_
-
----
 
 Python is *very* slow, the best improvement is achieved by rewriting (parts of) the program in Fortran or C.
 See also "Python Performance Matters" by Emery Berger (Strange Loop 2022) [https://www.youtube.com/watch?v=vVUnCXKuNOg](https://www.youtube.com/watch?v=vVUnCXKuNOg)
@@ -73,8 +67,6 @@ Homepage and quickstart: [https://github.com/plasma-umass/scalene](https://githu
 
 ## perf
 
----
-
 [https://perf.wiki.kernel.org/index.php/Main_Page](https://perf.wiki.kernel.org/index.php/Main_Page)
 
 perf is powerful: it can instrument CPU performance counters, tracepoints, kprobes, and uprobes (dynamic tracing). It is capable of lightweight profiling. It is also included in the Linux kernel, under tools/perf, and is frequently updated and enhanced.
@@ -82,8 +74,6 @@ perf is powerful: it can instrument CPU performance counters, tracepoints, kprob
 perf began as a tool for using the performance counters subsystem in Linux, and has had various enhancements to add tracing capabilities.
 
 ## _TAU, Jumpshot, Paraprof_
-
----
 
 TAU can be used for *profiling* and for *MPI tracing* (not at the same time, though). See e.g. <https://wiki.mpich.org/mpich/index.php/TAU_by_example>
 
@@ -132,8 +122,6 @@ jumpshot may open a huge window (larger than screen size), in this case use the 
 
 ## _EZTrace + ViTE_
 
----
-
 [EZTrace 1.1](https://eztrace.gitlab.io/eztrace/eztrace-1/tutorials/tutorial_mpi/) and [ViTE 1.2](https://eztrace.gitlab.io/eztrace/eztrace-1/tutorials/tutorial_mpi/) are installed on **amp** and **viz**.
 
 EZTrace is a tool to analyze event traces, it has several modules:
@@ -149,8 +137,6 @@ EZTrace is a tool to analyze event traces, it has several modules:
 ViTE is the visualization tool to visualize the generated traces, it can visualize also .otf2 traces obtained from other MPI tracing tools (e.g. converted from TAU)
 
 ## _HPCToolkit_
-
----
 
 Load modules
 
@@ -170,8 +156,6 @@ starts `hpcviewer` and opens the database.
 
 ## _Paraver trace visualizer_
 
----
-
 Load the module
 
     module load green
@@ -187,11 +171,7 @@ then load the .prv trace file
 
 ## _Extrae_
 
----
-
 ## _Score-P_
-
----
 
 Scalable Performance Measurement Infrastructure for Parallel Codes
 
@@ -220,8 +200,6 @@ The environment variables SCOREP_ENABLE_TRACING and SCOREP_ENABLE_PROFILING cont
 
 ## _Scalasca_
 
----
-
 Scalasca is a software tool that supports the performance optimization of parallel programs by measuring and analyzing their runtime behavior. The analysis identifies potential performance bottlenecks – in particular those concerning communication and synchronization – and offers guidance in exploring their causes.
 
 
@@ -232,15 +210,11 @@ Scalasca is a software tool that supports the performance optimization of parall
 
 ## _Open|SpeedShop_
 
----
-
     module load green-spack
     module load openspeedshop
     module load openspeedshop-utils
 
 ## _DiscoPoP_
-
----
 
 to be installed
 
@@ -253,14 +227,10 @@ works only with LLVM 11.1 (included in the module)
 
 ## _PGI / Nvidia HPC SDK_
 
----
-
 On the GPU servers, the Nvidia HPC SDK is installed, which contains the PGI compilers and profilers.
 
 
 ## _IgProf_
-
----
 
 The Ignominous Profiler. IgProf is a simple nice tool for measuring and analysing application memory and performance characteristics. IgProf requires no changes to the application or the build process.
 

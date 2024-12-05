@@ -1,7 +1,5 @@
 # Accessing SMB/CIFS network shares
 
----
-
 The HPC center exports two filesystems as Windows network shares:
 
 | local path on cluster | Linux network URL | Windows network URL |
@@ -15,8 +13,6 @@ These can be accessed from within university or from EduVPN.
 Each user automatically has a directory within smbhome. To get a directory for group access, please contact us (a group and a directory need to be created).
 
 ## Windows access
-
----
 
 From Windows, the shares can be found using the Explorer "Map Network Drive".
 
@@ -45,8 +41,6 @@ get-smbconnection
 ```
 
 ## Linux access
-
----
 
 On Linux with GUI Desktop, the shares can be accessed with nautilus browser.
 

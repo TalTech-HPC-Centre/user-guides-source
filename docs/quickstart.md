@@ -2,8 +2,6 @@
 
 ## Accessing the cluster
 
----
-
 **NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet#External-UNI-ID) should be created by the head of a structural unit.
 
 **To get access to HPC contact us by email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](/index.html#billing).
@@ -32,8 +30,6 @@ We strongly recommend to **use SSH-keys for logging** to the cluster with ssh co
 
 ## Structure and file tree 
 
----
-
 By accessing the cluster, the user gets into home directory or `$HOME` (`/gpfs/mariana/home/$USER/`).
 
 In the home directory, the user can create, delete, and overwrite files and perform calculations (if slurm script does not force program to use ` $SCRATCH ` directory). The home directory is limited in size of 500 GB and backups are performed once per week.
@@ -50,8 +46,6 @@ cd /state/partition1/
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
 
 ## Running jobs with SLURM 
-
----
 
 SLURM is a management and job scheduling system at Linux clusters. More about [SLURM quick references](https://slurm.schedmd.com/pdfs/summary.pdf).
 
@@ -134,8 +128,6 @@ Output of applications and error messages are by default written to a `slurm-$jo
 
 ## SLURM accounts  
 
----
-
 In SLURM exist accounts for billing, these are different from the login account!
 
 Each user has his/her own personal SLURM-account, which will have a small monthly limit.  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID.
@@ -151,8 +143,6 @@ Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), 
 When submitting a job, **it is important to use the correct SLURM-account** `--account=SLURM-ACCOUNT`, as this is connected to the financial source.
 
 ## Monitoring jobs & resources
-
----
 
 ### Monitoring a job on the node
 
@@ -316,8 +306,6 @@ For convenience, a tool `taltech-history` was created, by default it shows the j
 
 ## Copying data to/from the clusters
 
----
-
 Since HPC disk quota is limited, it is recommended to have your own copy of important calculations and results. Data from HPC can be transferred by several commands: `scp`, `sftp`, `sshfs` or `rsync`.
 
 1. `scp` is available on all **Linux systems,** **Mac** and **Windows10 PowerShell.** There are also GUI versions available for different OS (like [PuTTY](/putty.html)).
@@ -418,8 +406,6 @@ There are tools for conversion of the line-ending, in case the file was copied w
 
 ## Backup
 
----
-
 There are 2 major directories where users can store data:
 
 - `/gpfs/mariana/home/` default home directory which is limited to 500GB and is backed up, excluding specific directories: `[*/envs/, */.cache/, */pkgs/]`.
@@ -430,7 +416,5 @@ The home directory is meant for critical data like configurations and scripts, w
 The backup will run weekly. *If the home directory is larger than 500GB [usage is displayed upon login to the cluster] it will not be backed up.*
 
 If your home directory is larger than 500G please move the data to smbhome.
-
----
 
 At HPC are installed programs with varying licence agreement. To use some licensed programs (for example, Gaussian), the user must be added to the appropriate group. For this contact us email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://portal.taltech.ee/v2). More about available programs and licenses can be found at [software page](/software.html).

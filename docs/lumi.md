@@ -2,8 +2,6 @@
 
 ## What is LUMI?
 
----
-
 LUMI is the fastest supercomputer in Europe. It's an HPE Cray EX supercomputer consisting of several hardware partitions targeted different use cases:
 
 - 2560 GPU-based nodes ([**LUMI-G**](https://docs.lumi-supercomputer.eu/hardware/lumig/)), each node with one 64 core AMD Trento CPU and four AMD MI250X GPUs.
@@ -19,8 +17,6 @@ LUMI uses Slurm as job scheduler and resource manager. Slurm partitions can be a
 
 ## Why LUMI?
 
----
-
 There are several reasons to choose LUMI instead of HPC:
 
 - if job is run using GPUs
@@ -28,8 +24,6 @@ There are several reasons to choose LUMI instead of HPC:
 - if queue on HPC is too long
 
 ## Getting started
-
----
 
 - [How to get access to LUMI](/lumi/start.html)
 - [Software](/lumi/software.html)

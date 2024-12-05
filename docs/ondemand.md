@@ -8,8 +8,6 @@ The menu only contain very few programs from the operating system. However, **al
 
 ## OnDemand Desktop (CPU)
 
----
-
 To enter home directory using OnDemand:
 
 1. Choose "TalTech HPC Desktop".
@@ -52,8 +50,6 @@ To enter home directory using OnDemand:
 [More information about using onDemand can be found at visualization page.](/visualization.html)
 
 ## OnDemand Desktop on GPU nodes (hardware rendering)
-
----
 
 Requires of course to be submitted to a GPU node and a GPU to be reserved. The nodes are configured in a way that requires EGL rendering, and therefore may require other modules to be loaded (e.g. ParaView).
 

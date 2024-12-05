@@ -2,8 +2,6 @@
 
 ## Getting Started on LUMI
 
----
-
 !!! info
     ***If you face any problems during registration to LUMI give us know by email [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) or in Teams in  "HPC Support Chat".***
 

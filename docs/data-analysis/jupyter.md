@@ -4,8 +4,6 @@ JupyterLab is an interactive notebook environment (with a web-browser interface)
 
 ## JupyterLab Short introduction
 
----
-
 1. Download [jupyterlab.slurm](/data-analysis/jupyterlab.slurm) or  [jupyterlab-gpu.slurm](/data-analysis/jupyterlab-gpu.slurm) batch script:
 
     ```bash
@@ -69,8 +67,6 @@ JupyterLab is an interactive notebook environment (with a web-browser interface)
 *NB: Node name (green1 in the above example), port (here 9900) and token will be different for each job you submit! More detais can be found in Accessing Jupyter webinterface part.*
 
 ## JupyterLab on Taltech HPC (long version)
-
----
 
 ### Network access to TalTech HPC
 
@@ -180,8 +176,6 @@ Open the above presented address in your browser.
 
 ## with the new SPACK-based modules
 
----
-
 The following modules need to be loaded to activate Julia, Octave and Python 3.8.12 in JupyterLab
 
         module load rocky8-spack/
@@ -222,8 +216,6 @@ For R:
 ![jupyterlab](/data-analysis/jupyterlab.png)
 
 ## Jupyter-notebooks as non-interactive jobs
-
----
 
 Jupyter notebooks can be run non-interactive from the command-line using 
 

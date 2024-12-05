@@ -13,8 +13,6 @@ The WAM Model—A Third Generation Ocean Wave Prediction Model DOI: [https://doi
 
 ## Quickstart
 
----
-
 ### Short jobs & one core jobs
 
 1. To run your first calculations, start a session on a node:
@@ -136,8 +134,6 @@ Longer running and parallel jobs are better submitted as batch jobs using an sba
 	```
 
 ## WAM long version
-
----
 
 ### Starting calculations
 

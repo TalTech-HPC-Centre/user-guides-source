@@ -7,8 +7,6 @@ The [Singularity user guides](https://docs.sylabs.io/guides/3.9/user-guide/) are
 
 ## Running a container
 
----
-
 native installation from Rocky 8 EPEL of `singularity-ce version 4.1.5-1.el8`, no modules to load.
 
 ### _On all nodes using CPU only_
@@ -85,8 +83,6 @@ Converting from Docker.io, see
 
 ## Example: Interactive PyTorch job (without and with GPU)
 
----
-
 Start an interactive session on amp, make the modules available and run the docker image in singularity:
 
 Without GPU:
@@ -112,8 +108,6 @@ You can also shorten it to a single command
 which should give the same result (without the GPU name). If you remove the `--nv` flag the result changes as singularity no longer exposes the gpu.
 
 ## Example: Interactive TensorFlow job  (without and with GPU)
-
----
 
 Start an interactive session on amp, make the modules available and run the docker image in singularity:
 
@@ -173,8 +167,6 @@ The following is the "TensorFlow 2 quickstart for beginners" from <https://www.t
 
 ## Example job for OpenDroneMap (ODM)
 
----
-
 OpenDroneMap needs a writable directory for the data. This directory needs to contain a subdirectory named `images`.
 
 Assume you keep your ODM projects in the directory `opendronemap`:
@@ -221,8 +213,6 @@ The SLURM job-script looks like this:
 
 
 ## Obtaining and Building Singularity Containers
-
----
 
 When you want to use a container with the cluster you'll need to get the image from somewhere and you cannot build containers on the cluster for security reasons (even with `--fakeroot`) so there are two ways to get your containers into the cluster.
 

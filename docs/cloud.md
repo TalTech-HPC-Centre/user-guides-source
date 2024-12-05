@@ -2,8 +2,6 @@
 
 ## Access to OpenStack Cloud (short introduction)
 
----
-
 In order to gain access to HPC Centre Cloud, you should take following steps:
 
 1. Login to ETAIS <https://minu.etais.ee> and authenticate with your TalTech UniID credentials via MyAccessID.
@@ -12,8 +10,6 @@ In order to gain access to HPC Centre Cloud, you should take following steps:
 4. Get familiar with ETAIS documentation [here](https://etais.ee/using/).
 
 ## Access to OpenStack Cloud (long version)
-
----
 
 HPC Centre runs OpenStack-based Cloud. In order to gain access to it, you should take following steps:
 

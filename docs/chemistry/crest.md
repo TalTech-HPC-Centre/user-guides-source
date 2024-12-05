@@ -2,8 +2,6 @@
 
 ## CREST short introduction 
 
----
-
 1. Make [crest.slurm](/chemistry/crest.slurm) batch script for parallel calculations:
 
     ```bash
@@ -35,8 +33,6 @@
 ***NB!*** It is recommended to optimize the geometries obtained from the CREST by more accurate methods. In the [end of this page](/chemistry/crest.html#useful-bash-scripts) are given home-made bash scripts that can be helpful during this process.
 
 ## CREST long version 
-
----
 
 CREST (Conformer–Rotamer Ensemble Sampling Tool) was designed as conformer sampling program by Grimme's group. Conformational search can be done by various levels of theory including molecular mechanics and semiempirical methods (GFNn-xTB) in gas or solvent (using several continuum models). By default CREST uses root-mean-square-deviation (RMSD) based meta-dynamics, short regular MD simulations and Genetic Z-matrix crossing (GC) algorithms for generation of new conformers. CREST can be also used for searching of protonation states, tautomerism studies and non-covalent complexes modelling. More can be found in the [original article](https://pubs.rsc.org/en/content/articlelanding/2020/CP/C9CP06869D#!divCitation).
 
@@ -70,8 +66,6 @@ In our test runs for a flexible organic molecule of 54 atoms using semiempirical
 The main publication for the CREST program - DOI: [10.1039/C9CP06869D](https://doi.org/10.1039/C9CP06869D).
 
 ## Useful bash scripts
-
----
 
 It is recommended to optimise the geometries obtained from the CREST by more accurate methods. Here are home-made bash scripts that can be helpful. 
 

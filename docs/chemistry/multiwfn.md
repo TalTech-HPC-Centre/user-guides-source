@@ -4,8 +4,6 @@
 
 ## Multiwfn short introduction 
 
----
-
 1. Make Multiwfn input `.mwfn`, `.wfn`, `.wfx`, `.fch`, `.molden`, `.gms` (or `.cub`, `.grd`, `.pdb`, `.xyz`, `.mol` - for specific purposes).
 
 2. Accesse **viz** by [remote access programs](/visualization.html) (more preferable) or by ssh protocol (less preferable):
@@ -67,8 +65,6 @@
     ***NB!*** It is recommended to visualize Multiwfn results in VMD program, corresponding scripts are provided in Multiwfn examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_.
 
 ## Multiwfn long version 
-
----
 
 ### Options
 

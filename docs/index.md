@@ -9,8 +9,6 @@ title: Welcome to TalTech HPC User Guides!
 
 ![HPC](/pictures/HPC.jpg)
 
----
-
 The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account (an application form for non-employees/non-students can be found [here](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto)). Further, the user needs to be added to the HPC-USERS group. Please ask [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to activate HPC access from your TalTech email and provide your **UniID (six letters taken from the user's full name**). In the case of using licensed programs, the user must also be added to the appropriate group. More information about available programs and licenses can be found [here](/software.html).
 
 TalTech HPC Centre includes [cluster](/quickstart.html), [cloud](/cloud.html) and is also responsible for providing access to the resources of the [LUMI supercomputer](/lumi.html).
@@ -20,8 +18,6 @@ The **cloud** provides users the ability to create virtual machines where the us
 The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu on special-purpose nodes) and uses SLURM as a batch scheduler and resource manager. Linux is the dominant operating system used for scientific computing and is the only operating system present in the [Top500](https://www.top500.org/) list (a list of the 500 most powerful computers in the world). **Linux command-line knowledge is essential for using the cluster.** [Resources on learning Linux](/learning.html) can be found in our guide, including introductory lectures in Moodle. However, some graphical interface is available for data visualization, copy, and transfer.
 
 **LUMI supercomputer** is the fastest supercomputer in Europe, the fifth fastest [globally](https://www.top500.org/lists/top500/2023/11/) and the seventh [greenest](https://www.top500.org/lists/green500/2023/11/) supercomputer on the planet. Specifications of LUMI can be found [here](/lumi.html#what-is-lumi).
-
----
 
 ## Hardware Specification
 
@@ -43,8 +39,6 @@ The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu 
   - **amp:** 8xNvidia A100/40GB, 2x 64core AMD EPYC 7742 Zen (together **128 cores, 256 threads**), **1 TB** RAM
   - **amp2:** 8xNvidia A100/80GB, 2x 64core AMD EPYC 7713 zen3 (together **128 cores, 256 threads**), **2 TB** RAM
 - Visualization node **viz** (accessible within University network and [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN), [guide for viz](/visualization.html)): 2xNvidia Tesla K20Xm graphic cards (on displays :0.0 and :0.1), CPU Intel(R) Xeon(R) CPU E5-2630L v2@2.40GHz (**24 threads**), **64 GB** RAM, HDD **2 TB** storage.
-
----
 
 ## Billing
 
@@ -78,8 +72,6 @@ More details on how to calculate computational costs for TalTech cluster can be 
 | Flash based scratch storage | TB*hour | 10 x 0.0106 EUR   |
 
 A more detailed guide on how to calculate computational costs for LUMI can be found in the [LUMI billing policy](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#compute-billing).
-
----
 
 ## SLURM partitions
 

@@ -18,8 +18,6 @@ Some useful online resources:
 
 ## A single thread job
 
----
-
 The following script sets up the environment for ORCA and runs a job named ORCA_test using one thread and 2GB of memory, with job.inp as an input file. Calculations will be performed in a scratch directory on a node, not in your directory. Results will be written into job.log output file.
 
 ```bash
@@ -52,8 +50,6 @@ rm -rf  $SCRATCH
 
 ## An OpenMP parallel job
 
----
-
 The following script launches job named HelloOMP using OpenMP. For this job slurm reserves one node and 12 threads. Maximum run time is 10 minutes.
 
 !!! info
@@ -77,8 +73,6 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 ```
 
 ## A script for MPI parallel job (OpenFOAM)
-
----
 
 The following script reserves 4 CPU-cores for 10 hours (since `mpirun` uses cores by default), loads the OpenMPI module, the OpenFOAM variables, changes into the case directory and runs the typical commands necessary for a parallel OpenFOAM job. It also sets OpenMPI transport properties to use Ethernet TCP!
 
@@ -126,8 +120,6 @@ Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node
 
 ## A sequential or OpenMP parallel job with scratch
 
----
-
 The following script creates a directory named scratch-%x-%j (where `%x` is a job name and `%j` is a jobid of the running job). This scratch directory is done on the scratch partition of a node to provide fast local storage, that does **not** require network. After, slurm script runs the job, and copies the output files back into the permanent home-directory once the job is completed.
 
 
@@ -153,8 +145,6 @@ rm -rf /state/partition1/scratch-%x-%j
 Please note that the scratch is *not* shared between nodes, so parallel MPI jobs that span multiple nodes cannot access each other's scratch files.
 
 ## A GPU job
-
----
 
 The GPU scripts can be run only with **gpu partition** and on GPU nodes **amp** or **ada**. 
 
@@ -186,8 +176,6 @@ This script reserves 4 gpu without specifying the GPU type.
 ```
 
 ## An array (parameter sweep) job
-
----
 
 This script reserves 10 threads and run array of jobs in range of 13-1800.  The `$SLURM_ARRAY_TASK_ID` variable calls the input files in the given range in turn and data is written in output files arrayjob, which also contain job allocation ID and job array index number (`-%A` and `-%a`, respectively). 
 

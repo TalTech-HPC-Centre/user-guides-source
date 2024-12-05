@@ -4,8 +4,6 @@
 
 ## NWChem short introduction 
 
----
-
 1. Make [nwchem.slurm](/chemistry/nwchem.slurm) batch script for parallel calculations:
 
         #!/bin/bash
@@ -43,8 +41,6 @@
 4. Check results using [visualization software](/visualization.html).
 
 ## NWChem long version 
-
----
 
 The North West computational chemistry ([NWChem](https://nwchemgit.github.io/)) is an ab initio computational chemistry software package. NWChem offers various approaches: density functional (DFT), second-order Möller–Plesset perturbation theory (MP2), single- and multi-reference (MR), ground-and excited-state and linear-response (LR) coupled-cluster (CC), multi-configuration self-consistent field (MCSCF), selected and full configuration interaction (CI). A broad range of DFT response properties, ground and excited-state molecular dynamics (MD) using either AMBER or CHARMM force fields or methods of quantum mechanics (QM), nudged elastic band (NEB) method, linear-response (LR), and real-time (RT) time-dependent density functional theory (TDDFT) are available in NWChem. Through its modular design, the ab initio methods can be coupled with the classical MD to perform mixed quantum-mechanics and molecular-mechanics simulations (QM/MM). Various solvent models and relativistic approaches are also available. Additionally, python programs may be embedded into the NWChem input and used to control the execution of NWChem. More about the possibilities of NWChem can be found in this article - [10.1063/5.0004997](https://aip.scitation.org/doi/10.1063/5.0004997).
 

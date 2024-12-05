@@ -5,8 +5,6 @@ For TalTech Windows machines PuTTY client should be download from [Microsoft App
 
 ## Setup
 
----
-
 1. Open Putty
 
 2. Write host name, name of a session and save it.

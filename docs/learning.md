@@ -14,8 +14,6 @@ The course consists of four modules:
 
 ## Resources on learning Linux
 
----
-
 Linux command-line (shell, terminal):
 
 - [Linux command-line tutorial (Learning the shell)](http://linuxcommand.org/lc3_learning_the_shell.php)
@@ -31,8 +29,6 @@ TalTech courses:
 
 ## Resources for learning scientific computing
 
----
-
 TalTech courses:
 
 - YFX1510 Scientific Computing (requires knowledge of Linux)
@@ -41,8 +37,6 @@ TalTech courses:
 - YFX9570 Computational Fluid Dynamics
 
 ## Resources for learning data analysis
-
----
 
 TalTech courses:
 

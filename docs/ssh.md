@@ -30,8 +30,6 @@ RSA SHA256:Q6NDm88foRVTKtEAEexcRqPqMQNGUzf3rQdetBympPg
 
 ## Generating  SSH keys
 
----
-
 In **Linux/Mac** SSH keys can be generated in cmd by command:
 
 ```bash
@@ -58,8 +56,6 @@ More detail guides can be found here:
 - **Windows** - [https://phoenixnap.com/kb/generate-ssh-key-windows-10](https://phoenixnap.com/kb/generate-ssh-key-windows-10)
 
 ## Uploading SSH keys to base
-
----
 
 Once the keys are created, the public (`.pub`) key needs to be uploaded to base. There are a couple of ways to do it. On base, SSH public keys are found in `/etc/AuthorizedKeys/$USER` file, there is a link to it from `.ssh/authorized_keys` file.
 

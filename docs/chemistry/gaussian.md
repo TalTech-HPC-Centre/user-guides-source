@@ -6,8 +6,6 @@
 
 ## Gaussian short introduction 
 
----
-
 1. Make [gaussian.slurm](/chemistry/gaussian.slurm) batch script:
 
     ```bash
@@ -47,8 +45,6 @@
 4. Check results using [visualization software](/visualization.html).
 
 ## Gaussian long version
-
----
 
 [Gaussian](https://gaussian.com/g16main/) is a general purpose package for calculation of electronic structures. It can calculate properties of molecules (structures, energies, spectroscopic and thermochemical properties, atomic charges, electron affinities, electrostatic potentials, electron densities etc.) as well as reactions properties (such as reaction pathways, IRC) using different methods (such as Molecular mechanics, Semi-empirical methods,  Hartree-Fock, Density functional theory, Møller-Plesset perturbation theory, coupled cluster). More about Gaussian features can be found [here](https://gaussian.com/g16glance/). 
 

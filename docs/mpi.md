@@ -21,8 +21,6 @@ For MPI jobs prefer the **green-ib** partition (`#SBATCH -p green-ib`) or stay w
 
 ## Layers in OpenMPI
 
----
-
 - PML = Point-to-point Management Layer:
    - UCX
 - MTL = Message Transfer Layer:
@@ -66,8 +64,6 @@ For further explanations and details see:
 - <https://www.open-mpi.org/faq/?category=openfabrics>
 
 ## Different MPI implementations exist:
-
----
 
 -   OpenMPI
 -   MPICH

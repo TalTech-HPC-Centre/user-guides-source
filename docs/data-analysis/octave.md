@@ -10,8 +10,6 @@ we have setup a module for Octave:
 
 ## Octave: Example of a non-interactive batch job (single process)
 
----
-
 SLURM batch script `octave-script.slurm`
 
     #!/bin/bash
@@ -32,8 +30,6 @@ The commands that Octave should calculate are in `script.m`
 
 ## Octave netcdf toolbox
 
----
-
 To use netcdf in octave the toolbox octcdf has to be installed from octave forge. Note that octcdf is a NetCDF toolbox for Octave which aims to be compatible with the „original“ matlab toolbox.
 
 To install the toolbox do following steps in the frontend and later the package is available in all nodes for your user.
@@ -51,8 +47,6 @@ You may need to scroll down when necessary and it should complete the compilatio
     pkg load octcdf
 
 ## Matlab
-
----
 
 Matlab is available on the cluster through a campus license. Use
 
