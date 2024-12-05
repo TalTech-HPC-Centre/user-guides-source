@@ -22,23 +22,23 @@ nav:
       - Software packages:
           - software.md
           - Engineering Software:
-              - CAD-Mesh: cad-mesh.md
-              - ElmerFEM: elmerfem.md
-              - OpenFOAM: openfoam.md
-              - SWAN: swan.md
-              - WAM: wam.md
+              - CAD-Mesh: engineering/cad-mesh.md
+              - ElmerFEM: engineering/elmerfem.md
+              - OpenFOAM: engineering/openfoam.md
+              - SWAN: engineering/swan.md
+              - WAM: engineering/wam.md
           - Chemistry Software:
-              - xtb-CREST: crest.md
-              - Gaussian: gaussian.md
-              - ORCA: orca.md
-              - NWChem: nwchem.md
-              - Multiwfn: multiwfn.md
-              - XTB: xtb.md
-              - TURBOMOLE: turbomole.md
-              - Chemistry Visualization: visualization/visualization-chemistry.md
+              - xtb-CREST: chemistry/crest.md
+              - Gaussian: chemistry/gaussian.md
+              - ORCA: chemistry/orca.md
+              - NWChem: chemistry/nwchem.md
+              - Multiwfn: chemistry/multiwfn.md
+              - XTB: chemistry/xtb.md
+              - TURBOMOLE: chemistry/turbomole.md
+              - Chemistry Visualization: chemistry/visualization.md
           - Data Analysis Software:
-              - Jupyter: jupyter.md
-              - Octave: octave.md
+              - Jupyter: data-analysis/jupyter.md
+              - Octave: data-analysis/octave.md
       - Visualization:
           - visualization.md
   - LUMI Supercomputer: 
