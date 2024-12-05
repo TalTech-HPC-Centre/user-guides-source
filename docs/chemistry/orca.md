@@ -80,7 +80,7 @@
 
         sbatch orca.slurm
 
-    ***NB!*** _More cores does not mean faster!!! See [benchmarks](/chemistry/orca.html#benchmarks-for-parallel-jobs)._  
+    ***NB!*** _More cores does not mean faster!!!_  
     ***NB!*** To ORCA parallel run full path name is needed. Single core calculations can be performed with just `orca` command.
 
 4. Check results using [visualization software](/visualization.html).

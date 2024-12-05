@@ -92,4 +92,4 @@ You can get a list of export formats from the GUI.
 
 Netgen - [J. Schöberl. NETGEN An advancing front 2D/3D-mesh generator based on abstract rules. Comput. Vis. Sci., 1(1):41–52, 1997](https://link.springer.com/article/10.1007/s007910050004).
 
-Netgen/NGSolve is open source and available at [www.ngsolve.org](www.ngsolve.org).
+Netgen/NGSolve is open source and available at [www.ngsolve.org](https://www.ngsolve.org).
