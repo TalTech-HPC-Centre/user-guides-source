@@ -3,6 +3,9 @@ name: Check External Hyperlinks
 on:
   workflow_dispatch:
   page_build:
+  push:
+    branches:
+      - gh-pages
 
 jobs:
   linkChecker:
