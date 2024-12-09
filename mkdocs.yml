@@ -4,7 +4,7 @@ nav:
   - TalTech Cluster: 
       - Quickstart: 
           - quickstart.md
-      - Ondemand: 
+      - OnDemand:
           - ondemand.md
       - MPI: 
           - mpi.md
@@ -41,6 +41,9 @@ nav:
               - Octave: data-analysis/octave.md
       - Visualization:
           - visualization.md
+  - Cluster from Browser:
+      - OnDemand: 
+          - /ondemand.html
   - LUMI Supercomputer: 
       - What is and why to use LUMI?: lumi.md
       - Quick Start: lumi/start.md
