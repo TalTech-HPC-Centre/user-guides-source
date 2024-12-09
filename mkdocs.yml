@@ -57,8 +57,8 @@ site_author: TalTech HPC Centre
 site_url: https://docs-staging.hpc.taltech.ee/
 edit_uri: edit/main/docs/
 docs_dir: docs
-repo_name: github.com/TalTech-HPC-Centre
-repo_url: https://github.com/TalTech-HPC-Centre/user-guides-source
+#repo_name: github.com/TalTech-HPC-Centre
+#repo_url: https://github.com/TalTech-HPC-Centre/user-guides-source
 
 # true: /my-page/
 # false: /my-page/index.html
@@ -181,7 +181,7 @@ extra:
     - icon: fontawesome/solid/house
       link: https://hpc.taltech.ee/
     - icon: fontawesome/brands/github
-      link: https://github.com/TalTech-HPC-Centre
+      link: https://github.com/TalTech-HPC-Centre/user-guides-source
     - icon: fontawesome/solid/envelope
       link: mailto:hpcsupport@taltech.ee
     - icon: fontawesome/solid/comments
