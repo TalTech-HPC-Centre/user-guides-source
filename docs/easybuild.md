@@ -9,7 +9,9 @@ EasyBuild is a package manager to install software packages. An advantage is to 
 
 EasyBuild is available on **amp** from AI lab
 
-    module use /illukas/software/modules
+```bash
+module use /illukas/software/modules
+```
 
 ## User build software
 
