@@ -11,41 +11,49 @@ Special programming language developed for supercomputing, origially by the Cray
 
 on amp
 
-    module load amp
-    module load llvm/14.0.0
-    module load chapel/1.28
-    module load amp-spack
-    module load cuda/11.3.1-gcc-9.3.0-e4ej
-
+```bash
+module load amp
+module load llvm/14.0.0
+module load chapel/1.28
+module load amp-spack
+module load cuda/11.3.1-gcc-9.3.0-e4ej
+```
 
 on green
 
-    module load green-spack/0.17.1
-    module load gcc/10.3.0-gcc-10.3.0-qshu
-    module load llvm/13.0.0-gcc-10.3.0-dhdd
-    module load opempi/4.1.1-gcc-10.3.0
-
+```bash
+module load rocky8-spack/0.17.1
+module load gcc/10.3.0-gcc-10.3.0-qshu
+module load llvm/13.0.0-gcc-10.3.0-dhdd
+module load opempi/4.1.1-gcc-10.3.0
+```
 
 
 ## evironment variables
 
 on amp
 
-    source /gpfs/mariana/software/amp/chapel/chapel-1.28.0/util/quickstart/setchplenv.bash
+```bash
+source /gpfs/mariana/software/amp/chapel/chapel-1.28.0/util/quickstart/setchplenv.bash
+```
     
 on green
 
-    source /gpfs/mariana/software/green/chapel/chapel-1.28.0/util/quickstart/setchplenv.bash
-
-
+```bash
+source /gpfs/mariana/software/green/chapel/chapel-1.28.0/util/quickstart/setchplenv.bash
+```
 
 Check which environments are available and compare to current settings
 
-    $CHPL_HOME/util/chplenv/printchplbuilds.py
+```bash
+$CHPL_HOME/util/chplenv/printchplbuilds.py
+```
 
 check current variables
 
-     $CHPL_HOME/util/printchplenv
+```bash
+$CHPL_HOME/util/printchplenv
+```
 
 set some environment variables
 
@@ -63,7 +71,6 @@ set some environment variables
     CHPL_LAUNCHER=slurm-srun
     CHPL_LAUNCHER_NODE_ACCESS=unset
     CHPL_MEM=jemalloc
-
 
 
     CHPL_COMM_SUBSTRATE=ibv        # several locales (nodes) with IB
@@ -88,11 +95,15 @@ set environment variables as needed
 
 compile
 
-    chpl -o jacobi-cpu-green jacobi-cpu.chpl
+```bash
+chpl -o jacobi-cpu-green jacobi-cpu.chpl
+```
 
 run the chapel program with apropriate number of locales (typically a locale is a full node!)
 
-    ./jacobi-cpu-green -nl 1
+```bash
+./jacobi-cpu-green -nl 1
+```
 
 the program can be started directly (without srun or sbatch), it uses the specified launcher set in the environment variable `CHPL_LAUNCHER=slurm-srun`
 
