@@ -45,11 +45,15 @@ Jobs need to be submitted using `srun` or `sbatch`, do not run jobs outside the 
 
 Interactive jobs are started using `srun`:
 
-    srun -p gpu -t 1:00:00 --pty bash
+```bash
+srun -p gpu -t 1:00:00 --pty bash
+```
 
 GPUs have to be reserved/requested with:
 
-    srun -p gpu --gres=gpu:A100:1 -t 1:00:00 --pty bash
+```bash
+srun -p gpu --gres=gpu:A100:1 -t 1:00:00 --pty bash
+```
 
 All nodes with GPUs are in the same partition (`-p gpu`, but also in `short`, which has higher priority, but shorter time-limit) so jobs that do not have specific requirements can run on any of the nodes. If you need a specific type, e.g. for testing performance or because of memory requirements:
 
@@ -94,8 +98,9 @@ Again, beware of the vendor lockin.
 
 To compile CUDA code, use the Nvidia compiler wrapper:
 
-    nvcc
-
+```bash
+nvcc
+```
 
 ### _Offloading Compilers_
 
@@ -153,11 +158,15 @@ Current recommendation: use HPC-SDK
 
 Installed are versions 21.2, 21.5 and 21.9 (2021). These come with modulefiles, to use them, enable the the directory:
 
-    module load rocky8-spack
+```bash
+module load rocky8-spack
+```
     
 then load the module you want to use, e.g.
 
-    module load nvhpc
+```bash
+module load nvhpc
+```
 
 The HPC SDK also comes with a profiler, to identify regions that would benefit most from GPU acceleration.
 
@@ -166,7 +175,9 @@ OpenACC is based on compiler pragmas enabling an incremental approach to paralle
 Compiling an OpenACC program with the Nvidia compiler:
 get accelerator information
 
-    pgaccelinfo
+```bash
+pgaccelinfo
+```
 
 compile for multicore (C and Fortran commands)
 
@@ -185,11 +196,15 @@ Profiling:
 
 Analysing the profile using CLI:
 
-    nsys stat s laplace.qdrep
+```bash
+nsys stat s laplace.qdrep
+```
 
 using the GUI:
 
+```bash
     nsys-ui
+```
 
 then load the `.qdrep` file.
 
