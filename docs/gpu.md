@@ -30,12 +30,15 @@
 - **Features:** avx512
 - **OS:** Rocky8
 
-## Login and localstorage
+## Login and local storage
 
 !!! info
     Job submission to GPU nodes is now from "base" node. Direct login to GPU nodes has been disabled!
 
-Use `srun -p gpu --gres=gpu:L40 --pty bash`
+Use 
+```bash
+srun -p gpu --gres=gpu:L40 --pty bash`
+```
 
 amp[1,2] have `/localstorage` a 10 TB NVMe partition for fast data access. Data in directory has a longer storage duration than data in the 4 TB `/tmp` (`/state/partition1` is the same as `/tmp`)
 
@@ -75,7 +78,6 @@ Will not work due to different OS
 
 - JupyterLab, see page on [JupyterLab](/data-analysis/jupyter.html)
 - Gaussian, see page on [Gaussian](/chemistry/gaussian.html)
-- cp2k
 - StarCCM+
 - Julia
 - Chapel
@@ -181,18 +183,24 @@ pgaccelinfo
 
 compile for multicore (C and Fortran commands)
 
-    pgcc -fast -ta=multicore -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/  -o laplace jacobi.c laplace2d.c
-    pgfortran -fast -ta=multicore  -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_multicore laplace2d.f90 jacobi.f90
+```bash
+pgcc -fast -ta=multicore -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/  -o laplace jacobi.c laplace2d.c
+pgfortran -fast -ta=multicore  -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_multicore laplace2d.f90 jacobi.f90
+```
 
 compile for GPU (C and Fortran commands)
 
-    pgcc -fast -ta=tesla -Minfo=accel  -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_gpu jacobi.c laplace2d.c
-    pgfortran -fast -ta=tesla,managed -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_gpu laplace2d.f90 jacobi.f90
+```bash
+pgcc -fast -ta=tesla -Minfo=accel  -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_gpu jacobi.c laplace2d.c
+pgfortran -fast -ta=tesla,managed -Minfo=accel -I/opt/nvidia/hpc_sdk/Linux_x86_64/21.5/cuda/11.3/targets/x86_64-linux/include/ -o laplace_gpu laplace2d.f90 jacobi.f90
+```
 
 Profiling:
 
-    nsys profile -t nvtx --stats=true --force-overwrite true -o laplace ./laplace
-    nsys profile -t openacc --stats=true --force-overwrite true -o laplace_data_clauses ./laplace_data_clauses 1024 1024
+```bash
+nsys profile -t nvtx --stats=true --force-overwrite true -o laplace ./laplace
+nsys profile -t openacc --stats=true --force-overwrite true -o laplace_data_clauses ./laplace_data_clauses 1024 1024
+```
 
 Analysing the profile using CLI:
 
