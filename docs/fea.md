@@ -38,7 +38,9 @@ Elmer manuals and tutorials: [https://www.nic.funet.fi/pub/sci/physics/elmer/doc
 
 To use ElmerFEM the module needs to be loaded
 
-    module load elmerfem-9.0
+```bash
+module load elmerfem-9.0
+```
 
 This makes the following main commands `ElmerGrid`, `ElmerSolver` available (and `ElmerGUI` can be used on viz to setup the case file). The use of ElmerGUI for simulations is **not** recommended.
 
@@ -47,20 +49,29 @@ This makes the following main commands `ElmerGrid`, `ElmerSolver` available (and
 
 Copy the tutorial directory (here the linear elastic beam):
 
-    cp -r /share/apps/HPC2/ElmerFEM/tutorials-CL-files/ElasticEigenValues/ linear-elastic-beam-tutorial
-    cd linear-elastic-beam-tutorial
+```bash
+cp -r /share/apps/HPC2/ElmerFEM/tutorials-CL-files/ElasticEigenValues/ linear-elastic-beam-tutorial
+cd linear-elastic-beam-tutorial
+```
 
 Start an interactive session on a node
 
-    srun -t 2:00:00 --pty bash
+```bash
+srun -t 2:00:00 --pty bash
+```
 
 Create the mesh
 
-    ElmerGrid d 7 2 mesh.FDNEUT
+
+```bash
+ElmerGrid d 7 2 mesh.FDNEUT
+```
 
 run the solver
 
-    ElmerSolver
+```bash
+ElmerSolver
+```
 
 Postprocessing would be visualizing the `eigen_values.vtu` file in `paraview` on viz.
 
@@ -113,6 +124,8 @@ The license belongs to the research group of ... . In case you need access, plea
 
 Available through a SPACK module.
 
-    module use /share/apps/HPC2/SPACK/spack/share/spack/modules/linux-centos7-skylake_avx512/
+```bash
+module use /share/apps/HPC2/SPACK/spack/share/spack/modules/linux-centos7-skylake_avx512/
+```
 
 deal.ii is a C++ library that can be used to write own FEA software.
