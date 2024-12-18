@@ -21,30 +21,30 @@
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1">#Clean after yourself</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
 </code></pre></div> </li> <li> <p>Copy job-input file <a href="/chemistry/job.com">job.com</a>.</p> </li> <li> <p>Submit the job on <strong>base</strong>:</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sbatch<span class="w"> </span>gaussian.slurm
-</code></pre></div> <p><strong><em>NB!</em></strong> <em>More cores does not mean faster!!! See <a href="/chemistry/gaussian.html#benchmarks-for-parallel-jobs">benchmarks</a>.</em></p> </li> <li> <p>Check results using <a href="/visualization.html">visualization software</a>.</p> </li> </ol> <h2 id="gaussian-long-version">Gaussian long version<a class="headerlink" href="#gaussian-long-version" title="Anchor link to this section for reference">#</a></h2> <p><a href="https://gaussian.com/g16main/">Gaussian</a> is a general purpose package for calculation of electronic structures. It can calculate properties of molecules (structures, energies, spectroscopic and thermochemical properties, atomic charges, electron affinities, electrostatic potentials, electron densities etc.) as well as reactions properties (such as reaction pathways, IRC) using different methods (such as Molecular mechanics, Semi-empirical methods, Hartree-Fock, Density functional theory, Møller-Plesset perturbation theory, coupled cluster). More about Gaussian features can be found <a href="https://gaussian.com/g16glance/">here</a>. </p> <h3 id="environment">Environment<a class="headerlink" href="#environment" title="Anchor link to this section for reference">#</a></h3> <p>There are several versions of Gaussian available at HPC: g09 (revision C.01) and g16 (revision B.01, C.01 and C.02). Environment and Gaussian version are set up by the commands:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>module load rocky8/all
-module load gaussian/16.c02
-</code></pre></div> <h3 id="running-gaussian-jobs">Running Gaussian jobs<a class="headerlink" href="#running-gaussian-jobs" title="Anchor link to this section for reference">#</a></h3> <p>Gaussian input files are executed by the commands <code>g09</code> or <code>g16</code> depending on the version of Gaussian used. This command is usually placed in <code>slurm</code> script.</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>g16 &lt; job.com &gt; job.log
-</code></pre></div> <h4 id="single-core-calculations">Single core calculations<a class="headerlink" href="#single-core-calculations" title="Anchor link to this section for reference">#</a></h4> <p>Gaussian by default executes jobs on only a single processor. </p> <p><strong><em>NB!</em></strong> <em>If more processors are defined in <code>slurm</code> script, they will be reserved but not used</em>.</p> <h4 id="parallel-jobs">Parallel jobs<a class="headerlink" href="#parallel-jobs" title="Anchor link to this section for reference">#</a></h4> <p>To run multiple processors/cores job a number of cores should be specified. The number of cores can be defined via the <code>-p</code> flag (e.g. -p=4) in command line of <code>slurm</code> script or by adding the <code>%NprocShared</code> keyword into Gaussian input file (e.g. %NprocShared=4). For more information see <a href="https://gaussian.com/running/">Gaussian manual</a>. The number of processors requested should correspond to the number of processors requested in <code>slurm</code> script.</p> <p><strong><em>NB!</em></strong> <em>More cores does not mean faster!!! See <a href="/chemistry/gaussian.html#benchmarks-for-parallel-jobs">benchmarks</a>.</em></p> <p>Example of <code>slurm</code> script:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>#!/bin/bash
-
-#SBATCH --job-name=Job_Name # Job name
-#SBATCH --mem=8GB       # Memory
-#SBATCH --nodes=1       # Number of nodes 
-#SBATCH --ntasks=1      # Number of threads 
-#SBATCH --cpus-per-task=4
-#SBATCH -t 1-00:00:00       # Time
-#SBATCH --partition=common  # Partition
-#SBATCH  --no-requeue       # Job will not be restarted by default
-
-module load rocky8/all
-module load gaussian/16.c02
-
-SCRATCH=/state/partition1/$SLURM_JOB_ID
-export GAUSS_SCRDIR=$SCRATCH
-mkdir -p $SCRATCH
-
-g16 &lt; job.com &gt; job.log
-
-rm -rf  $SCRATCH
+</code></pre></div> <p><strong><em>NB!</em></strong> <em>More cores does not mean faster!!! See <a href="/chemistry/gaussian.html#benchmarks-for-parallel-jobs">benchmarks</a>.</em></p> </li> <li> <p>Check results using <a href="/visualization.html">visualization software</a>.</p> </li> </ol> <h2 id="gaussian-long-version">Gaussian long version<a class="headerlink" href="#gaussian-long-version" title="Anchor link to this section for reference">#</a></h2> <p><a href="https://gaussian.com/g16main/">Gaussian</a> is a general purpose package for calculation of electronic structures. It can calculate properties of molecules (structures, energies, spectroscopic and thermochemical properties, atomic charges, electron affinities, electrostatic potentials, electron densities etc.) as well as reactions properties (such as reaction pathways, IRC) using different methods (such as Molecular mechanics, Semi-empirical methods, Hartree-Fock, Density functional theory, Møller-Plesset perturbation theory, coupled cluster). More about Gaussian features can be found <a href="https://gaussian.com/g16glance/">here</a>. </p> <h3 id="environment">Environment<a class="headerlink" href="#environment" title="Anchor link to this section for reference">#</a></h3> <p>There are several versions of Gaussian available at HPC: g09 (revision C.01) and g16 (revision B.01, C.01 and C.02). Environment and Gaussian version are set up by the commands:</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
+</code></pre></div> <h3 id="running-gaussian-jobs">Running Gaussian jobs<a class="headerlink" href="#running-gaussian-jobs" title="Anchor link to this section for reference">#</a></h3> <p>Gaussian input files are executed by the commands <code>g09</code> or <code>g16</code> depending on the version of Gaussian used. This command is usually placed in <code>slurm</code> script.</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>g16<span class="w"> </span>&lt;<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
+</code></pre></div> <h4 id="single-core-calculations">Single core calculations<a class="headerlink" href="#single-core-calculations" title="Anchor link to this section for reference">#</a></h4> <p>Gaussian by default executes jobs on only a single processor. </p> <p><strong><em>NB!</em></strong> <em>If more processors are defined in <code>slurm</code> script, they will be reserved but not used</em>.</p> <h4 id="parallel-jobs">Parallel jobs<a class="headerlink" href="#parallel-jobs" title="Anchor link to this section for reference">#</a></h4> <p>To run multiple processors/cores job a number of cores should be specified. The number of cores can be defined via the <code>-p</code> flag (e.g. -p=4) in command line of <code>slurm</code> script or by adding the <code>%NprocShared</code> keyword into Gaussian input file (e.g. %NprocShared=4). For more information see <a href="https://gaussian.com/running/">Gaussian manual</a>. The number of processors requested should correspond to the number of processors requested in <code>slurm</code> script.</p> <p><strong><em>NB!</em></strong> <em>More cores does not mean faster!!! See <a href="/chemistry/gaussian.html#benchmarks-for-parallel-jobs">benchmarks</a>.</em></p> <p>Example of <code>slurm</code> script:</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#SBATCH --job-name=Job_Name # Job name</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#SBATCH --mem=8GB       # Memory</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#SBATCH --nodes=1       # Number of nodes </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#SBATCH --ntasks=1      # Number of threads </span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#SBATCH --cpus-per-task=4</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH -t 1-00:00:00       # Time</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">#SBATCH --partition=common  # Partition</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">#SBATCH  --no-requeue       # Job will not be restarted by default </span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span><span class="w">   </span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span>g16<span class="w"> </span>&lt;<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
 </code></pre></div> <p>Example of Gaussian input:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%Mem=8GB
 %NprocShared=4
 %chk=job.chk
@@ -62,32 +62,30 @@ H         -1.58104        1.05112       -0.00371
 Memory Efficiency: 11.83% of 26.00 GB
 </code></pre></div> <p>Good example:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>Memory Utilized: 63.12 GB 
 Memory Efficiency: 98.62% of 64.00 GB
-</code></pre></div> <h3 id="time">Time<a class="headerlink" href="#time" title="Anchor link to this section for reference">#</a></h3> <p>Time limits depend on <a href="/index.html#hardware-specification">time partition</a> used. If calculation time exceeds the time limit requested in the <code>slurm</code> script, the job will be killed, and in the end of <code>slurm-JOBID.out</code> will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "</p> <p>Therefore, it is recommended to request more time than is usually needed for calculation and create checkpoint files (by <code>%chk=job.chk</code> line in input file) that allows to restart job.</p> <h3 id="using-gpus">Using GPUs<a class="headerlink" href="#using-gpus" title="Anchor link to this section for reference">#</a></h3> <p>GPUs <strong>are effective</strong> for large molecules, their energies, gradients and frequencies calculations. GPUs <strong>are not effective</strong> for small jobs, as well as for MP2 or CCSD calculations. </p> <p>GPU jobs can be run only on <strong>amp</strong> or <strong>amp2</strong>. To access <strong>amp</strong> user has to have ssh-keys copied to the <strong>base</strong> (<a href="/ssh.html">how to do that</a>).</p> <p><strong>amp</strong> can be accessed by command:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>ssh -J uni-ID@base.hpc.taltech.ee uni-ID@amp
-</code></pre></div> <p>Each GPU must be controlled by a specific CPU, wherein, CPUs used as GPU controllers do not participate as compute nodes during the calculations.</p> <p>The GPUs and CPUS used for calculations are specified with the <code>%GPUCPU</code> command, where gpu- and cpu-lists are a comma-separated lists, possibly including numerical ranges (e.g., 0-4,6). The corresponding items in the two lists are the GPU and its controlling CPU.</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%cpu=0-9
+</code></pre></div> <h3 id="time">Time<a class="headerlink" href="#time" title="Anchor link to this section for reference">#</a></h3> <p>Time limits depend on <a href="/index.html#hardware-specification">time partition</a> used. If calculation time exceeds the time limit requested in the <code>slurm</code> script, the job will be killed, and in the end of <code>slurm-JOBID.out</code> will be written "error: *** JOB 317255 ON green23 CANCELLED AT 2023-08-11T22:28:01 DUE TO TIME LIMIT *** "</p> <p>Therefore, it is recommended to request more time than is usually needed for calculation and create checkpoint files (by <code>%chk=job.chk</code> line in input file) that allows to restart job.</p> <h3 id="using-gpus">Using GPUs<a class="headerlink" href="#using-gpus" title="Anchor link to this section for reference">#</a></h3> <p>GPUs <strong>are effective</strong> for large molecules, their energies, gradients and frequencies calculations. GPUs <strong>are not effective</strong> for small jobs, as well as for MP2 or CCSD calculations. </p> <p>GPU jobs can be run only with <strong>gpu</strong> partition and Nvidia GPUs. </p> <p>Each GPU must be controlled by a specific CPU, wherein, CPUs used as GPU controllers do not participate as compute nodes during the calculations.</p> <p>The GPUs and CPUS used for calculations are specified with the <code>%GPUCPU</code> command, where gpu- and cpu-lists are a comma-separated lists, possibly including numerical ranges (e.g., 0-4,6). The corresponding items in the two lists are the GPU and its controlling CPU.</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%cpu=0-9
 %gpucpu=0-1=0-1
-</code></pre></div> <p><strong><em>NB!</em></strong> <em>The controlling CPUs are included in <code>%CPU</code> command.</em> <br> <strong><em>NB!</em></strong> <em>The GPU and CPU count starts from zero.</em></p> <p>Example of <a href="/chemistry/gaussian-gpu.slurm">gaussian-gpu.slurm</a> script for <strong>amp</strong>:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>#!/bin/bash
-#SBATCH --job-name=Job_Name
-#SBATCH -t 1:00:00
-#SBATCH  --no-requeue
-#SBATCH --partition=gpu     # Partition
-#SBATCH --gres=gpu:A100:2   # 2 GPU are reserved
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10  # 10 CPU are reserved
-#SBATCH --mem=160GB     # Memory
-
-module use /gpfs/mariana/modules/system
-module load amp/all
-module load Gaussian/16.c02
-
-SCRATCH=/state/partition1/$SLURM_JOB_ID
-export GAUSS_SCRDIR=$SCRATCH
-mkdir -p $SCRATCH
-
-g16 job.com &gt; job.log
-
-#Clean after yourself
-rm -rf  $SCRATCH
+</code></pre></div> <p><strong><em>NB!</em></strong> <em>The controlling CPUs are included in <code>%CPU</code> command.</em> <br> <strong><em>NB!</em></strong> <em>The GPU and CPU count starts from zero.</em></p> <p>Example of <a href="/chemistry/gaussian-gpu.slurm">gaussian-gpu.slurm</a> script for <strong>amp</strong>:</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">#SBATCH --job-name=Job_Name</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#SBATCH -t 1:00:00</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">#SBATCH  --no-requeue</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">#SBATCH --partition=gpu     # Partition</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">#SBATCH --gres=gpu:A100:2   # 2 GPU are reserved</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">#SBATCH --nodes=1</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">#SBATCH --ntasks=1</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">#SBATCH --cpus-per-task=10  # 10 CPU are reserved</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1">#SBATCH --mem=20GB      # Memory</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span>g16<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c1">#Clean after yourself</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
 </code></pre></div> <p>Example of Gaussian input <a href="/chemistry/job-gpu.com">job-gpu.com</a> (bad example, since molecule is small):</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%mem=160GB
 %cpu=0-9
 %gpucpu=0-1=0-1
