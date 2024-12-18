@@ -15,6 +15,7 @@
     ```
 
     ??? note "`answers for CP calculation` output"
+	```bash
  	Multiwfn  hf.wfn  << EOF > /dev/null
 	2    <- Topological analysis
 	2    <- Search CPs from nuclear positions
@@ -34,7 +35,7 @@
 	mol.pdb	<- File name
 	q	<- Exit program gracefully
 	EOF
-
+	```
 
 
 4. Run Multiwfn in interactive mode:
