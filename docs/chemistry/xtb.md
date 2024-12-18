@@ -36,14 +36,18 @@ Extended tight binding - xTB program developed by Grimme's group for solutions o
 
 Environment is set up by the commands:
 
-    module load rocky8/all
-    module load xtb-crest/6.7.0-crest3.0
+```bash
+module load rocky8/all
+module load xtb-crest/6.7.0-crest3.0
+```
 
 ### Running xTB jobs
 
 Input file should be in `.xyz` format and is executed by the command `xtb`. This command is usually placed in `slurm` script. 
 
-    xtb struc.xyz --opt tight --cycles 50 --charge -0 --alpb toluene --gfn 2 -P 4 > final.out
+```bash
+xtb struc.xyz --opt tight --cycles 50 --charge -0 --alpb toluene --gfn 2 -P 4 > final.out
+```
 
 In xTB calculation options are specified as command line arguments. `-P` is number of processors used, `--gfn 2` -- calculation method (_here GFN2-xTB_), `--alpb toluene` -- ALPB implicit solvation model for toluene. More about [command line arguments](https://xtb-docs.readthedocs.io/en/latest/commandline.html).
 
