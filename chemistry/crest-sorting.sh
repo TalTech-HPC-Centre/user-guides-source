@@ -73,7 +73,7 @@ cd ../
 done
 
 module load rocky8/all
-module load xtb-crest
+module load xtb-crest/6.7.0-crest3.0
 
 cp CREST/struc.xyz .
 
