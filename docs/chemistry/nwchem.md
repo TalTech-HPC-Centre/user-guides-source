@@ -6,37 +6,41 @@
 
 1. Make [nwchem.slurm](/chemistry/nwchem.slurm) batch script for parallel calculations:
 
-        #!/bin/bash
+    ```bash
+    #!/bin/bash
 
-        #SBATCH --job-name=NWChem
-        #SBATCH --mem-per-cpu=2GB
-        #SBATCH --nodes=1
-        #SBATCH --ntasks=6
-        #SBATCH -t 1:00:00
-        #SBATCH --partition=common
+    #SBATCH --job-name=NWChem
+    #SBATCH --mem-per-cpu=2GB
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=6
+    #SBATCH -t 1:00:00
+    #SBATCH --partition=short
 
-        module load rocky8-spack
-        module load nwchem
+    module load rocky8-spack
+    module load nwchem
 
-        #Create scratch directory
-        SCRATCH=/state/partition1/$SLURM_JOB_ID
-        mkdir -p $SCRATCH
-        cp  $SLURM_SUBMIT_DIR/*.nw $SCRATCH/
-        cd $SCRATCH/
+    #Create scratch directory
+    SCRATCH=/state/partition1/$SLURM_JOB_ID
+    mkdir -p $SCRATCH
+    cp  $SLURM_SUBMIT_DIR/*.nw $SCRATCH/
+    cd $SCRATCH/
 
-        nwchem  job.nw >> job.out
+    nwchem  job.nw >> job.out
 
-        #Copy files back to working directory
-        cp $SCRATCH/* $SLURM_SUBMIT_DIR
+    #Copy files back to working directory
+    cp $SCRATCH/* $SLURM_SUBMIT_DIR
 
-        #Clean after yourself
-        rm -rf  $SCRATCH
+    #Clean after yourself
+    rm -rf  $SCRATCH
+    ```
 
 2. Copy job-input file [job.nw](/chemistry/job.nw).
 
 3. Submit the job on **base**:
 
-        sbatch nwchem.slurm
+    ```bash
+    sbatch nwchem.slurm
+    ```
 
 4. Check results using [visualization software](/visualization.html).
 
@@ -53,8 +57,10 @@ Some useful links:
 
 At HPC is installed 7.0.2 version of NWChem. To start working with NWChem an environment needed to be set up with the commands:
 
-    module load rocky8-spack
-    module load nwche
+```bash
+module load rocky8-spack
+module load nwche
+```
 
 ### Input file
 
@@ -135,44 +141,50 @@ NWChem input files are executed by the command `nwchem`. This command is usually
 ### Single core & parallel calculations
 
 NWChem jobs can be calculated on one thread, in parallel on one node or using several nodes at once. Depending on the size of job, the corresponging parameters must be modified in slurm file:
-        
-    #SBATCH --ntasks=6
-    #SBATCH --nodes=1
+
+```bash        
+#SBATCH --ntasks=6
+#SBATCH --nodes=1
+```
 
 Below is given an example of `slurm` script for NWChem parallel run on 1 node and 6 threads with allocated memory of 3 GB:
 
-    #!/bin/bash
+```bash
+#!/bin/bash
 
-    #SBATCH --job-name=NWChem
-    #SBATCH --mem=3GB
-    #SBATCH --nodes=1
-    #SBATCH --ntasks=6
-    #SBATCH -t 1:00:00
-    #SBATCH --partition=common
+#SBATCH --job-name=NWChem
+#SBATCH --mem=3GB
+#SBATCH --nodes=1
+#SBATCH --ntasks=6
+#SBATCH -t 1:00:00
+#SBATCH --partition=short
 
-    module load rocky8-spack
-    module load nwchem
+module load rocky8-spack
+module load nwchem
 
-    #Create scratch directory
-    SCRATCH=/state/partition1/$SLURM_JOB_ID
-    mkdir -p $SCRATCH
-    cp  $SLURM_SUBMIT_DIR/*.nw $SCRATCH/
-    cd $SCRATCH/
+#Create scratch directory
+SCRATCH=/state/partition1/$SLURM_JOB_ID
+mkdir -p $SCRATCH
+cp  $SLURM_SUBMIT_DIR/*.nw $SCRATCH/
+cd $SCRATCH/
 
-    nwchem  job.nw > job.out
+nwchem  job.nw > job.out
 
-    #Copy files back to working directory
-    cp $SCRATCH/* $SLURM_SUBMIT_DIR
+#Copy files back to working directory
+cp $SCRATCH/* $SLURM_SUBMIT_DIR
 
-    #Clean after yourself
-    rm -rf  $SCRATCH
+#Clean after yourself
+rm -rf  $SCRATCH
+```
 
 
 ***NB!*** _in example of `slurm` script calculations will be done on a single node, thus partition is `common`. If several nodes will be use than partition should be `green-ib`._
 
-    #SBATCH --nodes=2
-    #SBATCH --ntasks=120
-    #SBATCH --partition=green-ib
+```bash
+#SBATCH --nodes=2
+#SBATCH --ntasks=120
+#SBATCH --partition=green-ib
+```
 
 ***NB!*** _to be able to restart calculations, they must be done in the `$HOME` catalog, and not in `$SCRATCH` directory._
 
