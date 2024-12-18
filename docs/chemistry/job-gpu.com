@@ -1,4 +1,4 @@
-%mem=160GB
+%mem=20GB
 %cpu=0-9
 %gpucpu=0-1=0-1
 # wb97xd/cc-pVDZ opt

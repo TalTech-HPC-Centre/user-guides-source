@@ -37,7 +37,7 @@
 3. Submit the job on **base**:
 
     ```bash
-	sbatch gaussian.slurm
+    sbatch gaussian.slurm
     ```
 
     ***NB!*** _More cores does not mean faster!!! See [benchmarks](/chemistry/gaussian.html#benchmarks-for-parallel-jobs)._
@@ -52,16 +52,19 @@
 
 There are several versions of Gaussian available at HPC: g09 (revision C.01) and g16 (revision B.01, C.01 and C.02). Environment and Gaussian version are set up by the commands:
 
-    module load rocky8/all
-    module load gaussian/16.c02
+```bash
+module load rocky8/all
+module load gaussian/16.c02
+```
     
 
 ### Running Gaussian jobs
 
 Gaussian input files are executed by the commands `g09` or `g16` depending on the version of Gaussian used. This command is usually placed in `slurm` script.
 
-    g16 < job.com > job.log
-
+```bash
+g16 < job.com > job.log
+```
 
 #### Single core calculations
 
@@ -78,16 +81,17 @@ To run multiple processors/cores job  a number of cores should be specified. The
 
 Example of `slurm` script:
 
-    #!/bin/bash
+```bash
+#!/bin/bash
     
-    #SBATCH --job-name=Job_Name	# Job name
-    #SBATCH --mem=8GB		# Memory
-    #SBATCH --nodes=1		# Number of nodes 
-    #SBATCH --ntasks=1		# Number of threads 
-    #SBATCH --cpus-per-task=4
-    #SBATCH -t 1-00:00:00		# Time
-    #SBATCH --partition=common	# Partition
-    #SBATCH  --no-requeue		# Job will not be restarted by default 
+#SBATCH --job-name=Job_Name	# Job name
+#SBATCH --mem=8GB		# Memory
+#SBATCH --nodes=1		# Number of nodes 
+#SBATCH --ntasks=1		# Number of threads 
+#SBATCH --cpus-per-task=4
+#SBATCH -t 1-00:00:00		# Time
+#SBATCH --partition=common	# Partition
+#SBATCH  --no-requeue		# Job will not be restarted by default 
     
     module load rocky8/all
     module load gaussian/16.c02
@@ -99,7 +103,7 @@ Example of `slurm` script:
     g16 < job.com > job.log
 
 	rm -rf  $SCRATCH
-
+```
 
 Example of Gaussian input:
 
@@ -148,12 +152,7 @@ Therefore, it is recommended to request more time than is usually needed for cal
 
 GPUs **are effective** for large molecules, their energies, gradients and frequencies calculations. GPUs **are not effective** for small jobs, as well as for MP2 or CCSD calculations. 
 
-GPU jobs can be run only on **amp** or **amp2**. To access **amp** user has to have ssh-keys copied to the **base** ([how to do that](/ssh.html)).
-
-**amp** can be accessed by command:
-
-    ssh -J uni-ID@base.hpc.taltech.ee uni-ID@amp
-    
+GPU jobs can be run only with **gpu** partition and Nvidia GPUs. 
 
 Each GPU must be controlled by a specific CPU, wherein, CPUs used as GPU controllers do not participate as compute nodes during the calculations.
 
@@ -169,20 +168,20 @@ The GPUs and CPUS used for calculations are specified with the `%GPUCPU` command
 
 Example of [gaussian-gpu.slurm](/chemistry/gaussian-gpu.slurm) script for **amp**:
 
-    #!/bin/bash
-    #SBATCH --job-name=Job_Name
-    #SBATCH -t 1:00:00
-    #SBATCH  --no-requeue
-    #SBATCH --partition=gpu		# Partition
-    #SBATCH --gres=gpu:A100:2	# 2 GPU are reserved
-    #SBATCH --nodes=1
-    #SBATCH --ntasks=1
-    #SBATCH --cpus-per-task=10	# 10 CPU are reserved
-    #SBATCH --mem=160GB		# Memory
+```bash
+#!/bin/bash
+#SBATCH --job-name=Job_Name
+#SBATCH -t 1:00:00
+#SBATCH  --no-requeue
+#SBATCH --partition=gpu		# Partition
+#SBATCH --gres=gpu:A100:2	# 2 GPU are reserved
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=10	# 10 CPU are reserved
+#SBATCH --mem=20GB		# Memory
 
-    module use /gpfs/mariana/modules/system
-    module load amp/all
-    module load Gaussian/16.c02
+    module load rocky8/all
+    module load gaussian/16.c02
     
     SCRATCH=/state/partition1/$SLURM_JOB_ID
     export GAUSS_SCRDIR=$SCRATCH
@@ -192,7 +191,7 @@ Example of [gaussian-gpu.slurm](/chemistry/gaussian-gpu.slurm) script for **amp*
 
     #Clean after yourself
     rm -rf  $SCRATCH
-
+```
 
 Example of Gaussian input [job-gpu.com](/chemistry/job-gpu.com) (bad example, since molecule is small):
 
