@@ -1,24 +1,59 @@
 # Multiwfn
 
-***This manual is work in progress, please check regularly for updates***
-
 ## Multiwfn short introduction 
 
 1. Make Multiwfn input `.mwfn`, `.wfn`, `.wfx`, `.fch`, `.molden`, `.gms` (or `.cub`, `.grd`, `.pdb`, `.xyz`, `.mol` - for specific purposes).
 
-2. Accesse **viz** by [remote access programs](/visualization.html) (more preferable) or by ssh protocol (less preferable):
- 
-        ssh -X -Y -J  UNI-ID@base.hpc.taltech.ee UNI-ID@viz
+2. Run Multiwfn in interactive mode
 
-3. Load enviroment:
+    ```bash
+    srun --pty bash
+    module load rocky8/all
+    module load multiwfn
 
-        module use /gpfs/mariana/modules/green/chemistry/
-        module load MultiWFN/3.7
+    Multiwfn <job.name>
+    ```
+
+    ??? note "`module avail` output"
+	```
+	#!/bin/bash
+	#SBATCH --nodes=1
+	#SBATCH --ntasks=1
+	#SBATCH --job-name=test
+	#SBATCH --mem=2GB
+	#SBATCH -t 1:00
+	#SBATCH --partition=short
+
+	module load rocky8/all
+	module load multiwfn 
+
+	Multiwfn  hf.wfn  << EOF > /dev/null
+	2    <- Topological analysis
+	2    <- Search CPs from nuclear positions
+	3    <- Search CPs from midpoint of atom pairs
+	0    <- Print and visualize all generated CPs, paths and surfaces
+	-4    <- Modify or export CPs (critical points)
+	-1    <- Print summary of CPs (in Angstrom)
+	4    <- Save CPs to CPs.txt in current folder	
+	6    <- Export CPs as CPs.pdb file in current folder
+	0    <- Return
+	7       <- Show real space function values at specific CP or all CPs
+	0       <- If input 0, then properties of all CPs will be outputted to CPprop.txt in current folder
+	-10    <- Return
+	100	<- Other functions
+	2	<- Export various files 
+	1	<- Output current structure to .pdb file
+	mol.pdb	<- File name
+	q	<- Exit program gracefully
+	EOF
+	```
 
 4. Run Multiwfn in interactive mode:
 
-        srun Multiwfn job.wfn
-        
+    ```bash
+    srun Multiwfn job.wfn
+    ```
+
     Multiwfn also can be run by [multiwfn.slurm](/chemistry/multiwfn.slurm) batch script as a non-interactive mode with pre-prepared responses:
 
         #!/bin/bash
@@ -48,9 +83,10 @@
         
         
     In this case job is submitted using `sbatch` command:
-    
-        sbatch multiwfn.slurm
-        
+
+    ```bash    
+    sbatch multiwfn.slurm
+    ```        
    
 5. Visualize results if needed:
     
