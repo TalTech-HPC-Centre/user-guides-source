@@ -8,7 +8,7 @@
 #SBATCH --partition=common
 
     module load rocky8/all
-    module load xtb-crest
+    module load xtb-crest/6.7.0-crest3.0
   
     #Run calculations 
     crest geometry.xyz --gfn2 --T 24 > final.out

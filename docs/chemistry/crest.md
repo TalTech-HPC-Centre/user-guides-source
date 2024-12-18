@@ -1,4 +1,4 @@
-# CREST
+# CREST - Conformer–Rotamer Ensemble Sampling Tool
 
 ## CREST short introduction 
 
@@ -15,7 +15,7 @@
     #SBATCH --partition=common
 
         module load rocky8/all
-        module load xtb-crest
+        module load xtb-crest/6.7.0-crest3.0
 
         #Run calculations 
         crest geometry.xyz --gfn2 --T 24 > final.out
@@ -42,7 +42,14 @@ Environment is set up by the commands:
 
 ```bash
 module load rocky8/all
-module load xtb-crest
+module load xtb-crest/6.7.0-crest3.0
+```
+
+or older version
+
+```bash
+module load rocky8/all
+module load xtb-crest/6.7.0-crest2.12
 ```
 
 ### Running CREST jobs
@@ -53,7 +60,7 @@ CREST input file should be in `.xyz` format and is executed by the command `cres
 crest geometry.xyz --gfn2 --gbsa h2o --T 24 > final.out
 ```
 
-In CREST calculation options are specified as command line arguments. `--T` is number of processors used, `--gfn2` -- calculation method (_here GFN2-xTB_), `--g h2o` -- GBSA implicit solvation model for water. More about [command line arguments](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html) and some [examples](https://crest-lab.github.io/crest-docs/page/examples) of CREST commands.
+In CREST calculation options are specified as command line arguments. `--T` is number of processors used, `--gfn2` - calculation method (_here GFN2-xTB_), `--g h2o` - GBSA implicit solvation model for water. More about [command line arguments](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html) and some [examples](https://crest-lab.github.io/crest-docs/page/examples) of CREST commands.
 
 ### Time
 
@@ -67,7 +74,7 @@ In our test runs for a flexible organic molecule of 54 atoms using semiempirical
 
 ### How to cite:
 
-The main publication for the CREST program - DOI: [10.1039/C9CP06869D](https://doi.org/10.1039/C9CP06869D).
+The main publication for the CREST program - DOI: [10.1039/C9CP06869D](https://doi.org/10.1039/C9CP06869D), DOI: [10.1063/5.0197592](https://pubs.aip.org/aip/jcp/article/160/11/114110/3278084/CREST-A-program-for-the-exploration-of-low-energy).
 
 ## Useful bash scripts
 
@@ -78,8 +85,10 @@ It is recommended to optimise the geometries obtained from the CREST by more acc
     [Start-orca.sh](/chemistry/start-orca.sh) should be run from the directory where CREST conformer search was done. It splits CREST output into single geometries, prepare ORCA inputs and launch calculations.  
     ***NB!*** [orca.slurm](/chemistry/orca.slurm) must be in the same folder as `start-orca.sh` and CREST calculations.  
     ***NB!*** Charge, Multiplisity and Number of conformers must be given as  command line arguments `-c`, `-m` and `-n`.
-  
-        sh start-orca.sh -c 0 -m 1 -n 500
+
+    ```bash  
+    sh start-orca.sh -c 0 -m 1 -n 500
+    ```
  
     By default ORCA calculations will be done using the following method - ***RI-BP86-BJD3/def2-SVP*** . If it does not suit, the method can be changed in the `start-orca.sh` in the section "ORCA method".
  
