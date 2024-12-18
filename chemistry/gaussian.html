@@ -26,25 +26,25 @@
 </code></pre></div> <h3 id="running-gaussian-jobs">Running Gaussian jobs<a class="headerlink" href="#running-gaussian-jobs" title="Anchor link to this section for reference">#</a></h3> <p>Gaussian input files are executed by the commands <code>g09</code> or <code>g16</code> depending on the version of Gaussian used. This command is usually placed in <code>slurm</code> script.</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>g16<span class="w"> </span>&lt;<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
 </code></pre></div> <h4 id="single-core-calculations">Single core calculations<a class="headerlink" href="#single-core-calculations" title="Anchor link to this section for reference">#</a></h4> <p>Gaussian by default executes jobs on only a single processor. </p> <p><strong><em>NB!</em></strong> <em>If more processors are defined in <code>slurm</code> script, they will be reserved but not used</em>.</p> <h4 id="parallel-jobs">Parallel jobs<a class="headerlink" href="#parallel-jobs" title="Anchor link to this section for reference">#</a></h4> <p>To run multiple processors/cores job a number of cores should be specified. The number of cores can be defined via the <code>-p</code> flag (e.g. -p=4) in command line of <code>slurm</code> script or by adding the <code>%NprocShared</code> keyword into Gaussian input file (e.g. %NprocShared=4). For more information see <a href="https://gaussian.com/running/">Gaussian manual</a>. The number of processors requested should correspond to the number of processors requested in <code>slurm</code> script.</p> <p><strong><em>NB!</em></strong> <em>More cores does not mean faster!!! See <a href="/chemistry/gaussian.html#benchmarks-for-parallel-jobs">benchmarks</a>.</em></p> <p>Example of <code>slurm</code> script:</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#SBATCH --job-name=Job_Name # Job name</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#SBATCH --mem=8GB       # Memory</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#SBATCH --nodes=1       # Number of nodes </span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#SBATCH --ntasks=1      # Number of threads </span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#SBATCH --cpus-per-task=4</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH -t 1-00:00:00       # Time</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">#SBATCH --partition=common  # Partition</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">#SBATCH  --no-requeue       # Job will not be restarted by default </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#SBATCH --job-name=Job_Name     # Job name</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#SBATCH --mem=8GB           # Memory</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#SBATCH --nodes=1           # Number of nodes </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#SBATCH --ntasks=1       </span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#SBATCH --cpus-per-task=4       # Number of threads</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH -t 1-00:00:00           # Time</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">#SBATCH --partition=common      # Partition</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">#SBATCH  --no-requeue           # Job will not be restarted by default </span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span><span class="w">   </span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span><span class="w">   </span>
 <a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span>g16<span class="w"> </span>&lt;<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>g16<span class="w"> </span>&lt;<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
-<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
 </code></pre></div> <p>Example of Gaussian input:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%Mem=8GB
 %NprocShared=4
 %chk=job.chk
@@ -75,17 +75,17 @@ Memory Efficiency: 98.62% of 64.00 GB
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">#SBATCH --cpus-per-task=10  # 10 CPU are reserved</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1">#SBATCH --mem=20GB      # Memory</span>
 <a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>module<span class="w"> </span>load<span class="w"> </span>rocky8/all
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>module<span class="w"> </span>load<span class="w"> </span>gaussian/16.c02
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nv">SCRATCH</span><span class="o">=</span>/state/partition1/<span class="nv">$SLURM_JOB_ID</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GAUSS_SCRDIR</span><span class="o">=</span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$SCRATCH</span>
 <a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span>g16<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>g16<span class="w"> </span>job.com<span class="w"> </span>&gt;<span class="w"> </span>job.log
 <a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="c1">#Clean after yourself</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="c1">#Clean after yourself</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>rm<span class="w"> </span>-rf<span class="w">  </span><span class="nv">$SCRATCH</span>
 </code></pre></div> <p>Example of Gaussian input <a href="/chemistry/job-gpu.com">job-gpu.com</a> (bad example, since molecule is small):</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>%mem=160GB
 %cpu=0-9
 %gpucpu=0-1=0-1
