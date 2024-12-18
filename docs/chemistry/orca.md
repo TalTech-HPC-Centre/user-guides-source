@@ -78,7 +78,9 @@
 
 3. Submit the job on **base**:
 
-        sbatch orca.slurm
+    ```bash
+    sbatch orca.slurm
+    ```
 
     ***NB!*** _More cores does not mean faster!!!_  
     ***NB!*** To ORCA parallel run full path name is needed. Single core calculations can be performed with just `orca` command.
@@ -91,17 +93,23 @@
 
 There are currently only latest ORCA 5.0.4 version is available. Environment is set up by the commands:
 
-    module load rocky8/all
-    module load orca/5.0.4
+```bash
+module load rocky8/all
+module load orca/5.0.4
+```
 
 The first time use, user has to agree to the licenses:
- 
-    touch ~/.licenses/orca-accepted 
+
+```bash 
+touch ~/.licenses/orca-accepted 
+```
 
 if this is the first user license agreement, the following commands should be given:
 
-    mkdir .licenses
-    touch ~/.licenses/orca-accepted  
+```bash
+mkdir .licenses
+touch ~/.licenses/orca-accepted  
+```
 
 ***NB!*** After agreeing to the license, user has **to log out and log in again** to be able run ORCA.  
 
@@ -111,7 +119,9 @@ ORCA input files are executed by the command `orca`. This command is usually pla
 
 ***NB!*** To ORCA parallel run full path name is needed, but single core calculations can be performed with just `orca` command.
 
-    /gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/orca job.inp
+```bash
+/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/orca job.inp
+```
 
 
 #### Single core calculations
@@ -159,33 +169,35 @@ Example of ORCA input for 4 cores:
 
 Example of `slurm` script:
 
-    #!/bin/bash
-    #SBATCH --job-name=ORCA-test		# Job name
-    #SBATCH --mem=8GB		        # Memory 
-    #SBATCH --nodes=1			# Number of nodes 
-    #SBATCH --ntasks=4			# Number of threads 
-    #SBATCH --cpus-per-task=1
-    #SBATCH -t 2:00:00			# Time
-    #SBATCH --partition=common		# Partition
-    #SBATCH  --no-requeue			# Job will not be restarted by default 
+```bash
+#!/bin/bash
+#SBATCH --job-name=ORCA-test		# Job name
+#SBATCH --mem=8GB		        # Memory 
+#SBATCH --nodes=1			# Number of nodes 
+#SBATCH --ntasks=4			# Number of threads 
+#SBATCH --cpus-per-task=1
+#SBATCH -t 2:00:00			# Time
+#SBATCH --partition=common		# Partition
+#SBATCH  --no-requeue			# Job will not be restarted by default 
     
-    module load rocky8/all
-    module load orca/5.0.4
-    export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
+module load rocky8/all
+module load orca/5.0.4
+export orcadir=/gpfs/mariana/software/green/Orca/orca_5_0_4_openmpi_411/
 
-    #Create scratch directory
-    SCRATCH=/state/partition1/$SLURM_JOB_ID
-    mkdir -p $SCRATCH
-    cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
-    cd $SCRATCH/
+#Create scratch directory
+SCRATCH=/state/partition1/$SLURM_JOB_ID
+mkdir -p $SCRATCH
+cp  $SLURM_SUBMIT_DIR/* $SCRATCH/
+cd $SCRATCH/
 
-    #Run calculations 
-    $orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
+#Run calculations 
+$orcadir/orca job.inp > $SLURM_SUBMIT_DIR/job.log
 
-    cp $SCRATCH/* $SLURM_SUBMIT_DIR
+cp $SCRATCH/* $SLURM_SUBMIT_DIR
         
-    #Clean after yourself
-    rm -rf  $SCRATCH
+#Clean after yourself
+rm -rf  $SCRATCH
+```
 
  ***NB!*** _To ORCA parallel run full path name is needed._  
 
@@ -193,7 +205,7 @@ More about ORCA input can be found at [ORCA Input Library](https://sites.google.
     
 ### Memory
 
-The default dynamic memory requested by ORCA is frequently too small for successful job termination. If amount of memory requested is insufficient, the job will be killed and in `slurm-JOBID.out` will appear _ "... have been killed by the cgroup **out-of-memory handler**". _ 
+The default dynamic memory requested by ORCA is frequently too small for successful job termination. If amount of memory requested is insufficient, the job will be killed and in `slurm-JOBID.out` will appear _"... have been killed by the cgroup **out-of-memory handler**"._ 
 
 Memory usage in ORCA is controlled by the `%maxcore` keyword.
 
@@ -226,13 +238,15 @@ In this case some files including checkpoint file `gbw` will not be copied back 
 
 Interactive session is started by the command:
 
-    srun -w greenXX --pty bash	# connect to green node
-    pwd				# see path to working directory
-    ls				# see JOBID from slurm
-    cd /state/partition1/JOBID	# go to corresponding directory on green node
-    cp job.gbw /gpfs/mariana/home/....../ # copy files needed to your working directory
+```bash
+srun -w greenXX --pty bash	# connect to green node
+pwd				# see path to working directory
+ls				# see JOBID from slurm
+cd /state/partition1/JOBID	# go to corresponding directory on green node
+cp job.gbw /gpfs/mariana/home/....../ # copy files needed to your working directory
 
-    exit				# terminate interactive session
+exit				# terminate interactive session
+```
 
 where `XX` - is the node number and `JOBID` - job serial number.
 
@@ -266,11 +280,13 @@ Numerical frequency calculations also can be restarted if `.hess` files from the
 
 During calculations ORCA creates many different additional files, by default, `slurm` copies all files to the user's directory. However, the user can choose which files to copy back to the working directory.
 
-    cp $SCRATCH/*.gbw  $SLURM_SUBMIT_DIR/
-    cp $SCRATCH/*.engrad  $SLURM_SUBMIT_DIR/
-    cp $SCRATCH/*.xyz  $SLURM_SUBMIT_DIR/
-    cp $tdir/*.log  $SLURM_SUBMIT_DIR/
-    cp $tdir/*.hess  $SLURM_SUBMIT_DIR/
+```bash
+cp $SCRATCH/*.gbw  $SLURM_SUBMIT_DIR/
+cp $SCRATCH/*.engrad  $SLURM_SUBMIT_DIR/
+cp $SCRATCH/*.xyz  $SLURM_SUBMIT_DIR/
+cp $tdir/*.log  $SLURM_SUBMIT_DIR/
+cp $tdir/*.hess  $SLURM_SUBMIT_DIR/
+```
 
 
 #### How to cite:
