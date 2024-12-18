@@ -14,20 +14,8 @@
     Multiwfn <job.name>
     ```
 
-    ??? note "`module avail` output"
-	```
-	#!/bin/bash
-	#SBATCH --nodes=1
-	#SBATCH --ntasks=1
-	#SBATCH --job-name=test
-	#SBATCH --mem=2GB
-	#SBATCH -t 1:00
-	#SBATCH --partition=short
-
-	module load rocky8/all
-	module load multiwfn 
-
-	Multiwfn  hf.wfn  << EOF > /dev/null
+    ??? note "`answers for CP calculation` output"
+ 	Multiwfn  hf.wfn  << EOF > /dev/null
 	2    <- Topological analysis
 	2    <- Search CPs from nuclear positions
 	3    <- Search CPs from midpoint of atom pairs
@@ -46,7 +34,8 @@
 	mol.pdb	<- File name
 	q	<- Exit program gracefully
 	EOF
-	```
+
+
 
 4. Run Multiwfn in interactive mode:
 
