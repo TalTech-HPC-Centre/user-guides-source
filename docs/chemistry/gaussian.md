@@ -84,25 +84,25 @@ Example of `slurm` script:
 ```bash
 #!/bin/bash
     
-#SBATCH --job-name=Job_Name	# Job name
-#SBATCH --mem=8GB		# Memory
-#SBATCH --nodes=1		# Number of nodes 
-#SBATCH --ntasks=1		# Number of threads 
-#SBATCH --cpus-per-task=4
-#SBATCH -t 1-00:00:00		# Time
-#SBATCH --partition=common	# Partition
-#SBATCH  --no-requeue		# Job will not be restarted by default 
+#SBATCH --job-name=Job_Name		# Job name
+#SBATCH --mem=8GB			# Memory
+#SBATCH --nodes=1			# Number of nodes 
+#SBATCH --ntasks=1		 
+#SBATCH --cpus-per-task=4		# Number of threads
+#SBATCH -t 1-00:00:00			# Time
+#SBATCH --partition=common		# Partition
+#SBATCH  --no-requeue			# Job will not be restarted by default 
     
-    module load rocky8/all
-    module load gaussian/16.c02
+module load rocky8/all
+module load gaussian/16.c02
     
-    SCRATCH=/state/partition1/$SLURM_JOB_ID
-    export GAUSS_SCRDIR=$SCRATCH
-    mkdir -p $SCRATCH   
+SCRATCH=/state/partition1/$SLURM_JOB_ID
+export GAUSS_SCRDIR=$SCRATCH
+mkdir -p $SCRATCH   
     
-    g16 < job.com > job.log
+g16 < job.com > job.log
 
-	rm -rf  $SCRATCH
+rm -rf  $SCRATCH
 ```
 
 Example of Gaussian input:
@@ -180,17 +180,17 @@ Example of [gaussian-gpu.slurm](/chemistry/gaussian-gpu.slurm) script for **amp*
 #SBATCH --cpus-per-task=10	# 10 CPU are reserved
 #SBATCH --mem=20GB		# Memory
 
-    module load rocky8/all
-    module load gaussian/16.c02
+module load rocky8/all
+module load gaussian/16.c02
     
-    SCRATCH=/state/partition1/$SLURM_JOB_ID
-    export GAUSS_SCRDIR=$SCRATCH
-    mkdir -p $SCRATCH
+SCRATCH=/state/partition1/$SLURM_JOB_ID
+export GAUSS_SCRDIR=$SCRATCH
+mkdir -p $SCRATCH
 
-    g16 job.com > job.log
+g16 job.com > job.log
 
-    #Clean after yourself
-    rm -rf  $SCRATCH
+#Clean after yourself
+rm -rf  $SCRATCH
 ```
 
 Example of Gaussian input [job-gpu.com](/chemistry/job-gpu.com) (bad example, since molecule is small):
