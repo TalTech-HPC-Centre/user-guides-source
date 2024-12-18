@@ -37,56 +37,41 @@
 	EOF
 	```
 
-
-4. Run Multiwfn in interactive mode:
+    or with [multiwfn.slurm](/chemistry/multiwfn.slurm) batch script as a non-interactive mode with pre-prepared responses:
 
     ```bash
-    srun Multiwfn job.wfn
+    #!/bin/bash
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --job-name=test
+    #SBATCH --mem=2GB
+    #SBATCH -t 10:00
+    #SBATCH --partition=short
+
+    module load rocky8/all
+    module load multiwfn 
+
+    Multiwfn  hf.wfn  << EOF > /dev/null
+
+    ***ANSWERS***
+
+    q
+    EOF
     ```
 
-    Multiwfn also can be run by [multiwfn.slurm](/chemistry/multiwfn.slurm) batch script as a non-interactive mode with pre-prepared responses:
-
-        #!/bin/bash
-        #SBATCH --nodes=1
-        #SBATCH --ntasks=1
-        #SBATCH --job-name=test
-        #SBATCH --mem=2GB
-        #SBATCH -t 1:00
-        #SBATCH --partition=short
-
-        module load green/all
-        module load MultiWFN/3.7 
-
-        Multiwfn  job.wfn << EOF > /dev/null
-        2
-        2
-        -4
-        6
-        0
-        -10
-        100
-        2
-        1
-        mol.pdb
-        q
-        EOF
-        
-        
     In this case job is submitted using `sbatch` command:
 
     ```bash    
     sbatch multiwfn.slurm
     ```        
    
-5. Visualize results if needed:
+5. Visualize results if needed using [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee) and VMD
     
-        display job.png
-
-    or 
-    
-        module use /gpfs/mariana/modules/gray/spack/
-        module load vmd
-        vmd job.pdb
+    ```bash
+    module load rocky8-spack
+    module load vmd
+    vmd job.pdb
+    ```
                 
     ***NB!*** It is recommended to visualize Multiwfn results in VMD program, corresponding scripts are provided in Multiwfn examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_.
 
@@ -94,9 +79,9 @@
 
 ### Options
 
-Multiwfn is an interactive program performing almost all of important wavefunction analyszes _(showing molecular structure and orbitals, calculating real space function, topology analysis, population analysis, orbital composition analysis, bond order/strength analysis, plotting population density-of-states, plotting various kinds of spectra (including conformational weighted spectrum), quantitative analysis of molecular surface, charge decomposition analysis, basin analysis, electron excitation analyses, orbital localization analysis, visual study of weak interaction, conceptual density functional theory (CDFT) analysis, energy decomposition analysis)._
+Multiwfn is an interactive program performing almost all of important wavefunction analyszes (showing molecular structure and orbitals, calculating real space function, topology analysis, population analysis, orbital composition analysis, bond order/strength analysis, plotting population density-of-states, plotting various kinds of spectra (including conformational weighted spectrum), quantitative analysis of molecular surface, charge decomposition analysis, basin analysis, electron excitation analyses, orbital localization analysis, visual study of weak interaction, conceptual density functional theory (CDFT) analysis, energy decomposition analysis).
 
-For many frequently used analyszes Multiwfn has [short youtube videos](https://www.youtube.com/user/sobereva) and "quick start" examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)._ More information can be found in the [manual](Manual_Multiwfn.pdf). 
+For many frequently used analyszes Multiwfn has [short youtube videos](https://www.youtube.com/user/sobereva) and "quick start" examples (`/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/`). More information can be found in the [manual](Manual_Multiwfn.pdf). 
 
 
 ### Input
@@ -105,28 +90,28 @@ As an input Multiwfn uses output files of other quantum chemistry programs, incl
 
 ### Environment
 
-On **viz** environment is set up by the commands:
+Environment is set up by the commands:
 
-    module use /gpfs/mariana/modules/green/chemistry/
-    module load MultiWFN/3.7 
+```bash
+module load rocky8/all
+module load multiwfn
+```
 
 The first time use, user has to agree to the licenses: 
-        
-    touch ~/.licenses/multiwfn-accepted 
+
+```bash        
+touch ~/.licenses/multiwfn-accepted 
+```
 
 if this is the first user license agreement, the following commands should be given:
 
-    mkdir .licenses
-    touch ~/.licenses/multiwfn-accepted 
+```bash
+mkdir .licenses
+touch ~/.licenses/multiwfn-accepted 
+```
 
 ***NB!*** After agreeing to the license, user has to log out and log in again to be able run `Multiwfn`.  
-        
-On **base** environment is set up by the commands:
 
-    module load rocky8/all
-    module load MultiWFN/3.7 
-        
-User also needs to agree with the licenses, as described above.
         
 ### Running Multiwfn 
 
@@ -135,70 +120,70 @@ Since Multiwfn has a lot of functionality, we recommend that the user first stud
 
 The best practice is to try to reproduce something from the examples folder. To do this, the corresponding files will need to be copied to the user's derictory using the following commands:
 
-    mkdir examples
-    cp -r /gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/* examples/
+```bash
+mkdir examples
+cp -r /gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/* examples/
+```
 
 ***NB!*** The user can run Multiwfn only from his own folder, not from the shared.
-    
-For visualization that does not perform additional calculations, but only reads outputs (for example spectra visualization), Multiwfn can be run in interactive mode using `srun`:
-
-    srun Multiwfn job.log
-    
-or using several threads (here - 4):    
-    
-    srun -n 4 Multiwfn job.log
-
-To exit interactive mode press `q` key. 
 
 For jobs connected to electron density analysis especially in large systems it is recommended to run [multiwfn.slurm](multiwfn.slurm) batch script with pre-prepared responses. Below is shown slurm script for Critical Points (CPs) search using job.wfn:
 
-    #!/bin/bash
-    #SBATCH --nodes=1
-    #SBATCH --ntasks=1
-    #SBATCH --job-name=test
-    #SBATCH --mem=2GB
-    #SBATCH -t 1:00
-    #SBATCH --partition=short
+```bash
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --job-name=test
+#SBATCH --mem=2GB
+#SBATCH -t 10:00
+#SBATCH --partition=short
 
-    module load rocky8/all
-    module load MultiWFN/3.7 
+module load rocky8/all
+module load multiwfn 
 
-    Multiwfn  job.wfn << EOF > /dev/null
-    2
-    2
-    -4
-    6
-    0
-    -10
-    100
-    2
-    1
-    mol.pdb
-    q
-    EOF
+Multiwfn  hf.wfn  << EOF > /dev/null
+2    <- Topological analysis
+2    <- Search CPs from nuclear positions
+3    <- Search CPs from midpoint of atom pairs
+0    <- Print and visualize all generated CPs, paths and surfaces
+-4    <- Modify or export CPs (critical points)
+-1    <- Print summary of CPs (in Angstrom)
+4    <- Save CPs to CPs.txt in current folder	
+6    <- Export CPs as CPs.pdb file in current folder
+0    <- Return
+7       <- Show real space function values at specific CP or all CPs
+0       <- If input 0, then properties of all CPs will be outputted to CPprop.txt in current folder
+-10    <- Return
+100	<- Other functions
+2	<- Export various files 
+1	<- Output current structure to .pdb file
+mol.pdb	<- File name
+q
+EOF
+```
 
 Job is submitted by `sbatch` command:
-    
-    sbatch multiwfn.slurm   
 
+```bash    
+sbatch multiwfn.slurm   
+```
 
 ### Results visualization
-
-By default, plots made by Multiwfn will be written in the `.png` format and can be visualized by command:
-
-    display job.png
         
-Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples _(/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/)_ (with `.vmd` extensions). More about visualization on **viz** can be found [here](/visualization.html) and about VMD - [here](/chemistry/visualization.html#vmd).
+Although Multiwfn has its own graphical interface, we recommend to visualize Multiwfn results in VMD (Visual Molecular Dynamics) program, corresponding scripts are provided in Multiwfn  examples (`/gpfs/mariana/software/green/MultiWFN/Multiwfn_3.7_bin_Linux/examples/`) (with `.vmd` extensions). For visualisation we recommend to use [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee). More about [ondemand use](/ondemand.html) and [VMD](/chemistry/visualization.html#vmd).
 
-On **base** VMD environment is set up by the commands:
+VMD environment is set up by the commands:
 
-    module load green
-    module load VMD 
+```bash
+module load rocky8-spack
+module load vmd
+```
 
 VMD is run by command `vmd`:
 
-    vmd job.pdb
-            
+```bash
+vmd job.pdb
+```            
 
 #### How to cite:
 
