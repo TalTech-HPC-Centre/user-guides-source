@@ -1,6 +1,5 @@
 # NWChem
 
-***This manual is work in progress, please check regularly for updates***
 
 ## NWChem short introduction 
 
