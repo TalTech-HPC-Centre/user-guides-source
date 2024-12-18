@@ -5,14 +5,14 @@
 1. Make [crest.slurm](/chemistry/crest.slurm) batch script for parallel calculations:
 
     ```bash
-        #!/bin/bash
-        #SBATCH --job-name=CREST-test
-        #SBATCH --mem-per-cpu=2GB
-        #SBATCH --nodes=1
-        #SBATCH --ntasks=1
-        #SBATCH --cpus-per-task=24
-        #SBATCH -t 1-00:00:00
-        #SBATCH --partition=common
+    #!/bin/bash
+    #SBATCH --job-name=CREST-test
+    #SBATCH --mem-per-cpu=2GB
+    #SBATCH --nodes=1
+    #SBATCH --ntasks=1
+    #SBATCH --cpus-per-task=24
+    #SBATCH -t 1-00:00:00
+    #SBATCH --partition=common
 
         module load rocky8/all
         module load xtb-crest
@@ -40,14 +40,18 @@ CREST (Conformer–Rotamer Ensemble Sampling Tool) was designed as conformer sam
 
 Environment is set up by the commands:
 
-    module load rocky8/all
-    module load xtb-crest
+```bash
+module load rocky8/all
+module load xtb-crest
+```
 
 ### Running CREST jobs
 
 CREST input file should be in `.xyz` format and is executed by the command `crest`. This command is usually placed in `slurm` script. 
 
-    crest geometry.xyz --gfn2 --gbsa h2o --T 24 > final.out
+```bash
+crest geometry.xyz --gfn2 --gbsa h2o --T 24 > final.out
+```
 
 In CREST calculation options are specified as command line arguments. `--T` is number of processors used, `--gfn2` -- calculation method (_here GFN2-xTB_), `--g h2o` -- GBSA implicit solvation model for water. More about [command line arguments](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html) and some [examples](https://crest-lab.github.io/crest-docs/page/examples) of CREST commands.
 
