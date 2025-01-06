@@ -117,6 +117,22 @@ Code-Aster is a free finite element analysis software, which is developed by EDF
 Salome-meca is a version of code-aster integrated into the CAD software Salome.
 Modules for both are in the `rocky8` module list. They are currently to be considered experimental. For use with a GUI, the OnDemand login to the cluster is recommended (please note the runtime limitation).
 
+code-aster
+
+```bash
+module load rocky8 code_aster
+```
+
+Salome-meca
+
+```bash
+module load rocky8 salome-meca
+```
+and start with
+
+```bash
+salome-meca
+```
 
 <!---
 #### FeNICs
