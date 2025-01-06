@@ -131,13 +131,16 @@ Modules for both are in the `rocky8` module list. They are currently to be consi
 
 Abaqus is a commercial software suite for finite element analysis and computer-aided engineering. The Abaqus products use Python for scripting and customization. User modules can be written in Fortran or C/C++, our installation is configured to use gcc-10.3.0. Abaqus versions 2018 and 2021 are installed. The number of concurrent processes is limited and managed by flexlm.
 
+```bash
     module load rocky8
     module load abaqus
+```
 
 To use Abaqus' PlatformMPI, SLURM's Global Task ID needs to be cleared
 
+```bash
     unset SLURM_GTIDS
-
+```
 
 
 
@@ -151,9 +154,10 @@ Commercial multi-physics finite element simulation software. License belongs to 
 
 License belongs to a research group.
 
+```bash
     module load rocky8
     module load LSDyna/SMP-13.0.0-D
-
+```
 
 
 #### Star-CCM+
@@ -167,11 +171,11 @@ More information about licenses:
 - [How faculty members in academic institutions can get access to Simcenter STAR-CCM+](https://community.sw.siemens.com/s/article/How-faculty-members-in-academic-institutions-can-get-access-to-Simcenter-STAR-CCM)
 - [Guide for students to run Simcenter STAR-CCM+](https://blogs.sw.siemens.com/simcenter/guide-for-students-to-run-simcenter-star-ccm-from-home-or-elsewhere/)
 
-
+```bash
     module load rocky8
     module load star-ccm+/18.04.009-R8
     starccm+
-
+```
 
 ### Computational Fluid Dynamics (CFD)
 
@@ -286,12 +290,14 @@ The package will be placed inside the user's $HOME directory (installation into 
 Different versions are available as spack modules. 
 Packages for Python can be installed by the users themselves using pip (python2) or pip3 (python3)
 
+```bash
     pip install --user packagename
-
+```
 or
 
+```bash
     pip3 install --user packagename
-
+```
 the option `--user` will install the package into the user's $HOME directory (installation into system directories will not be allowed).
 
 
@@ -318,3 +324,5 @@ the option `--user` will install the package into the user's $HOME directory (in
     <!-- - Aqsis, OpenMoonRay -->
 
 The recommended way is now to use a desktop session in OnDemand, see also the [visualization](/visualization.html) page on how to start these and on GPU acceleration. 
+
+
