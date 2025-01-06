@@ -2,7 +2,7 @@
 
 OnDemand available at [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee), is a graphical user interface that allows access to HPC via a web browser. Within the OnDemand environment users can:
 
-- **run Desktop session** ( -> [TalTech HPC Desktop](/ondemand.html#ondemand-desktop-cpu))
+- **run Desktop session** ( -> [TalTech HPC Desktop](/ondemand.html#ondemand-desktop))
 
     ![ondemand-7](/visualization/ondemand-7.png){: style="width:65%; height:!65%;"}
 
