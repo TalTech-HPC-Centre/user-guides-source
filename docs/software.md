@@ -111,10 +111,10 @@ Allows to implement own physics modules using the FreeFEM language.
 
 [MFEM](https://mfem.org/) is a free, lightweight, scalable C++ library for finite element methods.
 
-#### code_aster and Salome-meca
+#### code-aster and Salome-meca
 
-Code_Aster is a free finite element analysis software, which is developed by EDF. It is used for planning power plants.
-Salome-meca is a version of code_aster integrated into the CAD software Salome.
+Code-Aster is a free finite element analysis software, which is developed by EDF. It is used for planning power plants.
+Salome-meca is a version of code-aster integrated into the CAD software Salome.
 Modules for both are in the `rocky8` module list. They are currently to be considered experimental. For use with a GUI, the OnDemand login to the cluster is recommended (please note the runtime limitation).
 
 
