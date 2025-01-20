@@ -69,7 +69,7 @@ Note: Each task needs sufficient work to do to make up for the time spent with i
     blockMesh
     decomposePar
     setFields
-    mpirun -n $SLURM_NTASKS interFoam -parallel
+    srun interFoam -parallel
     reconstructPar
 
 
@@ -88,7 +88,7 @@ The division into the areas is a combined decision taking into account "real" (w
 | avoid | ascending slope in the diagram for "real" and "user" | one actually needs to wait longer compared to the case with fewer cores | NEVER |
 
 
-Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `mpirun -n 4`. OpenFOAM does not seem to benefit from hyperthreading
+Recommended in *this* case would be to request 8 threads `-n 8 --ntasks-per-node 8` but use `srun -n 4`, or use `--cpus-per-task=2`. OpenFOAM does not seem to benefit from hyperthreading
 .
 
 ## An array (parameter sweep) job
