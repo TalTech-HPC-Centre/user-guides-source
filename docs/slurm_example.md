@@ -11,7 +11,7 @@ Some useful online resources:
 
  - [SLURM scheduler workload manager](https://slurm.schedmd.com/pdfs/summary.pdf)
  - Victor Eijkhout: Introduction to High-Performance Scientific Computing <a href="https://doi.org/10.5281/zenodo.49897"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.49897.svg" alt="DOI"></a>
- - [Charles Severance, Kevin Dowd: High Performance Computing](http://cnx.org/content/col11136/1.5/)
+ - [Charles Severance, Kevin Dowd: High Performance Computing](https://open.umich.edu/sites/default/files/downloads/col11136-1.5.pdf)
  - [OpenMP standard](https://www.openmp.org/)
  - [MPI standard](https://www.mpi-forum.org/)
  - [SLURM Quick Reference (Cheat Sheet)](https://slurm.schedmd.com/pdfs/summary.pdf)
