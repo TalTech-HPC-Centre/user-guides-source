@@ -262,5 +262,5 @@ docker build -t pytorch .
 docker save pytorch | gzip > pytorch.tar.gz
 ```
 
-creates a file `pytorch.tar.gz` which you can either convert to a singularity image locally with `singularity build docker-archive//pytorch.tar.gz` or you can move the archive to the cluster and build from there. Building from a docker archive is the only form of image building allowed in the cluster.
+creates a file `pytorch.tar.gz` which you can either convert to a singularity image locally with `singularity build docker-archive/pytorch.tar.gz` or you can move the archive to the cluster and build from there. Building from a docker archive is the only form of image building allowed in the cluster.
 
