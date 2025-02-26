@@ -17,6 +17,7 @@ pull the docker image you want, here ubuntu:18.04
 
 write an sbatch file (here called `ubuntu.slurm`):
 
+```bash
     #!/bin/bash
     #SBATCH -t 0-00:30
     #SBATCH -N 1
@@ -24,10 +25,13 @@ write an sbatch file (here called `ubuntu.slurm`):
     #SBATCH --cpus-per-task=2   #singularity can use multiple cores
     #SBATCH --mem-per-cpu=4000
     singularity exec docker://ubuntu:18.04 cat /etc/issue
+```
 
 submit to the queueing system with
 
+```bash
     sbatch ubuntu.slurm
+```
 
 and when the resources become available, your job will be executed.
 
@@ -47,6 +51,7 @@ pull the docker image you want, here ubuntu:20.04:
 
 write an sbatch file (here called `ubuntu.slurm`):
 
+```bash
     #!/bin/bash
     #SBATCH -t 0-00:30
     #SBATCH -N 1
@@ -57,10 +62,13 @@ write an sbatch file (here called `ubuntu.slurm`):
     singularity exec --nv docker://ubuntu:20.04 nvidia-smi
     # or singularity exec --nv ubuntu_20.04.sif nvidia-smi
     # the --nv option to singularity passes the GPU to it
+```
 
 submit to the queueing system with
 
+```bash
     sbatch ubuntu.slurm
+```
 
 and when the resources become available, your job will be executed.
 
@@ -87,23 +95,31 @@ Start an interactive session on amp, make the modules available and run the dock
 
 Without GPU:
 
+```bash
     srun -t 1:00:00 --pty bash
     singularity exec docker://pytorch/pytorch python
+```
 
 With GPU:
 
+```bash
     srun -t 1:00:00 -p gpu --gres=gpu:1 --pty bash
     singularity exec --nv docker://pytorch/pytorch python
+```
 
 inside the container python session run
 
+```python
     import torch
     torch.cuda.is_available()
     torch.cuda.get_device_name()
+```
 
 You can also shorten it to a single command
 
+```bash
     srun -t 1:00:00 -p gpu --mem 32G --gres=gpu:1 singularity exec docker://pytorch/pytorch python -c "import torch;print(torch.cuda.is_available())"
+```
 
 which should give the same result (without the GPU name). If you remove the `--nv` flag the result changes as singularity no longer exposes the gpu.
 
@@ -113,31 +129,38 @@ Start an interactive session on amp, make the modules available and run the dock
 
 Without GPU:
 
+```bash
     srun -t 1:00:00 --mem=16G --pty bash
     singularity run docker://tensorflow/tensorflow
+```
 
 With GPU:
 
+```bash
     srun -t 1:00:00 -p gpu --gres=gpu:1 --mem=16G --pty bash
     singularity run --nv docker://tensorflow/tensorflow:latest-gpu
-    
+```
+
 With GPU and jupyter:
 
+```bash
     srun -t 1:00:00 -p gpu --gres=gpu:1 --mem=16G --pty bash
     singularity run --nv docker://tensorflow/tensorflow:latest-gpu-jupyter
-
+```
 
 inside the container run
 
+```python
     python
     from tensorflow.python.client import device_lib
     print(device_lib.list_local_devices())
+```
 
 The following is the "TensorFlow 2 quickstart for beginners" from <https://www.tensorflow.org/tutorials/quickstart/beginner>, continue inside the python:
 
  <!-- example is CC-BY-4.0 and Apache 2.0 License -->
 
- 
+ ```python
     import tensorflow as tf
     print("TensorFlow version:", tf.__version__)
     mnist = tf.keras.datasets.mnist
@@ -163,7 +186,7 @@ The following is the "TensorFlow 2 quickstart for beginners" from <https://www.t
       tf.keras.layers.Softmax()
     ])
     probability_model(x_test[:5])
-
+```
 
 ## Example job for OpenDroneMap (ODM)
 
@@ -191,7 +214,9 @@ Assume you keep your ODM projects in the directory `opendronemap`:
 
 If you want to create a 3D model for Laagna-2021, you would run the following Singularity command:
 
+```bash
     singularity run --bind $(pwd)/opendronemap/Laagna-2021:/datasets/code docker://opendronemap/odm --project-path /datasets
+```
 
 For creating a DEM, you would need to add `--dsm` and potentially `-v "$(pwd)/odm_dem:/code/odm_dem"`
 
@@ -199,6 +224,7 @@ GPU use for singularity is enabled with the `--nv` switch, be aware that ODM use
 
 The SLURM job-script looks like this:
 
+```
     #!/bin/bash
     #SBATCH --nodes 1
     #SBATCH --ntasks 1
@@ -209,7 +235,7 @@ The SLURM job-script looks like this:
     
     
     singularity run --nv --bind $(pwd)/opendronemap/Laagna-2021:/datasets/code docker://opendronemap/odm --project-path /datasets --dsm
-
+```
 
 
 ## Obtaining and Building Singularity Containers
