@@ -39,6 +39,8 @@ nav:
           - Data Analysis Software:
               - Jupyter: data-analysis/jupyter.md
               - Octave: data-analysis/octave.md
+      - Containers:
+              - singularity.md
       - Visualization:
           - visualization.md
   - Cluster from Browser:
