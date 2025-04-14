@@ -12,7 +12,9 @@ H. Herrmann, T. Kaevand and L. Anton, “BASE: TalTech's HPC Infrastructure 2020
 The document has several DOIs:
 
 all versions: [10.48726/zf23z-8ba50](https://data.taltech.ee/doi/10.48726/zf23z-8ba50) 
+
 v1 (2020-2024):  [10.48726/8f0v8-1eb97](https://doi.org/10.48726/8f0v8-1eb97) 
+
 v2 (2024-20xx): work in progress
 
 
