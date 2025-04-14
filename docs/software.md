@@ -62,7 +62,7 @@ More about CAD and meshing options on our HPC can be found [here](/engineering/c
 
 #### BRL-CAD
 
-[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tols are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](/engineering/cad-mesh.html#brl-cad).
+[BRL-CAD](https://brlcad.org/) is a CAD software that has been in development since 1979 and is open-source since 2004. It is based on CSG modeling. BRL-CAD does not provide volume meshing, however, the CSG geometry can be exported to BREP (boundary representation, like STL, OBJ, STEP, IGES, PLY), the g-* tools are for this, while the *-g tools are for importing. More about BRL-CAD on our HPC can be found [here](/engineering/cad-mesh.html#brl-cad).
 
 #### Blender
 
