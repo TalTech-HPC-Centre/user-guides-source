@@ -7,7 +7,7 @@ When publishing results obtained by using the systems of the HPC Centre, an ackn
 Citations:
 Hardware description of 2020-2024:
 
-H. Herrmann, T. Kaevandand L. Anton, “BASE: TalTech's HPC Infrastructure 2020--2024”. TalTech Data Repository, Mar. 22, 2025. doi: [10.48726/8f0v8-1eb97](https://doi.org/10.48726/8f0v8-1eb97).
+H. Herrmann, T. Kaevand and L. Anton, “BASE: TalTech's HPC Infrastructure 2020--2024”. TalTech Data Repository, Mar. 22, 2025. doi: [10.48726/8f0v8-1eb97](https://doi.org/10.48726/8f0v8-1eb97).
 
 The document has several DOIs:
 
