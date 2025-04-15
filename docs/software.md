@@ -159,6 +159,12 @@ To use Abaqus' PlatformMPI, SLURM's Global Task ID needs to be cleared
 ```
 
 
+Currently submitting abaqus.slurm scripts directly with `sbatch` or `srun` does not work!
+
+The current workaround is to use an interactive session on a node, this means either an OnDemand desktop session (limited to 4 hours, please reserve enough CPUs and RAM for the job) or `srun -N 1 -n XXX --mem YYGB -p common --pty bash` and run the abaqus manually or the abaqus.slurm script as a regular shell script (XXXX is number of ntasks, YY is needed memory in GB): `sh abaqus.slurm`
+The disadvantage is that the ssh connection must stay open (or use `screen` on base.
+
+
 
 #### Comsol
 
