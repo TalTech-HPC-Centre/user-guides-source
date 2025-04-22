@@ -11,7 +11,11 @@ HPC has a module step-system. To use some application, user needs to follow thes
     or
     
     `module load rocky8/all`        (for licensed programs and some free (non-SPACK managed))
-       
+
+
+    if you want all modules available without having to load the rocky8-spack and rocky8 modules, you can add the above commands to your `$HOME/.bashrc`.
+    
+
 2. Load program needed:
 
     `module load tau`
