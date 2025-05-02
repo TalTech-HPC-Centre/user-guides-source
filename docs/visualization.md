@@ -74,7 +74,31 @@ Please note that for most applications software rendering is fast enough, only h
 **Check using `nvtop` that your application actually uses the GPU!!!**
 
 
-### _ParaView with EGL acceleration_
+### _OpenGL applications using a wrapper_
+
+It is possible to make most OpenGL applications use EGL hardware rendering by using VirtualGL and pointing it to the correct device. This is made easier by using our `eglrun` or `eglwrap`, which set the device automatically.
+
+Here an example for ParaView (an alternative way is described in the next section):
+
+```bash
+module load rocky8
+module load paraview/5.7.0-gui
+eglwrap paraview
+```
+
+and for VMD
+
+```bash
+module load rocky8-spack
+module load vmd/1.9.3-gcc-10.3.0-j3ds
+eglwrap vmd
+```
+
+
+
+
+
+### _ParaView with EGL acceleration (without wrapper)_
 
 It is not possible to have EGL rendering and the OpenGL GUI compiled together, therefore the EGL accelerated `pvserver` and the OpenGL GUI come from different modules and can run on different compute nodes.
 
