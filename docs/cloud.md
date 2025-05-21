@@ -48,4 +48,4 @@ HPC Centre runs OpenStack-based Cloud. In order to gain access to it, you should
     How to get SSH keys can be read [here](/ssh.html).
 
 3. Contact us by email [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee), in Teams (HPC Support Chat) or through [Helpdesk](https://taltech.atlassian.net/servicedesk/customer/portal/18) to be added to a Project.
-4. Get familiar with ETAIS documentation [here](https://etais.ee/using/).
+4. Get familiar with ETAIS documentation [here](https://etais.ee/).
