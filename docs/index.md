@@ -26,7 +26,7 @@ The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu 
 - 5-node OpenStack cloud
   - 5 compute (nova) nodes with **768 GB** of RAM and **80 threads** each
   - **65 TB** CephFS storage (net capacity)
-  - accessible through the [ETAIS website](https://etais.ee/using/)
+  - accessible through the [ETAIS website](https://etais.ee/)
 
 **TalTech cluster base (base.hpc.taltech.ee):**
 
