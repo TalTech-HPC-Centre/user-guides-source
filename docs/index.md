@@ -13,7 +13,7 @@ The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcol
 
 TalTech HPC Centre includes [cluster](/quickstart.html), [cloud](/cloud.html) and is also responsible for providing access to the resources of the [LUMI supercomputer](/lumi.html).
 
-The **cloud** provides users the ability to create virtual machines where the user has full admin rights and can install all the necessary software themselves. VMs can be connected from outside and can be used for providing web services. Accessible through the [ETAIS website](https://etais.ee/using/).
+The **cloud** provides users the ability to create virtual machines where the user has full admin rights and can install all the necessary software themselves. VMs can be connected from outside and can be used for providing web services. Accessible through the [ETAIS website](https://etais.ee/).
 
 The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu on special-purpose nodes) and uses SLURM as a batch scheduler and resource manager. Linux is the dominant operating system used for scientific computing and is the only operating system present in the [Top500](https://www.top500.org/) list (a list of the 500 most powerful computers in the world). **Linux command-line knowledge is essential for using the cluster.** [Resources on learning Linux](/learning.html) can be found in our guide, including introductory lectures in Moodle. However, some graphical interface is available for data visualization, copy, and transfer.
 
