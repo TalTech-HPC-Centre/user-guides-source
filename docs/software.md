@@ -334,7 +334,7 @@ the option `--user` will install the package into the user's $HOME directory (in
 -   [COVISE](https://www.hlrs.de/solutions/types-of-computing/visualization/covise) (**viz**: run `/usr/local/covise/bin/covise`)
 -   [MayaVi](http://mayavi.sourceforge.net/) (**all nodes:** spack module py-mayavi)
 -   GNUplot  (**all nodes** spack module gnuplot) 
--   [OpenDX](http://www.opendx.org/) (**currently not available** will come soon)
+-   OpenDX (**currently not available** will come soon)
 -  Software for computational chemistry:
     - [Molden](https://www.theochem.ru.nl/molden/) 
     - [Avogadro](https://avogadro.cc/) 
