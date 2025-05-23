@@ -80,3 +80,37 @@ The menu only contain very few programs from the operating system. However, **al
 
     ![ondemand-14](/visualization/ondemand-14.png){: style="width:55%; height:!55%;"}
 
+## OnDemand Jupyter
+
+There are two ways to run Jupyter on OnDemand:
+
+1. **Using Singularity containers**  
+    - Provides a stable, pre-configured environment for Jupyter.
+    - You can use HPC-provided containers, but cannot install additional packages yourself. If you need extra packages, contact the HPC staff.
+    - Alternatively, you can build and use your own Singularity containers for more customization. See our [Singularity documentation](/singularity.html#obtaining-and-building-singularity-containers) for details.
+
+2. **Using the micromamba package manager**  
+    - Offers flexibility to create and manage your own Python environments.
+    - You can install and update packages as needed, including JupyterLab and other Python libraries.
+    - This method may require more setup and maintenance, and environments are user-managed.
+   
+### OnDemand Jupyter using containers
+
+![ondemand-jupyter-syscontainer](/visualization/ondemand-jupyter-syscontainer.png){: style="width:65%; height:!65%;"}
+
+1. You can use HPC provided pre-built Singularity containers
+    - Using this, you can not install additional packages yourself. But you are encouraged to ask the staff to add packages you need.
+2. Using your own Singularity containers.
+    - Follow our documentation on [obtaining and building Singularity containers](/singularity.html#obtaining-and-building-singularity-containers) to find out how.
+
+### OnDemand Jupyter using the micromamba package manager
+
+1. Before using this on the web interface, you must configure the environment by logging in to base using command line (you may do this by using the [OnDemand Desktop app](/ondemand.html#ondemand-desktop) or [logging in via SSH](/quickstart.html#accessing-the-cluster)).
+2. From there load the micromamba module: `module load rocky8 micromamba`
+3. Then, install Jupyter Lab: `micromamba install jupyterlab`
+4. Navigate back to OnDemand Jupyter app on your browser. Choose `User` as the `JupyterLab Provider` option, and set `micromamba activate base` as the `Activation command`:
+
+![ondemand-jupyter-micromamba](/visualization/ondemand-jupyter-micromamba.png){: style="width:65%; height:!65%;"}
+
+**Note on installing pip packages using Jupyter with micromamba:**  
+When working inside a Jupyter notebook, use `%pip` (not `!pip`) to install Python packages. The `%pip` magic function ensures packages are installed in the correct environment for your notebook.
