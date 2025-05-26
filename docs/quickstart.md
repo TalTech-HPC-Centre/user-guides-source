@@ -408,7 +408,7 @@ There are tools for conversion of the line-ending, in case the file was copied w
 
 There are 2 major directories where users can store data:
 
-- `/gpfs/mariana/home/` default home directory which is limited to 500GB and is backed up, excluding specific directories: `[*/envs/, */.cache/, */pkgs/, */vscode-server/, */.npm/, */.nvm/, */anaconda3/, */.local/]`.
+- `/gpfs/mariana/home/` default home directory which is limited to 500GB and is backed up, excluding specific directories: `[**/.cache/**, **/.vscode*, **/.npm/**, **/.nvm/**, **/anaconda/**, **/anaconda3/**, **/miniforge3/**, **/.conda/**, **/miniconda3/**, **/cuda/**, **/.env*, **/*venv*/, **/*envs*/, **/.singularity/, **/.local/**]`.
 - `/gpfs/mariana/smbhome/` has a limit of 2TB and is not backed up.
 
 The home directory is meant for critical data like configurations and scripts, whereas smbhome is meant for data.
