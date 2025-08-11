@@ -126,6 +126,26 @@ and will be executed when the requested resources become available.
 
 Output of applications and error messages are by default written to a `slurm-$job_id.out` file. [More about SLURM finished job statistics](/slurm_statistics.html).
 
+
+Node features for node selection within a partition using `--constraint=`:
+
+| feature | what it is |
+|----------|-----------|
+| A100-40 | has A100 GPU with 40GB |
+| A100-80 | has A100 GPU with 80GB |
+| L40 | has L40 GPU with 48GB |
+| nvcc80 | GPU has compute capability 8.0 (A100, L40) |
+| nvcc89 | GPU has compute capability 8.9  (L40) |
+| nvcc35 | GPU has compute capability 3.5 (K20Xm, A100, L40) |
+| zen2 | AMD Zen CPU architecture 2nd generation (amp1) |
+| zen3 | AMD Zen CPU architecture 3rd generation (amp2) |
+| zen4 | AMD Zen CPU architecture 4th generation (ada*) |
+| avx512 | CPU has avx512 (skylake, zen4) |
+| skylake | Intel SkyLake CPU architecture (green*) |
+| sandybridge | Intel SandyBridge CPU architecture (mem1tb, viz) |
+| ib | InfiniBand network interface |
+
+
 ## SLURM accounts  
 
 In SLURM exist accounts for billing, these are different from the login account!
@@ -174,25 +194,6 @@ In case of MPI parallel runs statistics of several nodes can be monitored by spe
 ```bash
 scontrol show node=green[25-26]
 ```
-
-
-Node features for node selection using `--constraint=`:
-
-| feature | what it is |
-|----------|-----------|
-| A100-40 | has A100 GPU with 40GB |
-| A100-80 | has A100 GPU with 80GB |
-| L40 | has L40 GPU with 48GB |
-| nvcc80 | GPU has compute capability 8.0 (A100, L40) |
-| nvcc89 | GPU has compute capability 8.9  (L40) |
-| nvcc35 | GPU has compute capability 3.5 (K20Xm, A100, L40) |
-| zen2 | AMD Zen CPU architecture 2nd generation (amp1) |
-| zen3 | AMD Zen CPU architecture 3rd generation (amp2) |
-| zen4 | AMD Zen CPU architecture 4th generation (ada*) |
-| avx512 | CPU has avx512 (skylake, zen4) |
-| skylake | Intel SkyLake CPU architecture (green*) |
-| sandybridge | Intel SandyBridge CPU architecture (mem1tb, viz) |
-| ib | InfiniBand network interface |
 
 
 
