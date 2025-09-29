@@ -12,27 +12,27 @@ These terms of use describe the conditions for using the TalTech High Performanc
 
  
 
-1) General Principles
+1. General Principles
 
-    a) Authorized Users. Access to TalTech HPC is granted to authorized staff, researchers, and students of TalTech, as well as external collaborators when applicable.
+    1. Authorized Users. Access to TalTech HPC is granted to authorized staff, researchers, and students of TalTech, as well as external collaborators when applicable.
 
-    b) Purpose of Use. The HPC must be used solely for research, educational, and academic activities aligned with TalTech’s mission. Commercial and personal use is prohibited unless explicitly authorized.
+    2. Purpose of Use. The HPC must be used solely for research, educational, and academic activities aligned with TalTech’s mission. Commercial and personal use is prohibited unless explicitly authorized.
 
-    c) Compliance with Policies. Users must adhere to all relevant university policies, legal regulations, software licenses, and third-party agreements.
+    3. Compliance with Policies. Users must adhere to all relevant university policies, legal regulations, software licenses, and third-party agreements.
 
  
 
-2)  Responsibilities of Users
+2.  Responsibilities of Users
 
-    a) Data Security. Users must take all necessary precautions to protect sensitive and confidential data, including following data protection regulations (e.g., GDPR).
+    1. Data Security. Users must take all necessary precautions to protect sensitive and confidential data, including following data protection regulations (e.g., GDPR).
 
-    b) Ethical Use. Any use of the HPC system to engage in unethical activities, including illegal data access, attempts to compromise system security, or intellectual property violations, is strictly forbidden.
+    2. Ethical Use. Any use of the HPC system to engage in unethical activities, including illegal data access, attempts to compromise system security, or intellectual property violations, is strictly forbidden.
 
-    c) Resource Allocation. Users should use resources responsibly and avoid monopolizing or wasting computing power. Misuse of resources, such as running unauthorized processes, is prohibited.
+    3. Resource Allocation. Users should use resources responsibly and avoid monopolizing or wasting computing power. Misuse of resources, such as running unauthorized processes, is prohibited.
 
-    d) Account Protection. Users are responsible for safeguarding their credentials. Sharing access credentials with others is prohibited.
+    4. Account Protection. Users are responsible for safeguarding their credentials. Sharing access credentials with others is prohibited.
 
-    e) Acknowledgment of Resources. It is encouraged that the publications resulting from the use of TalTech HPC acknowledge or give proper reference to the facility's contribution.
+    5. Acknowledgment of Resources. It is encouraged that the publications resulting from the use of TalTech HPC acknowledge or give proper reference to the facility's contribution.
 
 REFERENCE to TalTech HPC or ACKNOWLEDGEMENT 
 
@@ -40,35 +40,35 @@ Citation ID
 
  
 
-3) Prohibited Activities
+3. Prohibited Activities
 
-    a) Malicious Activities. Users may not use the HPC for unauthorized access, network attacks, spamming, or any activity that compromises system integrity or availability.
+    1. Malicious Activities. Users may not use the HPC for unauthorized access, network attacks, spamming, or any activity that compromises system integrity or availability.
 
-    b) Non-research Purposes. Using the HPC for non-research or commercial purposes, such as cryptocurrency mining or personal projects, is strictly prohibited.
+    2. Non-research Purposes. Using the HPC for non-research or commercial purposes, such as cryptocurrency mining or personal projects, is strictly prohibited.
 
-    c) Interference with Other Users. Any action that disrupts the work of other users or hinders the system's overall performance is not allowed.
-
- 
-
-4) Data Management
-
-    a) Data Backup. Users are responsible for regularly backing up their data. TalTech is not liable for data loss due to system failures.
-
-    b) Data Storage Limits. Users should adhere to storage limits and regularly clean up unnecessary data to ensure fair resource distribution. The default maximum storage size (quota) for individual users or (research)groups is communicated separately from this document and is revised periodically. The data storage limits which are larger then the default will be agreed on an individual basis. 
-
-    c) Third-party Data. Importing and using third-party data must comply with all legal and ethical obligations, including licence agreements and intellectual property rights.
+    3. Interference with Other Users. Any action that disrupts the work of other users or hinders the system's overall performance is not allowed.
 
  
 
-5) Monitoring and Enforcement
+4. Data Management
 
-    a) System Monitoring. TalTech reserves the right to monitor the use of HPC resources to ensure compliance with this policy. Monitoring will be conducted in accordance with privacy regulations.
+    1. Data Backup. Users are responsible for regularly backing up their data. TalTech is not liable for data loss due to system failures.
 
-    b) Policy Violations. Any breach of this policy may result in the suspension of access, disciplinary action, or legal consequences, depending on the severity of the violation.
+    2. Data Storage Limits. Users should adhere to storage limits and regularly clean up unnecessary data to ensure fair resource distribution. The default maximum storage size (quota) for individual users or (research)groups is communicated separately from this document and is revised periodically. The data storage limits which are larger then the default will be agreed on an individual basis. 
+
+    3. Third-party Dat1. Importing and using third-party data must comply with all legal and ethical obligations, including licence agreements and intellectual property rights.
 
  
 
-6) Policy Updates
+5. Monitoring and Enforcement
 
-    a) This policy may be updated as needed. Users are responsible for regularly reviewing the policy and complying with the latest version.
+    a. System Monitoring. TalTech reserves the right to monitor the use of HPC resources to ensure compliance with this policy. Monitoring will be conducted in accordance with privacy regulations.
+
+    2. Policy Violations. Any breach of this policy may result in the suspension of access, disciplinary action, or legal consequences, depending on the severity of the violation.
+
+ 
+
+6. Policy Updates
+
+    a. This policy may be updated as needed. Users are responsible for regularly reviewing the policy and complying with the latest version.
 
