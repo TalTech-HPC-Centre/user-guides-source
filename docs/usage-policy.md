@@ -56,7 +56,7 @@ Citation ID
 
     2. Data Storage Limits. Users should adhere to storage limits and regularly clean up unnecessary data to ensure fair resource distribution. The default maximum storage size (quota) for individual users or (research)groups is communicated separately from this document and is revised periodically. The data storage limits which are larger then the default will be agreed on an individual basis. 
 
-    3. Third-party Dat1. Importing and using third-party data must comply with all legal and ethical obligations, including licence agreements and intellectual property rights.
+    3. Third-party Data. Importing and using third-party data must comply with all legal and ethical obligations, including licence agreements and intellectual property rights.
 
  
 
