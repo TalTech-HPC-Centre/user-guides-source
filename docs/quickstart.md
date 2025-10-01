@@ -150,7 +150,7 @@ Node features for node selection within a partition using `--constraint=`:
 
 In SLURM exist accounts for billing, these are different from the login account!
 
-Each user has his/her own personal SLURM-account, which will have a small monthly limit.  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` and course accounts with `course_`, followed by uniID/projectID/courseID.
+Each user has his/her own personal SLURM-account, which will have a small limit (currently 10 Euro per quarter).  For larger calculations user should have at least one project account. SLURM user-accounts start with `user_` and project accounts with `project_` (legacy project accounts start with `acct_`) and course accounts with `course_`, followed by uniID/projectID/supervisor-name/courseID.
 
 You can check which SLURM accounts you belong to, by:
 
@@ -158,9 +158,24 @@ You can check which SLURM accounts you belong to, by:
 sacctmgr show associations format=account%30,user%30 | grep $USER
 ```
 
-Currently (almost) all users belong to the SLURM-account "vaikimisi" (default), it is possible to submit jobs under this account, especially if no `user_` or project account has been created for you yet, however, "vaikimisi" will be discontinued in the near future.
-
 When submitting a job, **it is important to use the correct SLURM-account** `--account=SLURM-ACCOUNT`, as this is connected to the financial source.
+
+Use the command-line parameter to `srun/sbatch`:
+
+```bash
+srun --account=SLURM-ACCOUNT ...
+sbatch --account=SLURM-ACCOUNT ...
+```
+or add
+
+```bash
+#SBATCH  --account=SLURM-ACCOUNT
+```
+
+to your scripts.
+
+
+
 
 ## Monitoring jobs & resources
 
