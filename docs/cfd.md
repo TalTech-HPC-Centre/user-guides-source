@@ -78,6 +78,7 @@ The `openfoam.slurm` script:
 #SBATCH -n 4
 #SBATCH -t 00:10:00  
 #SBATCH -J openfoam-damBreak
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 # #SBATCH --partition=green-ib
     
 #the following 2 lines are only needed if not done manually in command-line

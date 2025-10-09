@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH -p gpu-test
 #SBATCH --gres=gpu:3                  # total number of GPUs
 #SBATCH --ntasks=2

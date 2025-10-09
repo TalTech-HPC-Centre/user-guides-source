@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --job-name=dft-opt
 #SBATCH -t 0-00:10:00
 #SBATCH  --no-requeue

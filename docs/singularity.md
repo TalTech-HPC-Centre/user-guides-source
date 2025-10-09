@@ -26,6 +26,7 @@ write an sbatch file (here called `ubuntu.slurm`):
 #SBATCH -c 1
 #SBATCH --cpus-per-task=2   #singularity can use multiple cores
 #SBATCH --mem-per-cpu=4000
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 singularity exec docker://ubuntu:18.04 cat /etc/issue
 ```
 
@@ -55,7 +56,7 @@ singularity pull docker://ubuntu:20.04
 
 write an sbatch file (here called `ubuntu.slurm`):
 
-```
+```bash
 #!/Bin/bash
 #SBATCH -t 0-00:30
 #SBATCH -N 1
@@ -63,6 +64,7 @@ write an sbatch file (here called `ubuntu.slurm`):
 #SBATCH -p gpu
 #SBATCH --gres=gpu:A100:1     #only use this if your job actually uses GPU
 #SBATCH --mem-per-cpu=4000
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 singularity exec --nv docker://ubuntu:20.04 nvidia-smi
 # or singularity exec --nv ubuntu_20.04.sif nvidia-smi
 # the --nv option to singularity passes the GPU to it
@@ -229,7 +231,7 @@ GPU use for singularity is enabled with the `--nv` switch, be aware that ODM use
 
 The SLURM job-script looks like this:
 
-```
+```bash
 #!/bin/bash
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
@@ -237,7 +239,7 @@ The SLURM job-script looks like this:
 #SBATCH --time 01:30:00
 #SBATCH --partition gpu
 #SBATCH --gres=gpu:A100:1
-
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 singularity run --nv --bind $(pwd)/opendronemap/Laagna-2021:/datasets/code docker://opendronemap/odm --project-path /datasets --dsm
 ```

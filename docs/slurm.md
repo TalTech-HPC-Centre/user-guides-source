@@ -11,6 +11,7 @@ The following script  launches job named bowtie2 using one thread. A directory b
     #SBATCH --job-name=bowtie2		### job name 
     #SBATCH --output=bowtie2-%J.log	### output file 
     #SBATCH --ntasks=1			### number of cores   
+    #SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
     
     ## load bowtie2 environment 
     module load bowtie2-2.1.0
@@ -37,6 +38,7 @@ Note: Each thread needs sufficient work to do to make up for the time spent in l
     #SBATCH --nodes=1           	### number of nodes    -N 
     #SBATCH --ntasks-per-node=1 	### number of tasks (MPI processes)
     #SBATCH --cpus-per-task=12  	### number of threads per task (OMP threads)
+    #SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
     
     ## load environment
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK

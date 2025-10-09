@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH -p common
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2         # CPU cores per MPI process

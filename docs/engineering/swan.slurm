@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --partition=green-ib  
 #SBATCH --job-name=Swan               
 #SBATCH --time=00:10:00                 

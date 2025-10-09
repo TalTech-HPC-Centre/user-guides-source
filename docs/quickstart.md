@@ -70,7 +70,7 @@ Requesting resources with SLURM can be done either with parameters to `srun` or 
 **Running an interactive session** longer than default 10 min. (here 1 hour):
 
 ```bash
-srun -t 01:00:00 --pty bash 
+srun -t 01:00:00  --account=project_CHANGEME --pty bash 
 ```
 
 This logs you into one of the compute nodes, there you can load modules and run interactive applications, compile your code, etc.
@@ -101,7 +101,7 @@ Below is given **an example of batch slurm script** (filename: `myjob.slurm`) wi
 #SBATCH --nodes=4             ### Number of Nodes    -N 
 #SBATCH --ntasks-per-node=7   ### Number of tasks (MPI processes)
 #SBATCH --cpus-per-task=4     ### Number of threads per task (OMP threads)
-#SBATCH --account=ptoject     ### Essentially your research group
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --mem-per-cpu=100     ### Min RAM required in MB
 #SBATCH --array=13-18         ### Array tasks for parameter sweep
     

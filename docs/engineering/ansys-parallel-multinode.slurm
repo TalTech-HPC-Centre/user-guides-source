@@ -7,6 +7,7 @@
 #SBATCH --mem-per-cpu=2GB #alternative way to
 #SBATCH -p common
 #SBATCH -t 0:10:00
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 module load green/all
 module load Ansys-AutoDyn/23.2

@@ -9,25 +9,19 @@ Special programming language developed for supercomputing, origially by the Cray
 
 ## modules
 
-on amp
+on all nodes
 
 ```bash
-module load amp
-module load llvm/14.0.0
-module load chapel/1.28
-module load amp-spack
-module load cuda/11.3.1-gcc-9.3.0-e4ej
+module load rocky8-spack/master
+module load gcc/10.3.0-gcc-8.5.0-abqv
+module load openmpi/4.1.6-gcc-10.3.0-r8-tcp
 ```
 
-on green
+additionally on GPU nodes
 
 ```bash
-module load rocky8-spack/0.17.1
-module load gcc/10.3.0-gcc-10.3.0-qshu
-module load llvm/13.0.0-gcc-10.3.0-dhdd
-module load opempi/4.1.1-gcc-10.3.0
+module load nvhpc/23.9-gcc-10.3.0-uxel
 ```
-
 
 ## evironment variables
 
@@ -67,7 +61,7 @@ set some environment variables
     CHPL_LLVM=none
     CHPL_LAUNCHER_PARTITION=green-ib
     CHPL_SANITIZE=
-    CHPL_HOME=/gpfs/mariana/software/green/chapel/chapel-1.28.0
+    #CHPL_HOME=/gpfs/mariana/software/green/chapel/chapel-1.28.0
     CHPL_LAUNCHER=slurm-srun
     CHPL_LAUNCHER_NODE_ACCESS=unset
     CHPL_MEM=jemalloc
@@ -85,6 +79,7 @@ set some environment variables
 
     CHPL_LAUNCHER_PARTITION=green-ib
     CHPL_LAUNCHER_PARTITION=gpu
+    CHPL_LAUNCHER_PARTITION=short
 
 
 ## example chapel programs

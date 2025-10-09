@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --job-name=NWChem
 #SBATCH --mem=3GB
 #SBATCH --nodes=1

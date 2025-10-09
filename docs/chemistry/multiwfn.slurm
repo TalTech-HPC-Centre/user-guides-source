@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=test

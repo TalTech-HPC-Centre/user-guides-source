@@ -25,6 +25,7 @@ The following script sets up the environment for ORCA and runs a job named ORCA_
 #SBATCH --job-name=ORCA_test		### job name 
 #SBATCH --ntasks=1			### number of threads   
 #SBATCH --mem=2GB			### memory
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
   
 ## load ORCA environment 
 module load rocky8/all
@@ -64,6 +65,7 @@ The following script launches job named HelloOMP using OpenMP. For this job slur
 #SBATCH --nodes=1           		### number of nodes    -N 
 #SBATCH --ntasks-per-node=1 		### number of tasks (MPI processes)
 #SBATCH --cpus-per-task=12  		### number of threads per task (OMP threads)
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 ## load environment    
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -86,6 +88,7 @@ Flag `-l` in #!/bin/bash row means that settings in /home/user/.bash_profile wil
 #SBATCH -t 10:00:00      		### run time   
 #SBATCH -J openfoam-damBreak     	### job name
 #SBATCH --partition=green-ib		### partition 
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 ## load environment    
 module load rocky8-spack
@@ -128,6 +131,7 @@ The following script creates a directory named scratch-%x-%j (where `%x` is a jo
 #SBATCH -N 1			### number of nodes
 #SBATCH -t 00:10:00		### time limit  
 #SBATCH -J using-scratch	### job name
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
     
 ## creates scratch scratch directory, copy files from working directory to scratch directory, goes to scratch directory
 mkdir /state/partition1/scratch-%x-%j
@@ -157,6 +161,7 @@ The following script reserves 1 gpu (Nvidia A100), uses gpu partition and has ti
 #SBATCH -p gpu			### use gpu
 #SBATCH --gres=gpu:A100:1	### specifying the GPU type
 #SBATCH -t 00:10:00		### time limit 
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 ## run job    
 ./mygpujob
@@ -170,6 +175,7 @@ This script reserves 4 gpu without specifying the GPU type.
 #SBATCH -p gpu			### use gpu
 #SBATCH --gres=gpu:4		### number of gpu
 #SBATCH -t 00:10:00 		### time limit 
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 ## run job    
 ./mygpujob
@@ -185,6 +191,7 @@ This script reserves 10 threads and run array of jobs in range of 13-1800.  The 
 #SBATCH --output=arrayjob-%A-%a  		### output file 
 #SBATCH --ntasks=10  			    	### number of threads  
 #SBATCH --array=13-1800       		    	### Array tasks for parameter sweep
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
     
 ## run job
 ./myarrayjob  $SLURM_ARRAY_TASK_ID
