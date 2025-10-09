@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --job-name=ORCA-test
 #SBATCH --mem=48GB
 #SBATCH --nodes=1

@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 #SBATCH --job-name=WAM-testrun
 #SBATCH --mem-per-cpu=1GB
 #SBATCH --nodes=1

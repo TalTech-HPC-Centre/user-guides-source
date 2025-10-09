@@ -16,17 +16,18 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#SBATCH -n 4</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">#SBATCH -t 00:10:00  </span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">#SBATCH -J openfoam-damBreak</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># #SBATCH --partition=green-ib</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">#the following 2 lines are only needed if not done manually in command-line</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi-x86_64
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nb">source</span><span class="w"> </span>/share/apps/HPC2/OpenFOAM/OpenFOAM-v1912/etc/bashrc
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>blockMesh
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>decomposePar
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>setFields
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>mpirun<span class="w"> </span>interFoam<span class="w"> </span>-parallel
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>reconstructPar
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># #SBATCH --partition=green-ib</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">#the following 2 lines are only needed if not done manually in command-line</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi-x86_64
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nb">source</span><span class="w"> </span>/share/apps/HPC2/OpenFOAM/OpenFOAM-v1912/etc/bashrc
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>blockMesh
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>decomposePar
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>setFields
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>mpirun<span class="w"> </span>interFoam<span class="w"> </span>-parallel
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>reconstructPar
 </code></pre></div> <p>and then run in the command-line (<code>module</code> and <code>source</code> are only needed if not in sbatch script):</p> <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>module<span class="w"> </span>load<span class="w"> </span>mpi/openmpi-x86_64
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">source</span><span class="w"> </span>/share/apps/HPC2/OpenFOAM/OpenFOAM-v1912/etc/bashrc
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sbatch<span class="w"> </span>openfoam.slurm

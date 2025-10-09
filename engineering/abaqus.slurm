@@ -6,6 +6,7 @@
 #SBATCH --mem=22GB #Memory for calculation
 #SBATCH -p common
 #SBATCH -t 150:00:00
+#SBATCH --account=project_CHANGEME  ### CHANGE THIS TO YOUR PROJECT/COURSE
 
 ### Load specific version of ABAQUS
 module load green/all
