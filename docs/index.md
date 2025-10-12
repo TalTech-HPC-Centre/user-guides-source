@@ -9,7 +9,7 @@ title: Welcome to TalTech HPC User Guides!
 
 ![HPC](/pictures/HPC.jpg)
 
-The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account (an application form for non-employees/non-students can be found [here](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto)). Further, the user needs to be added to the HPC-USERS group. Please ask [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to activate HPC access from your TalTech email and provide your **UniID (six letters taken from the user's full name**). In the case of using licensed programs, the user must also be added to the appropriate group. More information about available programs and licenses can be found [here](/software.html).
+The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account (an application form for non-employees/non-students can be found [here](https://taltech.atlassian.net/servicedesk/customer/portal/14/group/33/create/148)). Further, the user needs to be added to the HPC-USERS group. Please ask [hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee) to activate HPC access from your TalTech email and provide your **UniID (six letters taken from the user's full name**). In the case of using licensed programs, the user must also be added to the appropriate group. More information about available programs and licenses can be found [here](/software.html).
 
 TalTech HPC Centre includes [cluster](/quickstart.html), [cloud](/cloud.html) and is also responsible for providing access to the resources of the [LUMI supercomputer](/lumi.html).
 
