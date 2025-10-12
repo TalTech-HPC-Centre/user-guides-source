@@ -3,7 +3,7 @@
 
 ## Hardware Specification
 
-The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account, a procedure for non-employees/non-students can be found [here](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38996020/Uni-ID+lepinguv+line+konto) (in Estonian).
+The use of the resources of the TalTech [HPC Centre](https://taltech.ee/en/itcollege/hpc-centre) requires an active Uni-ID account, a procedure for non-employees/non-students can be found [here](https://taltech.atlassian.net/servicedesk/customer/portal/14/group/33/create/148) (in the self-service portal).
 
 
 TalTech operates the following infrastructure:
