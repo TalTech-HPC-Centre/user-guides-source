@@ -51,7 +51,7 @@
 
 7. Try to connect to LUMI with received user name by the command:
 	
-		ssh <LUMI-user-name>@lumi.csc.fi
+		ssh LUMIusername@lumi.csc.fi
 
 	***NB!*** _Synchronization may take some time, so if you have problems with connection with SSH key, it should wait longer and try again._
 
