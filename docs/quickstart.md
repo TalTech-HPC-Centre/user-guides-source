@@ -4,7 +4,7 @@
 
 **NB! To access the cluster, user must have an active [Uni-ID account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet).** For people who are neither students nor employees of Taltech [Uni-ID non-contractual account](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994346/Uni-ID+ehk+Digitaalne+identiteet#External-UNI-ID) should be created by the head of a structural unit.
 
-**To get access to HPC contact us by email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: uni-ID, department, project that covers [costs](/index.html#billing).
+**To get access to HPC contact us by email ([hpcsupport@taltech.ee](mailto:hpcsupport@taltech.ee)) or [Taltech portal](https://taltech.atlassian.net/servicedesk/customer/portal/18).** We need the following information: **uni-ID** typically 6 letters), which this you will get basic access which can be used for small calculations and to get familiar with the system (limit approx. 10 Euro per quarter year). For larger calculations, we need to know the **department and project** that covers [costs](/index.html#billing).
 
 **The cluster is accessible from inside the university** and from major **Estonian network** providers. If you are traveling (or not in one of the major networks), the access requires [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN) (for OnDemand session and `ssh` command).
 
