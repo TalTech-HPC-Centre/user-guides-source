@@ -78,6 +78,26 @@ More about CAD and meshing options on our HPC can be found [here](/engineering/c
 
 [Netgen](https://ngsolve.org/) is a part of the NGsolve suite. Netgen is a  automatic 3d tetrahedral mesh generator containing modules for mesh optimization and hierarchical mesh refinement. More about Netgen on our HPC can be found [here](/engineering/cad-mesh.html#netgen-ngsolve).
 
+#### Cubit (non-commercial, affiliate)
+
+Coreform [Cubit](https://coreform.com/coreform-cubit) is a commercial preprocessing software with the ability to create high quality hex and hex-dominant meshes. Our affilialte license is limited to exporting 50000 cells and is for **non-commercial** use only! Each user needs to activate the affiliate license individually, please contact hpcsupport@taltech.ee to receive activation instructions if you want to use Cubit.
+
+<!--
+#### LS-PrePost
+
+[LS-prepost](https://) is the free preprocessing tool for LS-DYNA.
+-->
+
+
+<!--
+#### HyperMesh (trial license)
+
+Altair [HyperMesh](https://)
+-->
+
+
+
+
 ### Finite Element Analysis (FEA) 
 
 The Finite Element Method (FEM) is an general numerical method for solving partial differential equations in two or three space variables perfommed by dividing a large system into smaller parts (finite elements). The method is used for numerically solving differential equations in engineering and mathematical modeling.
@@ -198,6 +218,13 @@ More information about licenses:
     module load star-ccm+/18.04.009-R8
     starccm+
 ```
+
+#### OpenRadioss
+
+Altair [OpenRadioss](https://) is an explicit FEA software for highly dynamic simulations, like impact and blasts. 
+
+
+
 
 ### Computational Fluid Dynamics (CFD)
 
