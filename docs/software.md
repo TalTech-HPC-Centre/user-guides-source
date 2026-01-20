@@ -80,7 +80,8 @@ More about CAD and meshing options on our HPC can be found [here](/engineering/c
 
 #### Cubit (non-commercial, affiliate)
 
-Coreform [Cubit](https://coreform.com/coreform-cubit) is a commercial preprocessing software with the ability to create high quality hex and hex-dominant meshes. Our affilialte license is limited to exporting 50000 cells and is for **non-commercial** use only! Each user needs to activate the affiliate license individually, please contact hpcsupport@taltech.ee to receive activation instructions if you want to use Cubit.
+Coreform [Cubit](https://coreform.com/coreform-cubit) is a commercial preprocessing software with the ability to create high quality hex and hex-dominant meshes. Our affilialte license is limited to exporting 50000 cells and is for **non-commercial** use only! Go to [https://coreform.com/account/login](https://coreform.com/account/login) and select **"Activate a limited-use associate license"**, enter the affiliate code from `cat /gpfs/mariana/software/green/Coreform/affiliate.txt`. 
+<!--Each user needs to activate the affiliate license individually, please contact hpcsupport@taltech.ee to receive activation instructions if you want to use Cubit...>
 
 <!--
 #### LS-PrePost
@@ -232,7 +233,8 @@ See also under [FEA](/software.html#finite-element-analysis-fea).
 
 #### OpenFOAM
 
-[OpenFOAM](https://openfoam.org/) is an open source software for computational fluid dynamics (CFD). OpenFOAM has a wide range of  tools for modelling  complex fluid flows and can be used for solving such problems as chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. More about OpenFOAM on our HPC can be found [here](/engineering/openfoam.html).
+OpenFOAM is an open source software for computational fluid dynamics (CFD). There are two major flavours of OpenFOAM, the [OpenFOAM.com (ESI/Keysight) version](https://openfoam.com) and the [OpenFOAM.org (Foundation) verion](https://openfoam.org/).
+OpenFOAM has a wide range of  tools for modelling  complex fluid flows and can be used for solving such problems as chemical reactions, turbulence and heat transfer, to acoustics, solid mechanics and electromagnetics. More about OpenFOAM on our HPC can be found [here](/engineering/openfoam.html).
 
 
 #### SU2
