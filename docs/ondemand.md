@@ -37,6 +37,20 @@ The default desktop environment is xfce, which is configurable, lightweight and 
 
 The menu only contain very few programs from the operating system. However, **all installed software can be open an XTerminal** using the module system as you would from the command-line. 
 
+## Job Composer
+
+The typical workflow with the job composer is the following.
+
+1. Navigate to the job templates in the Job Composer by ondemand.hpc.taltech.ee > Utilities > Job Composer > Templates or directly via [this URL](https://ondemand.hpc.taltech.ee/pun/sys/myjobs/workflows/new)
+2. Select the software template you intend to use; if there is no template for the software you wish to use, let us know! ![Open OnDemand - Job Composer - Templates - Octave](/visualization/ondemand-jobs-1.png){: style="width:65%; height:!65%;"} 
+3. Optionally visit the additional documentation, then create a new job with that template ![Open OnDemand - Job Composer - Templates - Octave - New](/visualization/ondemand-jobs-2.png){: style="width:65%; height:!65%;"} 
+4. See the newly created, yet unsubmitted job and edit it ![Open OnDemand - Job Composer - Templates - Octave - New - Editor](/visualization/ondemand-jobs-3.png){: style="width:65%; height:!65%;"} 
+5. Make your own desired job by editing the template, then go back to the previous tab; make sure to specify the correct account; if you have access to none, remove the line or use the default `user_<username>` ![Open OnDemand - Job Composer - Templates - Octave - New - Editor - Save](/visualization/ondemand-jobs-4.png){: style="width:65%; height:!65%;"} 
+6. Open the directory to create other files that you might need before running the job, such as configurations and input ![Open OnDemand - Job Composer - Job](/visualization/ondemand-jobs-5.png){: style="width:65%; height:!65%;"} 
+7. Once created the file with the appropriate name, edit it; repeat for all files you need, then go back to the previous tab ![Open OnDemand - Files - Editor - New](/visualization/ondemand-jobs-7.png){: style="width:65%; height:!65%;"} ![Open OnDemand - Files - Editor - New](/visualization/ondemand-jobs-8.png){: style="width:65%; height:!65%;"} 
+8. Submit your job; you will be able to follow its progress from the small status badge or from the Active Jobs utility ![Open OnDemand - Job Composer - Job - Submit](/visualization/ondemand-jobs-9.png){: style="width:65%; height:!65%;"} 
+9. Once the job is over, in the same directory that you edited before, you will find the output (typically both stderr and stdout) in the specified file (typically `*.out`) ![Open OnDemand - Files - Editor - View](/visualization/ondemand-jobs-10.png){: style="width:65%; height:!65%;"} 
+
 ## OnDemand Desktop
 
 1. Choose "TalTech HPC Desktop".
