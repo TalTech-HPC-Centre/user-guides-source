@@ -1,11 +1,9 @@
-!!! warning
-    This page has not been updated to reflect latest cluster changes yet
-
 # Octave/Matlab
 
 Octave is a free alternative to Matlab and if you do not use Matlab's toolboxes, your code should work without many changes. For many of Matlab's toolboxes (partial) implementations exist for Octave as well.
 we have setup a module for Octave:
 
+    module load rocky8-spack/master
     module load octave
 
 ## Octave: Example of a non-interactive batch job (single process)
@@ -16,6 +14,7 @@ SLURM batch script `octave-script.slurm`
     #SBATCH --partition=common
     #SBATCH -t 2:10:00
     #SBATCH -J octave
+    module load rocky8-spack/master
     module load octave
     octave script.m
 
@@ -34,7 +33,7 @@ To use netcdf in octave the toolbox octcdf has to be installed from octave forge
 
 To install the toolbox do following steps in the frontend and later the package is available in all nodes for your user.
 
-    module load green-spack
+    module load rocky8-spack/master
     module load octave
     octave
 
@@ -55,7 +54,7 @@ Matlab is available on the cluster through a campus license. Use
 to see which version is installed. If a newer is needed, contact us via hpcsupport.
 Start using it by loading the module
 
-    module load green
-    module load Matlab/R2018a
+    module load rocky8/all
+    module load matlab
 
 Matlab can be used non-interactive (like Octave in the above example).
