@@ -20,7 +20,7 @@ OnDemand available at [ondemand.hpc.taltech.ee](https://ondemand.hpc.taltech.ee)
 
     ![ondemand-10](/visualization/ondemand-10.png){: style="width:65%; height:!65%;"} 
 
-- **check own quota**
+- **check own filesystem quotas**
 
     ![ondemand-11](/visualization/ondemand-11.png){: style="width:65%; height:!65%;"} 
 
