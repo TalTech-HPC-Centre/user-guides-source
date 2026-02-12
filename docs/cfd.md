@@ -57,7 +57,7 @@ mv system/decomposeParDict system/decomposeParDict-save
 Running the damBreak case step-by-step interactively:
 
 ```bash
-srun --partition=common -t 2:10:00 -−pty bash 
+srun --partition=short -t 2:10:00 -−pty bash 
 source /share/apps/HPC2/OpenFOAM/OpenFOAM-v1912/etc/bashrc
 blockMesh
 setFields

@@ -22,7 +22,7 @@ For the example we will use one of the tutorial cases.
 
 4. Now we can run the OpenFOAM case step-by-step or as a batch job.
 
-	    srun --partition=common -t 2:10:00 -−pty bash
+	    srun --partition=short -t 2:10:00 -−pty bash
 	    blockMesh
 	    setFields
 	    interFoam
@@ -49,7 +49,7 @@ Running the damBreak case step-by-step interactively:
     module load rocky8-spack
     module load openfoam
     
-    srun --partition=common -t 2:10:00 -−pty bash 
+    srun --partition=short -t 2:10:00 -−pty bash 
     blockMesh
     setFields
     interFoam

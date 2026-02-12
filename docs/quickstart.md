@@ -80,7 +80,7 @@ With `srun` is reccomended to use CLI (command-line interface) instead of GUI (G
 **Running a simple non-interactive single process job** that lasts longer than default 4 hours (here 5 hours):
 
 ```bash
-srun --partition=common -t 05:00:00 -n 1 ./a.out
+srun --partition=short -t 05:00:00 -n 1 ./a.out
 ```
 
 ***NB!*** *Environment variables for OpenMP are *not* set automatically, e.g.*
@@ -95,7 +95,7 @@ Below is given **an example of batch slurm script** (filename: `myjob.slurm`) wi
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=common    ### Partition
+#SBATCH --partition=short    ### Partition
 #SBATCH --job-name=HelloOMP   ### Job Name           -J
 #SBATCH --time=00:10:00       ### Time limit         -t
 #SBATCH --nodes=4             ### Number of Nodes    -N 
