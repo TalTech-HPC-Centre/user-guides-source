@@ -27,7 +27,7 @@
         #SBATCH --job-name=test
         #SBATCH --mem-per-cpu=1GB
         #SBATCH -t 1:00:00
-        #SBATCH --partition=common 
+        #SBATCH --partition=short 
     
         module load turbomole7.0
     
@@ -113,7 +113,7 @@ Example of Slurm script for single point HF calculation performed on a single co
     #SBATCH --job-name=test
     #SBATCH --mem-per-cpu=1GB
     #SBATCH -t 1:00:00
-    #SBATCH --partition=common 
+    #SBATCH --partition=short 
     
     module load turbomole7.0
     
@@ -146,7 +146,7 @@ Example of Slurm script for geometry optimization using RI-approximation perform
     #SBATCH --job-name=test
     #SBATCH --mem-per-cpu=1GB
     #SBATCH -t 1:00:00
-    #SBATCH --partition=common 
+    #SBATCH --partition=short 
     
     module load turbomole7.0-mpi
     
