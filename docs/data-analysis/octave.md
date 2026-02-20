@@ -11,7 +11,7 @@ we have setup a module for Octave:
 SLURM batch script `octave-script.slurm`
 
     #!/bin/bash
-    #SBATCH --partition=common
+    #SBATCH --partition=short
     #SBATCH -t 2:10:00
     #SBATCH -J octave
     module load rocky8-spack/master

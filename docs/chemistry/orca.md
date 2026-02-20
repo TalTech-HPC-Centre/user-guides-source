@@ -15,7 +15,7 @@
     #SBATCH --ntasks=24
     #SBATCH --cpus-per-task=1
     #SBATCH -t 1-00:00:00
-    #SBATCH --partition=common
+    #SBATCH --partition=short
     #SBATCH  --no-requeue
 
     module load rocky8/all
@@ -49,7 +49,7 @@
     #SBATCH --ntasks=1
     #SBATCH --cpus-per-task=1
     #SBATCH -t 10:00:00
-    #SBATCH --partition=common
+    #SBATCH --partition=short
     #SBATCH  --no-requeue
 
     module load rocky8/all
@@ -177,7 +177,7 @@ Example of `slurm` script:
 #SBATCH --ntasks=4			# Number of threads 
 #SBATCH --cpus-per-task=1
 #SBATCH -t 2:00:00			# Time
-#SBATCH --partition=common		# Partition
+#SBATCH --partition=short		# Partition
 #SBATCH  --no-requeue			# Job will not be restarted by default 
     
 module load rocky8/all
