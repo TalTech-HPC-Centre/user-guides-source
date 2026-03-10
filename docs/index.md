@@ -65,11 +65,11 @@ More details on how to calculate computational costs for TalTech cluster can be 
 
 | What                    | Unit        | Standard price | EU project price |
 |-------------------------|-------------|----------------|------------------|
-| CPUcore                 | CPUcore*hour| 0.008 EUR      | 0.007 EUR
-| GPU                     | GPU*hour    | 0.35 EUR       | 0.28 EUR
-| User home directory     | 20 GB       | free           |
-| Project storage (persistent and scratch) | TB*hour | 0.0106 EUR | 0.008 EUR
-| Flash based scratch storage | TB*hour | 10 x 0.0106 EUR   | 10 x 0.008 EUR
+| CPUcore                 | CPUcore*hour| 0.008 EUR      | 0.007 EUR|
+| GPU                     | GPU*hour    | 0.35 EUR       | 0.28 EUR|
+| User home directory     | 20 GB       | free           | free |
+| Project storage (persistent and scratch) | TB*hour | 0.0106 EUR | 0.008 EUR|
+| Flash based scratch storage | TB*hour | 10 x 0.0106 EUR   | 10 x 0.008 EUR|
 
 A more detailed guide on how to calculate computational costs for LUMI can be found in the [LUMI billing policy](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/#compute-billing).
 
