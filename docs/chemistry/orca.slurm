@@ -6,7 +6,7 @@
 #SBATCH --ntasks=24
 #SBATCH --cpus-per-task=1
 #SBATCH -t 1-00:00:00
-#SBATCH --partition=common
+#SBATCH --partition=short
 #SBATCH  --no-requeue
 
  module load rocky8/all
