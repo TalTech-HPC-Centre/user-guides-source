@@ -1,5 +1,7 @@
 # Gallery of Results
 
+If you have a beautiful picture of your simulation results obtained on the cluster (or cloud) and would like to have it added to the gallery, please send it to us.
+
 ![OpenFOAM fiber concrete casting](/gallery/title-casting-plate-fibers.png){: style="width:450px"}
 
 ![OpenFOAM wind simulation around buildings](/gallery/title-city-wind-kybi-alpha.png){: style="width:450px"}
