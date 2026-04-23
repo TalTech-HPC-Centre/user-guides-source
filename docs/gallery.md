@@ -1,6 +1,6 @@
 # Gallery of Results
 
-![OpenFOAM fiber concrete casting](/gallery/title-casting-plate-fibers.png)
+![OpenFOAM fiber concrete casting](/gallery/title-casting-plate-fibers.png){: style="height:150px;width:150px"}
 
 ![OpenFOAM wind simulation around buildings](/gallery/title-city-wind-kybi-alpha.png)
 
