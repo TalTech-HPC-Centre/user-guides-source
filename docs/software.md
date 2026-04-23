@@ -306,6 +306,65 @@ NWChem was developed to enable large scale calculations by  using many CPUs and 
 - [VMD](/chemistry/visualization.html#vmd)
 - [RasMol](/chemistry/visualization.html#rasmol)
 
+
+
+## Electronics (EDA CAD)
+
+### NGSpice
+
+ngspice is the open source spice simulator for electric and electronic circuits.
+
+```bash
+module load rocky8-spack
+module load ngspice
+```
+
+### Qucs
+
+Quite Universal Circuit Simulator (Qucs) is a free-software electronics circuit simulator software
+
+```bash
+module load rocky8-spack
+module load qucs
+```
+
+<!-- ### KiCAD ..>
+
+### Xyce
+
+
+### Cadence Virtuoso
+
+commercial
+
+Installed by School of IT under `/gpfs/mariana/smbgroup/microchipdesign/`
+Currently not in the modules, software requires setting environment by "sourcing" script files.
+
+In case of problems, contact Marek Mandre.
+
+### Siemens Calibre (Mentor)
+
+commercial
+
+Installed by School of IT under `/gpfs/mariana/smbgroup/microchipdesign/`
+Currently not in the modules, software requires setting environment by "sourcing" script files.
+
+In case of problems, contact Marek Mandre.
+
+
+### synopsys
+
+commercial
+
+Installed by School of IT under `/gpfs/mariana/smbgroup/microchipdesign/`
+Currently not in the modules, software requires setting environment by "sourcing" script files.
+
+In case of problems, contact Marek Mandre.
+
+
+
+
+
 ## Data analysis 
 
 ### GNU R

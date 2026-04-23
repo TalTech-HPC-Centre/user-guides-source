@@ -55,6 +55,7 @@ nav:
       - TalTech OpenStack Cloud: cloud.md
   - Billing: billing.md
   - Acknowledgement: acknowledgement.md
+  - Gallery: gallery.md
 
 
 site_name: TalTech HPC User Guides
