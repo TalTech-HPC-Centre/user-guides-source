@@ -76,6 +76,7 @@ The `openfoam.slurm` script:
     #before submitting the job
     module load rocky8-spack
     module load openfoam
+    module load openmpi/4.1.1-gcc-10.3.0-r8-tcp
     
     blockMesh
     decomposePar
