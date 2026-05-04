@@ -8,7 +8,7 @@ x2t inputfile.xyz &gt; start-coord
 #SBATCH --job-name=test
 #SBATCH --mem-per-cpu=1GB
 #SBATCH -t 1:00:00
-#SBATCH --partition=common
+#SBATCH --partition=short
 
 module load turbomole7.0
 
@@ -52,7 +52,7 @@ NumForce -ri   # numerical force constant calculations using RI-approximation
 #SBATCH --job-name=test
 #SBATCH --mem-per-cpu=1GB
 #SBATCH -t 1:00:00
-#SBATCH --partition=common
+#SBATCH --partition=short
 
 module load turbomole7.0
 
@@ -79,7 +79,7 @@ rm -rf $SCRATCHDIRNAME
 #SBATCH --job-name=test
 #SBATCH --mem-per-cpu=1GB
 #SBATCH -t 1:00:00
-#SBATCH --partition=common
+#SBATCH --partition=short
 
 module load turbomole7.0-mpi
 

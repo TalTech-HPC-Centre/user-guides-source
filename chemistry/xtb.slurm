@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH -t 1-00:00:00
-#SBATCH --partition=common
+#SBATCH --partition=short
 
     module load rocky8/all
     module load xtb-crest/6.7.0-crest3.0

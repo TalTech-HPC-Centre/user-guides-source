@@ -6,7 +6,7 @@ mkdir $WM_PROJECT_USER_DIR --parent
 </code></pre></div> </li> <li> <p>Copy the damBreak tutorial case into the <code>$WM_PROJECT_USER_DIR</code> and go into the folder damBreak:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>cp -r $FOAM_TUTORIALS/multiphase/interFoam/laminar/damBreak/damBreak $WM_PROJECT_USER_DIR/
 cd $WM_PROJECT_USER_DIR/damBreak
 pwd
-</code></pre></div> </li> <li> <p>Now we can run the OpenFOAM case step-by-step or as a batch job.</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>srun --partition=common -t 2:10:00 -−pty bash
+</code></pre></div> </li> <li> <p>Now we can run the OpenFOAM case step-by-step or as a batch job.</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>srun --partition=short -t 2:10:00 -−pty bash
 blockMesh
 setFields
 interFoam
@@ -16,7 +16,7 @@ paraview
 </code></pre></div> <p>Running the damBreak case step-by-step interactively:</p> <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>module load rocky8-spack
 module load openfoam
 
-srun --partition=common -t 2:10:00 -−pty bash 
+srun --partition=short -t 2:10:00 -−pty bash 
 blockMesh
 setFields
 interFoam
