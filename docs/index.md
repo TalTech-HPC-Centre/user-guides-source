@@ -25,21 +25,19 @@ The **cluster** has a Linux operating system (based on CentOS; Debian or Ubuntu 
 
 - 5-node OpenStack cloud
   - 5 compute (nova) nodes with **768 GB** of RAM and **80 threads** each
-  - **65 TB** CephFS storage (net capacity)
+  - **350 TB** CephFS storage (net capacity)
   - accessible through the [ETAIS website](https://etais.ee/)
 
 **TalTech cluster base (base.hpc.taltech.ee):**
 
 - SLURM v23 scheduler, with service [uptime graph](https://base.hpc.taltech.ee/)
 - 1.5 PB storage, with a **0.5 TB/user** quota on $HOME and **2 TB/user** quota on SMBHOME
-- 32 **green** nodes, 2 x Intel Xeon Gold 6148 20C 2.40 GHz (**40 cores, 80 threads** per node), **96 GB** DDR4-2666 R ECC RAM (**green[1-32]**), 25 Gbit Ethernet, 18 of these FDR InfiniBand (**green-ib** partition)
-- 1 **mem1tb** large memory node, **1 TB** RAM, 4x Intel Xeon CPU E5-4640 (together **32 cores, 64 threads**)
+- 28 **green** nodes, 2 x Intel Xeon Gold 6148 20C 2.40 GHz (**40 cores, 80 threads** per node), **96 GB** DDR4-2666 R ECC RAM (**green[1-32]**), 25 Gbit Ethernet, 18 of these FDR InfiniBand (**green-ib** partition)
 - 2 **ada** GPU nodes, 2xNvidia L40/48GB, 2x 32core AMD EPYC 9354 Zen4 (together **64 cores, 128 threads**), **1.5 TB** RAM
 - **amp** GPU nodes:
   - **amp:** 8xNvidia A100/40GB, 2x 64core AMD EPYC 7742 Zen (together **128 cores, 256 threads**), **1 TB** RAM
   - **amp2:** 8xNvidia A100/80GB, 2x 64core AMD EPYC 7713 zen3 (together **128 cores, 256 threads**), **2 TB** RAM
-- Visualization node **viz** (accessible within University network and [FortiVPN](https://taltech.atlassian.net/wiki/spaces/ITI/pages/38994267/Kaug+hendus+FortiClient+VPN+Remote+connection+with+FortiClient+VPN), [guide for viz](/visualization.html)): 2xNvidia Tesla K20Xm graphic cards (on displays :0.0 and :0.1), CPU Intel(R) Xeon(R) CPU E5-2630L v2@2.40GHz (**24 threads**), **64 GB** RAM, HDD **2 TB** storage.
-
+- 1 **blackwell** GPU node, 2x Nvidia RTX 6000 Blackwell, 2x 128core AMD EPYC 9755 (together **256 cores, 512 threads**), **1 TB** RAM
 ## Billing
 
 ### Virtual server hosting
