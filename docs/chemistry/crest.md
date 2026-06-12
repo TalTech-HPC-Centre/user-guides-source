@@ -68,7 +68,7 @@ Calculation time depends on size of molecule, its flexibility, chosen energy win
 
 ### Memory
 
-Our experience shows that memory is the main limiting factor in conformational search calculations by CREST. Since memory consumption depends on many factors (size of molecule, its flexibility, chosen energy window, methods used), it can only be determined through trial and error, and perhaps **mem1tb** or **gpu** partition with 1TB RAM can be used. 
+Our experience shows that memory is the main limiting factor in conformational search calculations by CREST. Since memory consumption depends on many factors (size of molecule, its flexibility, chosen energy window, methods used), it can only be determined through trial and error, and perhaps **gpu** partition with >= 1TB RAM can be used. 
 In our test runs for a flexible organic molecule of 54 atoms using semiempirical GFN2 method, 1 GB per core was sufficient, but for 65 atoms molecule using the same level of theory already 2 GB per core were needed.
 
 
