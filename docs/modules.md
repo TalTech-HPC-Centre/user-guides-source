@@ -397,20 +397,10 @@ You can autoactivate the correct module path in your `.bashrc` with a code block
     elif [[ $(hostname -s) = green* ]]; then
       module load green
       module load green-spack
-    elif  [[ $(hostname -s) = gray* ]]; then
-      module load gray
-      module load gray-spack
-    elif  [[ $(hostname -s) = mem1tb ]]; then
-      module load gray
-      module load gray-spack
     elif  [[ $(hostname -s) = amp* ]]; then
       module use /gpfs/mariana/modules/system
       module load amp
       module load amp-spack
-    elif  [[ $(hostname -s) = viz ]]; then
-      source /usr/share/lmod/6.6/init/bash
-      module use /gpfs/mariana/modules/system
-    fi
 --->
 
 <!--

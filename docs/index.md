@@ -87,4 +87,3 @@ A more detailed guide on how to calculate computational costs for LUMI can be fo
 | **green-ib** | 10 min    | 8 days     | 1 GB/thread    | green       |
 | **long**  | 10 min       | 22 days    | 1 GB/thread    | green       |
 | **gpu**   | 10 min       | 5 days     | 1 GB/thread    | amp, ada    |
-| **bigmem**| 10 min       | 8 days     | 1 GB/thread    | ada, amp, mem1tb |
