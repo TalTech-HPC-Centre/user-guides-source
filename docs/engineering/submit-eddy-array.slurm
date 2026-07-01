@@ -4,7 +4,7 @@
 #SBATCH -t 10:40:00  
 #SBATCH -p common
 #SBATCH --mem=18G
-#SBATCH --account=project_hpc_internal
+#SBATCH --account=CHANGEME
 #SBATCH --array=0,23,45,68,90,113,135,158,180,225,248,270,293,315,338%4
 #SBATCH -J windcomfort
 
