@@ -1,0 +1,25 @@
+--- 135/system/controlDict	2026-05-22 16:19:24.000000000 +0300
++++ 23/system/controlDict	2026-05-24 20:22:32.856563613 +0300
+@@ -19,6 +19,7 @@
+         "libOpenFOAM.so"
+         "libutilityFunctionObjects.so"
+         "libsolverFunctionObjects.so"
++        "libatmosphericModels.so"
+ );
+             application simpleFoam;
+             startFrom latestTime;
+@@ -52,4 +53,14 @@
+                     calcTotal yes;
+                     calcCoeff yes;
+                 }
++processorField1
++  {
++    // Mandatory entries (unmodifiable)
++    type            processorField;
++    libs            ("libfieldFunctionObjects.so");
++    //executeControl  timeStep;
++    //executeInterval 1;
++    writeControl    adjustableRunTime;
++    writeInterval   20;
++  }
+ };

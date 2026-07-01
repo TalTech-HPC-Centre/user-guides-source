@@ -241,6 +241,12 @@ OpenFOAM has a wide range of  tools for modelling  complex fluid flows and can b
 
 [SU2](https://su2code.github.io/) is a computational analysis and design package that has been developed to solve multiphysics analysis and optimization tasks using unstructured mesh topologies. SU2 is intalled through SPACK.
 
+
+#### Rhino/Grasshopper/Eddy3d (outdoor)
+
+While those are not (and cannot be) installed on the cluster, it is possible to use them to setup simulations that are run on the cluster. See [here](/engineering/eddy3d.html) for more info.
+
+
 <!---
 Albany https://github.com/sandialabs/Albany
 %Converge https://convergecfd.com/
