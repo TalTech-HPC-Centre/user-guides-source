@@ -141,7 +141,8 @@ Node features for node selection within a partition using `--constraint=`:
 | nvcc35 | GPU has compute capability 3.5 (K20Xm, A100, L40) |
 | zen2 | AMD Zen CPU architecture 2nd generation (amp1) |
 | zen3 | AMD Zen CPU architecture 3rd generation (amp2) |
-| zen4 | AMD Zen CPU architecture 4th generation (ada*) |
+| zen4 | AMD Zen CPU architecture 4th generation (ada*,blackwell1) |
+| zen5 | AMD Zen CPU architecture 5th generation (blackwell1) NOT ENABLED |
 | avx512 | CPU has avx512 (skylake, zen4) |
 | skylake | Intel SkyLake CPU architecture (green*) |
 | ib | InfiniBand network interface |
