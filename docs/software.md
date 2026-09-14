@@ -334,7 +334,7 @@ module load rocky8-spack
 module load qucs
 ```
 
-<!-- ### KiCAD ..>
+<!-- ### KiCAD -->
 
 ### Xyce
 
