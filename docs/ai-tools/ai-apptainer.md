@@ -1,3 +1,14 @@
+# AI Desktop App Suite
+
+Several AI Desktop apps have been packaged into a singularity container, to be able to control their filesystem access and make them available on Rocky 8 Linux.
+
+```bash
+module load rocky8
+module load ai-suite
+```
+For the desktop apps run from within an OnDemand desktop session (X11 over SSH crashes these apps).
+CLI apps (codex, claude) can be used over SSH (claude requires API keys or PRO subscription).
+
 ## Run
 
 ```bash
