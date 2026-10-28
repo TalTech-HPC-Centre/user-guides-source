@@ -1,8 +1,4 @@
-# 21 TalTech HPC Centre User Acceptable Use Policy
-
-# 21 TalTech HPC Centre User Acceptable Use Policy
-
-*Document 21*
+# TalTech HPC Centre User Acceptable Use Policy
 
 **TalTech HPC Centre**
 
@@ -10,15 +6,9 @@
 
 Version 1.1 | 2026-10-19 | ISO 27001:2022 Control A.5.10
 
- 
-
- 
-
 The TalTech High-Performance Computing (HPC) Centre provides shared computing infrastructure to support research, education, and innovation. Access is a privilege, not a right. It is granted on the condition that users comply with this policy. Non-compliance may result in immediate suspension of access.
 
- 
-
-# 1 Who This Policy Applies To
+## Who This Policy Applies To
 
 This policy applies to everyone who has been granted access to TalTech HPC Centre resources, including:
 
@@ -30,7 +20,7 @@ Users can accept the AUP (Acceptable Use Policy) by either running the `taltech-
 
  
 
-# 2 Permitted Use
+## Permitted Use
 
 HPC resources may be used for:
 
@@ -45,23 +35,20 @@ If you are unsure whether a planned use is permitted, contact HPC support (<hpcs
 
  
 
-# 3 Prohibited Activities
+## Prohibited Activities
 
 **Violations in this section are taken seriously. Depending on severity (see section 8), they may result in suspension of access, in the most serious cases without prior notice, and referral to TalTech disciplinary procedures.**
 
- 
-
-## 3.1 Security and system integrity
+### Security and system integrity
 
 - Attempting to gain access to resources, accounts, or data that you are not authorised to access
 - Attempting to circumvent, exploit, or test security controls without explicit written authorisation from HPC management
 - Installing or running software that could compromise system security, including malware, rootkits, or network scanning tools
 - Sharing your login credentials or SSH keys with any other person under any circumstances
 - Using another person's credentials, even with their knowledge or consent
-
  
 
-## 3.2 Interference with other users and the system
+### Interference with other users and the system
 
 - Running jobs or processes that deliberately monopolise resources to the detriment of other users
 - Interfering with, disrupting, or degrading the performance of the cluster for other users
@@ -71,7 +58,7 @@ If you are unsure whether a planned use is permitted, contact HPC support (<hpcs
 
  
 
-## 3.3 Non-permitted purposes
+### Non-permitted purposes
 
 - Cryptocurrency mining or any other use of resources for personal financial gain
 - Commercial activities not covered by a specific agreement with TalTech HPC
@@ -79,8 +66,7 @@ If you are unsure whether a planned use is permitted, contact HPC support (<hpcs
 - Activities that violate Estonian law, EU law, or applicable international regulations
 
  
-
-## 3.4 Intellectual property and licensing
+### Intellectual property and licensing
 
 - Using software in violation of its licence terms
 - Using third-party data in violation of its terms of use, licence, or data sharing agreement
@@ -88,9 +74,9 @@ If you are unsure whether a planned use is permitted, contact HPC support (<hpcs
 
  
 
-# 4 Data Handling
+## Data Handling
 
-## 4.1 Default data classification
+### Default data classification
 
 All data you store in your TalTech HPC storage is treated as INTERNAL (see the data classification policy) by default — meaning it is not public and must not be shared outside TalTech without authorisation. This is the minimum. If your data requires stricter handling, you are responsible for declaring this.
 
@@ -98,7 +84,7 @@ All data you store in TalTech HPC storage is granted the level of access control
 
  
 
-## 4.2 Sensitive and confidential data
+### Sensitive and confidential data
 
 If your project involves any of the following, you must notify HPC support (<hpcsupport@taltech.ee>) before uploading or processing the data:
 
@@ -117,7 +103,7 @@ HPC support will work with you to select appropriate technical controls (directo
 
  
 
-## 4.3 Personal data (GDPR)
+### Personal data (GDPR)
 
 If your research involves personal data, you must ensure that:
 
@@ -127,13 +113,13 @@ If your research involves personal data, you must ensure that:
 
  
 
-## 4.4 Data backup
+### Data backup
 
 HPC storage is not a backup system. You are responsible for maintaining your own copies of critical data. TalTech HPC is not liable for data loss resulting from hardware failure, accidental deletion, or system errors. Refer to the HPC documentation for guidance on available backup options and their limitations.
 
  
 
-## 4.5 Storage quotas and cleanup
+### Storage quotas and cleanup
 
 Storage quotas apply to all user accounts and project directories. Default quotas are communicated separately and updated periodically. Larger quotas may be requested and are granted on an individual basis. You are expected to:
 
@@ -147,13 +133,13 @@ Allocations that significantly exceed their quota or that contain data substanti
 
  
 
-## 4.6 Third-party data
+### Third-party data
 
 If you import data from external sources, you are responsible for ensuring that your use complies with all applicable licence terms, data sharing agreements, intellectual property rights, and legal obligations. HPC Centre does not verify licence compliance for user-imported data — this responsibility lies entirely with the user.
 
  
 
-# 5 Account and Credential Security
+## Account and Credential Security
 
 - Your HPC account is personal. You are fully responsible for all activity carried out under your account.
 - Never share your password, SSH private key, or any other authentication credential with anyone — including colleagues, supervisors, or HPC staff. HPC staff will never ask for your password or private key.
@@ -164,7 +150,7 @@ If you import data from external sources, you are responsible for ensuring that 
 
  
 
-# 6 Responsible Resource Use and Conduct
+## Responsible Resource Use and Conduct
 
 **Resources**
 
@@ -185,7 +171,7 @@ HPC is a shared facility used by people from many fields, countries, and backgro
 
  
 
-# 7 Monitoring
+## Monitoring
 
 TalTech HPC Centre monitors system usage, job activity, storage utilisation, network traffic, and security events. Monitoring is conducted to:
 
@@ -200,7 +186,7 @@ Monitoring is conducted in accordance with Estonian law, GDPR, and TalTech priva
 
  
 
-# 8 Consequences of Policy Violation
+## Consequences of Policy Violation
 
  
 
@@ -218,7 +204,7 @@ HPC management has the authority to suspend access immediately where there is cr
 
  
 
-# 9 Reporting Security Issues
+## Reporting Security Issues
 
 If you discover or suspect any of the following, report it to HPC support immediately:
 
@@ -238,7 +224,7 @@ Contact: HPC Support — <hpcsupport@taltech.ee> or [Teams HPC Users channel](ht
 
  
 
-# 10 Acknowledgement of HPC in Publications
+## Acknowledgement of HPC in Publications
 
 Research outputs produced using TalTech HPC resources should acknowledge the facility. Suggested citation:
 
@@ -250,7 +236,7 @@ For specific citation formats required by funders, contact HPC support. Please a
 
  
 
-# 11 Policy Updates
+## Policy Updates
 
 This policy is reviewed at least annually. When the policy is updated, all active users will be notified by email. Continued use of HPC resources after a policy update constitutes acceptance of the revised policy. For significant changes, a new signed acknowledgement may be required.
 
@@ -258,7 +244,7 @@ The current version of this policy is always available at: \[HPC documentation U
 
  
 
-# 12 Contact and Support
+## Contact and Support
 
  
 
@@ -272,7 +258,7 @@ The current version of this policy is always available at: \[HPC documentation U
 | Export control or legal questions | TalTech Legal <juristid@taltech.ee> |
 | Policy questions | <hpcsupport@taltech.ee> |
 
-#  13 Terms
+## Terms
 
 - PII - Personally identifiable information (PII) constitutes any data that can pinpoint an individual, either by itself or when combined with other information.
 - Project allocation - Slurm account and the resources assigned (e.g. storage quota) to a project or user account

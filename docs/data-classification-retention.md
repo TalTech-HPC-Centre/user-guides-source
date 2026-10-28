@@ -1,14 +1,12 @@
 # Data Classification and Retention Guidelines for TalTech HPC Users
 
-# Data Classification and Retention Guidelines for TalTech HPC Users
-
 Version 1.1 | 2026-10-23 | Companion to the Acceptable Use Policy (AUP) v1.1
 
 The cluster is shared by many projects with very different data: published open-source code next to unpublished industry data, personal data or export-controlled research. Not all of it can be handled the same way. This guide explains how we label data, what that means for you, and how long data stays on the cluster.
 
 It summarises the HPC Centre's Data Classification and Data Retention policies. If you are unsure about anything, ask us before you upload data, not after.
 
-## 1. Four levels
+## Four levels
 
 Every project's data has one of four levels. The level decides how the data is stored, who can access it, how it may be transferred and how it is deleted.
 
@@ -26,7 +24,7 @@ Two points people get wrong:
 
 If you do nothing, your data is treated as **INTERNAL** (AUP section 4.1).
 
-## 2. Which level is mine?
+## Which level is mine?
 
 Go through these in order and stop at the first "yes":
 
@@ -39,7 +37,7 @@ Go through these in order and stop at the first "yes":
 
 If in doubt, pick the higher level and ask us. Moving a level down later is easy. Cleaning up after data was handled too loosely is not.
 
-## 3. What you need to do
+## What you need to do
 
 The project PI is responsible for classifying the project's data. We implement the controls.
 
@@ -59,7 +57,7 @@ What changes between levels, in short:
 
 If you export a page or document containing SENSITIVE or CONFIDENTIAL content (from Confluence or elsewhere), label the exported file yourself before sharing it. Exports do not carry the label automatically.
 
-## 4. How long data stays on HPC
+## How long data stays on HPC
 
 HPC is not an archive and not a backup (AUP section 4.4). Data does not stay forever, and the clock starts when your **project ends**.
 
@@ -101,7 +99,7 @@ For SENSITIVE and CONFIDENTIAL data, deleting means secure overwrite (where poss
 | Job accounting records (who ran what, when, with what resources; not data contents) | 2 years |
 | System and security logs | 6 to 24 months, depending on the log |
 
-## 5. Contacts
+## Contacts
 
 | Question | Contact |
 | --- | --- |
