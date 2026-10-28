@@ -57,6 +57,9 @@ nav:
   - TalTech OpenStack Cloud:
       - TalTech OpenStack Cloud: cloud.md
   - Billing: billing.md
+  - Policies:
+      - Acceptable Use Policy: acceptable-use-policy.md
+      - Data Classification and Retention Policy: data-classification-retention.md
   - Acknowledgement: acknowledgement.md
   - Gallery: gallery.md
 
