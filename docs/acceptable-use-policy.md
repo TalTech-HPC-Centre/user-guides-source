@@ -1,9 +1,5 @@
 # TalTech HPC Centre User Acceptable Use Policy
 
-**TalTech HPC Centre**
-
-**User Acceptable Use Policy**
-
 Version 1.1 | 2026-10-19 | ISO 27001:2022 Control A.5.10
 
 The TalTech High-Performance Computing (HPC) Centre provides shared computing infrastructure to support research, education, and innovation. Access is a privilege, not a right. It is granted on the condition that users comply with this policy. Non-compliance may result in immediate suspension of access.
